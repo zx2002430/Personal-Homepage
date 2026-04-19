@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>智慧农业项目调研报告 | Xun Zhao</title>
+  <meta
+    name="description"
+    content="智慧农业项目调研报告与技术论证材料页面。"
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Source+Serif+4:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell agriculture-page agri-research-page">
+    <header class="site-header">
+      <a class="brand" href="index.html">Xun Zhao</a>
+      <div class="header-tools">
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#overview">总览</a>
+          <a href="#reports">材料清单</a>
+          <a href="#findings">调研结论</a>
+          <a href="smart-agriculture.html">返回汇报页</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="suite-switch" aria-label="项目页面">
+      <a class="suite-switch-item" href="smart-agriculture.html">
+        <span>主汇报页</span>
+        <strong>项目总览</strong>
+      </a>
+      <a class="suite-switch-item" href="smart-agriculture-dashboard.html">
+        <span>数据页</span>
+        <strong>可视化看板</strong>
+      </a>
+      <a class="suite-switch-item" href="smart-agriculture-inventory.html">
+        <span>附表页</span>
+        <strong>设备清单</strong>
+      </a>
+      <a class="suite-switch-item" href="smart-agriculture-contracts.html">
+        <span>附录页</span>
+        <strong>合同对应</strong>
+      </a>
+      <a class="suite-switch-item is-active" href="smart-agriculture-research.html">
+        <span>调研页</span>
+        <strong>调研报告</strong>
+      </a>
+    </section>
+
+    <main>
+      <section class="hero section agriculture-hero project-hero-cover" id="overview">
+        <div class="hero-copy">
+          <div class="cover-headline-row">
+            <span class="cover-index">05</span>
+            <span class="cover-suite-label">智慧农业专题</span>
+          </div>
+          <div class="cover-suite-progress" aria-label="套页进度">
+            <span class="cover-suite-step">01 总览页</span>
+            <span class="cover-suite-step">02 数据看板</span>
+            <span class="cover-suite-step">03 设备清单</span>
+            <span class="cover-suite-step">04 来源附录</span>
+            <span class="cover-suite-step is-active">05 调研报告</span>
+          </div>
+          <h1>智慧农业项目调研报告</h1>
+          <p class="hero-subtitle">调研页 · 论证材料与现场结论</p>
+          <div class="project-meta-row" id="research-hero-meta"></div>
+          <p class="hero-text">
+            这一页用于集中展示预算口径、方案规划、供应商对接和现场考察材料，
+            支撑“为什么这样选路线、为什么这样部署”的论证过程。
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#reports">材料清单</a>
+            <a class="button secondary" href="#findings">调研结论</a>
+            <a class="button secondary" href="smart-agriculture-contracts.html">查看合同对应</a>
+          </div>
+        </div>
+
+        <aside class="hero-card agriculture-sidebar cover-side-card">
+          <div class="agri-kpis inventory-kpis" id="research-hero-kpis"></div>
+        </aside>
+      </section>
+
+      <section class="section inventory-section inventory-section-reference" id="reports">
+        <div class="section-heading inline-heading">
+          <div>
+            <span class="appendix-chip is-reference">附录 C</span>
+            <h2>调研与论证材料</h2>
+          </div>
+        </div>
+
+        <div class="inventory-highlight-strip" id="research-highlights"></div>
+        <div id="research-report-table"></div>
+      </section>
+
+      <section class="section" id="findings">
+        <div class="section-heading inline-heading">
+          <div>
+            <h2>关键调研结论</h2>
+          </div>
+        </div>
+
+        <div class="agri-brief-grid" id="research-findings"></div>
+      </section>
+
+      <section class="section" id="notes">
+        <div class="inventory-legend-grid" id="research-legend-cards"></div>
+      </section>
+
+      <section class="section contact-strip">
+        <div>
+          <h2>相关链接</h2>
+        </div>
+        <div class="contact-actions">
+          <a class="button primary" href="smart-agriculture.html">返回汇报页</a>
+          <a class="button secondary" href="smart-agriculture-contracts.html">合同对应</a>
+          <a class="button secondary" href="smart-agriculture-dashboard.html">可视化看板</a>
+          <a class="button secondary" href="index.html">返回个人主页</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="smart-agriculture-data.js"></script>
+  <script src="smart-agriculture-pages.js"></script>
+</body>
+</html>

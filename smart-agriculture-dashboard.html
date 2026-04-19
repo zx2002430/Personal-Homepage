@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>智慧农业项目可视化看板 | Xun Zhao</title>
+  <meta
+    name="description"
+    content="智慧农业项目采购进展、时间线与系统拓扑图页面。"
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Source+Serif+4:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell agriculture-page agri-dashboard-page">
+    <header class="site-header">
+      <a class="brand" href="index.html">Xun Zhao</a>
+      <div class="header-tools">
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#kpi">总览</a>
+          <a href="#progress">进展</a>
+          <a href="#timeline">时间线</a>
+          <a href="#topology">拓扑图</a>
+          <a href="smart-agriculture.html">返回汇报页</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="suite-switch" aria-label="项目页面">
+      <a class="suite-switch-item" href="smart-agriculture.html">
+        <span>主汇报页</span>
+        <strong>项目总览</strong>
+      </a>
+      <a class="suite-switch-item is-active" href="smart-agriculture-dashboard.html">
+        <span>数据页</span>
+        <strong>可视化看板</strong>
+      </a>
+      <a class="suite-switch-item" href="smart-agriculture-inventory.html">
+        <span>附表页</span>
+        <strong>设备清单</strong>
+      </a>
+      <a class="suite-switch-item" href="smart-agriculture-contracts.html">
+        <span>附录页</span>
+        <strong>合同对应</strong>
+      </a>
+      <a class="suite-switch-item" href="smart-agriculture-research.html">
+        <span>调研页</span>
+        <strong>调研报告</strong>
+      </a>
+    </section>
+
+    <main>
+      <section class="hero section project-hero-cover" id="kpi">
+        <div class="hero-copy">
+          <div class="cover-headline-row">
+            <span class="cover-index">02</span>
+            <span class="cover-suite-label">智慧农业专题</span>
+          </div>
+          <div class="cover-suite-progress" aria-label="套页进度">
+            <span class="cover-suite-step">01 总览页</span>
+            <span class="cover-suite-step is-active">02 数据看板</span>
+            <span class="cover-suite-step">03 设备清单</span>
+            <span class="cover-suite-step">04 来源附录</span>
+            <span class="cover-suite-step">05 调研报告</span>
+          </div>
+          <h1>智慧农业项目可视化看板</h1>
+          <p class="hero-subtitle">数据页 · 进展、时间线与拓扑图</p>
+          <div class="project-meta-row" id="dashboard-hero-meta"></div>
+          <p class="hero-text" id="dashboard-hero-text"></p>
+          <div class="dashboard-note" id="dashboard-note"></div>
+          <div class="hero-actions">
+            <a class="button primary" href="#progress">采购进展</a>
+            <a class="button secondary" href="smart-agriculture-inventory.html">设备清单</a>
+            <a class="button secondary" href="smart-agriculture.html">返回汇报页</a>
+          </div>
+        </div>
+
+        <aside class="hero-card cover-side-card">
+          <div class="dashboard-summary" id="dashboard-summary-cards"></div>
+        </aside>
+      </section>
+
+      <section class="section">
+        <div class="dashboard-kpi-grid" id="dashboard-kpis"></div>
+      </section>
+
+      <section class="section" id="progress">
+        <div class="section-heading inline-heading">
+          <div>
+            <h2>采购进展</h2>
+          </div>
+        </div>
+        <div class="dashboard-progress-grid" id="dashboard-progress-grid"></div>
+      </section>
+
+      <section class="section" id="timeline">
+        <div class="section-heading inline-heading">
+          <div>
+            <h2>时间线</h2>
+          </div>
+        </div>
+        <div class="dashboard-timeline" id="dashboard-timeline"></div>
+      </section>
+
+      <section class="section" id="topology">
+        <div class="section-heading inline-heading">
+          <div>
+            <h2>系统拓扑图</h2>
+          </div>
+        </div>
+        <div class="topology-grid" id="dashboard-topology"></div>
+      </section>
+
+      <section class="section" id="next">
+        <div class="section-heading inline-heading">
+          <div>
+            <h2>下一步重点事项</h2>
+          </div>
+        </div>
+        <div class="dashboard-next-grid" id="dashboard-next-grid"></div>
+      </section>
+
+      <section class="section contact-strip">
+        <div>
+          <h2>相关链接</h2>
+        </div>
+        <div class="contact-actions" id="dashboard-contact-actions"></div>
+      </section>
+    </main>
+  </div>
+  <script src="smart-agriculture-data.js"></script>
+  <script src="smart-agriculture-pages.js"></script>
+</body>
+</html>

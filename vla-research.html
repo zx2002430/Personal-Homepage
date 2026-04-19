@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VLA 研究专题 | Xun Zhao</title>
+  <meta
+    name="description"
+    content="围绕 OpenVLA-OFT、AdaMoE、π0/π0.5 与 speculative decoding 的个人 VLA 研究专题页。"
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Source+Serif+4:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell vla-research-page">
+    <header class="site-header">
+      <a class="brand" href="index.html">Xun Zhao</a>
+      <div class="header-tools">
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#overview">总览</a>
+          <a href="#trajectory">研究脉络</a>
+          <a href="#proposal">当前主线</a>
+          <a href="#roadmap">路线与结果</a>
+          <a href="#sources">资料来源</a>
+          <a href="index.html">返回首页</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero section project-hero-cover vla-hero" id="overview">
+        <div class="hero-copy">
+          <div class="cover-headline-row">
+            <span class="cover-index">02</span>
+            <span class="cover-suite-label">VLA Research Suite</span>
+          </div>
+          <div class="cover-suite-progress" aria-label="VLA 研究推进">
+            <span class="cover-suite-step is-active">01 论文学习</span>
+            <span class="cover-suite-step">02 AdaMoE 接入</span>
+            <span class="cover-suite-step">03 主线收敛</span>
+            <span class="cover-suite-step">04 实验推进</span>
+          </div>
+          <h1>Vision-Language-Action</h1>
+          <p class="hero-subtitle">研究专题页 / 当前主线与实验路线</p>
+          <div class="project-meta-row">
+            <span class="project-meta-pill">OpenVLA-OFT</span>
+            <span class="project-meta-pill">AdaMoE</span>
+            <span class="project-meta-pill">π0 / π0.5</span>
+            <span class="project-meta-pill">MEDUSA</span>
+            <span class="project-meta-pill">Speculative Decoding</span>
+          </div>
+          <p class="hero-text">前期完成 AdaMoE 工程接入，当前主线收敛到层级式 speculative VLA。</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#proposal">查看当前主线</a>
+            <a class="button secondary" href="#roadmap">查看实验路线</a>
+            <a class="button secondary" href="index.html#vla-direction">返回首页 VLA 模块</a>
+          </div>
+        </div>
+
+        <aside class="hero-card vla-summary-panel">
+          <div class="vla-summary-head">
+            <span class="project-summary-label">Current Focus</span>
+            <strong>Hierarchical Speculative VLA</strong>
+          </div>
+          <div class="vla-summary-list">
+            <div>
+              <span>当前主线</span>
+              <strong>高层 speculative reasoning + 低层保守执行</strong>
+            </div>
+            <div>
+              <span>当前判断</span>
+              <strong>先做高层加速，再讨论低层连续动作 speculative</strong>
+            </div>
+          </div>
+          <p class="vla-summary-footnote">工程基座：OpenVLA-OFT / AdaMoE / LIBERO mix4</p>
+        </aside>
+      </section>
+
+      <section class="section vla-section-panel" id="trajectory">
+        <div class="section-heading inline-heading">
+          <div>
+            <p class="eyebrow">Trajectory</p>
+            <h2>研究脉络</h2>
+          </div>
+          <p class="section-note">只保留研究推进里最关键的判断与转折。</p>
+        </div>
+
+        <div class="vla-track-grid">
+          <article class="vla-track-card">
+            <div class="vla-card-topline">
+              <span>Phase 1</span>
+              <strong>论文学习与问题建模</strong>
+            </div>
+            <p>围绕 AdaMoE、MEDUSA、π 系列与流匹配建立 VLA 技术地图。</p>
+            <div class="vla-tag-row">
+              <span>AdaMoE</span>
+              <span>MEDUSA</span>
+              <span>π0 / π0.5</span>
+              <span>Flow Matching</span>
+            </div>
+          </article>
+
+          <article class="vla-track-card">
+            <div class="vla-card-topline">
+              <span>Phase 2</span>
+              <strong>OpenVLA + AdaMoE 工程接入</strong>
+            </div>
+            <p>在 OpenVLA-OFT 上完成 AdaMoE 接入，并验证 mix4、多任务训练与恢复链路。</p>
+            <div class="vla-tag-row">
+              <span>Backbone-tail MoE</span>
+              <span>mix4</span>
+              <span>Checkpoint Resume</span>
+            </div>
+          </article>
+
+          <article class="vla-track-card">
+            <div class="vla-card-topline">
+              <span>Phase 3</span>
+              <strong>方向收敛与当前主线</strong>
+            </div>
+            <p>在工程实现基础上完成方向调整，当前主线收敛为“高层 speculative + 低层保守执行”。</p>
+            <div class="vla-tag-row">
+              <span>High-Level Subtask</span>
+              <span>MEDUSA-style Heads</span>
+              <span>Replan</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="vla-subsection">
+          <div class="vla-subsection-head">
+            <span>Engineering Snapshot</span>
+            <strong>AdaMoE 工程实现与阶段判断</strong>
+          </div>
+
+          <div class="vla-two-column">
+            <article class="content-card vla-focus-card">
+              <h3>已经完成</h3>
+              <ul class="vla-list">
+                <li>完成 OpenVLA-OFT 到 AdaMoE-style action head 的接入。</li>
+                <li>支持 mix4、多任务验证与 checkpoint 恢复。</li>
+              </ul>
+            </article>
+
+            <article class="content-card vla-focus-card">
+              <h3>当前结论</h3>
+              <ul class="vla-list">
+                <li>backbone-tail MoE 证明了工程可行，但研究问题还不够聚焦。</li>
+                <li>后续更适合转向 action-head MoE 与层级式 speculative 主线。</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section vla-section-panel" id="proposal">
+        <div class="section-heading inline-heading">
+          <div>
+            <p class="eyebrow">Mainline</p>
+            <h2>当前研究主线</h2>
+          </div>
+          <p class="section-note">当前更适合在高层语义子任务空间做 speculative reasoning。</p>
+        </div>
+
+        <div class="vla-direction-grid">
+          <article class="vla-direction-card is-primary">
+            <div class="vla-card-topline">
+              <span>Direction A</span>
+              <strong>Hierarchical Speculative VLA</strong>
+            </div>
+            <p class="vla-direction-summary">在高层子任务 token 空间引入多头 speculative decoding，低层执行保持闭环控制。</p>
+            <ul class="vla-list">
+              <li>与 π0.5 一类层级结构天然兼容。</li>
+              <li>指标清晰，验证路径也更短。</li>
+            </ul>
+          </article>
+
+          <article class="vla-direction-card">
+            <div class="vla-card-topline">
+              <span>Direction B</span>
+              <strong>Speculative Action Expert</strong>
+            </div>
+            <p class="vla-direction-summary">直接把 speculative 扩展到连续动作或 denoising 更新层面。</p>
+            <ul class="vla-list">
+              <li>创新性更强，但 acceptance 机制需要重新定义。</li>
+              <li>更适合作为主线稳定后的 follow-up。</li>
+            </ul>
+          </article>
+        </div>
+
+        <article class="content-card vla-thesis-card">
+          <div class="vla-card-topline">
+            <span>Current Thesis</span>
+            <strong>Hierarchical Speculative Decoding for Vision-Language-Action Models</strong>
+          </div>
+          <p>更合适的论文表述是先提升高层重规划效率，再验证它能否转化为更稳的长时程执行。</p>
+        </article>
+
+        <div class="vla-subsection">
+          <div class="vla-subsection-head">
+            <span>Method Figure</span>
+            <strong>三段式方法骨架</strong>
+          </div>
+
+          <div class="vla-track-grid">
+            <article class="vla-track-card">
+              <div class="vla-card-topline">
+                <span>Step 1</span>
+                <strong>高层语义理解</strong>
+              </div>
+              <p>图像、语言与状态进入骨干网络，输出语义级子任务 token。</p>
+            </article>
+
+            <article class="vla-track-card">
+              <div class="vla-card-topline">
+                <span>Step 2</span>
+                <strong>高层 speculative verification</strong>
+              </div>
+              <p>并行生成候选前缀，再做 verification 与 acceptance。</p>
+            </article>
+
+            <article class="vla-track-card">
+              <div class="vla-card-topline">
+                <span>Step 3</span>
+                <strong>低层闭环执行</strong>
+              </div>
+              <p>低层执行器保持保守，通过反馈与 replan 维持稳定性。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section vla-section-panel" id="roadmap">
+        <div class="section-heading inline-heading">
+          <div>
+            <p class="eyebrow">Roadmap</p>
+            <h2>路线与结果</h2>
+          </div>
+          <p class="section-note">这一块只保留接下来最值得推进的实验路径。</p>
+        </div>
+
+        <div class="vla-stage-grid">
+          <article class="vla-stage-card">
+            <span class="vla-stage-index">Stage 1</span>
+            <h3>建立层级基线</h3>
+            <p>明确高层 subtask token 形式与 replan 接口。</p>
+            <strong>输出：可运行基线</strong>
+          </article>
+          <article class="vla-stage-card">
+            <span class="vla-stage-index">Stage 2</span>
+            <h3>加入高层 speculative</h3>
+            <p>实现多头候选、verification 与 acceptance。</p>
+            <strong>输出：方法原型</strong>
+          </article>
+          <article class="vla-stage-card">
+            <span class="vla-stage-index">Stage 3</span>
+            <h3>长时程评测</h3>
+            <p>重点观察延迟、replan、成功率与恢复率。</p>
+            <strong>输出：核心结果</strong>
+          </article>
+        </div>
+
+        <div class="vla-subsection">
+          <div class="vla-subsection-head">
+            <span>Experiment Snapshot</span>
+            <strong>实验与结果概览</strong>
+          </div>
+
+          <div class="vla-experiment-grid">
+            <article class="vla-experiment-card">
+              <div class="vla-card-topline">
+                <span>Setup</span>
+                <strong>对照与当前状态</strong>
+              </div>
+              <ul class="vla-list">
+                <li><strong>Baseline OFT</strong>：原始 OpenVLA-OFT。</li>
+                <li><strong>Backbone-tail AdaMoE</strong>：当前已跑通版本。</li>
+                <li><strong>Action-head MoE</strong>：下一阶段重点补齐。</li>
+              </ul>
+              <div class="vla-status-list">
+                <div class="vla-status-item">
+                  <span class="vla-status-chip is-done">Done</span>
+                  <p>工程链路已打通。</p>
+                </div>
+                <div class="vla-status-item">
+                  <span class="vla-status-chip is-progress">In Progress</span>
+                  <p>主线已收敛到高层 speculative VLA。</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="vla-experiment-card">
+              <div class="vla-card-topline">
+                <span>Result Plan</span>
+                <strong>结果与消融</strong>
+              </div>
+              <p>后续优先填入延迟、replan 次数与长时程成功率，再补 acceptance strategy 与 head count 的消融。</p>
+              <div class="vla-tag-row">
+                <span>Latency</span>
+                <span>Replan</span>
+                <span>Success Rate</span>
+                <span>acceptance strategy</span>
+                <span>head count</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="vla-result-hero">
+            <article class="vla-result-summary">
+              <div class="vla-card-topline">
+                <span>Main Claim</span>
+                <strong>更快的高层推理应转化为更频繁的 replan 与更稳的长时程执行</strong>
+              </div>
+              <p>后续只需要把真实成功率、延迟和恢复率填进来，不必再改整体结构。</p>
+            </article>
+
+            <article class="vla-result-placeholder-card">
+              <div class="vla-placeholder-head">
+                <span>Chart Placeholder</span>
+                <strong>主结果图</strong>
+              </div>
+              <div class="vla-placeholder-bars">
+                <div><span>Baseline OFT</span><i style="width: 58%;"></i></div>
+                <div><span>Backbone-tail AdaMoE</span><i style="width: 68%;"></i></div>
+                <div><span>Hierarchical Speculative VLA</span><i style="width: 82%;"></i></div>
+              </div>
+              <p>后续建议替换成真实的成功率或 replan 柱状图。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section vla-section-panel" id="sources">
+        <div class="section-heading inline-heading">
+          <div>
+            <p class="eyebrow">Sources</p>
+            <h2>参考材料与页面依据</h2>
+          </div>
+          <p class="section-note">这里只保留页面直接参考到的核心材料。</p>
+        </div>
+
+        <article class="content-card vla-source-card">
+          <h3>核心参考材料</h3>
+          <ul class="vla-list vla-source-list">
+            <li>AdaMoE_action_head_最终运行版整理.docx</li>
+            <li>MoE代码实现总结.docx</li>
+            <li>MoE方向调整汇报.pptx</li>
+            <li>Openvla+AdaMoe代码修改进度.pptx</li>
+            <li>AdaMoe.pptx</li>
+            <li>pi系列模型1.3-1.10.pptx</li>
+            <li>流匹配1.10-1.17.docx</li>
+            <li>论文学习1.17-2.7.pptx</li>
+            <li>研究方向汇报_π0_π0.5_speculative_VLA.docx</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="section contact-strip">
+        <div>
+          <h2>后续补充</h2>
+          <p class="section-note">后续如果补真实实验结果，优先填到“路线与结果”即可。</p>
+        </div>
+        <div class="contact-actions">
+          <a class="button primary" href="mailto:zhaoxun@stu.hubu.edu.cn">zhaoxun@stu.hubu.edu.cn</a>
+          <a class="button secondary" href="https://eilab-wanghong.eu.cc/" target="_blank" rel="noreferrer">Visit EILab</a>
+          <a class="button secondary" href="https://github.com/zx2002430" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
