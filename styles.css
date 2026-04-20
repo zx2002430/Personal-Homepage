@@ -281,11 +281,6 @@ ul {
   backdrop-filter: blur(10px);
 }
 
-.deferred-section {
-  content-visibility: auto;
-  contain-intrinsic-size: 860px;
-}
-
 .page-footer-nav {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
