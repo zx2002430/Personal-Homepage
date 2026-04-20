@@ -157,28 +157,6 @@ const uiText = {
       eyebrow: "未来论文",
       title: "未来可能发布的文章"
     },
-    routeHub: {
-      eyebrow: "研究入口",
-      title: "研究入口与外链",
-      siteKicker: "在线版本",
-      siteTitle: "在线主页",
-      siteText: "直接访问当前线上版本，用于展示、汇报和分享。",
-      repoKicker: "代码仓库",
-      repoTitle: "主页仓库",
-      repoText: "查看源码、README、Pages 配置与更新记录。",
-      vlaKicker: "VLA 方向",
-      vlaTitle: "VLA 专题页",
-      vlaText: "查看当前 VLA 主线、实验路线和阶段判断。",
-      agriKicker: "农业套页",
-      agriTitle: "智慧农业套页",
-      agriText: "进入总览、看板、设备、合同和调研页面。",
-      dualArmKicker: "Sim-to-Real",
-      dualArmTitle: "Dual_Arm_UR5 仓库",
-      dualArmText: "查看双臂 UR5 平台、分支和系统实现。",
-      contactKicker: "联系入口",
-      contactTitle: "联系入口",
-      contactText: "通过邮箱发起交流、合作或汇报沟通。"
-    },
     systems: {
       eyebrow: "系统",
       title: "系统项目",
@@ -369,28 +347,6 @@ const uiText = {
     futurePapersSection: {
       eyebrow: "Future Papers",
       title: "Potential Future Papers"
-    },
-    routeHub: {
-      eyebrow: "Research Access",
-      title: "Research Entry Points",
-      siteKicker: "Live Site",
-      siteTitle: "Live Homepage",
-      siteText: "Open the current public version for sharing and presentation.",
-      repoKicker: "Repository",
-      repoTitle: "Homepage Repository",
-      repoText: "View source code, README, Pages setup, and update history.",
-      vlaKicker: "VLA Track",
-      vlaTitle: "VLA Research Page",
-      vlaText: "See the current VLA mainline, roadmap, and stage judgments.",
-      agriKicker: "Agriculture Suite",
-      agriTitle: "Smart Agriculture Pages",
-      agriText: "Enter the overview, dashboard, inventory, contracts, and research pages.",
-      dualArmKicker: "Sim-to-Real",
-      dualArmTitle: "Dual_Arm_UR5 Repository",
-      dualArmText: "Browse the dual-arm UR5 platform, branches, and system implementation.",
-      contactKicker: "Contact",
-      contactTitle: "Contact Entry",
-      contactText: "Start discussion, collaboration, or reporting through email."
     },
     systems: {
       eyebrow: "Systems",
@@ -1162,6 +1118,46 @@ function renderLink(link) {
   return `<a href="${link.url}" target="${target}"${rel}>${link.label}</a>`;
 }
 
+function renderActionLink(link, variant = "secondary") {
+  const isInternal = link.url.startsWith("#") || !/^https?:\/\//.test(link.url);
+  const target = isInternal ? "_self" : "_blank";
+  const rel = isInternal ? "" : ' rel="noopener noreferrer"';
+  return `<a class="action-link action-link-${variant}" href="${link.url}" target="${target}"${rel}>${link.label}</a>`;
+}
+
+function getPublicationState(language, item) {
+  const map = {
+    zh: {
+      Deployment: "系统主线",
+      VLA: "进行中",
+      Agriculture: "专题整理"
+    },
+    en: {
+      Deployment: "System Track",
+      VLA: "Ongoing",
+      Agriculture: "Suite Track"
+    }
+  };
+  return map[language]?.[item.type] || (language === "zh" ? "研究条目" : "Research Entry");
+}
+
+function getProjectState(language, item) {
+  const title = item.title.toLowerCase();
+  if (title.includes("dual_arm_ur5")) {
+    return language === "zh" ? "主系统" : "Main System";
+  }
+  if (title.includes("branch") || title.includes("分支")) {
+    return language === "zh" ? "工作分支" : "Working Branch";
+  }
+  if (title.includes("vla")) {
+    return language === "zh" ? "研究原型" : "Research Prototype";
+  }
+  if (title.includes("智慧农业") || title.includes("agriculture")) {
+    return language === "zh" ? "专题套页" : "Suite";
+  }
+  return language === "zh" ? "系统条目" : "System Entry";
+}
+
 function applyStaticText(language) {
   const dict = uiText[language];
   const locale = language === "zh" ? "zh_CN" : "en_US";
@@ -1355,8 +1351,15 @@ function renderPublications(language) {
 
   container.innerHTML = items
     .map(
-      (item) => `
+      (item) => {
+        const primaryLink = item.links?.[0];
+        const secondaryLinks = item.links?.slice(1) ?? [];
+        return `
         <article class="publication-card">
+          <div class="card-state-row">
+            <span class="card-state-badge">${getPublicationState(language, item)}</span>
+            <span class="card-state-track">${item.type}</span>
+          </div>
           <div class="publication-head">
             <h3 class="publication-title">${item.title}</h3>
             <p class="publication-meta">${item.authors}</p>
@@ -1364,17 +1367,23 @@ function renderPublications(language) {
           <p class="publication-meta publication-meta-strong"><strong>${item.venue}</strong></p>
           <p class="publication-summary">${item.summary}</p>
           <p class="publication-tagline">${item.highlight}</p>
-          <div class="publication-actions">
-            ${item.links.map(renderLink).join("")}
+          <div class="card-action-stack">
+            <div class="card-action-primary">
+              ${primaryLink ? renderActionLink(primaryLink, "primary") : ""}
+            </div>
+            <div class="card-action-secondary">
+              ${secondaryLinks.map((link) => renderActionLink(link, "secondary")).join("")}
             ${item.type === "VLA"
-              ? renderLink({
+              ? renderActionLink({
                   label: language === "zh" ? "专题页面" : "Research Page",
                   url: "vla-research.html"
-                })
+                }, "secondary")
               : ""}
+            </div>
           </div>
         </article>
-      `
+      `;
+      }
     )
     .join("");
 }
@@ -1385,7 +1394,10 @@ function renderFuturePapers(language) {
   const contributionLabel = language === "zh" ? "预计贡献" : "Expected Contribution";
   container.innerHTML = localeData[language].futurePapers
     .map(
-      (item) => `
+      (item) => {
+        const primaryLink = item.links?.[0];
+        const secondaryLinks = item.links?.slice(1) ?? [];
+        return `
         <article class="future-paper-card">
           <div class="future-paper-head">
             <div class="future-paper-meta-row">
@@ -1400,11 +1412,17 @@ function renderFuturePapers(language) {
             <strong>${contributionLabel}</strong>
             <p>${item.contribution}</p>
           </div>
-          <div class="publication-actions">
-            ${item.links.map(renderLink).join("")}
+          <div class="card-action-stack">
+            <div class="card-action-primary">
+              ${primaryLink ? renderActionLink(primaryLink, "primary") : ""}
+            </div>
+            <div class="card-action-secondary">
+              ${secondaryLinks.map((link) => renderActionLink(link, "secondary")).join("")}
+            </div>
           </div>
         </article>
-      `
+      `;
+      }
     )
     .join("");
 }
@@ -1413,18 +1431,30 @@ function renderProjects(language) {
   const container = document.getElementById("project-list");
   container.innerHTML = localeData[language].projects
     .map(
-      (item) => `
+      (item) => {
+        const primaryLink = item.links?.[0];
+        const secondaryLinks = item.links?.slice(1) ?? [];
+        return `
         <article class="project-card">
+          <div class="card-state-row">
+            <span class="card-state-badge">${getProjectState(language, item)}</span>
+          </div>
           <div class="project-head">
             <h3>${item.title}</h3>
             <p class="project-meta">${item.meta}</p>
           </div>
           <p class="project-summary">${item.description}</p>
-          <div class="project-links">
-            ${item.links.map(renderLink).join("")}
+          <div class="card-action-stack">
+            <div class="card-action-primary">
+              ${primaryLink ? renderActionLink(primaryLink, "primary") : ""}
+            </div>
+            <div class="card-action-secondary">
+              ${secondaryLinks.map((link) => renderActionLink(link, "secondary")).join("")}
+            </div>
           </div>
         </article>
-      `
+      `;
+      }
     )
     .join("");
 }
