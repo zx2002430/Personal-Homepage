@@ -148,6 +148,24 @@ http://localhost:8000
 - Vercel
 - Netlify
 
+### GitHub Pages
+
+仓库已补充 GitHub Actions 工作流：
+
+- `.github/workflows/pages.yml`
+
+默认会在 `main` 分支有新提交时自动部署当前静态站点。
+
+如果仓库 Pages 还没有启用，可在 GitHub 仓库中进入：
+
+`Settings` -> `Pages` -> `Build and deployment`
+
+将 `Source` 设为 `GitHub Actions`。
+
+启用后，站点访问地址通常为：
+
+`https://zx2002430.github.io/Personal-Homepage/`
+
 部署时确保以下文件一起上传：
 
 - 根目录下所有 `html / css / js` 文件
