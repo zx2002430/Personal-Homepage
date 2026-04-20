@@ -8,6 +8,10 @@ const uiText = {
       title: "赵汛 | 湖北大学个人研究主页",
       description: "湖北大学赵汛的个人研究主页，聚焦 VLA、具身智能、强化学习与机械臂操作。"
     },
+    trail: {
+      homeLabel: "首页",
+      homeCurrent: "个人研究主页"
+    },
     nav: {
       skip: "跳转到主要内容",
       about: "简介",
@@ -153,6 +157,28 @@ const uiText = {
       eyebrow: "未来论文",
       title: "未来可能发布的文章"
     },
+    routeHub: {
+      eyebrow: "研究入口",
+      title: "研究入口与外链",
+      siteKicker: "在线版本",
+      siteTitle: "在线主页",
+      siteText: "直接访问当前线上版本，用于展示、汇报和分享。",
+      repoKicker: "代码仓库",
+      repoTitle: "主页仓库",
+      repoText: "查看源码、README、Pages 配置与更新记录。",
+      vlaKicker: "VLA 方向",
+      vlaTitle: "VLA 专题页",
+      vlaText: "查看当前 VLA 主线、实验路线和阶段判断。",
+      agriKicker: "农业套页",
+      agriTitle: "智慧农业套页",
+      agriText: "进入总览、看板、设备、合同和调研页面。",
+      dualArmKicker: "Sim-to-Real",
+      dualArmTitle: "Dual_Arm_UR5 仓库",
+      dualArmText: "查看双臂 UR5 平台、分支和系统实现。",
+      contactKicker: "联系入口",
+      contactTitle: "联系入口",
+      contactText: "通过邮箱发起交流、合作或汇报沟通。"
+    },
     systems: {
       eyebrow: "系统",
       title: "系统项目",
@@ -194,6 +220,10 @@ const uiText = {
     meta: {
       title: "Xun Zhao | Academic Homepage",
       description: "Academic homepage of Xun Zhao at Hubei University, focusing on VLA, embodied AI, reinforcement learning, and robot manipulation."
+    },
+    trail: {
+      homeLabel: "Home",
+      homeCurrent: "Academic Homepage"
     },
     nav: {
       skip: "Skip to Main Content",
@@ -339,6 +369,28 @@ const uiText = {
     futurePapersSection: {
       eyebrow: "Future Papers",
       title: "Potential Future Papers"
+    },
+    routeHub: {
+      eyebrow: "Research Access",
+      title: "Research Entry Points",
+      siteKicker: "Live Site",
+      siteTitle: "Live Homepage",
+      siteText: "Open the current public version for sharing and presentation.",
+      repoKicker: "Repository",
+      repoTitle: "Homepage Repository",
+      repoText: "View source code, README, Pages setup, and update history.",
+      vlaKicker: "VLA Track",
+      vlaTitle: "VLA Research Page",
+      vlaText: "See the current VLA mainline, roadmap, and stage judgments.",
+      agriKicker: "Agriculture Suite",
+      agriTitle: "Smart Agriculture Pages",
+      agriText: "Enter the overview, dashboard, inventory, contracts, and research pages.",
+      dualArmKicker: "Sim-to-Real",
+      dualArmTitle: "Dual_Arm_UR5 Repository",
+      dualArmText: "Browse the dual-arm UR5 platform, branches, and system implementation.",
+      contactKicker: "Contact",
+      contactTitle: "Contact Entry",
+      contactText: "Start discussion, collaboration, or reporting through email."
     },
     systems: {
       eyebrow: "Systems",
