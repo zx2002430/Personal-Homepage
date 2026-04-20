@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Motion Preview</title>
+  <desc id="desc">A lightweight preview placeholder for loading animation demos on demand.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#203040" />
+      <stop offset="50%" stop-color="#2b4f69" />
+      <stop offset="100%" stop-color="#d08c31" />
+    </linearGradient>
+    <linearGradient id="card" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.20)" />
+      <stop offset="100%" stop-color="rgba(255,255,255,0.08)" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" fill="url(#bg)" />
+  <circle cx="220" cy="170" r="150" fill="rgba(255,255,255,0.08)" />
+  <circle cx="1020" cy="610" r="210" fill="rgba(255,255,255,0.08)" />
+  <rect x="110" y="110" width="980" height="540" rx="28" fill="url(#card)" stroke="rgba(255,255,255,0.18)" />
+  <circle cx="600" cy="360" r="90" fill="rgba(255,255,255,0.18)" stroke="rgba(255,255,255,0.22)" />
+  <polygon points="575,310 575,410 660,360" fill="#ffffff" />
+  <text x="600" y="535" text-anchor="middle" font-family="Manrope, Segoe UI, Arial, sans-serif" font-size="40" font-weight="700" fill="#ffffff">
+    Click to load animation demo
+  </text>
+  <text x="600" y="588" text-anchor="middle" font-family="Manrope, Segoe UI, Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.82)">
+    Lightweight preview to keep the homepage responsive
+  </text>
+</svg>

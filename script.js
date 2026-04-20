@@ -1513,6 +1513,74 @@ function updateLanguageButtons() {
   });
 }
 
+function initializeMotionLoaders(language = currentLanguage) {
+  const labels = {
+    zh: {
+      idle: "加载演示",
+      loading: "加载中..."
+    },
+    en: {
+      idle: "Load Demo",
+      loading: "Loading..."
+    }
+  };
+  const text = labels[language] || labels.zh;
+
+  document.querySelectorAll("[data-load-motion]").forEach((button) => {
+    const shell = button.closest(".media-preview-shell");
+    const image = shell?.querySelector("[data-motion-image]");
+    if (!image) {
+      return;
+    }
+
+    if (image.dataset.motionLoaded === "true") {
+      button.textContent = text.loading;
+      return;
+    }
+
+    button.textContent = text.idle;
+
+    if (button.dataset.motionBound === "true") {
+      return;
+    }
+
+    button.dataset.motionBound = "true";
+    button.addEventListener("click", () => {
+      if (image.dataset.motionLoaded === "true" || image.dataset.motionLoading === "true") {
+        return;
+      }
+
+      const motionSrc = image.dataset.motionSrc;
+      const fallbackSrc = image.dataset.motionFallback || image.currentSrc || image.src;
+      if (!motionSrc) {
+        return;
+      }
+
+      image.dataset.motionLoading = "true";
+      button.disabled = true;
+      button.classList.add("is-loading");
+      button.textContent = text.loading;
+
+      image.onerror = () => {
+        image.dataset.motionLoading = "false";
+        image.src = fallbackSrc;
+        button.disabled = false;
+        button.classList.remove("is-loading");
+        button.textContent = text.idle;
+      };
+
+      image.onload = () => {
+        image.dataset.motionLoading = "false";
+        image.dataset.motionLoaded = "true";
+        image.classList.remove("media-motion-preview");
+        image.closest(".media-card")?.classList.add("is-motion-loaded");
+      };
+
+      image.src = motionSrc;
+    });
+  });
+}
+
 function renderPage(language) {
   applyStaticText(language);
   renderNews(language);
@@ -1524,6 +1592,7 @@ function renderPage(language) {
   renderFuturePapers(language);
   renderProjects(language);
   renderExperience(language);
+  initializeMotionLoaders(language);
   updateLanguageButtons();
 }
 

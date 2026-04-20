@@ -292,14 +292,19 @@
                   <span class="media-kicker" data-i18n="dualArm.media.simKicker">Simulation</span>
                   <span class="media-type" data-i18n="dualArm.media.simType">MuJoCo</span>
                 </div>
-                <img
-                  class="media-illustration media-motion"
-                  src="assets/images/mujoco-demo.gif"
-                  loading="lazy"
-                  decoding="async"
-                  alt="MuJoCo dual-arm simulation GIF"
-                  onerror="this.onerror=null;this.src='assets/images/ppo-training-curve.svg';this.classList.remove('media-motion');"
-                >
+                <div class="media-preview-shell">
+                  <img
+                    class="media-illustration media-motion media-motion-preview"
+                    src="assets/images/motion-preview.svg"
+                    data-motion-src="assets/images/mujoco-demo.gif"
+                    data-motion-fallback="assets/images/motion-preview.svg"
+                    loading="lazy"
+                    decoding="async"
+                    alt="MuJoCo dual-arm simulation GIF"
+                    data-motion-image
+                  >
+                  <button class="media-load-button" type="button" data-load-motion data-i18n="dualArm.media.loadMotion">加载演示</button>
+                </div>
                 <figcaption>
                   <strong data-i18n="dualArm.media.simTitle">MuJoCo 双臂仿真交互演示</strong>
                   <span data-i18n="dualArm.media.simDesc">突出仿真环境中的双臂协作行为与基础控制效果。</span>
@@ -311,14 +316,19 @@
                   <span class="media-kicker" data-i18n="dualArm.media.vizKicker">Visualization</span>
                   <span class="media-type" data-i18n="dualArm.media.vizType">ROS 2 + RViz</span>
                 </div>
-                <img
-                  class="media-illustration media-motion"
-                  src="assets/images/ros2-rviz-demo.gif"
-                  loading="lazy"
-                  decoding="async"
-                  alt="ROS 2 and RViz dual-arm simulation GIF"
-                  onerror="this.onerror=null;this.src='assets/images/sim2real-pipeline.svg';this.classList.remove('media-motion');"
-                >
+                <div class="media-preview-shell">
+                  <img
+                    class="media-illustration media-motion media-motion-preview"
+                    src="assets/images/motion-preview.svg"
+                    data-motion-src="assets/images/ros2-rviz-demo.gif"
+                    data-motion-fallback="assets/images/motion-preview.svg"
+                    loading="lazy"
+                    decoding="async"
+                    alt="ROS 2 and RViz dual-arm simulation GIF"
+                    data-motion-image
+                  >
+                  <button class="media-load-button" type="button" data-load-motion data-i18n="dualArm.media.loadMotion">加载演示</button>
+                </div>
                 <figcaption>
                   <strong data-i18n="dualArm.media.vizTitle">ROS 2 + RViz 双臂仿真演示</strong>
                   <span data-i18n="dualArm.media.vizDesc">体现机器人描述、可视化与控制链路在 ROS 2 环境中的联动。</span>
@@ -330,14 +340,19 @@
                   <span class="media-kicker" data-i18n="dualArm.media.ctrlKicker">Control</span>
                   <span class="media-type" data-i18n="dualArm.media.ctrlType">Trajectory Tracking</span>
                 </div>
-                <img
-                  class="media-illustration media-motion"
-                  src="assets/images/dual-arm-end-effector-demo.gif"
-                  loading="lazy"
-                  decoding="async"
-                  alt="Dual-arm end-effector trajectory tracking GIF"
-                  onerror="this.onerror=null;this.src='assets/images/sim2real-pipeline.svg';this.classList.remove('media-motion');"
-                >
+                <div class="media-preview-shell">
+                  <img
+                    class="media-illustration media-motion media-motion-preview"
+                    src="assets/images/motion-preview.svg"
+                    data-motion-src="assets/images/dual-arm-end-effector-demo.gif"
+                    data-motion-fallback="assets/images/motion-preview.svg"
+                    loading="lazy"
+                    decoding="async"
+                    alt="Dual-arm end-effector trajectory tracking GIF"
+                    data-motion-image
+                  >
+                  <button class="media-load-button" type="button" data-load-motion data-i18n="dualArm.media.loadMotion">加载演示</button>
+                </div>
                 <figcaption>
                   <strong data-i18n="dualArm.media.ctrlTitle">双臂末端轨迹跟踪演示</strong>
                   <span data-i18n="dualArm.media.ctrlDesc">对应任务空间控制与末端跟踪效果，是控制模块的重要展示。</span>
@@ -349,14 +364,19 @@
                   <span class="media-kicker" data-i18n="dualArm.media.deployKicker">MoveIt</span>
                   <span class="media-type" data-i18n="dualArm.media.deployType">Real Robot</span>
                 </div>
-                <img
-                  class="media-illustration media-motion"
-                  src="assets/images/moveit-dual-arm-deployment.gif"
-                  loading="lazy"
-                  decoding="async"
-                  alt="MoveIt deployment GIF for dual-arm UR5"
-                  onerror="this.onerror=null;this.src='assets/images/sim2real-pipeline.svg';this.classList.remove('media-motion');"
-                >
+                <div class="media-preview-shell">
+                  <img
+                    class="media-illustration media-motion media-motion-preview"
+                    src="assets/images/motion-preview.svg"
+                    data-motion-src="assets/images/moveit-dual-arm-deployment.gif"
+                    data-motion-fallback="assets/images/motion-preview.svg"
+                    loading="lazy"
+                    decoding="async"
+                    alt="MoveIt deployment GIF for dual-arm UR5"
+                    data-motion-image
+                  >
+                  <button class="media-load-button" type="button" data-load-motion data-i18n="dualArm.media.loadMotion">加载演示</button>
+                </div>
                 <figcaption>
                   <strong data-i18n="dualArm.media.deployTitle">MoveIt 真机部署演示</strong>
                   <span data-i18n="dualArm.media.deployDesc">展示双臂平台上的规划与执行过程。</span>

@@ -1682,6 +1682,12 @@ ul {
   object-position: center;
 }
 
+.media-preview-shell {
+  position: relative;
+  display: flex;
+  flex: 1;
+}
+
 .media-photo {
   padding: 0;
   object-fit: cover;
@@ -1692,6 +1698,46 @@ ul {
   padding: 8px;
   object-fit: cover;
   object-position: center;
+}
+
+.media-motion-preview {
+  background: linear-gradient(180deg, #203040 0%, #314f66 100%);
+}
+
+.media-load-button {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+  min-height: 42px;
+  padding: 0 18px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background: rgba(28, 36, 48, 0.78);
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(28, 36, 48, 0.18);
+  transition: transform 180ms ease, background 180ms ease, opacity 180ms ease;
+}
+
+.media-load-button:hover,
+.media-load-button:focus-visible {
+  transform: translate(-50%, calc(-50% - 2px));
+  background: rgba(11, 110, 79, 0.9);
+}
+
+.media-load-button.is-loading {
+  cursor: progress;
+  opacity: 0.92;
+}
+
+.media-card.is-motion-loaded .media-load-button {
+  display: none;
 }
 
 .media-card-overview .media-illustration {
@@ -5820,5 +5866,11 @@ ul {
 
   .media-card-trajectory {
     min-height: 0;
+  }
+
+  .media-load-button {
+    min-height: 38px;
+    padding: 0 14px;
+    font-size: 0.8rem;
   }
 }
