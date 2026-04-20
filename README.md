@@ -1,5 +1,8 @@
 # Xun Zhao Personal Homepage
 
+Homepage:
+`https://zx2002430.github.io/Personal-Homepage/`
+
 这是一个基于纯静态页面构建的个人研究主页项目，当前包含两部分内容：
 
 - 个人主页：首页展示个人简介、研究方向、Sim-to-Real、VLA 与项目入口
