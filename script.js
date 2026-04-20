@@ -1,5 +1,6 @@
 const STORAGE_KEY = "homepage-language";
 const DEFAULT_LANGUAGE = "zh";
+const SITE_URL = "https://zx2002430.github.io/Personal-Homepage/";
 
 const uiText = {
   zh: {
@@ -8,6 +9,7 @@ const uiText = {
       description: "湖北大学赵汛的个人研究主页，聚焦 VLA、具身智能、强化学习与机械臂操作。"
     },
     nav: {
+      skip: "跳转到主要内容",
       about: "简介",
       vla: "VLA方向",
       simtoreal: "Sim-to-Real方向",
@@ -23,12 +25,12 @@ const uiText = {
       eyebrow: "个人研究主页",
       subtitle: "湖北大学人工智能学院研究生｜研究方向：VLA、智慧农业、具身智能、强化学习与机械臂控制",
       text:
-        '我目前在湖北大学人工智能学院开展研究训练，依托 <a href="https://eilab-wanghong.eu.cc/" target="_blank" rel="noreferrer">EILab</a>，主要关注视觉语言行动模型、智慧农业、具身智能与强化学习机械臂控制。当前工作集中于双臂操作系统、仿真到真实部署，以及面向真实场景和农业场景的感知与控制闭环。',
+        '我目前在湖北大学人工智能学院开展研究训练，依托 <a href="https://eilab-wanghong.eu.cc/" target="_blank" rel="noopener noreferrer">EILab</a>，主要关注视觉语言行动模型、智慧农业、具身智能与强化学习机械臂控制。当前工作集中于双臂操作系统、仿真到真实部署，以及面向真实场景和农业场景的感知与控制闭环。',
       viewResearch: "查看研究",
       getInTouch: "联系我",
       lab: "实验室",
       github: "GitHub",
-      cv: "简历",
+      cv: "仓库",
       email: "邮箱",
       identityRole: "研究生，EILab",
       identitySchool: "湖北大学人工智能学院",
@@ -194,6 +196,7 @@ const uiText = {
       description: "Academic homepage of Xun Zhao at Hubei University, focusing on VLA, embodied AI, reinforcement learning, and robot manipulation."
     },
     nav: {
+      skip: "Skip to Main Content",
       about: "Profile",
       vla: "VLA Track",
       simtoreal: "Sim-to-Real Track",
@@ -209,12 +212,12 @@ const uiText = {
       eyebrow: "Academic Homepage",
       subtitle: "Graduate Student, School of Artificial Intelligence, Hubei University | Research: VLA, smart agriculture, embodied AI, reinforcement learning, and robot manipulation",
       text:
-        'I am currently a graduate student at Hubei University, working with <a href="https://eilab-wanghong.eu.cc/" target="_blank" rel="noreferrer">EILab</a>. My research focuses on vision-language-action models, smart agriculture, embodied intelligence, and reinforcement-learning-based robot control. My current work centers on dual-arm manipulation systems, Sim-to-Real deployment, and perception-control loops for both real-world and agricultural environments.',
+        'I am currently a graduate student at Hubei University, working with <a href="https://eilab-wanghong.eu.cc/" target="_blank" rel="noopener noreferrer">EILab</a>. My research focuses on vision-language-action models, smart agriculture, embodied intelligence, and reinforcement-learning-based robot control. My current work centers on dual-arm manipulation systems, Sim-to-Real deployment, and perception-control loops for both real-world and agricultural environments.',
       viewResearch: "View Research",
       getInTouch: "Get in Touch",
       lab: "Lab",
       github: "GitHub",
-      cv: "CV",
+      cv: "Repository",
       email: "Email",
       identityRole: "Graduate Student, EILab",
       identitySchool: "School of Artificial Intelligence, Hubei University",
@@ -1103,16 +1106,24 @@ function getByPath(object, path) {
 function renderLink(link) {
   const isInternal = link.url.startsWith("#");
   const target = isInternal ? "_self" : "_blank";
-  const rel = isInternal ? "" : ' rel="noreferrer"';
+  const rel = isInternal ? "" : ' rel="noopener noreferrer"';
   return `<a href="${link.url}" target="${target}"${rel}>${link.label}</a>`;
 }
 
 function applyStaticText(language) {
   const dict = uiText[language];
+  const locale = language === "zh" ? "zh_CN" : "en_US";
 
   document.documentElement.lang = language === "zh" ? "zh-CN" : "en";
   document.title = dict.meta.title;
   document.getElementById("meta-description").setAttribute("content", dict.meta.description);
+  document.getElementById("canonical-link")?.setAttribute("href", SITE_URL);
+  document.getElementById("og-title")?.setAttribute("content", dict.meta.title);
+  document.getElementById("og-description")?.setAttribute("content", dict.meta.description);
+  document.getElementById("og-url")?.setAttribute("content", SITE_URL);
+  document.getElementById("og-locale")?.setAttribute("content", locale);
+  document.getElementById("twitter-title")?.setAttribute("content", dict.meta.title);
+  document.getElementById("twitter-description")?.setAttribute("content", dict.meta.description);
 
   document.querySelectorAll("[data-i18n]").forEach((element) => {
     const value = getByPath(dict, element.dataset.i18n);

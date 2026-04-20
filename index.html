@@ -4,21 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>赵汛 | 湖北大学个人研究主页</title>
+  <meta name="theme-color" content="#f4efe6">
+  <meta name="color-scheme" content="light">
   <meta
     id="meta-description"
     name="description"
     content="湖北大学赵汛的个人研究主页，聚焦 VLA、具身智能、强化学习与机械臂操作。"
   >
+  <link id="canonical-link" rel="canonical" href="https://zx2002430.github.io/Personal-Homepage/">
+  <meta id="og-title" property="og:title" content="赵汛 | 湖北大学个人研究主页">
+  <meta id="og-description" property="og:description" content="湖北大学赵汛的个人研究主页，聚焦 VLA、具身智能、强化学习与机械臂操作。">
+  <meta property="og:type" content="website">
+  <meta id="og-url" property="og:url" content="https://zx2002430.github.io/Personal-Homepage/">
+  <meta property="og:site_name" content="Xun Zhao Personal Homepage">
+  <meta id="og-locale" property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta id="twitter-title" name="twitter:title" content="赵汛 | 湖北大学个人研究主页">
+  <meta id="twitter-description" name="twitter:description" content="湖北大学赵汛的个人研究主页，聚焦 VLA、具身智能、强化学习与机械臂操作。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Source+Serif+4:wght@400;600;700&display=swap"
     rel="stylesheet"
   >
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="page-shell">
+  <a class="skip-link" href="#main-content" data-i18n="nav.skip">跳转到主要内容</a>
+  <div class="page-shell" id="top">
     <header class="site-header">
       <a class="brand" href="#top">Xun Zhao</a>
       <div class="header-tools">
@@ -45,7 +59,7 @@
       </div>
     </header>
 
-    <main id="top">
+    <main id="main-content">
       <section class="hero section">
         <div class="hero-copy">
           <p class="eyebrow" data-i18n="hero.eyebrow">Academic Homepage</p>
@@ -54,16 +68,16 @@
             湖北大学人工智能学院研究生｜研究方向：VLA、具身智能、强化学习与机械臂控制
           </p>
           <p class="hero-text" data-i18n-html="hero.text">
-            我目前在湖北大学人工智能学院开展研究训练，依托 <a href="https://eilab-wanghong.eu.cc/" target="_blank" rel="noreferrer">EILab</a>，主要关注视觉语言行动模型、具身智能与强化学习机械臂控制。当前工作集中于双臂操作系统、仿真到真实部署，以及面向真实场景的感知与控制闭环。
+            我目前在湖北大学人工智能学院开展研究训练，依托 <a href="https://eilab-wanghong.eu.cc/" target="_blank" rel="noopener noreferrer">EILab</a>，主要关注视觉语言行动模型、具身智能与强化学习机械臂控制。当前工作集中于双臂操作系统、仿真到真实部署，以及面向真实场景的感知与控制闭环。
           </p>
           <div class="hero-actions">
             <a class="button primary" href="#publications" data-i18n="hero.viewResearch">View Publications</a>
             <a class="button secondary" href="#contact" data-i18n="hero.getInTouch">Get in Touch</a>
           </div>
           <ul class="quick-links" aria-label="Profile links">
-            <li><a href="https://eilab-wanghong.eu.cc/" target="_blank" rel="noreferrer" data-i18n="hero.lab">Lab</a></li>
-            <li><a href="https://github.com/zx2002430" target="_blank" rel="noreferrer" data-i18n="hero.github">GitHub</a></li>
-            <li><a href="#" data-i18n="hero.cv">CV</a></li>
+            <li><a href="https://eilab-wanghong.eu.cc/" target="_blank" rel="noopener noreferrer" data-i18n="hero.lab">Lab</a></li>
+            <li><a href="https://github.com/zx2002430" target="_blank" rel="noopener noreferrer" data-i18n="hero.github">GitHub</a></li>
+            <li><a href="https://github.com/zx2002430/Personal-Homepage" target="_blank" rel="noopener noreferrer" data-i18n="hero.cv">CV</a></li>
             <li><a href="mailto:zhaoxun@stu.hubu.edu.cn" data-i18n="hero.email">Email</a></li>
           </ul>
         </div>
@@ -257,6 +271,8 @@
                 <img
                   class="media-illustration media-photo"
                   src="assets/images/dual-arm-real-photo.jpg"
+                  loading="lazy"
+                  decoding="async"
                   alt="Real dual-arm UR5 setup in the lab"
                   onerror="this.onerror=null;this.src='assets/images/dual-arm-overview.svg';this.classList.remove('media-photo');"
                 >
@@ -274,6 +290,8 @@
                 <img
                   class="media-illustration media-motion"
                   src="assets/images/mujoco-demo.gif"
+                  loading="lazy"
+                  decoding="async"
                   alt="MuJoCo dual-arm simulation GIF"
                   onerror="this.onerror=null;this.src='assets/images/ppo-training-curve.svg';this.classList.remove('media-motion');"
                 >
@@ -291,6 +309,8 @@
                 <img
                   class="media-illustration media-motion"
                   src="assets/images/ros2-rviz-demo.gif"
+                  loading="lazy"
+                  decoding="async"
                   alt="ROS 2 and RViz dual-arm simulation GIF"
                   onerror="this.onerror=null;this.src='assets/images/sim2real-pipeline.svg';this.classList.remove('media-motion');"
                 >
@@ -308,6 +328,8 @@
                 <img
                   class="media-illustration media-motion"
                   src="assets/images/dual-arm-end-effector-demo.gif"
+                  loading="lazy"
+                  decoding="async"
                   alt="Dual-arm end-effector trajectory tracking GIF"
                   onerror="this.onerror=null;this.src='assets/images/sim2real-pipeline.svg';this.classList.remove('media-motion');"
                 >
@@ -325,6 +347,8 @@
                 <img
                   class="media-illustration media-motion"
                   src="assets/images/moveit-dual-arm-deployment.gif"
+                  loading="lazy"
+                  decoding="async"
                   alt="MoveIt deployment GIF for dual-arm UR5"
                   onerror="this.onerror=null;this.src='assets/images/sim2real-pipeline.svg';this.classList.remove('media-motion');"
                 >
@@ -449,7 +473,7 @@
                     <span>Team Photo</span>
                     <span>Competition</span>
                   </div>
-                  <img src="assets/images/首届中国（国际）机器人辩论大赛亚军合影.jpg" alt="首届中国（国际）机器人辩论大赛亚军合影">
+                  <img src="assets/images/首届中国（国际）机器人辩论大赛亚军合影.jpg" loading="lazy" decoding="async" alt="首届中国（国际）机器人辩论大赛亚军合影">
                   <figcaption>
                     <strong>首届中国（国际）机器人辩论大赛亚军合影</strong>
                     <span>团队现场合影，适合作为首页荣誉展示主图。</span>
@@ -460,7 +484,7 @@
                     <span>Certificate</span>
                     <span>Runner-up</span>
                   </div>
-                  <img src="assets/images/首届中国（国际）机器人辩论大赛获得亚军.jpg" alt="首届中国（国际）机器人辩论大赛获得亚军">
+                  <img src="assets/images/首届中国（国际）机器人辩论大赛获得亚军.jpg" loading="lazy" decoding="async" alt="首届中国（国际）机器人辩论大赛获得亚军">
                   <figcaption>
                     <strong>机器人辩论大赛亚军证书</strong>
                     <span>赛事成果证明，突出竞赛表现与团队协作能力。</span>
@@ -471,7 +495,7 @@
                     <span>Scholarship</span>
                     <span>Second Prize</span>
                   </div>
-                  <img src="assets/images/硕士研究生学业奖学金二等奖.jpg" alt="硕士研究生学业奖学金二等奖">
+                  <img src="assets/images/硕士研究生学业奖学金二等奖.jpg" loading="lazy" decoding="async" alt="硕士研究生学业奖学金二等奖">
                   <figcaption>
                     <strong>硕士研究生学业奖学金二等奖</strong>
                     <span>学业表现类荣誉，补充科研与课程维度的成果展示。</span>
