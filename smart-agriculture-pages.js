@@ -4,7 +4,12 @@
   const pageShell = document.querySelector(".page-shell");
   if (!pageShell) return;
   const CONTRACTS_ACCESS_KEY = "smart-agriculture-contracts-access";
+  const CONTRACTS_SECRET_KEY = "smart-agriculture-contracts-secret";
   const CONTRACTS_PASSWORD_HASH = "6f59bfab51ea742dd62688df9c7daf9565cd8bb32eaa98eca786322fb74afb82";
+  const PROTECTED_DOC_PREFIX = "assets/docs/pdf/";
+  const PROTECTED_DOC_OUTPUT_PREFIX = "assets/docs/protected/";
+  let contractsPasswordMemory = "";
+  const decryptedFileCache = new Map();
   const fileHrefMap = {
     "MAT-LIST-202604-已采购设备清单-v1.0.docx": ["assets/docs/pdf/智慧农业项目已采购清单.pdf"],
     "MAT-LIST-202604-采购清单含待采购-v1.0.docx": ["assets/docs/pdf/智慧农业项目采购清单（已采购+待采购）.pdf"],
@@ -35,13 +40,57 @@
       .join("");
   }
 
+  async function deriveContractsKey(password, salt) {
+    const baseKey = await window.crypto.subtle.importKey(
+      "raw",
+      new TextEncoder().encode(password),
+      "PBKDF2",
+      false,
+      ["deriveKey"]
+    );
+    return window.crypto.subtle.deriveKey(
+      {
+        name: "PBKDF2",
+        salt,
+        iterations: 200000,
+        hash: "SHA-256"
+      },
+      baseKey,
+      {
+        name: "AES-GCM",
+        length: 256
+      },
+      false,
+      ["decrypt"]
+    );
+  }
+
+  function rememberContractsPassword(password) {
+    contractsPasswordMemory = password;
+    window.sessionStorage.setItem(CONTRACTS_ACCESS_KEY, "granted");
+    window.sessionStorage.setItem(CONTRACTS_SECRET_KEY, password);
+  }
+
+  function readContractsPassword() {
+    if (contractsPasswordMemory) {
+      return contractsPasswordMemory;
+    }
+    const stored = window.sessionStorage.getItem(CONTRACTS_SECRET_KEY) || "";
+    contractsPasswordMemory = stored;
+    return contractsPasswordMemory;
+  }
+
+  async function verifyContractsPassword(password) {
+    const digest = await sha256Hex(password);
+    return digest === CONTRACTS_PASSWORD_HASH;
+  }
+
   function unlockContractsPage() {
     if (!pageShell.classList.contains("agri-contract-page")) {
       return;
     }
     pageShell.classList.remove("is-locked");
     pageShell.classList.add("is-unlocked");
-    window.sessionStorage.setItem(CONTRACTS_ACCESS_KEY, "granted");
   }
 
   function initializeContractsGate() {
@@ -49,7 +98,7 @@
       return true;
     }
 
-    if (window.sessionStorage.getItem(CONTRACTS_ACCESS_KEY) === "granted") {
+    if (window.sessionStorage.getItem(CONTRACTS_ACCESS_KEY) === "granted" && readContractsPassword()) {
       unlockContractsPage();
       return true;
     }
@@ -73,9 +122,9 @@
       form.querySelector('button[type="submit"]')?.setAttribute("disabled", "disabled");
 
       try {
-        const digest = await sha256Hex(value);
-        if (digest === CONTRACTS_PASSWORD_HASH) {
+        if (await verifyContractsPassword(value)) {
           feedback.textContent = "";
+          rememberContractsPassword(value);
           unlockContractsPage();
           renderContractsPage();
           input.value = "";
@@ -91,6 +140,14 @@
 
     input.focus();
     return false;
+  }
+
+  function transformProtectedDocPath(path) {
+    const normalized = String(path || "").trim();
+    if (!normalized.startsWith(PROTECTED_DOC_PREFIX)) {
+      return normalized;
+    }
+    return normalized.replace(PROTECTED_DOC_PREFIX, PROTECTED_DOC_OUTPUT_PREFIX) + ".enc";
   }
 
   function escapeHtml(text) {
@@ -550,7 +607,7 @@
     const name = String(fileName).trim();
     const mapped = fileHrefMap[name];
     const paths = Array.isArray(mapped) ? mapped : [mapped || name];
-    return paths.map((path) => new URL(path, window.location.href).href);
+    return paths.map((path) => new URL(transformProtectedDocPath(path), window.location.href).href);
   }
 
   function buildOfficeOpenHref(fileName, webHref) {
@@ -568,18 +625,19 @@
     const primary = hrefs[0];
     const fallback = hrefs[1] || "";
     const ext = getFileExtension(name);
+    const isProtectedDoc = /\.enc($|\?)/i.test(primary);
     const officeHref = buildOfficeOpenHref(name, primary);
     const targetExt = getFileExtension(primary);
-    const isBrowserViewable = targetExt === "pdf" || targetExt === "txt" || ext === "pdf" || ext === "txt";
-    const href = isBrowserViewable ? primary : (officeHref || primary);
-    const target = isBrowserViewable ? ` target="_blank" rel="noopener noreferrer"` : "";
+    const isBrowserViewable = isProtectedDoc || targetExt === "pdf" || targetExt === "txt" || ext === "pdf" || ext === "txt";
+    const href = isProtectedDoc ? "#" : (isBrowserViewable ? primary : (officeHref || primary));
+    const target = isProtectedDoc ? "" : (isBrowserViewable ? ` target="_blank" rel="noopener noreferrer"` : "");
     const cls = `file-link${isBrowserViewable ? "" : " is-office-link"}`;
-    const title = isBrowserViewable ? "点击直接查看 PDF 预览" : "点击使用本机 Office 打开";
+    const title = isProtectedDoc ? "输入密码后查看受保护文件" : (isBrowserViewable ? "点击直接查看 PDF 预览" : "点击使用本机 Office 打开");
     const previewTag = isBrowserViewable
-      ? `<span class="file-link-preview">PDF预览</span>`
+      ? `<span class="file-link-preview">${isProtectedDoc ? "密码查看" : "PDF预览"}</span>`
       : `<span class="file-link-preview is-office">Office打开</span>`;
     return `
-      <a class="${cls}" href="${href}" data-file-primary="${primary}" data-file-fallback="${fallback}" data-file-office="${officeHref}" title="${escapeHtml(title)}"${target}>
+      <a class="${cls}" href="${href}" data-file-primary="${primary}" data-file-fallback="${fallback}" data-file-office="${officeHref}" data-file-name="${escapeHtml(name)}" data-file-protected="${isProtectedDoc ? "true" : "false"}" title="${escapeHtml(title)}"${target}>
         <span class="file-link-name">${escapeHtml(name)}</span>
         ${previewTag}
       </a>
@@ -610,6 +668,109 @@
     return chunks
       .map((chunk) => renderFileTextWithLinks(chunk))
       .join("<br>");
+  }
+
+  async function ensureContractsPasswordForFileAccess() {
+    const current = readContractsPassword();
+    if (current) {
+      return current;
+    }
+
+    const input = window.prompt("请输入密码后查看受保护文件：", "");
+    if (!input) {
+      return "";
+    }
+    const value = input.trim();
+    if (!value) {
+      return "";
+    }
+    if (!(await verifyContractsPassword(value))) {
+      window.alert("密码错误，无法查看该文件。");
+      return "";
+    }
+    rememberContractsPassword(value);
+    if (pageShell.classList.contains("agri-contract-page")) {
+      unlockContractsPage();
+      renderContractsPage();
+    }
+    return value;
+  }
+
+  async function openProtectedFile(anchor) {
+    const encryptedHref = anchor.dataset.filePrimary || "";
+    const fileName = anchor.dataset.fileName || "protected-file.pdf";
+    if (!encryptedHref) {
+      return;
+    }
+
+    const password = await ensureContractsPasswordForFileAccess();
+    if (!password) {
+      return;
+    }
+
+    const cacheKey = `${encryptedHref}::${password}`;
+    if (decryptedFileCache.has(cacheKey)) {
+      window.open(decryptedFileCache.get(cacheKey), "_blank", "noopener,noreferrer");
+      return;
+    }
+
+    anchor.classList.add("is-loading");
+    try {
+      const response = await fetch(encryptedHref, { cache: "no-store" });
+      if (!response.ok) {
+        throw new Error(`Fetch failed: ${response.status}`);
+      }
+      const payload = new Uint8Array(await response.arrayBuffer());
+      const header = new TextDecoder().decode(payload.slice(0, 4));
+      if (header !== "SAE1") {
+        throw new Error("Invalid encrypted file header");
+      }
+
+      const salt = payload.slice(4, 20);
+      const nonce = payload.slice(20, 32);
+      const tag = payload.slice(32, 48);
+      const ciphertext = payload.slice(48);
+      const encrypted = new Uint8Array(ciphertext.length + tag.length);
+      encrypted.set(ciphertext, 0);
+      encrypted.set(tag, ciphertext.length);
+
+      const key = await deriveContractsKey(password, salt);
+      const plainBuffer = await window.crypto.subtle.decrypt(
+        {
+          name: "AES-GCM",
+          iv: nonce
+        },
+        key,
+        encrypted
+      );
+
+      const ext = getFileExtension(fileName) || "pdf";
+      const mimeMap = {
+        pdf: "application/pdf",
+        txt: "text/plain"
+      };
+      const mimeType = mimeMap[ext] || "application/octet-stream";
+      const blob = new Blob([plainBuffer], { type: mimeType });
+      const blobUrl = URL.createObjectURL(blob);
+      decryptedFileCache.set(cacheKey, blobUrl);
+      window.open(blobUrl, "_blank", "noopener,noreferrer");
+    } catch (error) {
+      console.error(error);
+      window.alert("受保护文件解密失败，请确认密码正确后重试。");
+    } finally {
+      anchor.classList.remove("is-loading");
+    }
+  }
+
+  function initializeProtectedFileLinks() {
+    document.addEventListener("click", (event) => {
+      const anchor = event.target.closest(".file-link[data-file-protected='true']");
+      if (!anchor) {
+        return;
+      }
+      event.preventDefault();
+      openProtectedFile(anchor);
+    });
   }
 
   function renderTable(columns, rows, options) {
@@ -1003,6 +1164,8 @@
   if (pageShell.classList.contains("agri-inventory-page")) {
     renderInventoryPage();
   }
+
+  initializeProtectedFileLinks();
 
   if (pageShell.classList.contains("agri-contract-page")) {
     if (!initializeContractsGate()) {

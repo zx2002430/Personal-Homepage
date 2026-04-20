@@ -5110,6 +5110,11 @@ ul {
   transform: translateY(-1px);
 }
 
+.inventory-table td:first-child .file-link.is-loading {
+  opacity: 0.72;
+  cursor: progress;
+}
+
 .inventory-table td:first-child .file-link:focus-visible {
   outline: 2px solid rgba(13, 107, 87, 0.28);
   outline-offset: 3px;
