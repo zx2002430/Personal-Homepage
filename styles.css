@@ -5332,16 +5332,6 @@ ul {
 }
 
 @media (max-width: 980px) {
-  .site-header,
-  .nav-dropdown-menu,
-  .section,
-  .media-kicker,
-  .media-type,
-  .honors-media-topline span,
-  .inventory-table thead th {
-    backdrop-filter: none;
-  }
-
   .hero,
   .about-grid .about-content,
   .two-column,
