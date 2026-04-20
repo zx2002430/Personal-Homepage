@@ -1102,6 +1102,8 @@ const filterDefinitions = [
 
 let currentLanguage = getStoredLanguage();
 let currentFilter = "All";
+const renderedLazySections = new Set();
+let lazySectionObserver = null;
 
 function getStoredLanguage() {
   const stored = window.localStorage.getItem(STORAGE_KEY);
@@ -1513,17 +1515,105 @@ function updateLanguageButtons() {
   });
 }
 
+function renderDeferredSection(sectionId, language) {
+  switch (sectionId) {
+    case "news":
+      renderNews(language);
+      break;
+    case "publications":
+      renderFilters(language);
+      renderPublications(language);
+      break;
+    case "vla-direction":
+      renderVlaDirection(language);
+      break;
+    case "featured-project":
+      renderFeaturedProject(language);
+      break;
+    case "smart-agriculture-feature":
+      renderSmartAgricultureFeature(language);
+      break;
+    case "projects":
+      renderProjects(language);
+      break;
+    case "experience":
+      renderExperience(language);
+      break;
+    default:
+      break;
+  }
+}
+
+function ensureDeferredSectionRendered(sectionId, language = currentLanguage) {
+  if (!sectionId) {
+    return;
+  }
+  renderDeferredSection(sectionId, language);
+  renderedLazySections.add(sectionId);
+  const section = document.getElementById(sectionId);
+  if (section && lazySectionObserver) {
+    lazySectionObserver.unobserve(section);
+  }
+}
+
+function ensureDeferredSectionFromHash(language = currentLanguage) {
+  const targetId = window.location.hash.replace("#", "");
+  if (!targetId) {
+    return;
+  }
+  const section = document.getElementById(targetId);
+  if (!section?.dataset.lazyRender) {
+    return;
+  }
+  ensureDeferredSectionRendered(targetId, language);
+}
+
+function initializeDeferredRendering(language = currentLanguage) {
+  const sections = [...document.querySelectorAll("[data-lazy-render]")];
+  if (!sections.length) {
+    return;
+  }
+
+  if (!("IntersectionObserver" in window)) {
+    sections.forEach((section) => {
+      ensureDeferredSectionRendered(section.id, language);
+    });
+    return;
+  }
+
+  if (!lazySectionObserver) {
+    lazySectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+          ensureDeferredSectionRendered(entry.target.id, currentLanguage);
+        });
+      },
+      {
+        rootMargin: "280px 0px",
+        threshold: 0.01
+      }
+    );
+  }
+
+  sections.forEach((section) => {
+    if (renderedLazySections.has(section.id)) {
+      return;
+    }
+    lazySectionObserver.observe(section);
+  });
+}
+
 function renderPage(language) {
   applyStaticText(language);
-  renderNews(language);
-  renderFeaturedProject(language);
-  renderSmartAgricultureFeature(language);
-  renderVlaDirection(language);
-  renderFilters(language);
-  renderPublications(language);
   renderFuturePapers(language);
-  renderProjects(language);
-  renderExperience(language);
+  renderedLazySections.forEach((sectionId) => {
+    renderDeferredSection(sectionId, language);
+  });
+  initializeDeferredRendering(language);
+  ensureDeferredSectionFromHash(language);
   updateLanguageButtons();
 }
 
@@ -1537,6 +1627,10 @@ document.querySelectorAll(".lang-button").forEach((button) => {
   button.addEventListener("click", () => {
     setLanguage(button.dataset.lang);
   });
+});
+
+window.addEventListener("hashchange", () => {
+  ensureDeferredSectionFromHash(currentLanguage);
 });
 
 renderPage(currentLanguage);
