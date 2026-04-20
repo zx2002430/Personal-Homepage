@@ -31,7 +31,7 @@
 </head>
 <body>
   <a class="skip-link" href="#main-content">跳转到主要内容</a>
-  <div class="page-shell agriculture-page agri-contract-page">
+  <div class="page-shell agriculture-page agri-contract-page is-locked">
     <header class="site-header">
       <a class="brand" href="index.html">Xun Zhao</a>
       <div class="header-tools">
@@ -44,13 +44,38 @@
       </div>
     </header>
 
-    <section class="page-trail" aria-label="Breadcrumb">
+    <section class="section contracts-gate" id="contracts-gate" aria-labelledby="contracts-gate-title">
+      <div class="contracts-gate-shell">
+        <span class="appendix-chip is-reference">受保护页面</span>
+        <h1 id="contracts-gate-title">合同文件查看验证</h1>
+        <p class="contracts-gate-text">
+          当前页面包含合同对应表和合同 / PDF 类材料。请输入访问密码后再查看相关内容。
+        </p>
+        <form class="contracts-gate-form" id="contracts-gate-form">
+          <label class="contracts-gate-label" for="contracts-password">访问密码</label>
+          <input
+            class="contracts-gate-input"
+            id="contracts-password"
+            name="contracts-password"
+            type="password"
+            inputmode="numeric"
+            autocomplete="current-password"
+            placeholder="请输入访问密码"
+            required
+          >
+          <button class="button primary" type="submit">解锁查看</button>
+        </form>
+        <p class="contracts-gate-feedback" id="contracts-gate-feedback" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="page-trail contracts-protected" aria-label="Breadcrumb">
       <a href="index.html">首页</a>
       <a href="smart-agriculture.html">智慧农业专题</a>
       <strong>合同对应</strong>
     </section>
 
-    <section class="suite-switch" aria-label="项目页面">
+    <section class="suite-switch contracts-protected" aria-label="项目页面">
       <a class="suite-switch-item" href="smart-agriculture.html">
         <span>主汇报页</span>
         <strong>项目总览</strong>
@@ -73,7 +98,7 @@
       </a>
     </section>
 
-    <main id="main-content">
+    <main id="main-content" class="contracts-protected">
       <section class="hero section agriculture-hero project-hero-cover" id="overview">
         <div class="hero-copy">
           <div class="cover-headline-row">

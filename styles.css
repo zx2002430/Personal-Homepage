@@ -350,6 +350,77 @@ ul {
   --suite-accent-alt-rgb: 18, 79, 116;
 }
 
+.contracts-gate {
+  display: none;
+  min-height: calc(100vh - 140px);
+  align-items: center;
+}
+
+.agri-contract-page.is-locked .contracts-gate {
+  display: grid;
+}
+
+.contracts-gate-shell {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 28px;
+  border-radius: 26px;
+  background: rgba(255, 250, 244, 0.94);
+  border: 1px solid rgba(34, 95, 143, 0.14);
+  box-shadow: 0 20px 50px rgba(28, 36, 48, 0.08);
+}
+
+.contracts-gate-shell h1 {
+  margin-top: 6px;
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+}
+
+.contracts-gate-text {
+  margin-top: 14px;
+  font-size: 0.98rem;
+  line-height: 1.72;
+}
+
+.contracts-gate-form {
+  display: grid;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.contracts-gate-label {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.contracts-gate-input {
+  min-height: 50px;
+  padding: 0 16px;
+  border: 1px solid rgba(28, 36, 48, 0.14);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--text);
+  font: inherit;
+}
+
+.contracts-gate-input:focus-visible {
+  outline: 2px solid rgba(34, 95, 143, 0.28);
+  outline-offset: 2px;
+  border-color: rgba(34, 95, 143, 0.34);
+}
+
+.contracts-gate-feedback {
+  min-height: 1.5em;
+  margin-top: 12px;
+  font-size: 0.88rem;
+  color: #8f2d2d;
+}
+
+.agri-contract-page.is-locked .contracts-protected {
+  display: none;
+}
+
 .agri-research-page {
   --suite-accent: #3f5f89;
   --suite-accent-rgb: 63, 95, 137;
@@ -5833,6 +5904,15 @@ ul {
 
   .agri-showcase-card {
     padding: 18px;
+  }
+
+  .contracts-gate-shell {
+    padding: 22px 18px;
+    border-radius: 22px;
+  }
+
+  .contracts-gate-input {
+    min-height: 46px;
   }
 
   .agri-entry-grid {

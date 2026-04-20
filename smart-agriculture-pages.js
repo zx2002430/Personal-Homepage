@@ -3,6 +3,8 @@
   if (!data) return;
   const pageShell = document.querySelector(".page-shell");
   if (!pageShell) return;
+  const CONTRACTS_ACCESS_KEY = "smart-agriculture-contracts-access";
+  const CONTRACTS_PASSWORD_HASH = "6f59bfab51ea742dd62688df9c7daf9565cd8bb32eaa98eca786322fb74afb82";
   const fileHrefMap = {
     "MAT-LIST-202604-已采购设备清单-v1.0.docx": ["assets/docs/pdf/智慧农业项目已采购清单.pdf"],
     "MAT-LIST-202604-采购清单含待采购-v1.0.docx": ["assets/docs/pdf/智慧农业项目采购清单（已采购+待采购）.pdf"],
@@ -24,6 +26,71 @@
   function setHtml(id, html) {
     const el = document.getElementById(id);
     if (el) el.innerHTML = html;
+  }
+
+  async function sha256Hex(text) {
+    const buffer = await window.crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
+    return Array.from(new Uint8Array(buffer))
+      .map((byte) => byte.toString(16).padStart(2, "0"))
+      .join("");
+  }
+
+  function unlockContractsPage() {
+    if (!pageShell.classList.contains("agri-contract-page")) {
+      return;
+    }
+    pageShell.classList.remove("is-locked");
+    pageShell.classList.add("is-unlocked");
+    window.sessionStorage.setItem(CONTRACTS_ACCESS_KEY, "granted");
+  }
+
+  function initializeContractsGate() {
+    if (!pageShell.classList.contains("agri-contract-page")) {
+      return true;
+    }
+
+    if (window.sessionStorage.getItem(CONTRACTS_ACCESS_KEY) === "granted") {
+      unlockContractsPage();
+      return true;
+    }
+
+    const form = document.getElementById("contracts-gate-form");
+    const input = document.getElementById("contracts-password");
+    const feedback = document.getElementById("contracts-gate-feedback");
+    if (!form || !input || !feedback) {
+      return false;
+    }
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const value = input.value.trim();
+      if (!value) {
+        feedback.textContent = "请输入访问密码。";
+        return;
+      }
+
+      feedback.textContent = "正在验证密码...";
+      form.querySelector('button[type="submit"]')?.setAttribute("disabled", "disabled");
+
+      try {
+        const digest = await sha256Hex(value);
+        if (digest === CONTRACTS_PASSWORD_HASH) {
+          feedback.textContent = "";
+          unlockContractsPage();
+          renderContractsPage();
+          input.value = "";
+          return;
+        }
+        feedback.textContent = "密码错误，请重新输入。";
+      } catch (error) {
+        feedback.textContent = "验证失败，请刷新页面后重试。";
+      } finally {
+        form.querySelector('button[type="submit"]')?.removeAttribute("disabled");
+      }
+    });
+
+    input.focus();
+    return false;
   }
 
   function escapeHtml(text) {
@@ -938,6 +1005,9 @@
   }
 
   if (pageShell.classList.contains("agri-contract-page")) {
+    if (!initializeContractsGate()) {
+      return;
+    }
     renderContractsPage();
   }
 
