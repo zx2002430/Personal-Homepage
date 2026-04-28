@@ -11,6 +11,13 @@ Homepage:
 
 项目不依赖前端框架，直接通过 `HTML + CSS + JavaScript` 组织页面与内容，适合本地直接打开，也适合部署到 GitHub Pages、Vercel 或 Netlify。
 
+## 最新更新
+
+- 主页导航中 `Sim-to-Real` 入口已直接跳转到 `dual-ur5.html`，不再单独保留 `Dual_Arm_UR5` 二级入口。
+- 首页 Dual_Arm_UR5 项目可视化模块改为直接展示 MuJoCo、ROS 2 / RViz、末端轨迹和 MoveIt 部署 GIF。
+- `研究方向概览` 模块调整为更紧凑的三列概览卡片，减少空白区域。
+- `智慧农业` 首页模块改为更偏农业场景的绿色视觉体系，并保留原有专题页入口。
+
 ## 项目结构
 
 ```text
@@ -173,6 +180,20 @@ http://localhost:8000
 - GitHub Pages
 - Vercel
 - Netlify
+
+当前仓库使用 GitHub Pages 自动部署：本地修改完成后提交到 `main`，推送到 `zx2002430/Personal-Homepage`，GitHub Actions 会自动发布到：
+
+```text
+https://zx2002430.github.io/Personal-Homepage/
+```
+
+常用更新流程：
+
+```powershell
+git add .
+git commit -m "Update homepage"
+git push origin main
+```
 
 ### GitHub Pages
 
