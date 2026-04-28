@@ -3,9 +3,10 @@
 Homepage:
 `https://zx2002430.github.io/Personal-Homepage/`
 
-这是一个基于纯静态页面构建的个人研究主页项目，当前包含两部分内容：
+这是一个基于纯静态页面构建的个人研究主页项目，当前包含三部分内容：
 
 - 个人主页：首页展示个人简介、研究方向、Sim-to-Real、VLA 与项目入口
+- Dual_Arm_UR5 项目页：展示双 UR5 Sim-to-Real 系统实现、技术栈、系统架构、工程落地和代码结构
 - 智慧农业专题：围绕项目总览、可视化看板、设备清单、合同对应与调研材料形成一组专题页面
 
 项目不依赖前端框架，直接通过 `HTML + CSS + JavaScript` 组织页面与内容，适合本地直接打开，也适合部署到 GitHub Pages、Vercel 或 Netlify。
@@ -17,6 +18,8 @@ Homepage:
 ├─ index.html                           # 个人主页首页
 ├─ styles.css                           # 全站共享样式
 ├─ script.js                            # 首页中英文文案、数据与渲染逻辑
+├─ dual-ur5.html                        # Dual_Arm_UR5 项目展示页
+├─ dual-ur5.js                          # Dual_Arm_UR5 页面交互与滚动动画
 ├─ smart-agriculture.html               # 智慧农业专题总览页
 ├─ smart-agriculture-dashboard.html     # 智慧农业可视化看板
 ├─ smart-agriculture-inventory.html     # 智慧农业设备清单页
@@ -45,7 +48,27 @@ Homepage:
 
 首页的大部分文案和卡片内容由 `script.js` 动态渲染。
 
-### 2. 智慧农业专题
+### 2. Dual_Arm_UR5 项目页
+
+入口文件：`dual-ur5.html`
+
+该页面用于展示双 UR5 机器人 Sim-to-Real 系统实现，重点覆盖：
+
+- MuJoCo 数字孪生与 Gymnasium / PPO 训练流程
+- ROS 2 / MoveIt / ros2_control 真机部署链路
+- `INIT -> MOVING_HOME / HOMING -> AI_RUNNING -> FINISHED` 安全状态机
+- 20 Hz 策略推理与 125 Hz 控制执行的分层控制
+- RGB-D / YOLO / `DetectedObject3D` 感知扩展接口
+- GitHub 分支、关键文件、部署命令和真机演示证据
+
+相关静态资源主要位于：
+
+- `assets/images/dual-ur5-ppt/`
+- `assets/images/dual-ur5-architecture.svg`
+
+如果后续继续更新 Dual_Arm_UR5 页面，优先保持“证据链”结构：真实平台、仿真训练、策略接口、ROS 2 桥接、部署演示、Reality Gap 评估。
+
+### 3. 智慧农业专题
 
 专题页由以下文件组成：
 
@@ -143,7 +166,7 @@ python -m http.server 8000
 http://localhost:8000
 ```
 
-## 部署建议
+## 发布与部署
 
 这个项目适合直接部署到静态托管平台：
 
@@ -173,6 +196,59 @@ http://localhost:8000
 
 - 根目录下所有 `html / css / js` 文件
 - `assets/` 目录
+
+### 本项目当前发布流程
+
+当前仓库采用“本地 Git 仓库 + SSH over 443 + GitHub Pages 自动部署”的方式发布。
+
+最简更新流程：
+
+```powershell
+git status
+git add .
+git commit -m "Update homepage"
+git push origin main
+```
+
+推送成功后，GitHub Actions 会自动构建并发布 GitHub Pages。站点会更新到：
+
+```text
+https://zx2002430.github.io/Personal-Homepage/
+```
+
+当前远端仓库：
+
+```text
+git@github.com:zx2002430/Personal-Homepage.git
+```
+
+### SSH over 443 说明
+
+如果普通 HTTPS 推送或默认 SSH 端口不稳定，可以使用 SSH over 443。该方式通过 `ssh.github.com:443` 访问 GitHub，适合某些网络环境下维护项目。
+
+本机 SSH 配置文件位置：
+
+```text
+C:\Users\赵汛\.ssh\config
+```
+
+推荐配置形式：
+
+```sshconfig
+Host github.com
+  HostName ssh.github.com
+  User git
+  Port 443
+  IdentityFile ~/.ssh/<your_github_key>
+```
+
+配置完成后，将对应公钥添加到 GitHub 账号的 SSH Keys 中，再确认远端地址为：
+
+```powershell
+git remote set-url origin git@github.com:zx2002430/Personal-Homepage.git
+```
+
+后续维护时，只需要正常 `commit + push`，不需要重复配置 SSH 或 GitHub Pages。
 
 ## 后续维护建议
 
