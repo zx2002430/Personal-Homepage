@@ -1583,6 +1583,59 @@ function initializeMotionLoaders(language = currentLanguage) {
   });
 }
 
+let homepageMotionObserver;
+
+function initializeHomepageMotion() {
+  const motionElements = document.querySelectorAll(
+    [
+      ".hero-copy",
+      ".hero-card",
+      ".section",
+      ".content-card",
+      ".future-paper-card",
+      ".feature-card",
+      ".metric-card",
+      ".media-card",
+      ".agri-showcase-card",
+      ".agri-entry-card",
+      ".project-card",
+      ".stack-card",
+      ".timeline-item",
+      ".publication-card"
+    ].join(", ")
+  );
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (homepageMotionObserver) {
+    homepageMotionObserver.disconnect();
+  }
+
+  motionElements.forEach((element, index) => {
+    element.classList.add("motion-reveal");
+    element.classList.remove("is-visible");
+    element.style.setProperty("--reveal-delay", `${Math.min((index % 6) * 70, 350)}ms`);
+  });
+
+  if (reduceMotion) {
+    motionElements.forEach((element) => element.classList.add("is-visible"));
+    return;
+  }
+
+  homepageMotionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          homepageMotionObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+  );
+
+  motionElements.forEach((element) => homepageMotionObserver.observe(element));
+}
+
 function renderPage(language) {
   applyStaticText(language);
   renderNews(language);
@@ -1595,6 +1648,7 @@ function renderPage(language) {
   renderProjects(language);
   renderExperience(language);
   initializeMotionLoaders(language);
+  initializeHomepageMotion();
   updateLanguageButtons();
 }
 
