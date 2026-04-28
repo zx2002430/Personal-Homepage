@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 860" role="img" aria-labelledby="title desc">
+  <title id="title">Dual_Arm_UR5 platform Sim-To-Real framework</title>
+  <desc id="desc">Clean framework diagram showing the real dual UR5 hardware, ROS 2 driver, Python RL control node, PPO policy, safety state machine, and joint trajectory commands.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#071215"/>
+      <stop offset=".56" stop-color="#0b2529"/>
+      <stop offset="1" stop-color="#102f35"/>
+    </linearGradient>
+    <linearGradient id="node" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f8fbf8"/>
+      <stop offset="1" stop-color="#dff5f0"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" x2="1">
+      <stop offset="0" stop-color="#5ff2a0"/>
+      <stop offset="1" stop-color="#5fd9ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-18%" y="-18%" width="136%" height="136%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000000" flood-opacity=".28"/>
+    </filter>
+    <marker id="arrow" markerWidth="16" markerHeight="16" refX="13" refY="8" orient="auto">
+      <path d="M2,2 L14,8 L2,14 Z" fill="#5fd9ff"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="16" markerHeight="16" refX="13" refY="8" orient="auto">
+      <path d="M2,2 L14,8 L2,14 Z" fill="#5ff2a0"/>
+    </marker>
+  </defs>
+
+  <rect width="1440" height="860" rx="38" fill="url(#bg)"/>
+  <path d="M0 122H1440M0 244H1440M0 366H1440M0 488H1440M0 610H1440M0 732H1440M120 0V860M240 0V860M360 0V860M480 0V860M600 0V860M720 0V860M840 0V860M960 0V860M1080 0V860M1200 0V860M1320 0V860" stroke="#5fd9ff" stroke-opacity=".08"/>
+  <circle cx="1240" cy="142" r="190" fill="#5fd9ff" opacity=".07"/>
+  <circle cx="230" cy="725" r="210" fill="#5ff2a0" opacity=".07"/>
+
+  <text x="72" y="82" fill="#ffffff" font-family="Manrope, Arial, sans-serif" font-size="42" font-weight="800">Dual_Arm_UR5 平台 Sim-To-Real 系统实现</text>
+  <text x="72" y="124" fill="#acd2d0" font-family="Manrope, Arial, Microsoft YaHei, sans-serif" font-size="22">Real Dual UR5 Hardware → ROS 2 Driver → Python RL Control Node → JointTrajectoryController</text>
+
+  <g font-family="Manrope, Arial, Microsoft YaHei, sans-serif" filter="url(#shadow)">
+    <rect x="80" y="238" width="260" height="150" rx="24" fill="url(#node)"/>
+    <text x="112" y="286" fill="#0b6e4f" font-size="20" font-weight="800">Real Hardware</text>
+    <text x="112" y="326" fill="#142026" font-size="28" font-weight="800">真实双臂 UR5</text>
+    <text x="112" y="360" fill="#526166" font-size="18">joint execution / feedback</text>
+
+    <rect x="440" y="238" width="260" height="150" rx="24" fill="url(#node)"/>
+    <text x="472" y="286" fill="#0b6e4f" font-size="20" font-weight="800">ROS 2 Driver</text>
+    <text x="472" y="326" fill="#142026" font-size="28" font-weight="800">驱动与状态反馈</text>
+    <text x="472" y="360" fill="#526166" font-size="18">/joint_states</text>
+
+    <rect x="800" y="238" width="560" height="390" rx="28" fill="#0d3135" stroke="#5fd9ff" stroke-opacity=".42"/>
+    <text x="838" y="292" fill="#5fd9ff" font-size="20" font-weight="800">RL Control Node (Python)</text>
+    <text x="838" y="332" fill="#ffffff" font-size="28" font-weight="800">策略推理、动作映射与安全状态机</text>
+
+    <rect x="838" y="380" width="214" height="88" rx="18" fill="#113f45" stroke="#5ff2a0" stroke-opacity=".35"/>
+    <text x="864" y="416" fill="#5ff2a0" font-size="18" font-weight="800">Observation</text>
+    <text x="864" y="448" fill="#ffffff" font-size="22" font-weight="800">构建 30D 观测</text>
+
+    <rect x="1108" y="380" width="214" height="88" rx="18" fill="#113f45" stroke="#5ff2a0" stroke-opacity=".35"/>
+    <text x="1134" y="416" fill="#5ff2a0" font-size="18" font-weight="800">PPO Policy</text>
+    <text x="1134" y="448" fill="#ffffff" font-size="22" font-weight="800">20 Hz 策略推理</text>
+
+    <rect x="838" y="514" width="214" height="88" rx="18" fill="#113f45" stroke="#ffbe5c" stroke-opacity=".45"/>
+    <text x="864" y="550" fill="#ffbe5c" font-size="18" font-weight="800">Action Mapping</text>
+    <text x="864" y="582" fill="#ffffff" font-size="22" font-weight="800">积分 / 关节增量</text>
+
+    <rect x="1108" y="514" width="214" height="88" rx="18" fill="#113f45" stroke="#ffbe5c" stroke-opacity=".45"/>
+    <text x="1134" y="550" fill="#ffbe5c" font-size="18" font-weight="800">Safety FSM</text>
+    <text x="1134" y="582" fill="#ffffff" font-size="22" font-weight="800">INIT / HOMING / AI</text>
+  </g>
+
+  <g stroke="#5fd9ff" stroke-width="5" fill="none" marker-end="url(#arrow)">
+    <path d="M340 314H420"/>
+    <path d="M700 314H782"/>
+    <path d="M1052 424H1088"/>
+    <path d="M1215 468V496"/>
+    <path d="M1108 558H1072"/>
+    <path d="M945 514V486"/>
+  </g>
+
+  <g font-family="Manrope, Arial, Microsoft YaHei, sans-serif">
+    <text x="362" y="292" fill="#acd2d0" font-size="18">Joint States</text>
+    <text x="718" y="292" fill="#acd2d0" font-size="18">/joint_states</text>
+  </g>
+
+  <path d="M1215 628C1215 712 1032 728 710 728H230C146 728 126 670 126 610V410" stroke="#5ff2a0" stroke-width="5" fill="none" marker-end="url(#arrowGreen)"/>
+  <text x="600" y="772" fill="#dffef5" font-family="Manrope, Arial, Microsoft YaHei, sans-serif" font-size="22" font-weight="800">/left_arm_controller/joint_trajectory   /right_arm_controller/joint_trajectory</text>
+
+  <rect x="72" y="802" width="1296" height="44" rx="14" fill="#071215" opacity=".72"/>
+  <text x="98" y="831" fill="#5ff2a0" font-family="Manrope, Arial, Microsoft YaHei, sans-serif" font-size="18" font-weight="800">Key point</text>
+  <text x="206" y="831" fill="#ffffff" font-family="Manrope, Arial, Microsoft YaHei, sans-serif" font-size="18" font-weight="800">策略输出不直接控制硬件，而是经过动作映射、限幅、状态机和 ROS 2 trajectory command 接入真实双臂平台。</text>
+</svg>

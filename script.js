@@ -416,6 +416,7 @@ const localeData = {
       summary:
         "Dual_Arm_UR5 是我当前研究组合中的核心项目，围绕双臂 UR5 建立了从物理建模、任务空间控制，到 PPO 学习、ROS 2 / MoveIt 集成、感知模块接入与真实系统部署的完整实验平台。该平台也为后续面向 VLA 的机器人操作研究提供了稳定的系统基础。",
       links: [
+        { label: "项目展示页", url: "dual-ur5.html" },
         { label: "项目仓库", url: "https://github.com/zx2002430/Dual_Arm_UR5" },
         { label: "Base 分支", url: "https://github.com/zx2002430/Dual_Arm_UR5/tree/Base" },
         { label: "RL-Algorithm", url: "https://github.com/zx2002430/Dual_Arm_UR5/tree/RL-Algorithm" },
@@ -767,6 +768,7 @@ const localeData = {
       summary:
         "Dual_Arm_UR5 is the core project in my current research portfolio. It covers the full path from physical modeling and task-space control to PPO learning, ROS 2 / MoveIt integration, perception modules, and real-system deployment. The platform also serves as a stable systems foundation for future VLA-oriented manipulation research.",
       links: [
+        { label: "Showcase Page", url: "dual-ur5.html" },
         { label: "GitHub Repo", url: "https://github.com/zx2002430/Dual_Arm_UR5" },
         { label: "Base", url: "https://github.com/zx2002430/Dual_Arm_UR5/tree/Base" },
         { label: "RL-Algorithm", url: "https://github.com/zx2002430/Dual_Arm_UR5/tree/RL-Algorithm" },
