@@ -13635,3 +13635,98 @@ body.home-page .feature-layout::before {
   background: linear-gradient(90deg, var(--home-accent-2), rgba(40, 184, 170, 0.18), rgba(211, 165, 84, 0.42));
 }
 
+/* Homepage featured directions: differentiated accents without breaking the shared palette. */
+body.home-page .feature-layout-vla {
+  --vla-accent: #315fa8;
+  --vla-accent-2: #6d5bd3;
+  --vla-soft: rgba(49, 95, 168, 0.1);
+  background:
+    radial-gradient(circle at 12% 10%, rgba(109, 91, 211, 0.13), transparent 30%),
+    radial-gradient(circle at 88% 18%, rgba(49, 95, 168, 0.14), transparent 32%),
+    linear-gradient(180deg, rgba(248, 251, 255, 0.95), rgba(237, 246, 250, 0.9));
+  border-color: rgba(49, 95, 168, 0.16);
+}
+
+body.home-page .feature-layout-vla::before {
+  background: linear-gradient(90deg, #6d5bd3, rgba(49, 95, 168, 0.18), rgba(40, 184, 170, 0.28));
+}
+
+body.home-page .feature-layout-vla .feature-badge,
+body.home-page .feature-layout-vla .pipeline-marker,
+body.home-page .feature-layout-vla .feature-links a:first-child {
+  background: linear-gradient(135deg, var(--vla-accent), var(--vla-accent-2));
+  border-color: transparent;
+  color: #fff;
+}
+
+body.home-page .feature-layout-vla .feature-repo,
+body.home-page .feature-layout-vla .feature-meta span,
+body.home-page .feature-layout-vla .vla-entry-focus-label,
+body.home-page .feature-layout-vla .vla-entry-focus-tags span {
+  background: rgba(49, 95, 168, 0.09);
+  border-color: rgba(49, 95, 168, 0.14);
+  color: var(--vla-accent);
+}
+
+body.home-page .feature-layout-vla .feature-card,
+body.home-page .feature-layout-vla .metric-card,
+body.home-page .feature-layout-vla .pipeline-step,
+body.home-page .feature-layout-vla .vla-entry-focus {
+  background:
+    linear-gradient(180deg, rgba(252, 254, 255, 0.93), rgba(240, 247, 253, 0.86));
+  border-color: rgba(49, 95, 168, 0.13);
+}
+
+body.home-page .feature-layout-vla .metric-label,
+body.home-page .feature-layout-vla .section-subtitle,
+body.home-page .feature-layout-vla .eyebrow {
+  color: var(--vla-accent);
+}
+
+body.home-page .feature-layout-system {
+  --system-accent: #08786c;
+  --system-accent-2: #24b6c8;
+  --system-warm: #c9943e;
+  background:
+    radial-gradient(circle at 14% 12%, rgba(36, 182, 200, 0.14), transparent 30%),
+    radial-gradient(circle at 88% 18%, rgba(8, 120, 108, 0.12), transparent 31%),
+    linear-gradient(180deg, rgba(248, 254, 253, 0.95), rgba(236, 249, 248, 0.9));
+  border-color: rgba(8, 120, 108, 0.17);
+}
+
+body.home-page .feature-layout-system::before {
+  background: linear-gradient(90deg, var(--system-accent-2), rgba(8, 120, 108, 0.2), rgba(201, 148, 62, 0.38));
+}
+
+body.home-page .feature-layout-system .feature-badge,
+body.home-page .feature-layout-system .pipeline-marker,
+body.home-page .feature-layout-system .feature-links a:first-child {
+  background: linear-gradient(135deg, var(--system-accent), var(--system-accent-2));
+  border-color: transparent;
+  color: #fff;
+}
+
+body.home-page .feature-layout-system .feature-repo,
+body.home-page .feature-layout-system .feature-meta span,
+body.home-page .feature-layout-system .system-entry-focus-label,
+body.home-page .feature-layout-system .system-entry-focus-tags span {
+  background: rgba(8, 120, 108, 0.09);
+  border-color: rgba(8, 120, 108, 0.14);
+  color: var(--system-accent);
+}
+
+body.home-page .feature-layout-system .feature-card,
+body.home-page .feature-layout-system .metric-card,
+body.home-page .feature-layout-system .pipeline-step,
+body.home-page .feature-layout-system .system-entry-focus {
+  background:
+    linear-gradient(180deg, rgba(252, 254, 253, 0.94), rgba(237, 250, 248, 0.86));
+  border-color: rgba(8, 120, 108, 0.13);
+}
+
+body.home-page .feature-layout-system .metric-label,
+body.home-page .feature-layout-system .section-subtitle,
+body.home-page .feature-layout-system .eyebrow {
+  color: var(--system-accent);
+}
+
