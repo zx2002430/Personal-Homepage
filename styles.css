@@ -13500,13 +13500,11 @@ ul {
 @media (max-width: 900px) {
   html {
     max-width: 100vw;
-    overflow-x: hidden;
   }
 
   body:not(.dual-ur5-body) {
     width: 100%;
     max-width: 100vw;
-    overflow-x: hidden;
   }
 
   body:not(.dual-ur5-body) .page-shell {
@@ -13560,11 +13558,10 @@ ul {
     flex-wrap: nowrap !important;
     overflow-x: auto !important;
     overflow-y: visible !important;
-    padding: 2px 2px 7px;
+    padding: 2px 0 7px;
     scrollbar-width: none;
     scroll-snap-type: x proximity;
     -webkit-overflow-scrolling: touch;
-    mask-image: linear-gradient(90deg, transparent 0, #000 14px, #000 calc(100% - 16px), transparent 100%);
   }
 
   body:not(.dual-ur5-body) .site-nav::-webkit-scrollbar {
