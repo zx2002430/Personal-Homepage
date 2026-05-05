@@ -3075,6 +3075,12 @@ ul {
   font-size: 0.84rem;
 }
 
+/* Hamburger menu toggle — hidden on desktop, visible only on mobile */
+.menu-toggle,
+.menu-toggle-icon {
+  display: none;
+}
+
 .header-tools {
   display: flex;
   align-items: center;
@@ -13549,12 +13555,7 @@ ul {
     display: contents !important;
   }
 
-  /* ── Hidden checkbox for hamburger toggle ── */
-  .menu-toggle {
-    display: none;
-  }
-
-  /* ── Hamburger icon (3 bars → X) ── */
+  /* ── Show hamburger icon on mobile ── */
   .menu-toggle-icon {
     grid-column: 3;
     grid-row: 1;
