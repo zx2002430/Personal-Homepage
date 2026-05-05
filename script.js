@@ -1664,23 +1664,4 @@ document.querySelectorAll(".lang-button").forEach((button) => {
   });
 });
 
-/* Mobile hamburger menu toggle */
-(function() {
-  var toggle = document.querySelector(".menu-toggle-icon");
-  var nav = document.querySelector(".site-nav");
-  if (toggle && nav) {
-    toggle.addEventListener("click", function() {
-      var open = nav.classList.toggle("is-open");
-      toggle.classList.toggle("is-active", open);
-    });
-    /* Close menu when a nav link is clicked */
-    nav.querySelectorAll("a").forEach(function(link) {
-      link.addEventListener("click", function() {
-        nav.classList.remove("is-open");
-        toggle.classList.remove("is-active");
-      });
-    });
-  }
-})();
-
 renderPage(currentLanguage);
