@@ -1668,27 +1668,54 @@ document.querySelectorAll(".lang-button").forEach((button) => {
 (function() {
   var dropdown = document.querySelector(".nav-dropdown");
   if (!dropdown) return;
+  var menu = dropdown.querySelector(".nav-dropdown-menu");
+  if (!menu) return;
+  var summary = dropdown.querySelector("summary");
   var isMobile = function() { return window.innerWidth <= 900; };
-  dropdown.addEventListener("toggle", function() {
-    var menu = this.querySelector(".nav-dropdown-menu");
-    if (!menu) return;
-    if (!this.open || !isMobile()) {
-      /* Clear inline styles on desktop so CSS takes over */
-      menu.style.top = "";
-      menu.style.left = "";
-      return;
-    }
-    var rect = this.querySelector("summary").getBoundingClientRect();
+  var mobileEnabled = false;
+  var clickOutsideHandler = null;
+
+  function positionMenu() {
+    if (!dropdown.open) return;
+    var rect = summary.getBoundingClientRect();
     menu.style.top = (rect.bottom + 4) + "px";
     menu.style.left = Math.min(rect.left, window.innerWidth - 170) + "px";
-  });
-  /* Close dropdown when tapping outside (mobile only) */
-  document.addEventListener("click", function(e) {
-    if (!isMobile()) return;
-    if (!dropdown.contains(e.target)) {
-      dropdown.open = false;
+  }
+
+  function enableMobile() {
+    if (mobileEnabled) return;
+    mobileEnabled = true;
+    dropdown.addEventListener("toggle", positionMenu);
+    clickOutsideHandler = function(e) {
+      if (!dropdown.contains(e.target)) {
+        dropdown.open = false;
+      }
+    };
+    document.addEventListener("click", clickOutsideHandler);
+  }
+
+  function disableMobile() {
+    if (!mobileEnabled) return;
+    mobileEnabled = false;
+    dropdown.removeEventListener("toggle", positionMenu);
+    if (clickOutsideHandler) {
+      document.removeEventListener("click", clickOutsideHandler);
+      clickOutsideHandler = null;
     }
-  });
+    menu.style.top = "";
+    menu.style.left = "";
+  }
+
+  function updateState() {
+    if (isMobile()) {
+      enableMobile();
+    } else {
+      disableMobile();
+    }
+  }
+
+  updateState();
+  window.addEventListener("resize", updateState);
 })();
 
 renderPage(currentLanguage);
