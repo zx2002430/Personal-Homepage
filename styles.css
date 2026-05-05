@@ -13513,11 +13513,12 @@ ul {
     width: 100vw !important;
     max-width: 100vw !important;
     padding: 8px 8px 28px;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   body:not(.dual-ur5-body) .site-header {
     top: 6px;
+    z-index: 100;
     width: calc(100vw - 16px) !important;
     max-width: calc(100vw - 16px) !important;
     display: grid;
@@ -13527,6 +13528,7 @@ ul {
     padding: 9px 10px 10px;
     border-radius: 22px;
     align-items: center;
+    overflow: visible;
     background: rgba(255, 252, 246, 0.9);
     box-shadow: 0 14px 36px rgba(31, 45, 61, 0.12);
   }
@@ -13596,17 +13598,20 @@ ul {
 
   body:not(.dual-ur5-body) .nav-dropdown-menu {
     position: fixed;
-    top: 94px;
-    left: 14px;
-    right: 14px;
-    z-index: 60;
+    top: 86px;
+    left: 10px;
+    right: 10px;
+    z-index: 200;
     width: auto;
     max-width: none;
     margin-top: 0;
-    padding: 8px;
-    border-radius: 16px;
-    background: rgba(255, 252, 246, 0.96);
-    box-shadow: 0 20px 46px rgba(31, 45, 61, 0.16);
+    padding: 10px;
+    border-radius: 18px;
+    background: rgba(255, 252, 246, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(42, 101, 126, 0.14);
+    box-shadow: 0 28px 60px rgba(31, 45, 61, 0.24);
   }
 
   body:not(.dual-ur5-body) .nav-dropdown:not([open]) .nav-dropdown-menu {
@@ -13983,9 +13988,11 @@ ul {
   }
 
   body:not(.dual-ur5-body) .nav-dropdown-menu {
-    top: 88px;
-    left: 10px;
-    right: 10px;
+    top: 78px;
+    left: 8px;
+    right: 8px;
+    padding: 8px;
+    border-radius: 16px;
   }
 
   body:not(.dual-ur5-body) .lang-button {
