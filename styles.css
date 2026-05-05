@@ -11271,8 +11271,18 @@ ul {
 }
 
 @media (max-width: 680px) {
-  .dual-system-diagram { overflow-x: auto !important; }
-  .dual-control-svg { width: 760px !important; max-width: none !important; min-height: 570px !important; }
+  .dual-system-diagram {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+  }
+  .dual-system-diagram::-webkit-scrollbar { display: none !important; }
+  .dual-control-svg {
+    width: 720px !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    height: auto !important;
+  }
   .dual-training-media figure, .dual-training-media figure:nth-child(3) { min-height: 260px !important; }
 }
 
@@ -11895,11 +11905,20 @@ ul {
 @media (max-width: 680px) {
   .dual-link-card {
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
+  .dual-link-card::-webkit-scrollbar { display: none; }
 
   .dual-mini-flow-svg {
-    width: 760px;
+    width: 660px;
     max-width: none;
+    min-height: 0 !important;
+    height: auto !important;
+  }
+
+  .dual-state-flow-svg {
+    width: 600px;
   }
 }
 
