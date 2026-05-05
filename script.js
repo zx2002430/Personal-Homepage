@@ -1664,4 +1664,25 @@ document.querySelectorAll(".lang-button").forEach((button) => {
   });
 });
 
+/* Position fixed dropdown on mobile */
+(function() {
+  var dropdown = document.querySelector(".nav-dropdown");
+  if (!dropdown) return;
+  dropdown.addEventListener("toggle", function() {
+    if (!this.open) return;
+    var menu = this.querySelector(".nav-dropdown-menu");
+    if (!menu) return;
+    var summary = this.querySelector("summary");
+    var rect = summary.getBoundingClientRect();
+    menu.style.top = (rect.bottom + 4) + "px";
+    menu.style.left = Math.min(rect.left, window.innerWidth - 170) + "px";
+  });
+  /* Close dropdown when tapping outside */
+  document.addEventListener("click", function(e) {
+    if (!dropdown.contains(e.target)) {
+      dropdown.open = false;
+    }
+  });
+})();
+
 renderPage(currentLanguage);
