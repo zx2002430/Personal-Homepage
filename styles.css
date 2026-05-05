@@ -13520,36 +13520,49 @@ ul {
     top: 6px;
     width: calc(100vw - 16px) !important;
     max-width: calc(100vw - 16px) !important;
-    gap: 7px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px 10px;
     margin-bottom: 8px;
-    padding: 8px 10px;
-    border-radius: 20px;
+    padding: 9px 10px 10px;
+    border-radius: 22px;
+    align-items: center;
+    background: rgba(255, 252, 246, 0.9);
+    box-shadow: 0 14px 36px rgba(31, 45, 61, 0.12);
   }
 
   body:not(.dual-ur5-body) .brand {
-    font-size: 0.78rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: auto;
+    min-height: 32px;
+    min-width: 0;
+    padding: 0 10px;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
   }
 
   body:not(.dual-ur5-body) .header-tools {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    gap: 7px;
-    flex-direction: row !important;
-    align-items: center !important;
+    display: contents !important;
   }
 
   body:not(.dual-ur5-body) .site-nav {
-    flex: 1 1 auto;
-    width: auto;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
     max-width: 100%;
     min-width: 0;
-    gap: 5px;
+    display: flex !important;
+    gap: 7px;
     flex-wrap: nowrap !important;
     overflow-x: auto !important;
-    padding-bottom: 2px;
+    overflow-y: visible !important;
+    padding: 2px 2px 7px;
     scrollbar-width: none;
+    scroll-snap-type: x proximity;
     -webkit-overflow-scrolling: touch;
+    mask-image: linear-gradient(90deg, transparent 0, #000 14px, #000 calc(100% - 16px), transparent 100%);
   }
 
   body:not(.dual-ur5-body) .site-nav::-webkit-scrollbar {
@@ -13558,28 +13571,74 @@ ul {
 
   body:not(.dual-ur5-body) .site-nav > a,
   body:not(.dual-ur5-body) .nav-dropdown > summary {
-    min-height: 28px;
-    padding: 0 8px;
-    font-size: 0.76rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 36px;
+    width: auto;
+    min-width: max-content;
+    padding: 0 12px;
+    font-size: 0.82rem;
+    text-align: center;
+    line-height: 1.2;
     white-space: nowrap;
+    scroll-snap-align: start;
+    background: rgba(255, 255, 255, 0.72);
+    border-color: rgba(42, 101, 126, 0.16);
+    box-shadow: 0 8px 18px rgba(38, 59, 79, 0.07);
+  }
+
+  body:not(.dual-ur5-body) .nav-dropdown {
+    position: static;
+    flex: 0 0 auto;
+    width: auto;
   }
 
   body:not(.dual-ur5-body) .nav-dropdown-menu {
-    max-width: calc(100vw - 32px);
+    position: fixed;
+    top: 94px;
+    left: 14px;
+    right: 14px;
+    z-index: 60;
+    width: auto;
+    max-width: none;
+    margin-top: 0;
     padding: 8px;
-    border-radius: 14px;
+    border-radius: 16px;
+    background: rgba(255, 252, 246, 0.96);
+    box-shadow: 0 20px 46px rgba(31, 45, 61, 0.16);
+  }
+
+  body:not(.dual-ur5-body) .nav-dropdown:not([open]) .nav-dropdown-menu {
+    display: none;
+  }
+
+  body:not(.dual-ur5-body) .nav-dropdown[open] > summary {
+    color: var(--accent-strong);
+    border-color: rgba(11, 110, 79, 0.24);
+    background: rgba(218, 239, 224, 0.88);
   }
 
   body:not(.dual-ur5-body) .lang-switch {
-    flex: 0 0 auto;
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    align-self: center;
     padding: 3px;
   }
 
   body:not(.dual-ur5-body) .lang-button {
-    min-width: 46px;
-    min-height: 28px;
-    padding: 0 8px;
-    font-size: 0.74rem;
+    min-width: 52px;
+    min-height: 32px;
+    padding: 0 10px;
+    font-size: 0.8rem;
+  }
+
+  body:not(.dual-ur5-body) .nav-dropdown-menu a {
+    min-height: 34px;
+    font-size: 0.82rem;
+    justify-content: flex-start;
+    padding: 0 12px;
   }
 
   body:not(.dual-ur5-body) .page-trail {
@@ -13896,6 +13955,46 @@ ul {
 }
 
 @media (max-width: 430px) {
+  body:not(.dual-ur5-body) .site-header {
+    top: 5px;
+    width: calc(100vw - 12px) !important;
+    max-width: calc(100vw - 12px) !important;
+    padding: 8px;
+    border-radius: 18px;
+    gap: 7px 8px;
+  }
+
+  body:not(.dual-ur5-body) .brand {
+    min-height: 30px;
+    padding-inline: 8px;
+    font-size: 0.78rem;
+  }
+
+  body:not(.dual-ur5-body) .site-nav {
+    gap: 6px;
+    padding-bottom: 6px;
+  }
+
+  body:not(.dual-ur5-body) .site-nav > a,
+  body:not(.dual-ur5-body) .nav-dropdown > summary {
+    min-height: 34px;
+    padding-inline: 11px;
+    font-size: 0.78rem;
+  }
+
+  body:not(.dual-ur5-body) .nav-dropdown-menu {
+    top: 88px;
+    left: 10px;
+    right: 10px;
+  }
+
+  body:not(.dual-ur5-body) .lang-button {
+    min-width: 46px;
+    min-height: 30px;
+    padding-inline: 8px;
+    font-size: 0.76rem;
+  }
+
   body:not(.dual-ur5-body) .page-shell {
     padding-inline: 6px;
   }
@@ -14202,6 +14301,63 @@ ul {
     max-height: none;
     aspect-ratio: 16 / 10;
   }
+
+  body:not(.dual-ur5-body) .teaching-experience-grid,
+  body:not(.dual-ur5-body) .community-subgrid,
+  body:not(.dual-ur5-body) .stack-overview,
+  body:not(.dual-ur5-body) .stack-groups,
+  body:not(.dual-ur5-body) .honors-gallery,
+  body:not(.dual-ur5-body) .experience-stack > div {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body:not(.dual-ur5-body) .teaching-card-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  body:not(.dual-ur5-body) .honors-highlight-row {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  body:not(.dual-ur5-body) .honors-showcase-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  body:not(.dual-ur5-body) .experience-card-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  body:not(.dual-ur5-body) .hero-actions,
+  body:not(.dual-ur5-body) .contact-actions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body:not(.dual-ur5-body) .hero-actions .button,
+  body:not(.dual-ur5-body) .contact-actions .button {
+    justify-content: center;
+  }
+
+  body:not(.dual-ur5-body) .button,
+  body:not(.dual-ur5-body) .action-link,
+  body:not(.dual-ur5-body) .feature-links a,
+  body:not(.dual-ur5-body) .card-action-primary a,
+  body:not(.dual-ur5-body) .card-action-secondary a {
+    min-height: 44px;
+  }
+
+  body:not(.dual-ur5-body) .filter-chip {
+    min-height: 36px;
+    padding: 8px 14px;
+    font-size: 0.84rem;
+  }
 }
 
 @media (max-width: 430px) {
@@ -14228,5 +14384,155 @@ ul {
 
   body:not(.dual-ur5-body) .hero-facts {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  body:not(.dual-ur5-body) .hero-actions,
+  body:not(.dual-ur5-body) .contact-actions {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body:not(.dual-ur5-body) .hero-actions .button,
+  body:not(.dual-ur5-body) .contact-actions .button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  body:not(.dual-ur5-body) .teaching-experience-grid,
+  body:not(.dual-ur5-body) .stack-overview,
+  body:not(.dual-ur5-body) .stack-groups,
+  body:not(.dual-ur5-body) .community-subgrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body:not(.dual-ur5-body) .teaching-card-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  body:not(.dual-ur5-body) .honors-highlight-row {
+    flex-wrap: wrap;
+  }
+
+  body:not(.dual-ur5-body) .honors-showcase-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  body:not(.dual-ur5-body) .honors-gallery {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body:not(.dual-ur5-body) .honors-media-card-wide {
+    grid-column: auto;
+  }
+
+  body:not(.dual-ur5-body) .agri-showcase-card {
+    gap: 10px;
+    padding: 14px;
+  }
+
+  body:not(.dual-ur5-body) .agri-showcase-copy {
+    gap: 8px;
+  }
+
+  body:not(.dual-ur5-body) .tag-list,
+  body:not(.dual-ur5-body) .system-entry-focus-tags,
+  body:not(.dual-ur5-body) .vla-entry-focus-tags {
+    gap: 5px;
+  }
+
+  body:not(.dual-ur5-body) .tag-list span,
+  body:not(.dual-ur5-body) .tag-list li,
+  body:not(.dual-ur5-body) .system-entry-focus-tags span,
+  body:not(.dual-ur5-body) .vla-entry-focus-tags span {
+    min-height: 34px;
+    padding: 0 12px;
+    font-size: 0.82rem;
+  }
+
+  body:not(.dual-ur5-body) .button,
+  body:not(.dual-ur5-body) .action-link,
+  body:not(.dual-ur5-body) .feature-links a {
+    min-height: 44px;
+    padding: 0 16px;
+    font-size: 0.86rem;
+  }
+
+  body:not(.dual-ur5-body) .quick-links a {
+    min-height: 34px;
+    padding: 6px 10px;
+  }
+
+  body:not(.dual-ur5-body) .media-card figcaption {
+    padding: 10px;
+  }
+
+  body:not(.dual-ur5-body) .media-card figcaption strong {
+    font-size: 0.88rem;
+  }
+
+  body:not(.dual-ur5-body) .media-card figcaption span {
+    font-size: 0.78rem;
+    line-height: 1.42;
+  }
+
+  body:not(.dual-ur5-body) .experience-panel {
+    padding: 14px;
+    border-radius: 20px;
+  }
+
+  body:not(.dual-ur5-body) .experience-card {
+    padding: 13px;
+    border-radius: 16px;
+  }
+
+  body:not(.dual-ur5-body) .experience-card-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  body:not(.dual-ur5-body) .section-heading h2 {
+    font-size: clamp(1.62rem, 8.6vw, 2rem);
+  }
+
+  body:not(.dual-ur5-body) .section-subtitle,
+  body:not(.dual-ur5-body) .section-note {
+    font-size: 0.84rem;
+  }
+
+  body:not(.dual-ur5-body) .content-card h3,
+  body:not(.dual-ur5-body) .project-card h3,
+  body:not(.dual-ur5-body) .feature-card h3,
+  body:not(.dual-ur5-body) .future-paper-card h3,
+  body:not(.dual-ur5-body) .publication-card h3,
+  body:not(.dual-ur5-body) .stack-card h3,
+  body:not(.dual-ur5-body) .media-card h3 {
+    font-size: 1.02rem;
+    line-height: 1.25;
+  }
+
+  body:not(.dual-ur5-body) .content-card p,
+  body:not(.dual-ur5-body) .project-card p,
+  body:not(.dual-ur5-body) .feature-card p,
+  body:not(.dual-ur5-body) .future-paper-card p,
+  body:not(.dual-ur5-body) .publication-card p,
+  body:not(.dual-ur5-body) .stack-card p,
+  body:not(.dual-ur5-body) .media-card p {
+    font-size: 0.86rem;
+    line-height: 1.55;
+  }
+
+  body:not(.dual-ur5-body) .filter-chip {
+    min-height: 34px;
+    padding: 6px 11px;
+    font-size: 0.78rem;
+  }
+
+  body:not(.dual-ur5-body) .card-action-primary a,
+  body:not(.dual-ur5-body) .card-action-secondary a,
+  body:not(.dual-ur5-body) .feature-links a {
+    min-height: 40px;
+    font-size: 0.82rem;
   }
 }
