@@ -13556,18 +13556,10 @@ ul {
     max-width: 100%;
     min-width: 0;
     display: flex !important;
-    gap: 7px;
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    overflow-y: visible !important;
+    gap: 6px;
+    flex-wrap: wrap !important;
+    overflow: visible !important;
     padding: 2px 0 7px;
-    scrollbar-width: none;
-    scroll-snap-type: x proximity;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  body:not(.dual-ur5-body) .site-nav::-webkit-scrollbar {
-    display: none;
   }
 
   body:not(.dual-ur5-body) .site-nav > a,
@@ -13575,38 +13567,35 @@ ul {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 36px;
-    width: auto;
-    min-width: max-content;
-    padding: 0 12px;
-    font-size: 0.82rem;
+    min-height: 34px;
+    flex: 0 0 auto;
+    padding: 0 11px;
+    font-size: 0.8rem;
     text-align: center;
     line-height: 1.2;
     white-space: nowrap;
-    scroll-snap-align: start;
-    background: rgba(255, 255, 255, 0.72);
-    border-color: rgba(42, 101, 126, 0.16);
-    box-shadow: 0 8px 18px rgba(38, 59, 79, 0.07);
+    border-radius: 999px;
+    border: 1px solid rgba(42, 101, 126, 0.14);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 6px 14px rgba(38, 59, 79, 0.05);
   }
 
   body:not(.dual-ur5-body) .nav-dropdown {
-    position: static;
+    position: relative;
     flex: 0 0 auto;
     width: auto;
   }
 
   body:not(.dual-ur5-body) .nav-dropdown-menu {
-    position: fixed;
-    top: 86px;
-    left: 10px;
-    right: 10px;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
     z-index: 200;
-    width: auto;
-    max-width: none;
+    min-width: 200px;
     margin-top: 0;
     padding: 10px;
     border-radius: 18px;
-    background: rgba(255, 252, 246, 0.98);
+    background: rgba(255, 254, 250, 0.98);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(42, 101, 126, 0.14);
@@ -13620,7 +13609,7 @@ ul {
   body:not(.dual-ur5-body) .nav-dropdown[open] > summary {
     color: var(--accent-strong);
     border-color: rgba(11, 110, 79, 0.24);
-    background: rgba(218, 239, 224, 0.88);
+    background: rgba(218, 239, 224, 0.9);
   }
 
   body:not(.dual-ur5-body) .lang-switch {
@@ -13987,11 +13976,10 @@ ul {
   }
 
   body:not(.dual-ur5-body) .nav-dropdown-menu {
-    top: 78px;
-    left: 8px;
-    right: 8px;
+    min-width: 180px;
     padding: 8px;
     border-radius: 16px;
+    font-size: 0.82rem;
   }
 
   body:not(.dual-ur5-body) .lang-button {
