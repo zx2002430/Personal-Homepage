@@ -18,6 +18,7 @@ const uiText = {
       vla: "VLA方向",
       simtoreal: "Sim-to-Real方向",
       agriculture: "智慧农业专题",
+      paperPlans: "论文计划",
       news: "研究动态",
       publications: "代表研究",
       directions: "研究方向",
