@@ -13527,7 +13527,7 @@ ul {
     max-width: calc(100vw - 16px) !important;
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto auto;
-    gap: 0;
+    gap: 0 8px;
     margin-bottom: 8px;
     padding: 8px 10px;
     border-radius: 22px;
@@ -13720,7 +13720,7 @@ ul {
 
   body:not(.dual-ur5-body) .lang-button {
     min-width: 44px;
-    min-height: 34px;
+    min-height: 38px;
     padding: 0 8px;
     font-size: 0.76rem;
     border-radius: 8px;
@@ -14103,7 +14103,7 @@ ul {
 
   body:not(.dual-ur5-body) .lang-button {
     min-width: 40px;
-    min-height: 30px;
+    min-height: 34px;
     padding: 0 6px;
     font-size: 0.72rem;
   }
