@@ -14103,3 +14103,130 @@ ul {
     font-size: 0.82rem;
   }
 }
+
+/* Mobile single-column reading mode. */
+@media (max-width: 900px) {
+  body:not(.dual-ur5-body) .section {
+    padding: 16px;
+  }
+
+  body:not(.dual-ur5-body) .hero.section,
+  body:not(.dual-ur5-body) .about-grid .about-content,
+  body:not(.dual-ur5-body) .two-column,
+  body:not(.dual-ur5-body) .metric-grid,
+  body:not(.dual-ur5-body) .future-paper-grid,
+  body:not(.dual-ur5-body) .project-grid,
+  body:not(.dual-ur5-body) .project-grid-compact,
+  body:not(.dual-ur5-body) .feature-grid,
+  body:not(.dual-ur5-body) .publication-list,
+  body:not(.dual-ur5-body) .publication-list-compact,
+  body:not(.dual-ur5-body) .contact-strip,
+  body:not(.dual-ur5-body) .feature-layout-system #featured-metrics,
+  body:not(.dual-ur5-body) .feature-layout-vla #vla-metrics,
+  body:not(.dual-ur5-body) .feature-layout-system #featured-pipeline,
+  body:not(.dual-ur5-body) .feature-layout-vla #vla-pipeline,
+  body:not(.dual-ur5-body) .agri-entry-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 12px;
+  }
+
+  body:not(.dual-ur5-body) .hero-copy,
+  body:not(.dual-ur5-body) .hero-card,
+  body:not(.dual-ur5-body) .content-card,
+  body:not(.dual-ur5-body) .project-card,
+  body:not(.dual-ur5-body) .stack-card,
+  body:not(.dual-ur5-body) .timeline-item,
+  body:not(.dual-ur5-body) .publication-card,
+  body:not(.dual-ur5-body) .feature-card,
+  body:not(.dual-ur5-body) .future-paper-card,
+  body:not(.dual-ur5-body) .media-card {
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  body:not(.dual-ur5-body) .hero h1 {
+    font-size: clamp(2.1rem, 10.2vw, 2.75rem);
+    line-height: 1.02;
+  }
+
+  body:not(.dual-ur5-body) .section-heading h2 {
+    font-size: clamp(1.82rem, 8.2vw, 2.35rem);
+  }
+
+  body:not(.dual-ur5-body) .hero-subtitle,
+  body:not(.dual-ur5-body) .hero-text,
+  body:not(.dual-ur5-body) .section-subtitle,
+  body:not(.dual-ur5-body) .section-note,
+  body:not(.dual-ur5-body) .section p,
+  body:not(.dual-ur5-body) .section li {
+    font-size: 0.94rem;
+    line-height: 1.62;
+  }
+
+  body:not(.dual-ur5-body) .content-card p,
+  body:not(.dual-ur5-body) .project-card p,
+  body:not(.dual-ur5-body) .feature-card p,
+  body:not(.dual-ur5-body) .future-paper-card p,
+  body:not(.dual-ur5-body) .publication-card p,
+  body:not(.dual-ur5-body) .stack-card p,
+  body:not(.dual-ur5-body) .media-card p {
+    font-size: 0.92rem;
+    line-height: 1.62;
+  }
+
+  body:not(.dual-ur5-body) .content-card h3,
+  body:not(.dual-ur5-body) .project-card h3,
+  body:not(.dual-ur5-body) .feature-card h3,
+  body:not(.dual-ur5-body) .future-paper-card h3,
+  body:not(.dual-ur5-body) .publication-card h3,
+  body:not(.dual-ur5-body) .stack-card h3,
+  body:not(.dual-ur5-body) .media-card h3 {
+    font-size: 1.13rem;
+    line-height: 1.28;
+  }
+
+  body:not(.dual-ur5-body) .tag-list span,
+  body:not(.dual-ur5-body) .project-meta-pill,
+  body:not(.dual-ur5-body) .system-entry-focus-tags span,
+  body:not(.dual-ur5-body) .vla-entry-focus-tags span,
+  body:not(.dual-ur5-body) .button,
+  body:not(.dual-ur5-body) .action-link {
+    min-height: 34px;
+    padding-inline: 12px;
+    font-size: 0.86rem;
+  }
+
+  body:not(.dual-ur5-body) .media-card img,
+  body:not(.dual-ur5-body) .media-card video,
+  body:not(.dual-ur5-body) .media-motion {
+    max-height: none;
+    aspect-ratio: 16 / 10;
+  }
+}
+
+@media (max-width: 430px) {
+  body:not(.dual-ur5-body) .page-shell {
+    padding-inline: 8px;
+  }
+
+  body:not(.dual-ur5-body) .section {
+    padding: 14px;
+  }
+
+  body:not(.dual-ur5-body) .hero-copy,
+  body:not(.dual-ur5-body) .hero-card,
+  body:not(.dual-ur5-body) .content-card,
+  body:not(.dual-ur5-body) .project-card,
+  body:not(.dual-ur5-body) .stack-card,
+  body:not(.dual-ur5-body) .timeline-item,
+  body:not(.dual-ur5-body) .publication-card,
+  body:not(.dual-ur5-body) .feature-card,
+  body:not(.dual-ur5-body) .future-paper-card,
+  body:not(.dual-ur5-body) .media-card {
+    padding: 13px;
+  }
+
+  body:not(.dual-ur5-body) .hero-facts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
