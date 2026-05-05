@@ -3075,13 +3075,20 @@ ul {
   font-size: 0.84rem;
 }
 
-/* Mobile hamburger menu wrapper — passes children through to parent layout */
+/* Mobile hamburger menu wrapper — desktop: passes children through */
 .mobile-menu {
   display: contents;
 }
 
 .menu-toggle-icon {
   display: none;
+}
+
+/* Desktop only: override <details> UA styles to always show nav */
+@media (min-width: 901px) {
+  .mobile-menu:not([open]) > .site-nav {
+    display: flex;
+  }
 }
 
 .header-tools {
