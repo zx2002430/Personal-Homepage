@@ -13592,88 +13592,36 @@ ul {
     background: rgba(11, 110, 79, 0.08);
   }
 
-  /* ── Research Directions dropdown ── */
+  /* ── Research Directions: hide summary, show items directly ── */
   body:not(.dual-ur5-body) .nav-dropdown {
-    position: relative;
-    flex-shrink: 0;
-    border-radius: 10px;
+    display: contents;
   }
 
   body:not(.dual-ur5-body) .nav-dropdown > summary {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    min-height: 36px;
-    padding: 0 12px;
-    font-size: 0.78rem;
-    font-weight: 500;
-    color: var(--text, #2d3a3f);
-    border-radius: 10px;
-    cursor: pointer;
-    list-style: none;
-    white-space: nowrap;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  body:not(.dual-ur5-body) .nav-dropdown > summary::-webkit-details-marker {
     display: none;
   }
 
-  body:not(.dual-ur5-body) .nav-dropdown > summary::after {
-    content: "▾";
-    font-size: 0.7rem;
-    color: var(--muted, #7a8a8f);
-    transition: transform 0.2s ease;
-  }
-
-  body:not(.dual-ur5-body) .nav-dropdown[open] > summary {
-    color: var(--accent-strong, #0b6e4f);
-    background: rgba(218, 239, 224, 0.55);
-  }
-
-  body:not(.dual-ur5-body) .nav-dropdown[open] > summary::after {
-    transform: rotate(180deg);
-  }
-
-  /* ── Submenu: absolute dropdown below ── */
   body:not(.dual-ur5-body) .nav-dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    display: none;
-    flex-direction: column;
-    gap: 1px;
-    min-width: 160px;
-    margin-top: 4px;
-    padding: 6px;
-    background: rgba(255, 252, 246, 0.98);
-    border-radius: 12px;
-    box-shadow: 0 12px 32px rgba(31, 45, 61, 0.18);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    z-index: 120;
-  }
-
-  body:not(.dual-ur5-body) .nav-dropdown[open] .nav-dropdown-menu {
-    display: flex;
+    display: contents;
   }
 
   body:not(.dual-ur5-body) .nav-dropdown-menu a {
     display: flex;
     align-items: center;
-    min-height: 38px;
+    min-height: 36px;
     padding: 0 12px;
-    font-size: 0.8rem;
-    color: var(--muted, #5a686d);
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--text, #2d3a3f);
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 10px;
     white-space: nowrap;
+    flex-shrink: 0;
     -webkit-tap-highlight-color: transparent;
   }
 
   body:not(.dual-ur5-body) .nav-dropdown-menu a:active {
-    background: rgba(11, 110, 79, 0.06);
-    color: var(--accent-strong, #0b6e4f);
+    background: rgba(11, 110, 79, 0.08);
   }
 
   /* ── Language switch in header row ── */
@@ -14032,16 +13980,6 @@ ul {
     min-height: 34px;
     padding: 0 10px;
     font-size: 0.74rem;
-  }
-
-  body:not(.dual-ur5-body) .nav-dropdown > summary {
-    min-height: 34px;
-    padding: 0 10px;
-    font-size: 0.74rem;
-  }
-
-  body:not(.dual-ur5-body) .nav-dropdown-menu {
-    min-width: 140px;
   }
 
   body:not(.dual-ur5-body) .nav-dropdown-menu a {
