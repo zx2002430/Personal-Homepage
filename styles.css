@@ -14711,18 +14711,15 @@ ul {
 
   /* ── 工程落地 ── */
   .dual-ur5-body .dual-system-architecture { padding: 10px !important; border-radius: 18px !important; }
-  .dual-ur5-body .dual-link-card { padding: 10px !important; border-radius: 18px !important; overflow: visible !important; }
-  .dual-ur5-body .dual-system-diagram { aspect-ratio: auto !important; overflow: hidden !important; min-height: 0 !important; }
-  .dual-ur5-body .dual-control-svg { width: 100% !important; max-width: 100% !important; min-height: 0 !important; height: auto !important; }
-  .dual-ur5-body .dual-mini-flow-svg { width: 100% !important; max-width: 100% !important; min-height: 0 !important; height: auto !important; }
-  .dual-ur5-body .dual-state-flow-svg { width: 100% !important; max-width: 100% !important; min-height: 0 !important; height: auto !important; }
+  .dual-ur5-body .dual-link-card { padding: 10px !important; border-radius: 18px !important; }
+  .dual-ur5-body .dual-system-diagram { aspect-ratio: auto !important; min-height: 0 !important; }
+  .dual-ur5-body .dual-system-diagram { overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; }
+  .dual-ur5-body .dual-link-card { overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; }
+  .dual-ur5-body .dual-control-svg { width: auto !important; max-width: none !important; min-width: 800px !important; height: auto !important; }
+  .dual-ur5-body .dual-mini-flow-svg { width: auto !important; max-width: none !important; min-width: 700px !important; height: auto !important; }
+  .dual-ur5-body .dual-state-flow-svg { width: auto !important; max-width: none !important; min-width: 700px !important; height: auto !important; }
   .dual-ur5-body .dual-link-note { font-size: 0.78rem !important; padding: 8px 10px !important; line-height: 1.55; }
-  .dual-ur5-body .dual-control-svg .dual-svg-main { font-size: 30px !important; }
-  .dual-ur5-body .dual-control-svg .dual-svg-label { font-size: 26px !important; }
-  .dual-ur5-body .dual-control-svg .dual-svg-group-title { font-size: 26px !important; }
-  .dual-ur5-body .dual-mini-flow-svg .dual-svg-main { font-size: 26px !important; }
-  .dual-ur5-body .dual-mini-flow-svg .dual-svg-label { font-size: 22px !important; }
-  .dual-ur5-body .dual-mini-flow-svg .dual-svg-topic { font-size: 24px !important; }
+  
   .dual-ur5-body .dual-branch-grid { grid-template-columns: 1fr; gap: 8px; }
   .dual-ur5-body .dual-branch-card { padding: 14px; border-radius: 16px; }
   .dual-ur5-body .dual-branch-card h3 { font-size: 0.95rem; }
