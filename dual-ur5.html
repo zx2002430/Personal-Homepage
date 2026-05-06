@@ -473,6 +473,31 @@
               <path d="M708 813 C924 790 1012 700 1012 570 C1012 430 868 336 694 258" class="dual-svg-line"/>
               <text x="726" y="752" class="dual-svg-label">/right_arm_controller/joint_trajectory</text>
             </svg>
+            <div class="dual-mobile-chain dual-mobile-control-chain">
+              <div class="dmc-flow">
+                <div class="dmc-node">真实双臂 UR5 硬件</div>
+                <div class="dmc-arrow-row">
+                  <div class="dmc-labels">
+                    <span class="dmc-label-down">Joint States / 反馈</span>
+                    <span class="dmc-label-up">位置执行</span>
+                  </div>
+                </div>
+                <div class="dmc-node">ROS 2 Driver</div>
+                <div class="dmc-arrow-row"><span class="dmc-label">/joint_states</span></div>
+                <div class="dmc-node dmc-node-rl">RL 控制节点</div>
+                <div class="dmc-arrow-row"><span class="dmc-label">构建观测向量</span></div>
+                <div class="dmc-node dmc-node-rl">PPO 策略网络</div>
+                <div class="dmc-arrow-row"><span class="dmc-label">Action</span></div>
+                <div class="dmc-node">积分 / 位置增量映射</div>
+                <div class="dmc-arrow-row"><span class="dmc-label">平滑位置指令</span></div>
+                <div class="dmc-node">安全状态机</div>
+                <div class="dmc-arrow-row"></div>
+                <div class="dmc-fork dual-fork">
+                  <span class="dmc-fork-label">/left_arm_controller/joint_trajectory</span>
+                  <span class="dmc-fork-label">/right_arm_controller/joint_trajectory</span>
+                </div>
+              </div>
+            </div>
           </div>
           <p class="dual-link-note">
             控制链路展示从真实双臂 UR5 的 joint states 反馈，到 Python RL 控制节点构建观测、PPO 推理、动作增量映射，再经安全状态机发布左右臂 JointTrajectory 指令的闭环过程。
@@ -518,6 +543,20 @@
               <rect x="350" y="556" width="300" height="58" rx="9" class="dual-svg-node"/>
               <text x="500" y="592" text-anchor="middle" class="dual-svg-main">/detected_objects_3d</text>
             </svg>
+            <div class="dual-mobile-chain dual-mobile-perception-chain">
+              <div class="dmc-flow">
+                <div class="dmc-node">Angstrong RGB-D 相机</div>
+                <div class="dmc-arrow-row"></div>
+                <div class="dmc-node">ascamera 驱动</div>
+                <div class="dmc-arrow-row dmc-arrow-double">
+                  <span class="dmc-label-topic">/rgb0/image</span>
+                  <span class="dmc-label-topic">/depth0/image_raw</span>
+                </div>
+                <div class="dmc-node">yolo_detector</div>
+                <div class="dmc-arrow-row"></div>
+                <div class="dmc-node">/detected_objects_3d</div>
+              </div>
+            </div>
             <p class="dual-link-note">
               感知链路说明 RGB-D 数据从相机驱动发布到 ROS 2 topic，RGB 图像与深度图共同进入检测节点，后续可输出 3D 目标消息，为抓取目标定位和视觉闭环预留接口。
             </p>
