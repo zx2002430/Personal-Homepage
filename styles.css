@@ -14762,7 +14762,7 @@ ul {
   }
 }
 
-/* Dual_Arm_UR5 link-diagram readability fix */
+/* Dual_Arm_UR5 SVG link-diagram readability fix */
 .dual-control-svg,
 .dual-mini-flow-svg {
   text-rendering: geometricPrecision;
@@ -14801,21 +14801,10 @@ ul {
   stroke: rgba(255, 255, 214, 0.9);
 }
 
-.dual-mobile-link-flow {
-  display: none;
-}
-
 @media (max-width: 680px) {
   .dual-ur5-body .dual-system-architecture,
   .dual-ur5-body .dual-link-card {
     overflow: visible !important;
-  }
-
-  .dual-ur5-body .dual-system-diagram {
-    min-height: 0 !important;
-    padding: 8px !important;
-    overflow: visible !important;
-    border-radius: 14px !important;
   }
 
   .dual-ur5-body .dual-system-head {
@@ -14831,118 +14820,46 @@ ul {
     line-height: 1.25 !important;
   }
 
+  .dual-ur5-body .dual-system-diagram {
+    min-height: 0 !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    border-radius: 14px !important;
+  }
+
+  .dual-ur5-body .dual-link-svg-scroll {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    border-radius: 14px !important;
+  }
+
   .dual-ur5-body .dual-control-svg,
   .dual-ur5-body .dual-mini-flow-svg,
   .dual-ur5-body .dual-state-flow-svg {
-    display: none !important;
+    display: block !important;
+    width: auto !important;
+    max-width: none !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 10px !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
   }
 
-  .dual-ur5-body .dual-mobile-link-flow {
-    display: grid;
-    gap: 8px;
-    width: 100%;
-    margin: 0;
+  .dual-ur5-body .dual-control-svg {
+    min-width: 760px !important;
+    aspect-ratio: 4 / 3;
   }
 
-  .dual-ur5-body .dual-mobile-link-node,
-  .dual-ur5-body .dual-mobile-link-branch {
-    position: relative;
-    display: grid;
-    gap: 4px;
-    min-width: 0;
-    padding: 10px 12px;
-    border: 1px solid rgba(121, 91, 255, 0.36);
-    border-radius: 8px;
-    color: #17262d;
-    background: linear-gradient(180deg, rgba(246, 242, 255, 0.96), rgba(238, 250, 247, 0.92));
-    box-shadow: 0 10px 24px rgba(33, 68, 76, 0.08);
+  .dual-ur5-body .dual-mini-flow-svg {
+    min-width: 680px !important;
+    aspect-ratio: 1000 / 640;
   }
 
-  .dual-ur5-body .dual-mobile-link-node span,
-  .dual-ur5-body .dual-mobile-link-branch span {
-    color: #087457;
-    font-size: 0.68rem;
-    font-weight: 900;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .dual-ur5-body .dual-mobile-link-node strong,
-  .dual-ur5-body .dual-mobile-link-branch strong {
-    color: #17242b;
-    font-size: 0.95rem;
-    line-height: 1.32;
-    overflow-wrap: anywhere;
-  }
-
-  .dual-ur5-body .dual-mobile-link-node em {
-    color: #53646b;
-    font-size: 0.78rem;
-    font-style: normal;
-    line-height: 1.45;
-    overflow-wrap: anywhere;
-  }
-
-  .dual-ur5-body .dual-mobile-link-edge {
-    position: relative;
-    min-height: 28px;
-    display: grid;
-    place-items: center;
-    color: #36505a;
-    font-size: 0.72rem;
-    font-weight: 800;
-    line-height: 1.35;
-    text-align: center;
-    text-shadow: 0 0 6px #fff, 0 0 12px #fff;
-  }
-
-  .dual-ur5-body .dual-mobile-link-edge::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    width: 2px;
-    transform: translateX(-50%);
-    background: linear-gradient(180deg, rgba(32, 50, 56, 0.18), rgba(32, 50, 56, 0.62));
-  }
-
-  .dual-ur5-body .dual-mobile-link-edge::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 0;
-    transform: translateX(-50%);
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 8px solid #203238;
-  }
-
-  .dual-ur5-body .dual-mobile-link-edge {
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.88), transparent);
-  }
-
-  .dual-ur5-body .dual-mobile-link-edge > *,
-  .dual-ur5-body .dual-mobile-link-edge {
-    z-index: 1;
-  }
-
-  .dual-ur5-body .dual-mobile-link-split {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
-
-  .dual-ur5-body .dual-mobile-link-branch {
-    border-color: rgba(11, 110, 79, 0.28);
-    background: linear-gradient(180deg, rgba(255, 255, 246, 0.98), rgba(235, 250, 244, 0.94));
-  }
-
-  .dual-ur5-body .dual-mobile-link-branch span {
-    color: #4e626a;
-    letter-spacing: 0;
-    text-transform: none;
+  .dual-ur5-body .dual-state-flow-svg {
+    min-width: 680px !important;
+    aspect-ratio: 1000 / 1180;
   }
 }

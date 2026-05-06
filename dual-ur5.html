@@ -473,43 +473,6 @@
               <path d="M708 813 C924 790 1012 700 1012 570 C1012 430 868 336 694 258" class="dual-svg-line"/>
               <text x="726" y="752" class="dual-svg-label">/right_arm_controller/joint_trajectory</text>
             </svg>
-            <div class="dual-mobile-link-flow" aria-label="移动端控制链路">
-              <div class="dual-mobile-link-node">
-                <span>Real Robot</span>
-                <strong>真实双臂 UR5 硬件</strong>
-                <em>发布 joint states，执行位置指令</em>
-              </div>
-              <div class="dual-mobile-link-edge">/joint_states 反馈</div>
-              <div class="dual-mobile-link-node">
-                <span>ROS 2</span>
-                <strong>ROS 2 Driver</strong>
-                <em>连接真实控制器与上层策略节点</em>
-              </div>
-              <div class="dual-mobile-link-edge">状态进入 Python 控制节点</div>
-              <div class="dual-mobile-link-node">
-                <span>RL Node</span>
-                <strong>构建观测向量</strong>
-                <em>关节状态、速度、末端相对目标组成 30D state</em>
-              </div>
-              <div class="dual-mobile-link-edge">20 Hz 推理</div>
-              <div class="dual-mobile-link-node">
-                <span>Policy</span>
-                <strong>PPO 策略网络</strong>
-                <em>输出 12D 有界关节增量 action</em>
-              </div>
-              <div class="dual-mobile-link-edge">积分 / 限幅 / 平滑</div>
-              <div class="dual-mobile-link-node">
-                <span>Safety</span>
-                <strong>安全状态机</strong>
-                <em>归位检查、异常恢复、轨迹发布保护</em>
-              </div>
-              <div class="dual-mobile-link-edge">JointTrajectory 指令</div>
-              <div class="dual-mobile-link-node">
-                <span>Controllers</span>
-                <strong>左右臂控制器</strong>
-                <em>/left_arm_controller 与 /right_arm_controller</em>
-              </div>
-            </div>
           </div>
           <p class="dual-link-note">
             控制链路展示从真实双臂 UR5 的 joint states 反馈，到 Python RL 控制节点构建观测、PPO 推理、动作增量映射，再经安全状态机发布左右臂 JointTrajectory 指令的闭环过程。
@@ -522,6 +485,7 @@
               <span>Perception Chain</span>
               <strong>感知链路</strong>
             </div>
+            <div class="dual-link-svg-scroll">
             <svg class="dual-mini-flow-svg" viewBox="0 0 1000 640" role="img" aria-labelledby="dual-perception-title">
               <title id="dual-perception-title">Angstrong RGB-D 相机、ascamera 驱动、RGB / depth topic 与 YOLO 检测输出链路</title>
               <defs>
@@ -555,42 +519,6 @@
               <rect x="350" y="556" width="300" height="58" rx="9" class="dual-svg-node"/>
               <text x="500" y="592" text-anchor="middle" class="dual-svg-main">/detected_objects_3d</text>
             </svg>
-            <div class="dual-mobile-link-flow" aria-label="移动端感知链路">
-              <div class="dual-mobile-link-node">
-                <span>Camera</span>
-                <strong>Angstrong RGB-D 相机</strong>
-                <em>同步提供 RGB 与 depth 数据</em>
-              </div>
-              <div class="dual-mobile-link-edge">相机驱动发布 ROS 2 topic</div>
-              <div class="dual-mobile-link-node">
-                <span>Driver</span>
-                <strong>ascamera 驱动</strong>
-                <em>输出图像流与深度流</em>
-              </div>
-              <div class="dual-mobile-link-split">
-                <div class="dual-mobile-link-node">
-                  <span>RGB</span>
-                  <strong>/rgb0/image</strong>
-                  <em>/ascamera/camera_publisher</em>
-                </div>
-                <div class="dual-mobile-link-node">
-                  <span>Depth</span>
-                  <strong>/depth0/image_raw</strong>
-                  <em>/ascamera/camera_publisher</em>
-                </div>
-              </div>
-              <div class="dual-mobile-link-edge">RGB + depth 融合进入检测节点</div>
-              <div class="dual-mobile-link-node">
-                <span>Detector</span>
-                <strong>yolo_detector</strong>
-                <em>检测目标并保留 3D 定位接口</em>
-              </div>
-              <div class="dual-mobile-link-edge">输出目标消息</div>
-              <div class="dual-mobile-link-node">
-                <span>Output</span>
-                <strong>/detected_objects_3d</strong>
-                <em>供后续抓取定位和视觉闭环使用</em>
-              </div>
             </div>
             <p class="dual-link-note">
               感知链路说明 RGB-D 数据从相机驱动发布到 ROS 2 topic，RGB 图像与深度图共同进入检测节点，后续可输出 3D 目标消息，为抓取目标定位和视觉闭环预留接口。
@@ -602,6 +530,7 @@
               <span>Safety FSM</span>
               <strong>程序状态机</strong>
             </div>
+            <div class="dual-link-svg-scroll">
             <svg class="dual-mini-flow-svg dual-state-flow-svg" viewBox="0 0 1000 1180" role="img" aria-labelledby="dual-state-machine-title">
               <title id="dual-state-machine-title">Dual_Arm_UR5 从启动、初始化、归位、AI_RUNNING 到 FINISHED 的安全状态机</title>
               <defs>
@@ -643,44 +572,6 @@
               <rect x="390" y="1112" width="220" height="58" rx="9" class="dual-svg-node"/>
               <text x="500" y="1148" text-anchor="middle" class="dual-svg-main">FINISHED</text>
             </svg>
-            <div class="dual-mobile-link-flow" aria-label="移动端程序状态机">
-              <div class="dual-mobile-link-node">
-                <span>Start</span>
-                <strong>启动程序</strong>
-                <em>加载控制节点与运行配置</em>
-              </div>
-              <div class="dual-mobile-link-edge">进入初始化</div>
-              <div class="dual-mobile-link-node">
-                <span>INIT</span>
-                <strong>建立通信</strong>
-                <em>等待 joint states 与控制器就绪</em>
-              </div>
-              <div class="dual-mobile-link-edge">归位</div>
-              <div class="dual-mobile-link-node">
-                <span>MOVING_HOME</span>
-                <strong>回归初始位姿</strong>
-                <em>持续检查关节误差</em>
-              </div>
-              <div class="dual-mobile-link-branch">
-                <strong>误差 &lt; 0.05 rad?</strong>
-                <span>No：继续归位检查</span>
-                <span>Yes：进入策略运行</span>
-              </div>
-              <div class="dual-mobile-link-node">
-                <span>AI_RUNNING</span>
-                <strong>PPO 推理</strong>
-                <em>20 Hz 策略输出，控制层执行轨迹</em>
-              </div>
-              <div class="dual-mobile-link-branch">
-                <strong>单轮时长达到上限?</strong>
-                <span>No：继续本轮推理</span>
-                <span>Yes：结束任务</span>
-              </div>
-              <div class="dual-mobile-link-node">
-                <span>Finish</span>
-                <strong>FINISHED</strong>
-                <em>停止本轮部署流程</em>
-              </div>
             </div>
             <p class="dual-link-note">
               状态机链路说明真机部署不是直接运行策略，而是先完成通信建立、关节状态等待和归位检查；只有误差满足阈值后才进入 AI_RUNNING，执行过程中继续检查单轮时长和终止条件。
