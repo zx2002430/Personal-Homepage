@@ -67,21 +67,6 @@
     }, 250);
   }
 
-  const centerMobileLinkDiagrams = () => {
-    if (window.innerWidth > 680) {
-      return;
-    }
-
-    document.querySelectorAll(".dual-state-svg-scroll").forEach((item) => {
-      if (item.scrollWidth > item.clientWidth) {
-        item.scrollLeft = (item.scrollWidth - item.clientWidth) / 2;
-      }
-    });
-  };
-
-  window.setTimeout(centerMobileLinkDiagrams, 300);
-  window.addEventListener("resize", centerMobileLinkDiagrams);
-
   const overviewBoard = document.querySelector(".dual-overview-board");
   if (overviewBoard) {
     const overviewCards = Array.from(overviewBoard.querySelectorAll(".dual-overview-card"));

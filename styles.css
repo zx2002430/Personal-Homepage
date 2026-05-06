@@ -14800,11 +14800,6 @@ ul {
     border-radius: 14px !important;
   }
 
-  .dual-ur5-body .dual-state-svg-scroll {
-    overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch !important;
-  }
-
   .dual-ur5-body .dual-control-svg,
   .dual-ur5-body .dual-mini-flow-svg {
     display: block !important;
@@ -14827,9 +14822,6 @@ ul {
   }
 
   .dual-ur5-body .dual-state-flow-svg {
-    width: auto !important;
-    max-width: none !important;
-    min-width: 680px !important;
     aspect-ratio: 1000 / 1180;
   }
 }
