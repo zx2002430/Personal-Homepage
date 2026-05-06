@@ -72,7 +72,7 @@
       return;
     }
 
-    document.querySelectorAll(".dual-system-diagram, .dual-link-svg-scroll").forEach((item) => {
+    document.querySelectorAll(".dual-state-svg-scroll").forEach((item) => {
       if (item.scrollWidth > item.clientWidth) {
         item.scrollLeft = (item.scrollWidth - item.clientWidth) / 2;
       }

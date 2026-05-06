@@ -14768,39 +14768,6 @@ ul {
   text-rendering: geometricPrecision;
 }
 
-.dual-svg-line,
-.dual-svg-perception-line,
-.dual-svg-state-line {
-  animation: none !important;
-}
-
-.dual-system-architecture:hover,
-.dual-link-card:hover {
-  transform: none !important;
-}
-
-.dual-system-architecture:hover .dual-svg-line,
-.dual-link-card:hover .dual-svg-line,
-.dual-link-card:hover .dual-svg-perception-line,
-.dual-link-card:hover .dual-svg-state-line {
-  filter: none !important;
-  stroke-width: 2.1 !important;
-}
-
-.dual-svg-main,
-.dual-svg-group-title,
-.dual-svg-label,
-.dual-svg-topic {
-  paint-order: stroke fill;
-  stroke: rgba(255, 255, 255, 0.86);
-  stroke-width: 4px;
-  stroke-linejoin: round;
-}
-
-.dual-svg-group-title {
-  stroke: rgba(255, 255, 214, 0.9);
-}
-
 @media (max-width: 680px) {
   .dual-ur5-body .dual-system-architecture,
   .dual-ur5-body .dual-link-card {
@@ -14822,26 +14789,29 @@ ul {
 
   .dual-ur5-body .dual-system-diagram {
     min-height: 0 !important;
-    overflow-x: auto !important;
+    overflow-x: hidden !important;
     overflow-y: hidden !important;
-    -webkit-overflow-scrolling: touch !important;
     border-radius: 14px !important;
   }
 
   .dual-ur5-body .dual-link-svg-scroll {
-    overflow-x: auto !important;
+    overflow-x: hidden !important;
     overflow-y: hidden !important;
-    -webkit-overflow-scrolling: touch !important;
     border-radius: 14px !important;
   }
 
+  .dual-ur5-body .dual-state-svg-scroll {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
   .dual-ur5-body .dual-control-svg,
-  .dual-ur5-body .dual-mini-flow-svg,
-  .dual-ur5-body .dual-state-flow-svg {
+  .dual-ur5-body .dual-mini-flow-svg {
     display: block !important;
-    width: auto !important;
-    max-width: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
     height: auto !important;
+    min-width: 0 !important;
     min-height: 0 !important;
     padding: 10px !important;
     box-sizing: border-box !important;
@@ -14849,16 +14819,16 @@ ul {
   }
 
   .dual-ur5-body .dual-control-svg {
-    min-width: 760px !important;
     aspect-ratio: 4 / 3;
   }
 
   .dual-ur5-body .dual-mini-flow-svg {
-    min-width: 680px !important;
     aspect-ratio: 1000 / 640;
   }
 
   .dual-ur5-body .dual-state-flow-svg {
+    width: auto !important;
+    max-width: none !important;
     min-width: 680px !important;
     aspect-ratio: 1000 / 1180;
   }
