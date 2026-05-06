@@ -11283,48 +11283,6 @@ ul {
   .dual-training-media figure, .dual-training-media figure:nth-child(3) { min-height: 260px !important; }
 }
 
-@media (max-width: 520px) {
-  /* 缩小容器内边距，给 SVG 更多展示空间 */
-  .dual-system-architecture {
-    padding: 10px !important;
-    border-radius: 18px !important;
-  }
-  .dual-link-card {
-    padding: 10px !important;
-    border-radius: 18px !important;
-  }
-
-  /* 三个链路图统一自适应缩放，与第三个状态机链路保持一致 */
-  .dual-system-diagram {
-    overflow: hidden !important;
-  }
-  .dual-control-svg {
-    width: 100% !important;
-    max-width: none !important;
-    min-height: 0 !important;
-    height: auto !important;
-  }
-  .dual-link-card {
-    overflow: visible !important;
-  }
-  .dual-mini-flow-svg {
-    width: 100% !important;
-    max-width: none !important;
-    min-height: 0 !important;
-    height: auto !important;
-  }
-  .dual-state-flow-svg {
-    width: 100% !important;
-    height: auto !important;
-  }
-
-  /* 说明文字也适当缩小 */
-  .dual-link-note {
-    font-size: 0.88rem !important;
-    padding: 10px 12px !important;
-  }
-}
-
 /* Dual_Arm_UR5 stack and overview-board final styling */
 .dual-stack-subhead {
   display: grid;
@@ -14647,5 +14605,53 @@ ul {
   body:not(.dual-ur5-body) .feature-links a {
     min-height: 40px;
     font-size: 0.82rem;
+  }
+}
+
+/* ===== Dual UR5 手机端最终覆盖 — 三个链路图统一自适应 ===== */
+@media (max-width: 520px) {
+  .dual-ur5-body .dual-system-architecture {
+    padding: 10px !important;
+    border-radius: 18px !important;
+  }
+  .dual-ur5-body .dual-link-card {
+    padding: 10px !important;
+    border-radius: 18px !important;
+    overflow: visible !important;
+  }
+
+  /* 控制链路 — 自适应缩放 */
+  .dual-ur5-body .dual-system-diagram {
+    aspect-ratio: auto !important;
+    overflow: hidden !important;
+    min-height: 0 !important;
+  }
+  .dual-ur5-body .dual-control-svg {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 0 !important;
+    height: auto !important;
+  }
+
+  /* 感知链路 — 自适应缩放 */
+  .dual-ur5-body .dual-mini-flow-svg {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 0 !important;
+    height: auto !important;
+  }
+
+  /* 状态机链路 — 自适应缩放 */
+  .dual-ur5-body .dual-state-flow-svg {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 0 !important;
+    height: auto !important;
+  }
+
+  /* 说明文字缩小 */
+  .dual-ur5-body .dual-link-note {
+    font-size: 0.85rem !important;
+    padding: 8px 10px !important;
   }
 }
