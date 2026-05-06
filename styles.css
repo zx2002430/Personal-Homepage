@@ -11283,20 +11283,53 @@ ul {
   .dual-training-media figure, .dual-training-media figure:nth-child(3) { min-height: 260px !important; }
 }
 
-@media (max-width: 480px) {
-  /* 控制链路 SVG — 增大字体使缩放到手机宽度后可读 */
-  .dual-control-svg .dual-svg-main { font-size: 52px !important; }
-  .dual-control-svg .dual-svg-label { font-size: 38px !important; }
-  .dual-control-svg .dual-svg-group-title { font-size: 34px !important; }
+@media (max-width: 520px) {
+  /* 缩小容器内边距，给 SVG 更多展示空间 */
+  .dual-system-architecture {
+    padding: 10px !important;
+    border-radius: 18px !important;
+  }
+  .dual-link-card {
+    padding: 10px !important;
+    border-radius: 18px !important;
+  }
 
-  /* 感知链路 SVG */
-  .dual-mini-flow-svg .dual-svg-main { font-size: 42px !important; }
-  .dual-mini-flow-svg .dual-svg-label { font-size: 32px !important; }
-  .dual-mini-flow-svg .dual-svg-topic { font-size: 30px !important; }
+  /* 控制链路 — 固定宽度水平滚动，保证可读高度 */
+  .dual-system-diagram {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: thin !important;
+  }
+  .dual-control-svg {
+    width: 620px !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    height: 420px !important;
+  }
 
-  /* 程序状态机 — 增加垂直间距以避免文字重叠 */
-  .dual-state-flow-svg .dual-svg-node {
-    rx: 8px !important;
+  /* 感知链路 — 固定宽度水平滚动 */
+  .dual-link-card {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: thin !important;
+  }
+  .dual-mini-flow-svg {
+    width: 560px !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    height: 340px !important;
+  }
+
+  /* 状态机链路 — 保持自适应（它是竖长的，手机宽高比合适） */
+  .dual-state-flow-svg {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* 说明文字也适当缩小 */
+  .dual-link-note {
+    font-size: 0.88rem !important;
+    padding: 10px 12px !important;
   }
 }
 
