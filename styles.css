@@ -14644,7 +14644,10 @@ ul {
 
   /* ── 总览区 ── */
   .dual-ur5-body .dual-overview-board { padding: 12px; border-radius: 20px; gap: 10px; }
-  .dual-ur5-body .dual-overview-title span { font-size: clamp(1.2rem, 5.5vw, 1.5rem); }
+  .dual-ur5-body .dual-overview-board { opacity: 1 !important; transform: none !important; }
+  .dual-ur5-body .dual-overview-board * { opacity: 1 !important; }
+  .dual-ur5-body .dual-overview-title { grid-template-columns: 1fr !important; gap: 6px !important; }
+  .dual-ur5-body .dual-overview-title span { font-size: clamp(1.2rem, 5.5vw, 1.5rem); width: auto; max-width: 100%; }
   .dual-ur5-body .dual-overview-title strong { font-size: clamp(1.1rem, 5vw, 1.4rem); }
   .dual-ur5-body .dual-overview-card { padding: 12px; border-radius: 18px; }
   .dual-ur5-body .dual-overview-card h3 { font-size: 1rem; }
@@ -14663,7 +14666,6 @@ ul {
   .dual-ur5-body .dual-overview-lightline { display: none; }
   .dual-ur5-body .dual-overview-summary p { font-size: 0.82rem; }
   .dual-ur5-body .dual-overview-summary div span { font-size: 0.72rem; padding: 4px 8px; }
-
   /* ── 技术栈 ── */
   .dual-ur5-body .dual-skill-matrix { grid-template-columns: 1fr; gap: 10px; }
   .dual-ur5-body .dual-skill-matrix article { padding: 14px; border-radius: 16px; }
