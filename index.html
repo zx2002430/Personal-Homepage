@@ -2,631 +2,141 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>赵汛 | 湖北大学个人研究主页</title>
-  <meta name="theme-color" content="#f4efe6">
-  <meta name="color-scheme" content="light">
-  <meta
-    id="meta-description"
-    name="description"
-    content="湖北大学赵汛的个人研究主页，聚焦 VLA、具身智能、强化学习与机械臂操作。"
-  >
-  <link id="canonical-link" rel="canonical" href="https://zx2002430.github.io/Personal-Homepage/">
-  <meta id="og-title" property="og:title" content="赵汛 | 湖北大学个人研究主页">
-  <meta id="og-description" property="og:description" content="湖北大学赵汛的个人研究主页，聚焦 VLA、具身智能、强化学习与机械臂操作。">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-en="Xun Zhao | Robot Learning &amp; Embodied AI">赵汛 | 机器人学习与具身智能</title>
+  <meta name="description" content="湖北大学 EILab 研究生赵汛的个人主页。研究 VLA 高效适配、双臂元多智能体强化学习与真实机器人部署；两篇论文 AAMAS 在投。" data-content-en="Xun Zhao, graduate student at Hubei University and EILab. Research in efficient VLA adaptation, dual-arm meta multi-agent reinforcement learning, and physical robot deployment. Two manuscripts under review at AAMAS.">
+  <meta name="theme-color" content="#f6f3ed">
+  <link rel="canonical" href="https://zx2002430.github.io/Personal-Homepage/">
   <meta property="og:type" content="website">
-  <meta id="og-url" property="og:url" content="https://zx2002430.github.io/Personal-Homepage/">
-  <meta property="og:site_name" content="Xun Zhao Personal Homepage">
-  <meta id="og-locale" property="og:locale" content="zh_CN">
+  <meta property="og:title" content="赵汛 | 机器人学习与具身智能" data-content-en="Xun Zhao | Robot Learning &amp; Embodied AI">
+  <meta property="og:description" content="VLA 高效适配 · 双臂 Meta-MARL · Sim-to-Real" data-content-en="Efficient VLA adaptation · Dual-arm Meta-MARL · Sim-to-Real">
+  <meta property="og:url" content="https://zx2002430.github.io/Personal-Homepage/">
+  <meta property="og:image" content="https://zx2002430.github.io/Personal-Homepage/assets/images/homepage-social.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="赵汛 Xun Zhao：机器人学习与具身智能">
+  <meta property="og:locale" content="zh_CN" id="og-locale">
   <meta name="twitter:card" content="summary_large_image">
-  <meta id="twitter-title" name="twitter:title" content="赵汛 | 湖北大学个人研究主页">
-  <meta id="twitter-description" name="twitter:description" content="湖北大学赵汛的个人研究主页，聚焦 VLA、具身智能、强化学习与机械臂操作。">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Source+Serif+4:wght@400;600;700&display=swap"
-    rel="stylesheet"
-  >
+  <meta name="twitter:title" content="赵汛 | 机器人学习与具身智能" data-content-en="Xun Zhao | Robot Learning &amp; Embodied AI">
+  <meta name="twitter:description" content="湖北大学 EILab · VLA · 双臂机器人学习" data-content-en="Hubei University · EILab · VLA · Dual-arm robot learning">
+  <meta name="twitter:image" content="https://zx2002430.github.io/Personal-Homepage/assets/images/homepage-social.png">
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-  <link rel="stylesheet" href="styles.css?v=20261002-research-sync">
+  <link rel="stylesheet" href="homepage.css?v=20261002-academic">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Xun Zhao","alternateName":"赵汛","url":"https://zx2002430.github.io/Personal-Homepage/","affiliation":{"@type":"Organization","name":"School of Artificial Intelligence, Hubei University"},"sameAs":["https://github.com/zx2002430"],"knowsAbout":["Vision-Language-Action","Robot Learning","Meta Multi-Agent Reinforcement Learning","Sim-to-Real"]}</script>
+  <script src="script.js?v=20261002-academic" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#main-content" data-i18n="nav.skip">跳转到主要内容</a>
-  <div class="page-shell" id="top">
-    <header class="site-header">
-      <a class="brand" href="#top">Xun Zhao</a>
-      <div class="header-tools">
-        <button class="menu-toggle-icon" aria-label="Toggle navigation menu" type="button">
-          <span class="menu-bar"></span>
-          <span class="menu-bar"></span>
-          <span class="menu-bar"></span>
-        </button>
-        <nav class="site-nav" aria-label="Primary">
-          <a href="#about" data-i18n="nav.about">About</a>
-          <a href="#news" data-i18n="nav.news">News</a>
-          <a href="#future-papers" data-i18n="nav.paperPlans">论文计划</a>
-          <details class="nav-dropdown">
-            <summary data-i18n="nav.directions">Research Directions</summary>
-            <div class="nav-dropdown-menu">
-              <a href="vla-research.html" data-i18n="nav.vla">VLA</a>
-              <a href="dual-ur5.html" data-i18n="nav.simtoreal">Sim-to-Real</a>
-              <a href="smart-agriculture.html" data-i18n="nav.agriculture">智慧农业专题</a>
-            </div>
-          </details>
-          <a href="#projects" data-i18n="nav.projects">Projects</a>
-          <a href="#experience" data-i18n="nav.experience">Experience</a>
-          <a href="#contact" data-i18n="nav.contact">Contact</a>
-        </nav>
-        <div class="lang-switch" role="group" aria-label="Language switch">
-          <button class="lang-button is-active" type="button" data-lang="zh">中文</button>
-          <button class="lang-button" type="button" data-lang="en">EN</button>
+  <a class="skip-link" href="#main-content" data-en="Skip to content">跳转到主要内容</a>
+  <header class="site-header">
+    <a class="brand" href="#top">XUN ZHAO<span class="brand-dot" aria-hidden="true"></span></a>
+    <nav class="site-nav" id="site-nav" aria-label="主导航" data-label-en="Main navigation">
+      <a href="#publications" data-en="Research">精选研究</a>
+      <a href="#news" data-en="Updates">最新动态</a>
+      <a href="#projects" data-en="Systems">系统项目</a>
+      <a href="#experience" data-en="Background">教育与服务</a>
+      <a href="#contact" data-en="Contact">联系</a>
+    </nav>
+    <div class="header-controls">
+      <div class="lang-switch" role="group" aria-label="语言切换" data-label-en="Language switch">
+        <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="展开导航" data-label-en="Toggle navigation"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="page-shell" id="main-content">
+    <div id="top" class="anchor-alias" aria-hidden="true"></div>
+    <section class="hero" id="about" aria-labelledby="profile-title">
+      <div class="hero-copy">
+        <p class="eyebrow">HUBEI UNIVERSITY <span aria-hidden="true">/</span> EILAB</p>
+        <h1 id="profile-title"><span data-en="Xun Zhao">赵汛</span><span class="name-alternate" data-en="赵汛">Xun Zhao</span></h1>
+        <p class="identity-line" data-en="Graduate student · School of Artificial Intelligence, Hubei University">湖北大学人工智能学院研究生</p>
+        <p class="research-statement" data-en="I study how robot policies adapt efficiently to new tasks and transfer from simulation to physical systems.">研究机器人策略如何高效适应新任务，并从仿真走向真实系统。</p>
+        <p class="profile-text"><span data-en="At ">依托 </span><a href="https://eilab-wanghong.eu.cc/" target="_blank" rel="noopener noreferrer">EILab</a><span data-en=", my work spans efficient vision-language-action adaptation, dual-arm meta multi-agent reinforcement learning, and physical robot deployment.">，围绕视觉-语言-动作模型的高效适配、双臂元多智能体强化学习与真机部署开展研究。</span></p>
+        <div class="profile-links">
+          <a href="mailto:zhaoxun@stu.hubu.edu.cn" data-en="Email ↗">邮箱 ↗</a>
+          <a href="https://github.com/zx2002430" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a href="https://eilab-wanghong.eu.cc/" target="_blank" rel="noopener noreferrer" data-en="EILab ↗">实验室 ↗</a>
+          <span class="reserved-link" aria-disabled="true" data-en="CV · forthcoming">CV · 待补充</span>
         </div>
       </div>
-    </header>
-
-    <section class="page-trail page-trail-home" aria-label="Breadcrumb">
-      <span data-i18n="trail.homeLabel">首页</span>
-      <strong data-i18n="trail.homeCurrent">个人研究主页</strong>
+      <div class="portrait-slot" role="img" aria-label="个人照片预留位置" data-label-en="Reserved space for a personal photo"></div>
     </section>
 
-    <main id="main-content">
-      <section class="hero section">
-        <div class="hero-copy">
-          <p class="eyebrow" data-i18n="hero.eyebrow">Academic Homepage</p>
-          <h1>赵汛</h1>
-          <p class="hero-subtitle" data-i18n="hero.subtitle">
-            湖北大学人工智能学院研究生｜研究方向：VLA、具身智能、强化学习与机械臂控制
-          </p>
-          <p class="hero-text" data-i18n-html="hero.text">
-            我目前在湖北大学人工智能学院开展研究训练，依托 <a href="https://eilab-wanghong.eu.cc/" target="_blank" rel="noopener noreferrer">EILab</a>，主要关注视觉语言行动模型、具身智能与强化学习机械臂控制。当前工作集中于双臂操作系统、仿真到真实部署，以及面向真实场景的感知与控制闭环。
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="#publications" data-i18n="hero.viewResearch">View Publications</a>
-            <a class="button secondary" href="#contact" data-i18n="hero.getInTouch">Get in Touch</a>
-          </div>
-          <ul class="quick-links" aria-label="Profile links">
-            <li><a href="https://eilab-wanghong.eu.cc/" target="_blank" rel="noopener noreferrer" data-i18n="hero.lab">Lab</a></li>
-            <li><a href="https://github.com/zx2002430" target="_blank" rel="noopener noreferrer" data-i18n="hero.github">GitHub</a></li>
-            <li><a href="https://github.com/zx2002430/Personal-Homepage" target="_blank" rel="noopener noreferrer" data-i18n="hero.cv">CV</a></li>
-            <li><a href="mailto:zhaoxun@stu.hubu.edu.cn" data-i18n="hero.email">Email</a></li>
-          </ul>
+    <section class="section research-section" id="publications" aria-labelledby="research-title">
+      <span id="future-papers" class="anchor-alias" aria-hidden="true"></span>
+      <div class="section-heading">
+        <div><p class="eyebrow" data-en="SELECTED RESEARCH">精选研究</p><h2 id="research-title" data-en="Research &amp; Manuscripts">研究成果与在投稿件</h2></div>
+        <p class="section-note" data-en="Two AAMAS submissions · One ongoing study">两篇 AAMAS 在投 · 一项持续研究</p>
+      </div>
+
+      <article class="research-card" id="featured-project" aria-labelledby="dm-title">
+        <div class="research-visual">
+          <a href="dual-ur5.html" aria-label="查看 DM-NAV 研究专题" data-label-en="View the DM-NAV research page"><img class="robot-photo" src="assets/images/dm-nav/platform.jpeg" width="1958" height="1543" fetchpriority="high" alt="DM-NAV 双 UR5 平台与动态障碍物装置" data-alt-en="DM-NAV dual-UR5 platform and dynamic obstacle apparatus"></a>
+          <span class="visual-caption" data-en="PHYSICAL DUAL-UR5 PLATFORM">真实双 UR5 实验平台</span>
         </div>
-
-        <aside class="hero-card">
-          <div class="avatar" aria-hidden="true">ZX</div>
-          <div class="identity">
-            <h2>Xun Zhao</h2>
-            <p data-i18n="hero.identityRole">Graduate Student, EILab</p>
-            <p data-i18n="hero.identitySchool">School of Artificial Intelligence, Hubei University</p>
-          </div>
-          <dl class="hero-facts">
-            <div>
-              <dt data-i18n="hero.focusLabel">Focus</dt>
-              <dd data-i18n="hero.focusValue">VLA / Embodied AI / RL Manipulation</dd>
-            </div>
-            <div>
-              <dt data-i18n="hero.nowLabel">Now</dt>
-              <dd data-i18n="hero.nowValue">Studying Embodied Agents and Robot Learning</dd>
-            </div>
-            <div>
-              <dt data-i18n="hero.locationLabel">Based In</dt>
-              <dd data-i18n="hero.locationValue">Wuhan, China</dd>
-            </div>
-          </dl>
-        </aside>
-      </section>
-
-      <section class="section about-grid" id="about">
-        <div class="section-heading">
-          <p class="eyebrow" data-i18n="about.eyebrow">About</p>
-          <h2 data-i18n="about.title">Research Profile</h2>
+        <div class="research-copy">
+          <div class="research-topline"><span class="research-category">01 / META-MARL · SIM-TO-REAL</span><span class="status status-review" data-en="Under review at AAMAS">AAMAS 在投</span></div>
+          <h3 id="dm-title"><a href="dual-ur5.html" data-en="DM-NAV: Deployable Meta Multi-Agent Reinforcement Learning for Dual-Arm Dynamic Obstacle Avoidance">DM-NAV：面向双臂动态避障的可部署元多智能体强化学习</a></h3>
+          <p data-en="Learn a transferable meta-policy, adapt with a small amount of target-task experience, and deploy to physical dual-UR5 robots using RGB-D perception and joint-velocity control.">学习可迁移的元策略，利用少量目标任务经验完成适应，再结合 RGB-D 感知与关节速度控制部署到真实双 UR5。</p>
+          <p class="research-evidence" data-en="Evaluation: six MARL baselines in simulation and 14 physical motion conditions. Results are specific to the manuscript's evaluation settings.">实验覆盖六种 MARL 基线与 14 种物理运动条件；结果对应稿件中的评测设置。</p>
+          <div class="research-links"><a class="link-primary" href="dm-nav-paper.html" data-en="Paper · password required ↗">论文 · 密码访问 ↗</a><a href="dual-ur5.html" data-en="Project page ↗">研究专题 ↗</a><a href="https://github.com/zx2002430/Dual_Arm_UR5" target="_blank" rel="noopener noreferrer" data-en="Code ↗">代码 ↗</a></div>
+          <details class="research-demo"><summary data-en="Watch the platform demo">观看平台演示</summary><video controls playsinline preload="none" poster="assets/images/dual-arm-real-photo.jpg" aria-label="双臂平台实验演示" data-label-en="Dual-arm platform demonstration"><source src="assets/images/dual-ur5-ppt/media1.mp4" type="video/mp4"><span data-en="Your browser cannot play this video.">浏览器无法播放此视频。</span></video><p data-en="An engineering platform demonstration. The DM-NAV project page describes its evaluation protocol and quantitative results.">该视频展示工程平台；DM-NAV 的评测协议与定量结果见研究专题。</p><a href="assets/images/dual-ur5-ppt/media1.mp4" target="_blank" rel="noopener" data-en="Open the video ↗">单独打开视频 ↗</a></details>
         </div>
-        <div class="about-content">
-          <div class="content-card">
-            <p data-i18n-html="about.p1">
-              我的研究围绕 <strong>Vision-Language-Action</strong>、<strong>具身智能</strong> 与 <strong>强化学习和机械臂控制</strong> 展开，重点关注视觉理解、动作生成、策略学习与机器人执行之间的衔接。
-            </p>
-            <p data-i18n="about.p2">
-              目前的工作重点包括双臂操作、多模态感知、语言条件决策，以及 Sim-to-Real 部署。我希望持续积累可复现、可扩展、面向真实系统的研究成果。
-            </p>
-          </div>
-          <div class="content-card">
-            <h3 data-i18n="about.interestsTitle">Research Interests</h3>
-            <ul class="tag-list">
-              <li data-i18n="about.tags.vla">Vision-Language-Action</li>
-              <li data-i18n="about.tags.embodied">Embodied Intelligence</li>
-              <li data-i18n="about.tags.rl">Reinforcement Learning</li>
-              <li data-i18n="about.tags.robot">Robot Manipulation</li>
-              <li data-i18n="about.tags.cv">Computer Vision</li>
-              <li data-i18n="about.tags.policy">Policy Learning</li>
-              <li data-i18n="about.tags.agriculture">Smart Agriculture</li>
-            </ul>
-          </div>
+      </article>
+
+      <article class="research-card" id="vla-direction" aria-labelledby="peft-title">
+        <div class="research-visual diagram-visual"><a href="vla-peft.html" aria-label="查看 VLA 参数高效微调研究" data-label-en="View the VLA PEFT study"><img src="assets/images/vla-peft-overview.svg" width="640" height="440" loading="lazy" alt="六种参数高效微调方法，覆盖 LIBERO 操作和 R2R 导航的研究示意" data-alt-en="Study schematic: six PEFT methods evaluated on LIBERO manipulation and R2R navigation"></a><span class="visual-caption" data-en="STUDY SCHEMATIC · SIX PEFT METHODS">研究示意 · 六种 PEFT 方法</span></div>
+        <div class="research-copy">
+          <div class="research-topline"><span class="research-category">02 / VLA · EFFICIENT ADAPTATION</span><span class="status status-review" data-en="Under review at AAMAS">AAMAS 在投</span></div>
+          <h3 id="peft-title"><a href="vla-peft.html" data-en="Empirical Investigation of Parameter-Efficient Fine-Tuning in Vision-Language-Action Models">视觉-语言-动作模型参数高效微调的实证研究</a></h3>
+          <p data-en="Compare LoRA, DoRA, QLoRA, AdaLoRA, HiRA, and IA3 on LIBERO manipulation and R2R navigation, examining task performance, memory use, and training time.">比较 LoRA、DoRA、QLoRA、AdaLoRA、HiRA 与 IA3 在 LIBERO 操作和 R2R 导航中的表现，分析任务性能、显存占用与训练时间。</p>
+          <p class="research-evidence" data-en="Finding: the strengths of PEFT methods depend on the task; memory savings and training speed require separate evaluation.">主要发现：方法优势随任务变化，显存节省与训练速度需要分别评估。</p>
+          <div class="research-links"><a class="link-primary" href="vla-peft-paper.html" data-en="Paper · password required ↗">论文 · 密码访问 ↗</a><a href="vla-peft.html" data-en="Study overview ↗">研究介绍 ↗</a></div>
         </div>
-      </section>
+      </article>
 
-      <section class="section future-paper-section" id="future-papers">
-        <div class="section-heading inline-heading">
-          <div>
-            <p class="eyebrow" data-i18n="futurePapersSection.eyebrow">Future Papers</p>
-            <h2 data-i18n="futurePapersSection.title">未来可能发布的文章</h2>
-          </div>
+      <article class="research-card" id="vla-moe" aria-labelledby="moe-title">
+        <div class="research-visual diagram-visual"><a href="vla-research.html" aria-label="查看 VLA-MoE 研究专题" data-label-en="View the VLA-MoE research page"><img src="assets/images/vla-moe-overview.svg" width="640" height="440" loading="lazy" alt="共享 VLA 策略与任务组动作末端残差的研究示意" data-alt-en="Study schematic: a shared VLA policy with task-group action-tail residuals"></a><span class="visual-caption" data-en="STUDY SCHEMATIC · ACTION-TAIL RESIDUALS">研究示意 · 动作末端残差</span></div>
+        <div class="research-copy">
+          <div class="research-topline"><span class="research-category">03 / VLA-MOE · MULTI-TASK LEARNING</span><span class="status status-ongoing" data-en="Ongoing research">研究进行中</span></div>
+          <h3 id="moe-title"><a href="vla-research.html" data-en="VLA-MoE: Action-Tail Specialization for Multi-Task Robot Policies">VLA-MoE：多任务 VLA 的动作末端专门化</a></h3>
+          <p data-en="Study where task-specific capacity belongs in a multi-task policy. Preserve a shared vision-language representation and action backbone, adding small task-group residuals at the final action projection.">研究多任务策略应在何处引入任务专属容量：保留共享视觉语言表示与动作主干，在最终动作投影处加入极小任务组残差。</p>
+          <p class="research-evidence" data-en="Progress: four-training-seed results are available. Matched dense baselines and smaller alternatives remain in progress; a stability advantage is not yet established.">已完成四训练种子阶段结果；继续补齐匹配 Dense 基线与更小替代方案，稳定性优势仍待验证。</p>
+          <div class="research-links"><a class="link-primary" href="vla-research.html" data-en="Project &amp; results ↗">专题与阶段结果 ↗</a><a href="https://github.com/zx2002430/vla-moe-openvla-oft" target="_blank" rel="noopener noreferrer" data-en="Code ↗">代码 ↗</a><span class="link-note" data-en="Submission venue TBD">投稿目标待定</span></div>
         </div>
-        <div class="publication-list publication-list-compact future-paper-grid" id="future-paper-list"></div>
-      </section>
+      </article>
+    </section>
 
-      <section class="section" id="news">
-        <div class="section-heading inline-heading">
-          <div>
-            <p class="eyebrow" data-i18n="updates.eyebrow">Updates</p>
-            <h2 data-i18n="updates.title">研究动态</h2>
-          </div>
-        </div>
-        <div class="timeline timeline-compact" id="news-list"></div>
-      </section>
+    <section class="section updates-section" id="news" aria-labelledby="updates-title">
+      <div class="section-heading"><div><p class="eyebrow" data-en="RECENT UPDATES">研究进展</p><h2 id="updates-title" data-en="Latest Updates">最新动态</h2></div></div>
+      <ul class="updates-list">
+        <li><time datetime="2026-10-02">2026.10.02</time><p><a href="dual-ur5.html" data-en="DM-NAV is under review at AAMAS.">DM-NAV 稿件 AAMAS 在投。</a><span data-en="The project page presents the method and physical evaluation.">专题已整理方法与真机评测。</span></p></li>
+        <li><time datetime="2026-10-02">2026.10.02</time><p><a href="vla-peft.html" data-en="The VLA PEFT empirical study is under review at AAMAS.">VLA 参数高效微调实证研究 AAMAS 在投。</a><span data-en="The manuscript covers manipulation and navigation.">稿件覆盖操作与导航两类任务。</span></p></li>
+        <li><time datetime="2026-10-02">2026.10.02</time><p><a href="vla-research.html#results" data-en="VLA-MoE multi-seed results are available.">VLA-MoE 已整理多训练种子阶段结果。</a><span data-en="Fair baselines and minimal alternatives are the next focus.">下一步补齐公平基线与最小替代验证。</span></p></li>
+      </ul>
+    </section>
 
-      <section class="section" id="publications">
-        <div class="section-heading inline-heading">
-          <div>
-            <p class="eyebrow" data-i18n="research.eyebrow">Research</p>
-            <h2 data-i18n="research.title">研究方向概览</h2>
-          </div>
-        </div>
-        <div class="section-tools">
-          <div class="filter-group" id="pub-filters" aria-label="Publication filters"></div>
-        </div>
-        <div class="publication-list publication-list-compact" id="publication-list"></div>
-      </section>
+    <section class="section" id="projects" aria-labelledby="systems-title">
+      <div class="section-heading"><div><p class="eyebrow" data-en="SYSTEMS &amp; APPLICATIONS">系统与应用</p><h2 id="systems-title" data-en="Research Infrastructure &amp; Applications">研究基础设施与应用项目</h2></div></div>
+      <div class="projects-grid">
+        <article class="project-card"><div class="project-mark" aria-hidden="true">UR5 <span>× 2</span></div><div><h3>Dual_Arm_UR5</h3><p data-en="An engineering platform for dual-arm modeling, control, reinforcement learning, and physical deployment, built with MuJoCo, ROS 2, and MoveIt.">基于 MuJoCo、ROS 2 与 MoveIt，组织双臂建模、控制、强化学习和真机部署链路。</p><div class="research-links"><a href="https://github.com/zx2002430/Dual_Arm_UR5" target="_blank" rel="noopener noreferrer" data-en="Repository ↗">平台代码 ↗</a><a href="https://github.com/zx2002430/Dual_Arm_UR5/tree/Sim-To-Real" target="_blank" rel="noopener noreferrer" data-en="Physical deployment ↗">真机部署 ↗</a></div></div></article>
+        <article class="project-card" id="smart-agriculture-feature"><div class="project-mark agriculture-mark" aria-hidden="true">300 <span data-en="MU">亩</span></div><div><h3 data-en="Smart Agriculture Sensing &amp; Control">智慧农业感知与控制系统</h3><p data-en="A system study for a 300-mu core farmland scenario, covering field sensing, device integration, irrigation control, and digital platform coordination.">围绕 300 亩核心农田场景，整理多源感知、设备接入、灌溉控制与数字化平台联动方案。</p><div class="research-links"><a href="smart-agriculture.html" data-en="Overview ↗">项目总览 ↗</a><a href="smart-agriculture-dashboard.html" data-en="Dashboard ↗">可视化看板 ↗</a></div></div></article>
+      </div>
+    </section>
 
-      <section class="section feature-layout feature-layout-vla" id="vla-direction">
-        <div class="section-heading inline-heading">
-          <div>
-            <p class="eyebrow" data-i18n="vla.eyebrow">Featured Direction</p>
-            <h2 data-i18n="vla.title">Vision-Language-Action</h2>
-          </div>
-        </div>
-        <div class="vla-entry-focus">
-          <span class="vla-entry-focus-label" data-i18n="vla.focusLabel">Current Focus</span>
-          <div class="vla-entry-focus-tags">
-            <span data-i18n="vla.focusItem1">参数高效微调</span>
-            <span data-i18n="vla.focusItem2">VLA-MoE</span>
-            <span data-i18n="vla.focusItem3">LIBERO / R2R</span>
-            <span data-i18n="vla.focusItem4">动作末端专门化</span>
-          </div>
-        </div>
-        <div class="feature-grid">
-          <article class="feature-card feature-overview vla-entry-overview">
-            <div class="feature-topline">
-              <span class="feature-badge" data-i18n="vla.badge">在投论文与持续研究</span>
-              <span class="feature-repo" data-i18n="vla.repo">PEFT / VLA-MoE / OpenVLA-OFT</span>
-            </div>
-            <h3 data-i18n="vla.overviewTitle">参数高效适配与多任务策略专门化</h3>
-            <p id="vla-summary"></p>
-            <div class="feature-links" id="vla-links"></div>
-          </article>
+    <section class="section" id="experience" aria-labelledby="background-title">
+      <div class="section-heading"><div><p class="eyebrow" data-en="BACKGROUND">教育与服务</p><h2 id="background-title" data-en="Education, Honors &amp; Teaching">教育、荣誉与教学</h2></div></div>
+      <div class="background-grid">
+        <article class="background-block"><h3 data-en="Education">教育背景</h3><p class="background-date" data-en="2024 - Present">2024 - 至今</p><h4 data-en="Hubei University">湖北大学</h4><p data-en="Graduate student in Artificial Intelligence">人工智能专业研究生</p><a href="https://eilab-wanghong.eu.cc/" target="_blank" rel="noopener noreferrer">EILab ↗</a><p class="muted" data-en="Research in embodied AI, robot learning, and physical deployment.">开展具身智能、机器人学习与真实系统部署相关研究。</p></article>
+        <article class="background-block"><h3 data-en="Selected Honors">代表荣誉</h3><ul class="plain-list"><li data-en="Runner-up, China (International) Robot Debate Competition">首届中国（国际）机器人辩论大赛亚军</li><li data-en="Second Prize, Graduate Academic Scholarship">硕士研究生学业奖学金二等奖</li></ul><details class="awards-details"><summary data-en="View certificates &amp; team photo">查看证书与团队合影</summary><div class="awards-gallery"><a href="assets/images/首届中国（国际）机器人辩论大赛亚军合影.jpg" target="_blank" rel="noopener"><img src="assets/images/首届中国（国际）机器人辩论大赛亚军合影.jpg" loading="lazy" alt="机器人辩论大赛团队合影" data-alt-en="Robot Debate Competition team photo"></a><a href="assets/images/首届中国（国际）机器人辩论大赛获得亚军.jpg" target="_blank" rel="noopener"><img src="assets/images/首届中国（国际）机器人辩论大赛获得亚军.jpg" loading="lazy" alt="机器人辩论大赛亚军证书" data-alt-en="Robot Debate Competition runner-up certificate"></a><a href="assets/images/硕士研究生学业奖学金二等奖.jpg" target="_blank" rel="noopener"><img src="assets/images/硕士研究生学业奖学金二等奖.jpg" loading="lazy" alt="硕士研究生学业奖学金二等奖证书" data-alt-en="Graduate Academic Scholarship second-prize certificate"></a></div></details></article>
+        <article class="background-block"><h3 data-en="Teaching &amp; Tools">教学与研究工具</h3><p class="teaching-title" data-en="Teaching assistant · Python / Fundamentals of Artificial Intelligence">《Python》《人工智能基础》课程助教</p><p data-en="Supported lab instruction, homework feedback, exam preparation, invigilation, and marking.">参与实验教学支持、作业反馈、考试准备、监考与阅卷。</p><p class="tool-line">Python · PyTorch · Linux · LaTeX<br>ROS 2 · MuJoCo · Docker · CUDA</p></article>
+      </div>
+    </section>
 
-          <article class="feature-card feature-snapshot vla-entry-snapshot">
-            <h3 data-i18n="vla.snapshotTitle">Direction Snapshot</h3>
-            <div class="metric-grid" id="vla-metrics"></div>
-          </article>
-
-          <article class="feature-card feature-pipeline-card vla-entry-pipeline">
-            <h3 data-i18n="vla.pipelineTitle">Research Pipeline</h3>
-            <div class="pipeline" id="vla-pipeline"></div>
-          </article>
-
-          <article class="feature-card feature-highlights vla-entry-highlights">
-            <h3 data-i18n="vla.highlightsTitle">Key Highlights</h3>
-            <div class="highlight-list" id="vla-highlights"></div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section feature-layout feature-layout-system" id="featured-project">
-        <div class="section-heading inline-heading">
-          <div>
-            <p class="eyebrow" data-i18n="dualArm.eyebrow">Featured Project</p>
-            <h2>Sim-to-Real</h2>
-            <p class="section-subtitle">Dual_Arm_UR5</p>
-          </div>
-        </div>
-        <div class="system-entry-focus">
-          <span class="system-entry-focus-label" data-i18n="dualArm.focusLabel">System Focus</span>
-          <div class="system-entry-focus-tags">
-            <span data-i18n="dualArm.focusItem1">DM-NAV</span>
-            <span data-i18n="dualArm.focusItem2">Meta-MARL</span>
-            <span data-i18n="dualArm.focusItem3">RGB-D 感知</span>
-            <span data-i18n="dualArm.focusItem4">双 UR5 真机验证</span>
-          </div>
-        </div>
-        <div class="feature-grid">
-          <article class="feature-card feature-overview system-entry-overview">
-            <div class="feature-topline">
-              <span class="feature-badge" data-i18n="dualArm.badge">AAMAS 在投</span>
-              <span class="feature-repo">zx2002430/Dual_Arm_UR5</span>
-            </div>
-            <h3 data-i18n="dualArm.overviewTitle">DM-NAV：双臂动态避障与仿真到真实部署</h3>
-            <p id="featured-summary"></p>
-            <div class="feature-links" id="featured-links"></div>
-          </article>
-
-          <article class="feature-card feature-snapshot system-entry-snapshot">
-            <h3 data-i18n="dualArm.snapshotTitle">Project Snapshot</h3>
-            <div class="metric-grid" id="featured-metrics"></div>
-          </article>
-
-          <article class="feature-card feature-pipeline-card system-entry-pipeline">
-            <h3 data-i18n="dualArm.pipelineTitle">Research Pipeline</h3>
-            <div class="pipeline" id="featured-pipeline"></div>
-          </article>
-
-          <article class="feature-card feature-highlights system-entry-highlights">
-            <h3 data-i18n="dualArm.highlightsTitle">Key Highlights</h3>
-            <div class="highlight-list" id="featured-highlights"></div>
-          </article>
-
-          <article class="feature-card feature-gallery system-entry-gallery">
-            <div class="gallery-heading">
-              <h3 data-i18n="dualArm.galleryTitle">Project Visuals</h3>
-              <p data-i18n="dualArm.galleryNote">
-                以下展示覆盖真实平台、仿真环境、控制实验与部署过程，均来自当前项目的实际实验记录。
-              </p>
-            </div>
-            <div class="media-grid">
-              <figure class="media-card media-card-large media-card-overview">
-                <div class="media-label-row">
-                  <span class="media-kicker" data-i18n="dualArm.media.realKicker">Real System</span>
-                  <span class="media-type" data-i18n="dualArm.media.realType">Lab Photo</span>
-                </div>
-                <img
-                  class="media-illustration media-photo"
-                  src="assets/images/dual-arm-real-photo.jpg"
-                  loading="lazy"
-                  decoding="async"
-                  alt="Real dual-arm UR5 setup in the lab"
-                  onerror="this.onerror=null;this.src='assets/images/dual-arm-overview.svg';this.classList.remove('media-photo');"
-                >
-                <figcaption>
-                  <strong data-i18n="dualArm.media.realTitle">真实双臂 UR5 实验平台实拍图</strong>
-                  <span data-i18n="dualArm.media.realDesc">展示双臂本体、工作台与相机安装布局，是主页里最直观的真实系统入口。</span>
-                </figcaption>
-              </figure>
-
-              <figure class="media-card media-card-chart">
-                <div class="media-label-row">
-                  <span class="media-kicker" data-i18n="dualArm.media.simKicker">Simulation</span>
-                  <span class="media-type" data-i18n="dualArm.media.simType">MuJoCo</span>
-                </div>
-                <div class="media-preview-shell">
-                  <img
-                    class="media-illustration media-motion"
-                    src="assets/images/mujoco-demo.gif"
-                    data-motion-src="assets/images/mujoco-demo.gif"
-                    data-motion-fallback="assets/images/motion-preview.svg"
-                    loading="lazy"
-                    decoding="async"
-                    alt="MuJoCo dual-arm simulation GIF"
-                    data-motion-image
-                  >
-                </div>
-                <figcaption>
-                  <strong data-i18n="dualArm.media.simTitle">MuJoCo 双臂仿真交互演示</strong>
-                  <span data-i18n="dualArm.media.simDesc">突出仿真环境中的双臂协作行为与基础控制效果。</span>
-                </figcaption>
-              </figure>
-
-              <figure class="media-card media-card-diagram">
-                <div class="media-label-row">
-                  <span class="media-kicker" data-i18n="dualArm.media.vizKicker">Visualization</span>
-                  <span class="media-type" data-i18n="dualArm.media.vizType">ROS 2 + RViz</span>
-                </div>
-                <div class="media-preview-shell">
-                  <img
-                    class="media-illustration media-motion"
-                    src="assets/images/ros2-rviz-demo.gif"
-                    data-motion-src="assets/images/ros2-rviz-demo.gif"
-                    data-motion-fallback="assets/images/motion-preview.svg"
-                    loading="lazy"
-                    decoding="async"
-                    alt="ROS 2 and RViz dual-arm simulation GIF"
-                    data-motion-image
-                  >
-                </div>
-                <figcaption>
-                  <strong data-i18n="dualArm.media.vizTitle">ROS 2 + RViz 双臂仿真演示</strong>
-                  <span data-i18n="dualArm.media.vizDesc">体现机器人描述、可视化与控制链路在 ROS 2 环境中的联动。</span>
-                </figcaption>
-              </figure>
-
-              <figure class="media-card media-card-trajectory">
-                <div class="media-label-row">
-                  <span class="media-kicker" data-i18n="dualArm.media.ctrlKicker">Control</span>
-                  <span class="media-type" data-i18n="dualArm.media.ctrlType">Trajectory Tracking</span>
-                </div>
-                <div class="media-preview-shell">
-                  <img
-                    class="media-illustration media-motion"
-                    src="assets/images/dual-arm-end-effector-demo.gif"
-                    data-motion-src="assets/images/dual-arm-end-effector-demo.gif"
-                    data-motion-fallback="assets/images/motion-preview.svg"
-                    loading="lazy"
-                    decoding="async"
-                    alt="Dual-arm end-effector trajectory tracking GIF"
-                    data-motion-image
-                  >
-                </div>
-                <figcaption>
-                  <strong data-i18n="dualArm.media.ctrlTitle">双臂末端轨迹跟踪演示</strong>
-                  <span data-i18n="dualArm.media.ctrlDesc">对应任务空间控制与末端跟踪效果，是控制模块的重要展示。</span>
-                </figcaption>
-              </figure>
-
-              <figure class="media-card media-card-portrait">
-                <div class="media-label-row">
-                  <span class="media-kicker" data-i18n="dualArm.media.deployKicker">MoveIt</span>
-                  <span class="media-type" data-i18n="dualArm.media.deployType">Real Robot</span>
-                </div>
-                <div class="media-preview-shell">
-                  <img
-                    class="media-illustration media-motion"
-                    src="assets/images/moveit-dual-arm-deployment.gif"
-                    data-motion-src="assets/images/moveit-dual-arm-deployment.gif"
-                    data-motion-fallback="assets/images/motion-preview.svg"
-                    loading="lazy"
-                    decoding="async"
-                    alt="MoveIt deployment GIF for dual-arm UR5"
-                    data-motion-image
-                  >
-                </div>
-                <figcaption>
-                  <strong data-i18n="dualArm.media.deployTitle">MoveIt 真机部署演示</strong>
-                  <span data-i18n="dualArm.media.deployDesc">展示双臂平台上的规划与执行过程。</span>
-                </figcaption>
-              </figure>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section feature-layout feature-layout-agriculture" id="smart-agriculture-feature">
-        <div class="section-heading inline-heading">
-          <div>
-            <p class="eyebrow" data-i18n="smartAgri.eyebrow">Featured Module</p>
-            <h2 data-i18n="smartAgri.title">智慧农业</h2>
-            <p class="section-subtitle" data-i18n="smartAgri.subtitle">Smart Agriculture Suite</p>
-          </div>
-        </div>
-        <article class="agri-showcase-card">
-          <div class="agri-showcase-copy">
-            <p class="agri-showcase-kicker" data-i18n="smartAgri.showcaseKicker">Field Sensing to Platform Coordination</p>
-            <h3 data-i18n="smartAgri.showcaseTitle">智慧农业专题入口</h3>
-            <p class="agri-showcase-text" data-i18n="smartAgri.showcaseText">
-              将农田感知、传输控制、可视化看板和研究材料整合为一组连续页面，适合在首页直接展示项目结构与当前推进重点。
-            </p>
-            <div class="agri-showcase-pills">
-              <span class="agri-showcase-pill" data-i18n="smartAgri.showcasePill1">四情监测</span>
-              <span class="agri-showcase-pill" data-i18n="smartAgri.showcasePill2">灌溉控制</span>
-              <span class="agri-showcase-pill" data-i18n="smartAgri.showcasePill3">数字化看板</span>
-            </div>
-          </div>
-          <div class="agri-entry-grid">
-            <a class="agri-entry-card" href="smart-agriculture.html">
-              <span data-i18n="smartAgri.entryOverviewKicker">Overview</span>
-              <strong data-i18n="smartAgri.entryOverviewTitle">专题总览</strong>
-            </a>
-            <a class="agri-entry-card" href="smart-agriculture-dashboard.html">
-              <span data-i18n="smartAgri.entryDashboardKicker">Dashboard</span>
-              <strong data-i18n="smartAgri.entryDashboardTitle">可视化看板</strong>
-            </a>
-            <a class="agri-entry-card" href="smart-agriculture-inventory.html">
-              <span data-i18n="smartAgri.entryInventoryKicker">Inventory</span>
-              <strong data-i18n="smartAgri.entryInventoryTitle">设备清单</strong>
-            </a>
-            <a class="agri-entry-card" href="smart-agriculture-research.html">
-              <span data-i18n="smartAgri.entryResearchKicker">Research</span>
-              <strong data-i18n="smartAgri.entryResearchTitle">论证材料</strong>
-            </a>
-          </div>
-        </article>
-        <div class="feature-grid">
-          <article class="feature-card feature-overview">
-            <div class="feature-topline">
-              <span class="feature-badge" data-i18n="smartAgri.badge">Scenario Module</span>
-              <span class="feature-repo" data-i18n="smartAgri.repo">300 亩核心农田 / 四情监测 / 灌溉控制</span>
-            </div>
-            <h3 data-i18n="smartAgri.overviewTitle">从农田感知到平台联动的智慧农业系统展示</h3>
-            <p id="agri-summary"></p>
-            <div class="feature-links" id="agri-links"></div>
-          </article>
-
-          <article class="feature-card feature-snapshot">
-            <h3 data-i18n="smartAgri.snapshotTitle">Module Snapshot</h3>
-            <div class="metric-grid" id="agri-metrics"></div>
-          </article>
-
-          <article class="feature-card feature-pipeline-card">
-            <h3 data-i18n="smartAgri.pipelineTitle">System Layers</h3>
-            <div class="pipeline" id="agri-pipeline"></div>
-          </article>
-
-          <article class="feature-card feature-highlights">
-            <h3 data-i18n="smartAgri.highlightsTitle">Key Highlights</h3>
-            <div class="highlight-list" id="agri-highlights"></div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="projects">
-        <div class="section-heading inline-heading">
-          <div>
-            <p class="eyebrow" data-i18n="systems.eyebrow">Systems</p>
-            <h2 data-i18n="systems.title">Selected Projects</h2>
-          </div>
-        </div>
-        <div class="project-grid project-grid-compact" id="project-list"></div>
-      </section>
-
-      <section class="section experience-stack" id="experience">
-        <div class="experience-panel experience-panel-background">
-          <div class="section-heading">
-            <p class="eyebrow" data-i18n="background.eyebrow">Background</p>
-            <h2 data-i18n="background.title">Education & Research</h2>
-          </div>
-          <div class="stack-list" id="experience-list"></div>
-        </div>
-        <div class="experience-panel experience-panel-community">
-          <div class="section-heading">
-            <p class="eyebrow" data-i18n="community.eyebrow">Community</p>
-            <h2 data-i18n="community.title">Honors, Service & Skills</h2>
-          </div>
-          <div class="community-showcase">
-            <article class="stack-card honors-showcase-card">
-              <div class="honors-showcase-head">
-                <div>
-                  <h3 data-i18n="community.honorsTitle">Selected Honors</h3>
-                  <p data-i18n="community.honorsText">National Scholarship, Outstanding Graduate, Competition Awards...</p>
-                </div>
-                <span class="honors-showcase-badge">Awards Gallery</span>
-              </div>
-              <div class="honors-highlight-row">
-                <span class="honors-highlight-pill">机器人辩论大赛亚军</span>
-                <span class="honors-highlight-pill">学业奖学金二等奖</span>
-                <span class="honors-highlight-pill">团队荣誉与个人荣誉</span>
-              </div>
-              <div class="honors-gallery">
-                <figure class="honors-media-card honors-media-card-wide">
-                  <div class="honors-media-topline">
-                    <span>Team Photo</span>
-                    <span>Competition</span>
-                  </div>
-                  <img src="assets/images/首届中国（国际）机器人辩论大赛亚军合影.jpg" loading="lazy" decoding="async" alt="首届中国（国际）机器人辩论大赛亚军合影">
-                  <figcaption>
-                    <strong>首届中国（国际）机器人辩论大赛亚军合影</strong>
-                    <span>团队现场合影，适合作为首页荣誉展示主图。</span>
-                  </figcaption>
-                </figure>
-                <figure class="honors-media-card">
-                  <div class="honors-media-topline">
-                    <span>Certificate</span>
-                    <span>Runner-up</span>
-                  </div>
-                  <img src="assets/images/首届中国（国际）机器人辩论大赛获得亚军.jpg" loading="lazy" decoding="async" alt="首届中国（国际）机器人辩论大赛获得亚军">
-                  <figcaption>
-                    <strong>机器人辩论大赛亚军证书</strong>
-                    <span>赛事成果证明，突出竞赛表现与团队协作能力。</span>
-                  </figcaption>
-                </figure>
-                <figure class="honors-media-card">
-                  <div class="honors-media-topline">
-                    <span>Scholarship</span>
-                    <span>Second Prize</span>
-                  </div>
-                  <img src="assets/images/硕士研究生学业奖学金二等奖.jpg" loading="lazy" decoding="async" alt="硕士研究生学业奖学金二等奖">
-                  <figcaption>
-                    <strong>硕士研究生学业奖学金二等奖</strong>
-                    <span>学业表现类荣誉，补充科研与课程维度的成果展示。</span>
-                  </figcaption>
-                </figure>
-              </div>
-            </article>
-
-            <div class="community-subgrid">
-              <article class="stack-card community-detail-card">
-                <h3 data-i18n="community.serviceTitle">Academic Service</h3>
-                <p data-i18n="community.serviceText">Reviewer for conferences/journals, teaching assistant, student organizer...</p>
-                <div class="teaching-experience-grid">
-                  <article class="teaching-card">
-                    <div class="teaching-card-head">
-                      <strong>《Python》课程助教</strong>
-                      <span>Teaching Assistant</span>
-                    </div>
-                    <ul class="teaching-duty-list">
-                      <li>负责实验课教学准备与课堂支持</li>
-                      <li>负责作业布置、提交管理与批改反馈</li>
-                      <li>参与考试监考、试卷命题与阅卷工作</li>
-                    </ul>
-                  </article>
-                  <article class="teaching-card">
-                    <div class="teaching-card-head">
-                      <strong>《人工智能基础》课程助教</strong>
-                      <span>Teaching Assistant</span>
-                    </div>
-                    <ul class="teaching-duty-list">
-                      <li>协助实验内容准备、教学演示与答疑支持</li>
-                      <li>承担作业布置、批改与学习情况跟踪</li>
-                      <li>参与考试组织、监考、命题与试卷批改</li>
-                    </ul>
-                  </article>
-                </div>
-              </article>
-              <article class="stack-card community-detail-card">
-                <h3 data-i18n="community.stackTitle">Technical Stack</h3>
-                <p class="stack-intro">面向研究开发、模型训练与机器人系统部署，形成了较完整的实验与工程工具链。</p>
-                <div class="stack-overview">
-                  <article class="stack-overview-item">
-                    <strong>Programming & Writing</strong>
-                    <span>Python / Linux / LaTeX</span>
-                  </article>
-                  <article class="stack-overview-item">
-                    <strong>ML & Training</strong>
-                    <span>PyTorch / CUDA / HF</span>
-                  </article>
-                  <article class="stack-overview-item">
-                    <strong>Robotics & Deployment</strong>
-                    <span>ROS / Docker / MuJoCo</span>
-                  </article>
-                </div>
-                <div class="stack-groups">
-                  <article class="stack-group-card">
-                    <strong>Programming & Writing</strong>
-                    <p>用于日常研究开发、实验环境管理与论文材料整理。</p>
-                    <div class="stack-group-tags">
-                      <span>Python</span>
-                      <span>Linux</span>
-                      <span>LaTeX</span>
-                    </div>
-                  </article>
-                  <article class="stack-group-card">
-                    <strong>ML & Training</strong>
-                    <p>用于模型训练、算力调用与多模态实验迭代。</p>
-                    <div class="stack-group-tags">
-                      <span>PyTorch</span>
-                      <span>CUDA</span>
-                      <span>Hugging Face</span>
-                    </div>
-                  </article>
-                  <article class="stack-group-card">
-                    <strong>Robotics & Deployment</strong>
-                    <p>用于机器人控制、仿真验证与系统级部署联调。</p>
-                    <div class="stack-group-tags">
-                      <span>ROS</span>
-                      <span>Docker</span>
-                      <span>MuJoCo</span>
-                    </div>
-                  </article>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section contact-strip" id="contact">
-        <div>
-          <p class="eyebrow" data-i18n="contact.eyebrow">Contact</p>
-          <h2 data-i18n="contact.title">Contact</h2>
-          <p data-i18n="contact.text">
-            欢迎就 VLA、具身智能、强化学习与机器人操作等方向交流合作。我也将持续在此更新研究项目与阶段性进展。
-          </p>
-        </div>
-        <div class="contact-actions">
-          <a class="button primary" href="mailto:zhaoxun@stu.hubu.edu.cn">zhaoxun@stu.hubu.edu.cn</a>
-          <a class="button secondary" href="https://eilab-wanghong.eu.cc/" target="_blank" rel="noreferrer" data-i18n="contact.visitLab">Visit EILab</a>
-        </div>
-      </section>
-    </main>
-  </div>
-
-  <script src="script.js?v=20261002-research-sync"></script>
+    <section class="contact-section" id="contact" aria-labelledby="contact-title"><div><p class="eyebrow" data-en="LET'S CONNECT">交流与合作</p><h2 id="contact-title" data-en="Contact">联系方式</h2><p data-en="I welcome research discussions on VLA, meta multi-agent learning, and robot manipulation.">欢迎就 VLA、元多智能体学习与机器人操作交流。</p></div><a class="contact-email" href="mailto:zhaoxun@stu.hubu.edu.cn">zhaoxun@stu.hubu.edu.cn <span aria-hidden="true">↗</span></a></section>
+    <footer class="site-footer"><span>© 2026 Xun Zhao</span><span data-en="Updated October 2, 2026">更新于 2026 年 10 月 2 日</span><a href="https://github.com/zx2002430/Personal-Homepage" target="_blank" rel="noopener noreferrer" data-en="Website source ↗">本站源码 ↗</a></footer>
+  </main>
 </body>
 </html>

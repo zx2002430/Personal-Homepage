@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="440" viewBox="0 0 640 440" role="img" aria-labelledby="title desc">
+  <title id="title">VLA parameter-efficient adaptation study</title>
+  <desc id="desc">Six PEFT methods are compared on LIBERO manipulation and R2R navigation, considering task performance, memory use, and training time. This is a study schematic, not a result chart.</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10" fill="#89a798"/></marker></defs>
+  <rect width="640" height="440" fill="#eef1e9"/>
+  <g font-family="Segoe UI,Arial,sans-serif" text-anchor="middle">
+    <text x="320" y="48" font-size="15" letter-spacing="2" fill="#486357">EFFICIENT VLA ADAPTATION</text>
+    <rect x="112" y="69" width="416" height="54" rx="11" fill="#146b55"/>
+    <text x="320" y="103" font-size="21" font-weight="600" fill="#fff">Pretrained VLA model</text>
+    <path d="M320 124V150M126 150H514M126 150V163M320 150V163M514 150V163" stroke="#89a798" stroke-width="2" fill="none"/>
+    <g fill="#fffefa" stroke="#c7d6c9"><rect x="39" y="164" width="170" height="47" rx="8"/><rect x="235" y="164" width="170" height="47" rx="8"/><rect x="431" y="164" width="170" height="47" rx="8"/><rect x="39" y="226" width="170" height="47" rx="8"/><rect x="235" y="226" width="170" height="47" rx="8"/><rect x="431" y="226" width="170" height="47" rx="8"/></g>
+    <g font-size="20" font-weight="600" fill="#284a3d"><text x="124" y="195">LoRA</text><text x="320" y="195">DoRA</text><text x="516" y="195">QLoRA</text><text x="124" y="257">AdaLoRA</text><text x="320" y="257">HiRA</text><text x="516" y="257">IA3</text></g>
+    <path d="M320 280V305" stroke="#89a798" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="63" y="314" width="246" height="55" rx="9" fill="#dfe9df"/><rect x="331" y="314" width="246" height="55" rx="9" fill="#e7e3d4"/>
+    <text x="186" y="338" font-size="19" font-weight="600" fill="#275b42">LIBERO</text><text x="186" y="357" font-size="12" fill="#5b6c5f">Robot manipulation</text><text x="454" y="338" font-size="19" font-weight="600" fill="#776028">R2R</text><text x="454" y="357" font-size="12" fill="#74684f">Visual navigation</text>
+    <text x="320" y="401" font-size="14" fill="#59695d">Task performance · Memory · Training time</text>
+  </g>
+</svg>

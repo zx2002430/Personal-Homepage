@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-en="VLA PEFT Empirical Study | Xun Zhao">VLA 参数高效微调实证研究 | 赵汛</title>
+  <meta name="description" content="比较六种参数高效微调方法在 VLA 中的任务表现、显存与训练时间，覆盖 LIBERO 操作和 R2R 导航。论文 AAMAS 在投。" data-content-en="An empirical study of six PEFT methods in VLA models, evaluated on LIBERO manipulation and R2R navigation. Under review at AAMAS.">
+  <link rel="canonical" href="https://zx2002430.github.io/Personal-Homepage/vla-peft.html">
+  <meta name="theme-color" content="#f6f3ed">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="VLA 参数高效微调实证研究 | 赵汛" data-content-en="VLA PEFT Empirical Study | Xun Zhao">
+  <meta property="og:description" content="六种 PEFT 方法 · LIBERO 操作 · R2R 导航 · AAMAS 在投" data-content-en="Six PEFT methods · LIBERO manipulation · R2R navigation · Under review at AAMAS">
+  <meta property="og:url" content="https://zx2002430.github.io/Personal-Homepage/vla-peft.html">
+  <meta property="og:image" content="https://zx2002430.github.io/Personal-Homepage/assets/images/homepage-social.png">
+  <meta property="og:locale" content="zh_CN" id="og-locale">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://zx2002430.github.io/Personal-Homepage/assets/images/homepage-social.png">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="stylesheet" href="homepage.css?v=20261002-academic">
+  <script src="script.js?v=20261002-academic" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content" data-en="Skip to content">跳转到主要内容</a>
+  <header class="site-header">
+    <a class="brand" href="index.html">XUN ZHAO<span class="brand-dot" aria-hidden="true"></span></a>
+    <nav class="site-nav" id="site-nav" aria-label="研究专题导航" data-label-en="Study navigation"><a href="index.html#publications" data-en="All research">精选研究</a><a href="#question" data-en="Question">研究问题</a><a href="#study" data-en="Study design">研究设置</a><a href="vla-peft-paper.html" data-en="Paper">论文阅读</a></nav>
+    <div class="header-controls"><div class="lang-switch" role="group" aria-label="语言切换" data-label-en="Language switch"><button type="button" data-lang="zh" aria-pressed="true">中文</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div><button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="展开导航" data-label-en="Toggle navigation"><span></span><span></span></button></div>
+  </header>
+  <main class="page-shell" id="main-content">
+    <section class="topic-hero">
+      <p class="eyebrow">VLA / PARAMETER-EFFICIENT FINE-TUNING</p>
+      <span class="status status-review" data-en="Under review at AAMAS">AAMAS 在投</span>
+      <h1 data-en="Empirical Investigation of Parameter-Efficient Fine-Tuning in Vision-Language-Action Models">视觉-语言-动作模型参数高效微调的实证研究</h1>
+      <p class="topic-subtitle" data-en="LIBERO manipulation · R2R navigation · Task performance and computational efficiency">Empirical Investigation of Parameter-Efficient Fine-Tuning in Vision-Language-Action Models</p>
+      <div class="research-links"><a class="link-primary" href="vla-peft-paper.html" data-en="Read the paper · password required ↗">阅读论文 · 需要密码 ↗</a><a href="index.html#vla-direction" data-en="Back to selected research ↗">返回精选研究 ↗</a></div>
+    </section>
+    <section class="topic-layout" id="question" aria-labelledby="question-title">
+      <div><p class="eyebrow" data-en="RESEARCH QUESTION">研究问题</p><h2 id="question-title" data-en="Which adaptation method works for which robot task?">不同机器人任务，适合怎样的微调方法？</h2><p data-en="Adapting a large pretrained VLA model to robot tasks requires balancing control performance and computational cost. This study examines whether PEFT methods developed largely for language models retain their strengths in multimodal action models.">将大型预训练 VLA 模型适配到机器人任务，需要兼顾控制表现与计算成本。本研究检验主要源于语言模型的 PEFT 方法，在多模态动作模型中是否仍保留相同优势。</p><p data-en="The comparison considers how multimodal fusion and discrete action representations interact with adaptation mechanisms, alongside task performance, memory consumption, and training time.">研究同时考虑多模态融合、离散动作表示与不同适配机制的关系，并比较任务表现、显存占用和训练时间。</p></div>
+      <figure><img src="assets/images/vla-peft-overview.svg" width="640" height="440" alt="VLA 参数高效微调研究设置示意" data-alt-en="VLA PEFT study design schematic"><figcaption class="muted" data-en="Study schematic; not a quantitative result chart.">研究设置示意，非定量结果图。</figcaption></figure>
+    </section>
+    <section class="section" id="study" aria-labelledby="study-title">
+      <div class="section-heading"><div><p class="eyebrow" data-en="STUDY DESIGN">研究设置</p><h2 id="study-title" data-en="Six Methods, Two Task Families">六种方法，两类任务</h2></div></div>
+      <div class="topic-grid">
+        <article class="topic-block"><h3 data-en="Adaptation methods">适配方法</h3><div class="methods"><span>LoRA</span><span>DoRA</span><span>QLoRA</span><span>AdaLoRA</span><span>HiRA</span><span>IA3</span></div><p data-en="Compare low-rank adaptation and its variants, quantization-based adaptation, and activation rescaling in the VLA setting.">比较低秩适配及其变体、结合量化的适配，以及激活缩放等方法在 VLA 中的表现。</p></article>
+        <article class="topic-block"><h3 data-en="Task coverage">任务覆盖</h3><p data-en="LIBERO robot manipulation, including Spatial, Object, and Goal tasks; and R2R visual navigation.">LIBERO 机器人操作，包含 Spatial、Object 和 Goal 任务；以及 R2R 视觉导航。</p></article>
+        <article class="topic-block"><h3 data-en="Evaluation dimensions">评测维度</h3><p data-en="Task success and navigation metrics, peak memory use, and training time. Efficiency and task quality are evaluated separately.">任务成功率与导航指标、显存占用、训练时间；分别观察计算效率与任务质量。</p></article>
+      </div>
+    </section>
+    <section class="topic-findings" aria-labelledby="findings-title"><h2 id="findings-title" data-en="Findings in the Manuscript">稿件中的主要观察</h2><ul><li data-en="Method rankings depend on the task setting; no single method leads on every benchmark and metric.">不同任务设置下的方法排序会变化，没有一种方法在所有基准与指标上都占优。</li><li data-en="LoRA and QLoRA perform strongly on LIBERO-Spatial, while DoRA leads on LIBERO-Object and LIBERO-Goal in the reported experiments.">稿件实验中，LoRA 与 QLoRA 在 LIBERO-Spatial 上表现较强，DoRA 在 LIBERO-Object 与 LIBERO-Goal 上取得最佳结果。</li><li data-en="On R2R, LoRA leads on SR and SPL, while QLoRA leads on OSR and NE. QLoRA reduces memory use at the cost of increased training latency.">R2R 中，LoRA 在 SR 与 SPL 上占优，QLoRA 在 OSR 与 NE 上占优；QLoRA 减少显存占用，同时增加训练耗时。</li></ul></section>
+    <section class="contact-section"><div><h2 data-en="Read the Full Manuscript">阅读完整稿件</h2><p data-en="The full manuscript remains password protected. Experimental settings and quantitative tables are available in the PDF.">完整稿件保留密码访问；实验设置与定量结果表见论文 PDF。</p></div><a class="contact-email" href="vla-peft-paper.html" data-en="Open the paper reader ↗">打开论文阅读页 ↗</a></section>
+    <footer class="site-footer"><a href="index.html" data-en="← Homepage">← 返回首页</a><span data-en="Updated October 2, 2026">更新于 2026 年 10 月 2 日</span><span>© 2026 Xun Zhao</span></footer>
+  </main>
+</body>
+</html>
