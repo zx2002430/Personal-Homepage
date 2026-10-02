@@ -16,7 +16,7 @@ const uiText = {
       skip: "跳转到主要内容",
       about: "简介",
       vla: "VLA方向",
-      simtoreal: "Sim-to-Real方向",
+      simtoreal: "双臂与 Meta-MARL",
       agriculture: "智慧农业专题",
       paperPlans: "论文计划",
       news: "研究动态",
@@ -65,20 +65,20 @@ const uiText = {
       }
     },
     dualArm: {
-      eyebrow: "代表项目",
-      note: "当前最具代表性的研究项目，集中体现双臂操作、学习控制与真实系统部署能力。",
-      badge: "核心研究",
-      overviewTitle: "从 MuJoCo 仿真到真实双臂 UR5 部署的完整研究链路",
-      snapshotTitle: "项目概览",
+      eyebrow: "研究方向",
+      note: "以 DM-NAV 在投论文为主线，展示元多智能体强化学习、双臂动态避障与真实部署。",
+      badge: "AAMAS 在投",
+      overviewTitle: "DM-NAV：双臂动态避障与仿真到真实部署",
+      snapshotTitle: "研究快照",
       pipelineTitle: "研究链路",
       highlightsTitle: "核心亮点",
-      focusLabel: "系统聚焦",
-      focusItem1: "Dual-Arm UR5",
-      focusItem2: "MuJoCo + PPO",
-      focusItem3: "ROS 2 + MoveIt",
-      focusItem4: "真实部署",
-      galleryTitle: "项目可视化",
-      galleryNote: "以下展示覆盖真实平台、仿真环境、控制实验与部署过程，均来自当前项目的实际实验记录。",
+      focusLabel: "当前聚焦",
+      focusItem1: "DM-NAV",
+      focusItem2: "Meta-MARL",
+      focusItem3: "RGB-D 感知",
+      focusItem4: "双 UR5 真机验证",
+      galleryTitle: "双臂平台与系统展示",
+      galleryNote: "下方展示工程平台与早期系统演示；DM-NAV 的方法、实验协议和定量结果见研究专题。",
       media: {
         realKicker: "真实系统",
         realType: "实验室照片",
@@ -131,28 +131,28 @@ const uiText = {
     vla: {
       eyebrow: "研究方向",
       title: "Vision-Language-Action",
-      note: "当前聚焦 OpenVLA-OFT 多任务训练中的最小动作末端专门化，专题页展示 VLA-MoE 方法、四套件结果与待验证问题。",
-      badge: "进行中的研究",
-      repo: "OpenVLA-OFT / VLA-MoE / LIBERO",
-      overviewTitle: "当前主线：最小动作末端专门化",
+      note: "围绕 VLA 高效适配，展示 AAMAS 在投的参数高效微调实证研究，以及持续推进的 VLA-MoE 多任务策略专门化。",
+      badge: "在投论文与持续研究",
+      repo: "PEFT / VLA-MoE / OpenVLA-OFT",
+      overviewTitle: "参数高效适配与多任务策略专门化",
       snapshotTitle: "研究快照",
       pipelineTitle: "推进路线",
       highlightsTitle: "当前判断",
       focusLabel: "当前聚焦",
-      focusItem1: "OpenVLA-OFT",
+      focusItem1: "参数高效微调",
       focusItem2: "VLA-MoE",
-      focusItem3: "动作末端专门化",
-      focusItem4: "多任务训练稳定性"
+      focusItem3: "LIBERO / R2R",
+      focusItem4: "动作末端专门化"
     },
     updates: {
       eyebrow: "动态",
       title: "研究动态",
-      note: "保留少量近期更新，用于呈现持续推进中的研究脉络。"
+      note: "记录 DM-NAV、VLA 参数高效微调与 VLA-MoE 的最新投稿状态和研究进展。"
     },
     research: {
       eyebrow: "方向概览",
       title: "研究方向概览",
-      note: "在详细模块展开之前，先用更紧凑的方式概览当前正在推进的研究主题与方法重点。"
+      note: "概览两篇 AAMAS 在投论文、VLA-MoE 持续研究，以及智慧农业应用方向。"
     },
     futurePapersSection: {
       eyebrow: "未来论文",
@@ -166,7 +166,7 @@ const uiText = {
     modules: {
       eyebrow: "研究方向",
       title: "研究方向",
-      note: "以下内容分别展示当前最核心的双臂 Sim-to-Real 研究方向，以及并行推进中的 Vision-Language-Action 研究方向。"
+      note: "围绕 VLA 高效适配与多任务专门化、双臂 Meta-MARL 和 Sim-to-Real 部署展开。"
     },
     background: {
       eyebrow: "背景",
@@ -190,7 +190,7 @@ const uiText = {
     },
     filters: {
       all: "全部",
-      deployment: "Sim-to-Real",
+      deployment: "双臂 / Sim-to-Real",
       vla: "VLA",
       agriculture: "智慧农业"
     }
@@ -209,7 +209,7 @@ const uiText = {
       about: "Profile",
       paperPlans: "Paper Plans",
       vla: "VLA Track",
-      simtoreal: "Sim-to-Real Track",
+      simtoreal: "Dual-Arm / Meta-MARL",
       agriculture: "Smart Agriculture Suite",
       news: "Updates",
       publications: "Research",
@@ -257,20 +257,20 @@ const uiText = {
       }
     },
     dualArm: {
-      eyebrow: "Featured Project",
-      note: "My most representative current project, highlighting dual-arm manipulation, learning-based control, and real-system deployment.",
-      badge: "Featured Research",
-      overviewTitle: "A full research pipeline from MuJoCo simulation to real dual-arm UR5 deployment",
-      snapshotTitle: "Project Snapshot",
+      eyebrow: "Research Direction",
+      note: "The DM-NAV submission connects meta multi-agent reinforcement learning, dual-arm dynamic obstacle avoidance, and physical deployment.",
+      badge: "Under Review at AAMAS",
+      overviewTitle: "DM-NAV: Dual-Arm Dynamic Obstacle Avoidance and Sim-to-Real Deployment",
+      snapshotTitle: "Research Snapshot",
       pipelineTitle: "Research Pipeline",
       highlightsTitle: "Key Highlights",
-      focusLabel: "System Focus",
-      focusItem1: "Dual-Arm UR5",
-      focusItem2: "MuJoCo + PPO",
-      focusItem3: "ROS 2 + MoveIt",
-      focusItem4: "Real Deployment",
-      galleryTitle: "Project Visuals",
-      galleryNote: "The visuals below cover the real platform, simulation environment, control experiments, and deployment process, all taken from actual project records.",
+      focusLabel: "Current Focus",
+      focusItem1: "DM-NAV",
+      focusItem2: "Meta-MARL",
+      focusItem3: "RGB-D Perception",
+      focusItem4: "Physical Dual-UR5 Validation",
+      galleryTitle: "Dual-Arm Platform and Systems",
+      galleryNote: "These visuals show the engineering platform and earlier system demonstrations. The DM-NAV research page presents its method, evaluation protocol, and quantitative results.",
       media: {
         realKicker: "Real System",
         realType: "Lab Photo",
@@ -323,28 +323,28 @@ const uiText = {
     vla: {
       eyebrow: "Research Direction",
       title: "Vision-Language-Action",
-      note: "The current focus is minimal action-tail specialization in multi-task OpenVLA-OFT training. The research page presents the VLA-MoE method, four-suite results, and open questions.",
-      badge: "Ongoing Research",
-      repo: "OpenVLA-OFT / VLA-MoE / LIBERO",
-      overviewTitle: "Current Focus: Minimal Action-Tail Specialization",
+      note: "Efficient VLA adaptation spans the PEFT study under review at AAMAS and ongoing VLA-MoE research on multi-task policy specialization.",
+      badge: "Submission & Ongoing Research",
+      repo: "PEFT / VLA-MoE / OpenVLA-OFT",
+      overviewTitle: "Efficient Adaptation and Multi-Task Policy Specialization",
       snapshotTitle: "Research Snapshot",
       pipelineTitle: "Research Path",
       highlightsTitle: "Current Findings",
       focusLabel: "Current Focus",
-      focusItem1: "OpenVLA-OFT",
+      focusItem1: "Parameter-Efficient Fine-Tuning",
       focusItem2: "VLA-MoE",
-      focusItem3: "Action-Tail Specialization",
-      focusItem4: "Multi-Task Training Stability"
+      focusItem3: "LIBERO / R2R",
+      focusItem4: "Action-Tail Specialization"
     },
     updates: {
       eyebrow: "Updates",
       title: "Research Updates",
-      note: "A compact list of recent activities that reflects the current research trajectory."
+      note: "Current submission status and research progress for DM-NAV, VLA PEFT, and VLA-MoE."
     },
     research: {
       eyebrow: "Overview",
       title: "Research Direction Overview",
-      note: "A compact overview of the research themes and methodological focus before the detailed direction modules."
+      note: "Two AAMAS submissions, ongoing VLA-MoE research, and applications in smart agriculture."
     },
     futurePapersSection: {
       eyebrow: "Paper Plans",
@@ -358,7 +358,7 @@ const uiText = {
     modules: {
       eyebrow: "Directions",
       title: "Research Directions",
-      note: "The following sections present my core Sim-to-Real dual-arm research direction and a parallel Vision-Language-Action track."
+      note: "Efficient VLA adaptation and multi-task specialization, dual-arm Meta-MARL, and Sim-to-Real deployment."
     },
     background: {
       eyebrow: "Background",
@@ -382,7 +382,7 @@ const uiText = {
     },
     filters: {
       all: "All",
-      deployment: "Sim-to-Real",
+      deployment: "Dual-Arm / Sim-to-Real",
       vla: "VLA",
       agriculture: "Smart Agriculture"
     }
@@ -393,65 +393,74 @@ const localeData = {
   zh: {
     newsItems: [
       {
-        date: "2026.04",
-        title: "VLA 专题页与首页入口完成联动",
-        description: "将首页 VLA 模块收敛为“当前主线 + 推进路线”的入口，并单独整理层级式 speculative VLA 专题页。"
+        date: "2026.10.02",
+        title: "DM-NAV：双臂动态避障论文 AAMAS 在投",
+        description: "通过跨任务元策略学习、目标任务适应与冻结策略部署，连接 MuJoCo 仿真和真实双 UR5 系统；专题展示六种 MARL 基线对比及 14 种物理运动条件下的验证。"
       },
       {
-        date: "2026.03",
-        title: "VLA 主线收敛到层级式 speculative 框架",
-        description: "当前判断聚焦高层语义推理加速，优先验证 latency、replan 次数与长时程成功率。"
+        date: "2026.10.02",
+        title: "VLA 参数高效微调实证研究 AAMAS 在投",
+        description: "比较 LoRA、DoRA、QLoRA、AdaLoRA、HiRA 与 IA3 六种方法，覆盖 LIBERO 操作与 R2R 导航，分析任务表现、显存占用和训练时间之间的权衡。"
       },
       {
-        date: "2026.02",
-        title: "AdaMoE 与 OpenVLA-OFT 工程链路跑通",
-        description: "完成基础接入、mix4 训练链路和恢复逻辑整理，为后续 action-head 与 speculative 主线提供工程基座。"
-      },
-      {
-        date: "2026.01",
-        title: "双臂 Sim-to-Real 平台继续完善",
-        description: "围绕 Dual_Arm_UR5 持续推进 MuJoCo、PPO、ROS 2 / MoveIt 与感知部署链路，作为后续具身研究的系统基础。"
+        date: "2026.10.02",
+        title: "VLA-MoE：动作末端专门化研究持续推进",
+        description: "专题已整理 V15 四训练种子结果，以及 V16 学习路由和 V17 冻结策略适配的阶段证据；下一步补齐匹配 Dense 基线与更小替代方案，投稿目标待定。"
       }
     ],
     featuredProject: {
-      summary:
-        "Dual_Arm_UR5 是我当前研究组合中的核心项目，围绕双臂 UR5 建立了从物理建模、任务空间控制，到 PPO 学习、ROS 2 / MoveIt 集成、感知模块接入与真实系统部署的完整实验平台。该平台也为后续面向 VLA 的机器人操作研究提供了稳定的系统基础。",
+      summary: "DM-NAV 研究动态障碍下的双臂协同：在 MuJoCo 中学习可迁移的元策略初始化，完成少量目标任务适应，再通过 RGB-D 感知与关节速度控制，将冻结策略部署至真实双 UR5。论文 AAMAS 在投，Dual_Arm_UR5 提供建模、训练与部署的工程基础。",
       links: [
-        { label: "项目展示页", url: "dual-ur5.html" },
-        { label: "项目仓库", url: "https://github.com/zx2002430/Dual_Arm_UR5" },
-        { label: "Base 分支", url: "https://github.com/zx2002430/Dual_Arm_UR5/tree/Base" },
-        { label: "RL-Algorithm", url: "https://github.com/zx2002430/Dual_Arm_UR5/tree/RL-Algorithm" },
-        { label: "Sim-To-Real", url: "https://github.com/zx2002430/Dual_Arm_UR5/tree/Sim-To-Real" }
+        {
+          label: "DM-NAV 研究专题",
+          url: "dual-ur5.html?v=20261002-dm-nav"
+        },
+        {
+          label: "论文 PDF · 密码访问",
+          url: "dm-nav-paper.html?v=20261002-aamas-protected"
+        },
+        {
+          label: "双臂 UR5 代码库",
+          url: "https://github.com/zx2002430/Dual_Arm_UR5"
+        }
       ],
       metrics: [
-        { label: "机器人平台", value: "双臂 UR5" },
-        { label: "学习方法", value: "PPO" },
-        { label: "仿真环境", value: "MuJoCo" },
-        { label: "部署框架", value: "ROS 2 + MoveIt" }
+        {
+          label: "机器人平台",
+          value: "双 UR5"
+        },
+        {
+          label: "学习方法",
+          value: "二阶元策略学习"
+        },
+        {
+          label: "真机验证",
+          value: "14 种运动条件"
+        },
+        {
+          label: "策略执行",
+          value: "50 Hz 关节速度控制"
+        }
       ],
       pipeline: [
         {
-          stage: "仿真",
-          detail: "建立双臂 UR5 的 MuJoCo XML 与 ROS 2 URDF，完成动力学建模、任务空间 PID 与轨迹跟踪。"
+          stage: "跨任务元训练",
+          detail: "在 MuJoCo 障碍运动任务分布中，通过 support / query 轨迹学习可迁移的策略初始化。"
         },
         {
-          stage: "学习",
-          detail: "构建自定义 Gymnasium 环境，设计状态表示、动作空间与奖励函数，并使用 Stable-Baselines3 PPO 训练。"
+          stage: "目标任务适应",
+          detail: "以少量交互进行目标任务更新，使用独立验证轨迹选择策略检查点。"
         },
         {
-          stage: "部署",
-          detail: "连接策略推理、安全状态机、MoveIt、控制器与真实双臂 UR5 平台，推进 Sim-to-Real 实验。"
-        },
-        {
-          stage: "感知",
-          detail: "集成 RGB-D 感知、YOLO 目标检测、2D 到 3D 定位与手眼标定，支撑感知驱动任务。"
+          stage: "冻结策略真机部署",
+          detail: "融合 RGB-D 与机器人反馈，执行两臂关节速度命令；物理测试期间保持策略参数冻结。"
         }
       ],
       highlights: [
-        "围绕真实双臂 UR5 平台组织研究，而不是单一算法演示。",
-        "在同一系统中打通经典控制、强化学习与真实部署。",
-        "兼顾仿真验证与真实机器人执行链路。",
-        "为后续语言条件操作和 VLA 扩展提供系统基础。"
+        "DM-NAV 当前为 AAMAS 在投，方法与实验协议见研究专题。",
+        "包含六种 MARL 基线的仿真对比与 14 种运动条件的物理测试。",
+        "以 RGB-D 感知、50 Hz 策略决策和关节速度控制构建双臂执行闭环。",
+        "结果对应稿件中的测试场景，独立重复物理试验与统计验证仍待补充。"
       ]
     },
     smartAgriFeature: {
@@ -495,8 +504,16 @@ const localeData = {
       ]
     },
     vlaDirection: {
-      summary: "基于 OpenVLA-OFT，在共享视觉语言表示、状态映射和动作主干的同时，仅在最终动作投影处加入任务组专属残差。当前研究问题是：极小末端容量能否改善多套件训练中的性能退化，并保留共享训练的收益？",
+      summary: "围绕 VLA 模型的高效适配推进两项工作：参数高效微调实证研究比较六种 PEFT 方法，覆盖 LIBERO 操作与 R2R 导航，论文 AAMAS 在投；VLA-MoE 基于 OpenVLA-OFT 研究共享策略与任务组动作末端残差，继续补齐公平基线和最小替代验证。",
       links: [
+        {
+          label: "PEFT 论文 · 密码访问",
+          url: "vla-peft-paper.html?v=20261002-aamas-protected"
+        },
+        {
+          label: "VLA-MoE 研究专题",
+          url: "vla-research.html?v=20261002-vla-moe"
+        },
         {
           label: "VLA-MoE 代码库",
           url: "https://github.com/zx2002430/vla-moe-openvla-oft"
@@ -504,67 +521,101 @@ const localeData = {
       ],
       metrics: [
         {
-          label: "当前主线",
-          value: "最小动作末端专门化"
+          label: "PEFT 论文",
+          value: "AAMAS 在投"
         },
         {
-          label: "实验基座",
-          value: "OpenVLA-OFT + LIBERO"
+          label: "PEFT 评测",
+          value: "LIBERO / R2R"
         },
         {
-          label: "已完成",
+          label: "VLA-MoE 阶段",
           value: "V15 四训练种子"
         },
         {
           label: "下一步",
-          value: "公平基线与最小替代检验"
+          value: "匹配 Dense 与最小替代"
         }
       ],
       pipeline: [
         {
-          stage: "共享边界诊断",
-          detail: "从 V13–V14 的模块消融，定位任务专属容量应放置的环节。"
+          stage: "参数高效微调实证比较",
+          detail: "比较六种 PEFT 方法在操作与导航任务中的表现、显存占用及训练时间。"
         },
         {
-          stage: "末端残差与路由",
-          detail: "V15 保留共享动作路径；V16 验证基于 action-hidden 的闭集专家选择。"
+          stage: "多任务策略专门化",
+          detail: "保留共享视觉语言表示与动作主干，研究动作末端任务组残差、闭集学习路由和冻结策略适配。"
         },
         {
-          stage: "证据补齐",
-          detail: "完成同协议 Dense 对照，再比较输出校准、直接残差与因子化残差。"
+          stage: "公平对照与独立验证",
+          detail: "补齐匹配 Dense 的多种子对照，再检验输出校准、直接残差与因子化残差等更小替代方案。"
         }
       ],
       highlights: [
-        "V15 四种子 Macro 为 96.90% ± 1.36 个百分点；Long 仍是主要短板。",
-        "匹配配置的 Dense 四种子尚未齐全，稳定性优势仍待验证。",
-        "rank8 对七维输出属于因子化残差，不能作为严格低秩压缩的证据。",
-        "VLA-MoE 论文计划：计划在投，投稿目标待定。"
+        "参数高效微调论文 AAMAS 在投，研究六种方法在 LIBERO 与 R2R 上的任务依赖表现。",
+        "VLA-MoE V15 四种子 Macro 为 96.90% ± 1.36 个百分点，± 表示训练种子间样本标准差。",
+        "VLA-MoE 的完整匹配 Dense 对照尚未齐全，稳定性优势仍待验证。",
+        "VLA-MoE 继续进行最小替代与机制检验，论文计划在投，投稿目标待定。"
       ]
     },
     overviewPublications: [
       {
-        title: "融合 RGB-D 感知的双臂 Sim-to-Real 控制",
+        title: "DM-NAV：双臂动态避障与可部署元多智能体强化学习",
         authors: "赵汛",
-        venue: "研究主线 | Sim-to-Real",
+        status: "AAMAS 在投",
+        venue: "AAMAS · 双臂 Meta-MARL / Sim-to-Real",
         type: "Deployment",
-        highlight: "ROS 2 + MoveIt + YOLO + 手眼标定",
-        summary: "围绕双臂 UR5 平台组织的一条完整 Sim-to-Real 研究主线，覆盖 Base 建模、强化学习、真实部署与感知标定。",
+        track: "Meta-MARL",
+        highlight: "跨任务元学习 → 目标任务适应 → 冻结策略上机",
+        summary: "学习可迁移的双臂协同策略，结合 RGB-D 感知与关节速度控制部署到真实双 UR5；包含六种 MARL 基线对比与 14 种物理运动条件验证。",
         links: [
-          { label: "仓库", url: "https://github.com/zx2002430/Dual_Arm_UR5" },
-          { label: "Sim-To-Real", url: "https://github.com/zx2002430/Dual_Arm_UR5/tree/Sim-To-Real" }
+          {
+            label: "DM-NAV 研究专题",
+            url: "dual-ur5.html?v=20261002-dm-nav"
+          },
+          {
+            label: "论文 PDF · 密码访问",
+            url: "dm-nav-paper.html?v=20261002-aamas-protected"
+          },
+          {
+            label: "平台代码",
+            url: "https://github.com/zx2002430/Dual_Arm_UR5"
+          }
+        ]
+      },
+      {
+        title: "VLA 参数高效微调的实证研究",
+        authors: "赵汛",
+        status: "AAMAS 在投",
+        venue: "AAMAS · VLA / PEFT",
+        type: "VLA",
+        track: "VLA / PEFT",
+        highlight: "六种 PEFT 方法 · LIBERO 操作 · R2R 导航",
+        summary: "比较 LoRA、DoRA、QLoRA、AdaLoRA、HiRA 与 IA3，分析多模态适配、任务表现、显存占用与训练时间，揭示不同方法随任务变化的效率权衡。",
+        links: [
+          {
+            label: "论文 PDF · 密码访问",
+            url: "vla-peft-paper.html?v=20261002-aamas-protected"
+          },
+          {
+            label: "VLA 研究方向",
+            url: "#vla-direction"
+          }
         ]
       },
       {
         title: "VLA-MoE：多任务 VLA 的动作末端专门化",
         authors: "赵汛",
-        venue: "进行中的研究方向",
+        status: "持续研究",
+        venue: "计划在投 · 投稿目标待定",
         type: "VLA",
-        highlight: "共享策略 + 任务组残差 + 闭集学习路由",
-        summary: "研究 OpenVLA-OFT 多套件联合训练中的共享与专门化边界，检验极小动作末端容量对弱套件表现、参数开销与训练波动的影响。",
+        track: "VLA-MoE",
+        highlight: "共享策略 + 任务组末端残差 + 闭集学习路由",
+        summary: "基于 OpenVLA-OFT 与 LIBERO 四套件研究共享与专门化边界。V15 已完成四训练种子结果，继续补齐匹配 Dense 基线与最小替代实验。",
         links: [
           {
-            label: "研究专题",
-            url: "vla-research.html"
+            label: "VLA-MoE 研究专题",
+            url: "vla-research.html?v=20261002-vla-moe"
           },
           {
             label: "代码库",
@@ -573,15 +624,21 @@ const localeData = {
         ]
       },
       {
-        title: "面向农业场景的智能系统",
+        title: "智慧农业感知与控制系统",
         authors: "赵汛",
-        venue: "进行中的研究方向",
+        venue: "智慧农业应用方向",
         type: "Agriculture",
-        highlight: "农业机器人 + 多模态感知 + 智能决策",
-        summary: "关注智慧农业场景中的感知、决策与自动化执行问题，探索将具身智能和多模态方法用于农业环境中的任务理解与操作。",
+        highlight: "四情监测 + 灌溉控制 + 数字化平台",
+        summary: "围绕 300 亩核心农田场景，组织多源感知、设备接入、灌溉控制与平台联动，形成专题总览、可视化看板和研究材料。",
         links: [
-          { label: "实验室", url: "https://eilab-wanghong.eu.cc/" },
-          { label: "联系我", url: "#contact" }
+          {
+            label: "智慧农业专题",
+            url: "smart-agriculture.html"
+          },
+          {
+            label: "可视化看板",
+            url: "smart-agriculture-dashboard.html"
+          }
         ]
       }
     ],
@@ -785,65 +842,74 @@ const localeData = {
   en: {
     newsItems: [
       {
-        date: "2026.04",
-        title: "Homepage and VLA research page now work as one entry flow",
-        description: "The homepage VLA block now serves as a thesis-level entry, while a dedicated page expands the hierarchical speculative VLA plan."
+        date: "2026.10.02",
+        title: "DM-NAV dual-arm obstacle avoidance paper under review at AAMAS",
+        description: "Cross-task meta-training, target-task adaptation, and frozen-policy transfer connect MuJoCo simulation with a physical dual-UR5 system. The research page presents six MARL baselines and validation across 14 physical motion conditions."
       },
       {
-        date: "2026.03",
-        title: "VLA mainline converged to a hierarchical speculative frame",
-        description: "The current focus is high-level semantic acceleration, with evaluation centered on latency, replanning frequency, and long-horizon success rate."
+        date: "2026.10.02",
+        title: "Empirical VLA PEFT study under review at AAMAS",
+        description: "Comparing LoRA, DoRA, QLoRA, AdaLoRA, HiRA, and IA3 on LIBERO manipulation and R2R navigation, with analysis of task performance, memory use, and training time."
       },
       {
-        date: "2026.02",
-        title: "AdaMoE and OpenVLA-OFT engineering path completed",
-        description: "Finished the core integration, mix4 training flow, and recovery logic as the engineering base for later action-head and speculative experiments."
-      },
-      {
-        date: "2026.01",
-        title: "Dual-arm Sim-to-Real platform kept expanding",
-        description: "Continued improving the Dual_Arm_UR5 stack across MuJoCo, PPO, ROS 2 / MoveIt, and perception-driven deployment as the systems base for future embodied work."
+        date: "2026.10.02",
+        title: "VLA-MoE action-tail specialization research continues",
+        description: "The research page summarizes four-seed V15 results, V16 learned routing, and V17 frozen-policy adaptation. Next steps are matched Dense baselines and smaller alternatives; the submission venue remains to be determined."
       }
     ],
     featuredProject: {
-      summary:
-        "Dual_Arm_UR5 is the core project in my current research portfolio. It covers the full path from physical modeling and task-space control to PPO learning, ROS 2 / MoveIt integration, perception modules, and real-system deployment. The platform also serves as a stable systems foundation for future VLA-oriented manipulation research.",
+      summary: "DM-NAV studies coordinated dual-arm control under moving obstacles. It learns a transferable meta-policy initialization in MuJoCo, adapts to a target task with limited interaction, and deploys a frozen policy on physical dual UR5 robots through RGB-D perception and joint-velocity control. The paper is under review at AAMAS, with Dual_Arm_UR5 providing the modeling, training, and deployment foundation.",
       links: [
-        { label: "Showcase Page", url: "dual-ur5.html" },
-        { label: "GitHub Repo", url: "https://github.com/zx2002430/Dual_Arm_UR5" },
-        { label: "Base", url: "https://github.com/zx2002430/Dual_Arm_UR5/tree/Base" },
-        { label: "RL-Algorithm", url: "https://github.com/zx2002430/Dual_Arm_UR5/tree/RL-Algorithm" },
-        { label: "Sim-To-Real", url: "https://github.com/zx2002430/Dual_Arm_UR5/tree/Sim-To-Real" }
+        {
+          label: "DM-NAV Research Page",
+          url: "dual-ur5.html?v=20261002-dm-nav"
+        },
+        {
+          label: "Paper PDF · Password Required",
+          url: "dm-nav-paper.html?v=20261002-aamas-protected"
+        },
+        {
+          label: "Dual-Arm UR5 Code",
+          url: "https://github.com/zx2002430/Dual_Arm_UR5"
+        }
       ],
       metrics: [
-        { label: "Robot Setup", value: "Dual UR5" },
-        { label: "Learning Method", value: "PPO" },
-        { label: "Simulation", value: "MuJoCo" },
-        { label: "Deployment Stack", value: "ROS 2 + MoveIt" }
+        {
+          label: "Robot Setup",
+          value: "Dual UR5"
+        },
+        {
+          label: "Learning Method",
+          value: "Second-Order Meta-Learning"
+        },
+        {
+          label: "Physical Validation",
+          value: "14 Motion Conditions"
+        },
+        {
+          label: "Policy Execution",
+          value: "50 Hz Joint-Velocity Control"
+        }
       ],
       pipeline: [
         {
-          stage: "Simulation",
-          detail: "Built dual-arm UR5 models in MuJoCo XML and ROS 2 URDF, including dynamics modeling, task-space PID, and trajectory tracking."
+          stage: "Cross-Task Meta-Training",
+          detail: "Learn a transferable policy initialization with support and query trajectories across obstacle-motion tasks in MuJoCo."
         },
         {
-          stage: "Learning",
-          detail: "Designed a custom Gymnasium environment, state representation, action space, and reward function, then trained with Stable-Baselines3 PPO."
+          stage: "Target-Task Adaptation",
+          detail: "Update the policy with limited target-task interaction and select checkpoints using separate validation trajectories."
         },
         {
-          stage: "Deployment",
-          detail: "Connected policy inference, safety state machines, MoveIt, controllers, and the real dual-arm UR5 platform for Sim-to-Real experiments."
-        },
-        {
-          stage: "Perception",
-          detail: "Integrated RGB-D sensing, YOLO-based object detection, 2D-to-3D localization, and hand-eye calibration for perception-guided tasks."
+          stage: "Frozen-Policy Physical Transfer",
+          detail: "Combine RGB-D sensing and robot feedback to execute joint-velocity commands; keep policy parameters frozen throughout physical evaluation."
         }
       ],
       highlights: [
-        "Organized around a real dual-arm UR5 platform rather than a single algorithm demo.",
-        "Bridges classical control, reinforcement learning, and real-world deployment in one system.",
-        "Supports both simulation validation and real robot execution.",
-        "Provides a strong foundation for future language-conditioned and VLA-style manipulation."
+        "DM-NAV is under review at AAMAS; the research page presents the method and evaluation protocol.",
+        "Simulation comparisons against six MARL baselines and physical tests across 14 motion conditions.",
+        "RGB-D perception, 50 Hz policy decisions, and joint-velocity control form the dual-arm execution loop.",
+        "Results cover the manuscript’s tested settings; independent repeated physical trials and statistical validation remain future work."
       ]
     },
     smartAgriFeature: {
@@ -887,8 +953,16 @@ const localeData = {
       ]
     },
     vlaDirection: {
-      summary: "Built on OpenVLA-OFT, this work shares the vision-language representation, proprioceptive mapping, and action trunk while adding task-group residuals only at the final action projection. It asks whether a small private tail can reduce suite-level degradation while retaining the benefits of shared training.",
+      summary: "Efficient VLA adaptation spans two studies. The PEFT paper compares six methods on LIBERO manipulation and R2R navigation and is under review at AAMAS. VLA-MoE builds on OpenVLA-OFT to study shared policies and task-group action-tail residuals, with matched baselines and minimal-alternative experiments still in progress.",
       links: [
+        {
+          label: "PEFT Paper · Password Required",
+          url: "vla-peft-paper.html?v=20261002-aamas-protected"
+        },
+        {
+          label: "VLA-MoE Research Page",
+          url: "vla-research.html?v=20261002-vla-moe"
+        },
         {
           label: "VLA-MoE Code",
           url: "https://github.com/zx2002430/vla-moe-openvla-oft"
@@ -896,15 +970,15 @@ const localeData = {
       ],
       metrics: [
         {
-          label: "Current Focus",
-          value: "Minimal Action-Tail Specialization"
+          label: "PEFT Paper",
+          value: "Under Review at AAMAS"
         },
         {
-          label: "Experiment Base",
-          value: "OpenVLA-OFT + LIBERO"
+          label: "PEFT Evaluation",
+          value: "LIBERO / R2R"
         },
         {
-          label: "Completed",
+          label: "VLA-MoE Progress",
           value: "V15: Four Training Seeds"
         },
         {
@@ -914,49 +988,83 @@ const localeData = {
       ],
       pipeline: [
         {
-          stage: "Sharing Boundaries",
-          detail: "Use the V13–V14 module ablations to identify where task-specific capacity should enter."
+          stage: "Empirical PEFT Comparison",
+          detail: "Compare six methods on manipulation and navigation, including task performance, memory use, and training time."
         },
         {
-          stage: "Residuals and Routing",
-          detail: "V15 retains the shared action path; V16 tests closed-set expert selection from action-hidden features."
+          stage: "Multi-Task Policy Specialization",
+          detail: "Retain shared vision-language representations and the action trunk while studying task-group action-tail residuals, closed-set learned routing, and frozen-policy adaptation."
         },
         {
-          stage: "Evidence",
-          detail: "Complete the matched Dense runs, then compare output calibration, direct residuals, and factorized residuals."
+          stage: "Matched Comparisons and Independent Validation",
+          detail: "Complete the multi-seed matched Dense baseline, then test smaller alternatives including output calibration, direct residuals, and factorized residuals."
         }
       ],
       highlights: [
-        "V15 four-seed Macro is 96.90% ± 1.36 percentage points; Long remains the weakest suite.",
-        "The matched four-seed Dense baseline is incomplete; a stability advantage remains unverified.",
-        "Rank 8 on a seven-dimensional output is a factorized residual, not evidence of strict low-rank compression.",
-        "The VLA-MoE paper is planned for submission; its target venue is to be determined."
+        "The PEFT paper is under review at AAMAS, studying task-dependent performance across six methods on LIBERO and R2R.",
+        "VLA-MoE V15 four-seed Macro is 96.90% ± 1.36 percentage points; ± denotes the sample standard deviation across training seeds.",
+        "The complete matched Dense baseline remains unfinished; a VLA-MoE stability advantage is not yet established.",
+        "VLA-MoE continues minimal-alternative and mechanism studies; its planned submission venue remains to be determined."
       ]
     },
     overviewPublications: [
       {
-        title: "Sim-to-Real Dual-Arm Control with RGB-D Perception",
+        title: "DM-NAV: Deployable Meta-MARL for Dual-Arm Dynamic Obstacle Avoidance",
         authors: "Xun Zhao",
-        venue: "Research Track | Sim-to-Real",
+        status: "Under Review at AAMAS",
+        venue: "AAMAS · Dual-Arm Meta-MARL / Sim-to-Real",
         type: "Deployment",
-        highlight: "ROS 2 + MoveIt + YOLO + Hand-Eye",
-        summary: "A complete Sim-to-Real research track organized around the dual-arm UR5 platform, covering Base modeling, reinforcement learning, real-world deployment, and perception calibration.",
+        track: "Meta-MARL",
+        highlight: "Cross-task meta-learning → target adaptation → frozen-policy transfer",
+        summary: "Learn transferable coordinated policies and deploy them on physical dual UR5 robots with RGB-D perception and joint-velocity control, with six MARL baselines and 14 physical motion conditions.",
         links: [
-          { label: "Repo", url: "https://github.com/zx2002430/Dual_Arm_UR5" },
-          { label: "Sim-To-Real", url: "https://github.com/zx2002430/Dual_Arm_UR5/tree/Sim-To-Real" }
+          {
+            label: "DM-NAV Research Page",
+            url: "dual-ur5.html?v=20261002-dm-nav"
+          },
+          {
+            label: "Paper PDF · Password Required",
+            url: "dm-nav-paper.html?v=20261002-aamas-protected"
+          },
+          {
+            label: "Platform Code",
+            url: "https://github.com/zx2002430/Dual_Arm_UR5"
+          }
+        ]
+      },
+      {
+        title: "Empirical Investigation of PEFT in Vision-Language-Action Models",
+        authors: "Xun Zhao",
+        status: "Under Review at AAMAS",
+        venue: "AAMAS · VLA / PEFT",
+        type: "VLA",
+        track: "VLA / PEFT",
+        highlight: "Six PEFT methods · LIBERO manipulation · R2R navigation",
+        summary: "Compare LoRA, DoRA, QLoRA, AdaLoRA, HiRA, and IA3, studying multimodal adaptation, task performance, memory use, and training time to characterize task-dependent efficiency trade-offs.",
+        links: [
+          {
+            label: "Paper PDF · Password Required",
+            url: "vla-peft-paper.html?v=20261002-aamas-protected"
+          },
+          {
+            label: "VLA Research Direction",
+            url: "#vla-direction"
+          }
         ]
       },
       {
         title: "VLA-MoE: Action-Tail Specialization in Multi-Task VLA",
         authors: "Xun Zhao",
-        venue: "Ongoing Research Direction",
+        status: "Ongoing Research",
+        venue: "Planned Submission · Venue TBD",
         type: "VLA",
-        highlight: "Shared policy + task-group residuals + learned closed-set routing",
-        summary: "Studying sharing and specialization boundaries in multi-suite OpenVLA-OFT training, and testing how small private action tails affect weak-suite performance, parameter cost, and training variability.",
+        track: "VLA-MoE",
+        highlight: "Shared policy + task-group tail residuals + closed-set learned routing",
+        summary: "Study sharing and specialization boundaries in OpenVLA-OFT across four LIBERO suites. Four-seed V15 results are complete; matched Dense baselines and minimal-alternative experiments remain in progress.",
         links: [
           {
-            label: "Research Page",
-            url: "vla-research.html"
+            label: "VLA-MoE Research Page",
+            url: "vla-research.html?v=20261002-vla-moe"
           },
           {
             label: "Code",
@@ -965,15 +1073,21 @@ const localeData = {
         ]
       },
       {
-        title: "Intelligent Systems for Smart Agriculture",
+        title: "Smart Agriculture Sensing and Control Systems",
         authors: "Xun Zhao",
-        venue: "Ongoing Research Direction",
+        venue: "Smart Agriculture Applications",
         type: "Agriculture",
-        highlight: "Agricultural robotics + multimodal sensing + intelligent decision making",
-        summary: "Studying perception, decision making, and autonomous execution in smart agriculture, with an interest in applying embodied and multimodal methods to agricultural environments.",
+        highlight: "Four-condition monitoring + irrigation control + digital platform",
+        summary: "Organize multi-source sensing, device integration, irrigation control, and platform coordination for a 300-mu farmland scenario, with an overview, dashboard, and research materials.",
         links: [
-          { label: "Lab", url: "https://eilab-wanghong.eu.cc/" },
-          { label: "Contact", url: "#contact" }
+          {
+            label: "Smart Agriculture Suite",
+            url: "smart-agriculture.html"
+          },
+          {
+            label: "Dashboard",
+            url: "smart-agriculture-dashboard.html"
+          }
         ]
       }
     ],
@@ -1210,6 +1324,7 @@ function renderActionLink(link, variant = "secondary") {
 }
 
 function getPublicationState(language, item) {
+  if (item.status) return item.status;
   const map = {
     zh: {
       Deployment: "系统主线",
@@ -1324,12 +1439,7 @@ function renderFeaturedProject(language) {
 function renderVlaDirection(language) {
   const data = localeData[language].vlaDirection;
   document.getElementById("vla-summary").textContent = data.summary;
-  document.getElementById("vla-links").innerHTML =
-    renderLink({
-      label: language === "zh" ? "专题页面" : "Research Page",
-      url: "vla-research.html"
-    }) +
-    data.links.map(renderLink).join("");
+  document.getElementById("vla-links").innerHTML = data.links.map(renderLink).join("");
   document.getElementById("vla-metrics").innerHTML = data.metrics
     .map(
       (item) => `
@@ -1421,17 +1531,9 @@ function renderFilters(language) {
 function renderPublications(language) {
   const container = document.getElementById("publication-list");
   const locale = localeData[language];
-  let items = [];
-
-  if (currentFilter === "All") {
-    items = locale.overviewPublications;
-  } else if (currentFilter === "Deployment") {
-    items = locale.simToRealBreakdown;
-  } else if (currentFilter === "VLA") {
-    items = [locale.vlaPublication];
-  } else if (currentFilter === "Agriculture") {
-    items = [locale.agriculturePublication];
-  }
+  const items = currentFilter === "All"
+    ? locale.overviewPublications
+    : locale.overviewPublications.filter((item) => item.type === currentFilter);
 
   container.innerHTML = items
     .map(
@@ -1442,7 +1544,7 @@ function renderPublications(language) {
         <article class="publication-card">
           <div class="card-state-row">
             <span class="card-state-badge">${getPublicationState(language, item)}</span>
-            <span class="card-state-track">${item.type}</span>
+            <span class="card-state-track">${item.track || item.type}</span>
           </div>
           <div class="publication-head">
             <h3 class="publication-title">${item.title}</h3>
@@ -1457,12 +1559,6 @@ function renderPublications(language) {
             </div>
             <div class="card-action-secondary">
               ${secondaryLinks.map((link) => renderActionLink(link, "secondary")).join("")}
-            ${item.type === "VLA"
-              ? renderActionLink({
-                  label: language === "zh" ? "专题页面" : "Research Page",
-                  url: "vla-research.html"
-                }, "secondary")
-              : ""}
             </div>
           </div>
         </article>
