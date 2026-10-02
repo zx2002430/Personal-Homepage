@@ -641,15 +641,16 @@ const localeData = {
     },
     futurePapers: [
       {
-        title: "OpenVLA-OFT：面向速度与成功率优化的视觉-语言-动作模型微调",
+        title: "DM-NAV：面向双臂动态避障的可部署元多智能体强化学习",
         status: "计划再投",
-        track: "VLA",
+        track: "Meta-MARL",
         venue: "AAMAS",
-        summary: "基于 OpenVLA-OFT 研究，拟整理优化微调方案并再投 AAMAS。该方案结合并行动作解码、动作分块、连续动作表示与 L1 回归目标，以提升推理效率和任务表现。",
-        contribution: "论文报告了 LIBERO 四个任务套件 97.1% 的平均成功率，并在真实双臂 ALOHA 操作任务上进行验证；再投稿时将围绕 VLA 微调设计选择、执行效率与任务成功率组织论述。",
+        summary: "围绕 DM-NAV（Dynamic Meta Navigation）元多智能体强化学习框架，计划修改完善后再投 AAMAS。该工作通过跨任务元策略学习与少量目标任务适应，实现双臂动态避障，并结合 RGB-D 感知与关节速度控制部署至真实双 UR5 系统。",
+        focusLabel: "再投稿重点",
+        contribution: "拟进一步整理任务适应流程、双臂协同避障机制、与六种 MARL 基线的仿真对比，以及 14 种物理速度条件下的真实系统验证。",
         links: [
-          { label: "arXiv 论文", url: "https://arxiv.org/abs/2502.19645" },
-          { label: "OpenVLA-OFT", url: "https://openvla-oft.github.io/" }
+          { label: "双臂 UR5 平台", url: "https://github.com/zx2002430/Dual_Arm_UR5" },
+          { label: "真机部署", url: "https://github.com/zx2002430/Dual_Arm_UR5/tree/Sim-To-Real" }
         ]
       },
       {
@@ -1005,15 +1006,16 @@ const localeData = {
     },
     futurePapers: [
       {
-        title: "Fine-Tuning Vision-Language-Action Models: Optimizing Speed and Success (OpenVLA-OFT)",
+        title: "DM-NAV: Deployable Meta Multi-Agent Reinforcement Learning for Dual-Arm Dynamic Obstacle Avoidance",
         status: "Planned Resubmission",
-        track: "VLA",
+        track: "Meta-MARL",
         venue: "AAMAS",
-        summary: "Based on OpenVLA-OFT, this plan is to organize and resubmit the optimized fine-tuning work to AAMAS. The recipe combines parallel action decoding, action chunking, continuous action representations, and an L1 regression objective to improve inference efficiency and task performance.",
-        contribution: "The paper reports a 97.1% average success rate across the four LIBERO task suites and evaluates on real bimanual ALOHA manipulation tasks. The resubmission will emphasize VLA fine-tuning design choices, execution efficiency, and task success.",
+        summary: "DM-NAV (Dynamic Meta Navigation) is a meta multi-agent reinforcement learning framework planned for revision and resubmission to AAMAS. It learns a transferable policy initialization and adapts it to a target obstacle-motion task, then deploys the frozen policy on a physical dual-UR5 system using RGB-D perception and joint-velocity control.",
+        focusLabel: "Resubmission Focus",
+        contribution: "The revision will clarify task adaptation, coordinated bimanual collision avoidance, simulation comparisons with six MARL baselines, and physical validation across 14 speed conditions.",
         links: [
-          { label: "arXiv Paper", url: "https://arxiv.org/abs/2502.19645" },
-          { label: "OpenVLA-OFT", url: "https://openvla-oft.github.io/" }
+          { label: "Dual-Arm UR5 Platform", url: "https://github.com/zx2002430/Dual_Arm_UR5" },
+          { label: "Real Deployment", url: "https://github.com/zx2002430/Dual_Arm_UR5/tree/Sim-To-Real" }
         ]
       },
       {
@@ -1437,7 +1439,7 @@ function renderFuturePapers(language) {
           </div>
           <p class="future-paper-summary">${item.summary}</p>
           <div class="future-paper-focus">
-            <strong>${contributionLabel}</strong>
+            <strong>${item.focusLabel ?? contributionLabel}</strong>
             <p>${item.contribution}</p>
           </div>
           <div class="card-action-stack">
