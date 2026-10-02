@@ -653,6 +653,18 @@ const localeData = {
         ]
       },
       {
+        title: "层级式 Speculative Vision-Language-Action 用于具身双臂操作",
+        status: "新论文计划",
+        track: "VLA",
+        venue: "AAMAS",
+        summary: "拟面向 AAMAS，围绕当前已经收敛的层级式 speculative VLA 主线，研究如何在高层语义子任务空间提升推理与重规划效率，同时保持低层连续动作执行的稳定性。",
+        contribution: "预计贡献包括面向 VLA 的层级式 speculative 框架、高层 verification 与 acceptance 设计，以及 latency、replan 频率和长时程成功率的实验验证。",
+        links: [
+          { label: "专题页面", url: "vla-research.html" },
+          { label: "Research", url: "#publications" }
+        ]
+      },
+      {
         title: "面向双臂 UR5 的感知驱动 Sim-to-Real 操作系统与真实部署验证",
         status: "方向成型",
         track: "Sim-to-Real",
@@ -662,18 +674,6 @@ const localeData = {
         links: [
           { label: "Dual_Arm_UR5", url: "https://github.com/zx2002430/Dual_Arm_UR5" },
           { label: "Sim-To-Real", url: "https://github.com/zx2002430/Dual_Arm_UR5/tree/Sim-To-Real" }
-        ]
-      },
-      {
-        title: "层级式 Speculative Vision-Language-Action 用于具身双臂操作",
-        status: "主线收敛",
-        track: "VLA",
-        venue: "AAMAS / CoRL / ICRA",
-        summary: "拟围绕当前已经收敛的层级式 speculative VLA 主线，研究如何在高层语义子任务空间提升推理与重规划效率，同时保持低层连续动作执行的稳定性。",
-        contribution: "预计贡献包括面向 VLA 的层级式 speculative 框架、高层 verification 与 acceptance 设计，以及 latency、replan 频率和长时程成功率的实验验证。",
-        links: [
-          { label: "专题页面", url: "vla-research.html" },
-          { label: "Research", url: "#publications" }
         ]
       },
       {
@@ -1017,6 +1017,18 @@ const localeData = {
         ]
       },
       {
+        title: "Hierarchical Speculative Vision-Language-Action for Embodied Bimanual Manipulation",
+        status: "New Paper Planned",
+        track: "VLA",
+        venue: "AAMAS",
+        summary: "This planned AAMAS paper would build on the current hierarchical speculative VLA thesis, studying how to accelerate high-level semantic reasoning and replanning while preserving stable low-level continuous execution.",
+        contribution: "Expected contributions include a hierarchical speculative framework for VLA, verification and acceptance design at the high-level semantic layer, and evaluation on latency, replanning frequency, and long-horizon success rate.",
+        links: [
+          { label: "Research Page", url: "vla-research.html" },
+          { label: "Research", url: "#publications" }
+        ]
+      },
+      {
         title: "Perception-Driven Sim-to-Real Bimanual Manipulation and Real Deployment with Dual-Arm UR5",
         status: "Concept Framed",
         track: "Sim-to-Real",
@@ -1026,18 +1038,6 @@ const localeData = {
         links: [
           { label: "Dual_Arm_UR5", url: "https://github.com/zx2002430/Dual_Arm_UR5" },
           { label: "Sim-To-Real", url: "https://github.com/zx2002430/Dual_Arm_UR5/tree/Sim-To-Real" }
-        ]
-      },
-      {
-        title: "Hierarchical Speculative Vision-Language-Action for Embodied Bimanual Manipulation",
-        status: "Main Direction",
-        track: "VLA",
-        venue: "AAMAS / CoRL / ICRA",
-        summary: "This paper would build on the current hierarchical speculative VLA thesis, studying how to accelerate high-level semantic reasoning and replanning while preserving stable low-level continuous execution.",
-        contribution: "Expected contributions include a hierarchical speculative framework for VLA, verification and acceptance design at the high-level semantic layer, and evaluation on latency, replanning frequency, and long-horizon success rate.",
-        links: [
-          { label: "Research Page", url: "vla-research.html" },
-          { label: "Research", url: "#publications" }
         ]
       },
       {
