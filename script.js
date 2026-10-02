@@ -649,7 +649,7 @@ const localeData = {
         focusLabel: "研究重点",
         contribution: "跨任务策略适应与双臂协同避障，包含与六种 MARL 基线的仿真对比，以及 14 种物理速度条件下的真实系统验证。",
         links: [
-          { label: "论文 PDF · 密码访问", url: "dm-nav-paper.html" },
+          { label: "论文 PDF · 密码访问", url: "dm-nav-paper.html?v=20261002-aamas-protected" },
           { label: "双臂 UR5 平台", url: "https://github.com/zx2002430/Dual_Arm_UR5" },
           { label: "真机部署", url: "https://github.com/zx2002430/Dual_Arm_UR5/tree/Sim-To-Real" }
         ]
@@ -663,7 +663,7 @@ const localeData = {
         focusLabel: "研究重点",
         contribution: "分析多模态融合与离散动作表示对微调的影响，对比任务表现、显存占用与训练时间，揭示不同方法随任务变化的优势及效率权衡。",
         links: [
-          { label: "论文 PDF · 密码访问", url: "vla-peft-paper.html" },
+          { label: "论文 PDF · 密码访问", url: "vla-peft-paper.html?v=20261002-aamas-protected" },
           { label: "VLA 专题", url: "vla-research.html" }
         ]
       }
@@ -992,7 +992,7 @@ const localeData = {
         focusLabel: "Research Focus",
         contribution: "Cross-task policy adaptation and coordinated bimanual collision avoidance, with simulation comparisons against six MARL baselines and physical validation across 14 speed conditions.",
         links: [
-          { label: "Paper PDF · Password Required", url: "dm-nav-paper.html" },
+          { label: "Paper PDF · Password Required", url: "dm-nav-paper.html?v=20261002-aamas-protected" },
           { label: "Dual-Arm UR5 Platform", url: "https://github.com/zx2002430/Dual_Arm_UR5" },
           { label: "Real Deployment", url: "https://github.com/zx2002430/Dual_Arm_UR5/tree/Sim-To-Real" }
         ]
@@ -1006,7 +1006,7 @@ const localeData = {
         focusLabel: "Research Focus",
         contribution: "Analysis of multimodal fusion and discrete action representations, alongside task performance, memory use, and training time, highlighting task-dependent strengths and efficiency trade-offs.",
         links: [
-          { label: "Paper PDF · Password Required", url: "vla-peft-paper.html" },
+          { label: "Paper PDF · Password Required", url: "vla-peft-paper.html?v=20261002-aamas-protected" },
           { label: "VLA Research", url: "vla-research.html" }
         ]
       }
