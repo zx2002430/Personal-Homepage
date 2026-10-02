@@ -3,715 +3,251 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dual_Arm_UR5 | Sim-to-Real 项目展示</title>
+  <title>DM-NAV | 双臂动态避障与 Sim-to-Real</title>
   <meta name="theme-color" content="#071215">
   <meta name="color-scheme" content="light">
-  <meta
-    name="description"
-    content="Dual_Arm_UR5 双臂机器人 Sim-to-Real 项目页：展示 MuJoCo + PPO 训练、ROS 2 / MoveIt / ros2_control 真机部署、安全状态机和真实双 UR5 平台演示。"
-  >
+  <meta name="description" content="DM-NAV：面向双臂动态避障的可部署元多智能体强化学习。展示跨任务元训练、目标任务适应、六种基线对比，以及真实双 UR5 的 14 种障碍物运动条件验证。AAMAS 在投。">
   <link rel="canonical" href="https://zx2002430.github.io/Personal-Homepage/dual-ur5.html">
-  <meta property="og:title" content="Dual_Arm_UR5 | 双 UR5 Sim-to-Real 机器人系统">
-  <meta property="og:description" content="端到端双臂机器人项目：MuJoCo 数字孪生、Gymnasium + PPO、ROS 2 / MoveIt / ros2_control 真机部署与安全上机。">
+  <meta property="og:title" content="DM-NAV | 双臂动态避障与 Sim-to-Real">
+  <meta property="og:description" content="从 MuJoCo 跨任务元策略学习，到 RGB-D 感知与关节速度控制的双 UR5 真机部署。AAMAS 在投。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://zx2002430.github.io/Personal-Homepage/dual-ur5.html">
   <meta property="og:site_name" content="Xun Zhao Personal Homepage">
   <meta property="og:locale" content="zh_CN">
-  <meta property="og:image" content="https://zx2002430.github.io/Personal-Homepage/assets/images/dual-ur5-ppt/image10.png">
-  <meta property="og:image:alt" content="Dual_Arm_UR5 真实双 UR5 机器人实验平台">
+  <meta property="og:image" content="https://zx2002430.github.io/Personal-Homepage/assets/images/dm-nav/platform.jpeg">
+  <meta property="og:image:alt" content="DM-NAV 双 UR5 平台与动态障碍物装置">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Dual_Arm_UR5 | 双 UR5 Sim-to-Real 机器人系统">
-  <meta name="twitter:description" content="展示 MuJoCo + PPO、ROS 2 / MoveIt / ros2_control、真机部署和安全状态机的双臂机器人项目。">
-  <meta name="twitter:image" content="https://zx2002430.github.io/Personal-Homepage/assets/images/dual-ur5-ppt/image10.png">
+  <meta name="twitter:title" content="DM-NAV | 双臂动态避障与 Sim-to-Real">
+  <meta name="twitter:description" content="可部署元多智能体强化学习：跨任务学习、少量目标任务适应与双 UR5 物理验证。AAMAS 在投。">
+  <meta name="twitter:image" content="https://zx2002430.github.io/Personal-Homepage/assets/images/dm-nav/platform.jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Source+Serif+4:wght@400;600;700&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="dual-ur5.css?v=20261002-dmnav">
 </head>
-<body class="dual-ur5-body">
+<body class="dual-ur5-body dm-nav-body">
   <a class="skip-link" href="#main-content">跳转到主要内容</a>
   <div class="dual-cursor-glow" aria-hidden="true"></div>
   <div class="page-shell dual-ur5-page" id="top">
     <header class="site-header dual-site-header">
       <a class="brand" href="index.html">Xun Zhao</a>
       <div class="header-tools">
-        <nav class="site-nav" aria-label="Primary">
-          <a href="#overview">封面</a>
-          <a href="#project-overview">总览</a>
-          <a href="#stack">技术栈</a>
-          <a href="#architecture">架构</a>
-          <a href="#engineering">工程</a>
-          <a href="#engineering">代码结构</a>
+        <nav class="site-nav" aria-label="专题导航">
+          <a href="#overview">DM-NAV</a>
+          <a href="#project-overview">研究问题</a>
+          <a href="#architecture">方法</a>
+          <a href="#results">实验结果</a>
+          <a href="#engineering">真机部署</a>
+          <a href="#stack">平台代码</a>
         </nav>
       </div>
     </header>
 
     <main id="main-content">
-      <section class="dual-hero" id="overview">
+      <section class="dual-hero dm-hero" id="overview" aria-labelledby="research-title">
         <div class="dual-hero-media" aria-hidden="true">
-          <video autoplay muted loop playsinline poster="assets/images/dual-ur5-ppt/image10.png">
-            <source src="assets/images/dual-ur5-ppt/media1.mp4" type="video/mp4">
-          </video>
+          <img src="assets/images/dm-nav/platform.jpeg" alt="" width="1958" height="1543" fetchpriority="high">
           <div class="dual-scan-grid"></div>
-          <div class="dual-orbit dual-orbit-a"></div>
-          <div class="dual-orbit dual-orbit-b"></div>
         </div>
-
         <div class="dual-hero-content">
-          <p class="dual-kicker" data-animate>Dual_Arm_UR5 / Sim-to-Real</p>
-          <h1 class="dual-hero-title" data-animate>
-            <span class="dual-title-main">Dual_Arm_UR5平台</span>
-            <span class="dual-title-sub">Sim-To-Real系统实现</span>
+          <p class="dual-kicker" data-animate>Meta-MARL / Dual-Arm Sim-to-Real</p>
+          <h1 class="dual-hero-title" id="research-title" data-animate>
+            <span class="dm-title-name">DM-NAV</span>
+            <span class="dm-title-description">双臂动态避障<br>与仿真到真实部署</span>
           </h1>
-          <p class="dual-hero-text" data-animate>
-            本系统面向双 UR5 机器人平台，完成从 MuJoCo 数字孪生、PPO 策略训练，到 ROS 2 控制桥接与真机部署的 Sim-to-Real 闭环实现，并通过安全状态机完成策略接入与上机保护。
-          </p>
-          <div class="dual-hero-flow" data-animate aria-label="System flow">
-            <span>MuJoCo Twin</span>
-            <span>PPO Policy</span>
-            <span>ROS 2 Bridge</span>
-            <span>Real Robot</span>
+          <p class="dm-paper-title" lang="en" data-animate>Deployable Meta Multi-Agent Reinforcement Learning for Dual-Arm Dynamic Obstacle Avoidance</p>
+          <p class="dual-hero-text" data-animate>从变化的障碍物运动中学习可迁移的策略初始化，在目标任务中完成少量适应，再通过 RGB-D 感知与关节速度控制，将冻结策略部署到真实双 UR5 共享工作空间。</p>
+          <div class="dual-hero-flow" data-animate aria-label="DM-NAV 三阶段流程">
+            <span>跨任务元训练</span><span>目标任务适应</span><span>冻结策略上机</span>
           </div>
-          <div class="dual-hero-tags" data-animate aria-label="Project keywords">
-            <span>Real Robot Deployment</span>
-            <span>ROS 2 / MoveIt / ros2_control</span>
-            <span>MuJoCo + PPO</span>
-            <span>Dual-arm Manipulation</span>
-            <span>Sim-to-Real</span>
+          <div class="dual-hero-tags" data-animate>
+            <span>Second-order Meta-Learning</span><span>Cooperative Dual-Arm Control</span><span>RGB-D Perception</span>
           </div>
           <div class="dual-hero-actions" data-animate>
-            <a class="button primary" href="#engineering">工程实现</a>
-            <a class="button secondary" href="#architecture">系统架构</a>
-            <a class="button secondary" href="https://github.com/zx2002430/Dual_Arm_UR5" target="_blank" rel="noopener">GitHub 仓库</a>
+            <a class="button primary" href="#results">查看实验结果</a>
+            <a class="button secondary" href="dm-nav-paper.html?v=20261002-aamas-protected">论文 PDF · 密码访问</a>
+            <a class="button secondary" href="#architecture">方法与架构</a>
           </div>
         </div>
-
-        <aside class="dual-command-panel" data-animate>
-          <span class="dual-panel-label">Live System Snapshot</span>
-          <div class="dual-status-line">
-            <span class="dual-status-dot"></span>
-            <strong>INIT → HOMING → AI_RUNNING</strong>
-          </div>
+        <aside class="dual-command-panel" data-animate aria-label="论文状态与真机结果摘要">
+          <span class="dual-panel-label">Submission / Physical Validation</span>
+          <div class="dual-status-line"><span class="dual-status-dot" aria-hidden="true"></span><strong>AAMAS 在投</strong></div>
           <div class="dual-stat-grid">
-            <div><span>Policy</span><strong>20 Hz</strong></div>
-            <div><span>Controller</span><strong>125 Hz</strong></div>
-            <div><span>State</span><strong>30D</strong></div>
-            <div><span>Action</span><strong>12D</strong></div>
+            <div><span>真机运动条件</span><strong>14 种</strong></div>
+            <div><span>软成功指标 SSR</span><strong>99.4%</strong></div>
+            <div><span>软碰撞指标 SCR</span><strong>0.0%</strong></div>
+            <div><span>真机策略频率</span><strong>50 Hz</strong></div>
           </div>
-          <p>面向真实双臂 UR5 平台完成策略部署链路：20 Hz PPO 推理、125 Hz 轨迹控制、关节限幅、状态机切换与异常恢复。</p>
-          <div class="dual-panel-tags" aria-label="Project keywords">
-            <span>仿真建模</span>
-            <span>奖励设计</span>
-            <span>控制桥接</span>
-            <span>安全上机</span>
-          </div>
+          <p>结果来自稿件 Table 3。每种条件是一段 20,000 步连续记录；SSR 与严格成功指标 SR 分别报告。物理执行期间保持策略参数冻结。</p>
+          <div class="dual-panel-tags"><span>10 次适应预算</span><span>验证集选择策略</span><span>无物理微调</span></div>
+          <p class="dm-snapshot">内容依据当前在投稿件 · 2026-10-02</p>
         </aside>
       </section>
 
-      <section class="dual-band dual-overview-band" id="project-overview" aria-label="Dual_Arm_UR5 项目总览">
-        <div class="dual-overview-board" data-overview-home="true" data-animate aria-label="双臂 UR5 Sim-to-Real 总览图">
-          <div class="dual-overview-title">
-            <span>Dual UR5 Sim-to-Real Overview</span>
-            <strong>双臂 UR5 Sim-to-Real 总览图</strong>
-          </div>
-          <div class="dual-overview-summary" aria-label="Dual_Arm_UR5 overview highlights">
-            <p>从真实平台定义任务边界，在 MuJoCo 中完成策略训练，再通过 ROS 2 控制桥接、安全状态机和部署演示验证闭环可行性。</p>
-            <div>
-              <span><strong>Real</strong> 双 UR5 平台</span>
-              <span><strong>30D → 12D</strong> 策略接口</span>
-              <span><strong>20 Hz / 125 Hz</strong> 分层控制</span>
-            </div>
-          </div>
-          <div class="dual-overview-flow" aria-label="Dual_Arm_UR5 Sim-to-Real project flow">
-            <span><b>01</b>真实平台</span>
-            <span><b>02</b>MuJoCo 数字孪生</span>
-            <span><b>03</b>策略任务设计</span>
-            <span><b>04</b>ROS 2 部署桥接</span>
-            <span><b>05</b>部署演示</span>
-            <span><b>06</b>Reality Gap 评估</span>
-          </div>
-          <div class="dual-overview-lightline" aria-hidden="true">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-
-          <article class="dual-overview-card dual-overview-real">
-            <span class="dual-overview-index">1</span>
-            <h3>真实平台</h3>
-            <p>物理双臂 UR5 硬件、相机与操作终端，作为最终部署和验证平台。</p>
-            <img src="assets/images/dual-ur5-ppt/image10.png" alt="真实双臂 UR5 机器人平台" width="960" height="540" loading="lazy" decoding="async">
-            <div class="dual-overview-tags"><span>Dual UR5</span><span>Real Robot</span></div>
-          </article>
-
-          <article class="dual-overview-card dual-overview-sim">
-            <span class="dual-overview-index">2</span>
-            <h3>MuJoCo 数字孪生</h3>
-            <p>用于策略训练的仿真环境，先在仿真中完成探索、迭代和轨迹观察。</p>
-            <img src="assets/images/dual-ur5-ppt/image13.GIF" alt="MuJoCo 双臂 UR5 数字孪生训练环境" width="653" height="571" loading="lazy" decoding="async">
-            <div class="dual-overview-tags"><span>MuJoCo</span><span>Gymnasium</span></div>
-          </article>
-
-          <article class="dual-overview-card dual-overview-policy">
-            <span class="dual-overview-index">3</span>
-            <h3>策略任务设计</h3>
-            <div class="dual-overview-mini">
-              <div><strong>状态</strong><span>30D：关节状态、速度、末端相对目标</span></div>
-              <div><strong>动作</strong><span>12D 有界关节增量</span></div>
-              <div><strong>训练</strong><span>Stable-Baselines3 PPO，2,000,000 steps</span></div>
-              <div><strong>目标</strong><span>学习可迁移的双臂协同行为</span></div>
-            </div>
-            <div class="dual-overview-detail">
-              <span>任务封装</span>
-              <p>将双臂 reaching、碰撞终止、动作惩罚和停稳奖励整理成 Gymnasium 环境，使 PPO 训练目标与后续控制接口保持一致。</p>
-              <ul>
-                <li>相对几何观测：减少对绝对世界坐标的依赖</li>
-                <li>有界关节增量：便于映射到真实关节轨迹</li>
-                <li>训练日志：记录 reward、双臂距离误差和轨迹表现</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="dual-overview-card dual-overview-ros">
-            <span class="dual-overview-index">4</span>
-            <h3>ROS 2 部署桥接</h3>
-            <p>策略输出经过动作映射、安全状态机和 JointTrajectoryController，进入真实控制链路。</p>
-            <img src="assets/images/dual-ur5-ppt/image12.GIF" alt="ROS 2 与 RViz 双臂部署可视化" width="723" height="470" loading="lazy" decoding="async">
-            <div class="dual-overview-chain">
-              <span>State</span><span>Policy</span><span>Mapping</span><span>ROS 2</span>
-              <strong>20 Hz 推理</strong><strong>125 Hz 控制</strong><strong>ros2_control</strong>
-            </div>
-          </article>
-
-          <article class="dual-overview-card dual-overview-demo">
-            <span class="dual-overview-index">5</span>
-            <h3>部署演示</h3>
-            <p>训练曲线、可视化观测和双臂末端执行演示作为项目真实性证据。</p>
-            <video controls playsinline preload="metadata" poster="assets/images/dual-ur5-ppt/image10.png" aria-label="Dual_Arm_UR5 实际部署视频">
-              <source src="assets/images/dual-ur5-ppt/media1.mp4" type="video/mp4">
-            </video>
-            <div class="dual-overview-tags"><span>20 Hz Policy</span><span>125 Hz Control</span><span>Safety FSM</span></div>
-          </article>
-
-          <article class="dual-overview-card dual-overview-gap">
-            <span class="dual-overview-index">6</span>
-            <h3>评估与 Reality Gap</h3>
-            <div class="dual-overview-mini">
-              <div><strong>观测一致性</strong><span>检查状态定义与传感器噪声</span></div>
-              <div><strong>接口一致性</strong><span>检查动作语义、频率和命令边界</span></div>
-              <div><strong>评估一致性</strong><span>后续补充误差、成功率和重复性统计</span></div>
-            </div>
-            <div class="dual-overview-detail">
-              <span>上机检查</span>
-              <p>Reality Gap 不是只看训练 reward，而是检查仿真资产、控制频率、关节限幅、归位阈值和异常恢复是否能在真实平台闭环。</p>
-              <ul>
-                <li>20 Hz 策略输出与 125 Hz 控制执行分层</li>
-                <li>INIT / HOMING / AI_RUNNING 显式保护状态</li>
-                <li>当前阶段已完成真机闭环演示，后续补充系统化统计</li>
-              </ul>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="dual-band dual-stack-band" id="stack">
+      <section class="dual-band dm-section" id="project-overview" aria-labelledby="problem-title">
         <div class="dual-section-head">
-          <p class="dual-kicker">Technical Stack</p>
-          <h2>技术栈</h2>
+          <p class="dual-kicker">Research Question</p>
+          <h2 id="problem-title">动态障碍下的双臂协同</h2>
         </div>
-
-        <div class="dual-skill-matrix" data-animate>
-          <article>
-            <span>Robotics</span>
-            <h3>机器人控制与部署</h3>
-            <div class="dual-stack-tags">
-              <span>ROS 2</span>
-              <span>MoveIt</span>
-              <span>ros2_control</span>
-              <span>JointTrajectoryController</span>
-              <span>ScaledJointTrajectoryController</span>
-              <span>controller_manager</span>
-              <span>URDF</span>
-              <span>Launch Files</span>
-            </div>
-            <p>用于真机通信、MoveIt 配置、ros2_control 控制器接入和轨迹执行；上层策略只输出动作语义，底层控制器负责插值、限幅和真实关节执行。</p>
-          </article>
-
-          <article>
-            <span>Robot Learning</span>
-            <h3>仿真与强化学习</h3>
-            <div class="dual-stack-tags">
-              <span>MuJoCo</span>
-              <span>Gymnasium</span>
-              <span>Stable-Baselines3</span>
-              <span>PPO</span>
-              <span>Reward Design</span>
-              <span>Trajectory Analysis</span>
-              <span>virtual_qpos</span>
-              <span>ACTION_SCALE</span>
-            </div>
-            <p>用于构建双 UR5 数字孪生、封装 Gymnasium 环境，并用 PPO 完成 30D 观测到 12D 关节增量动作的策略训练、推理和轨迹分析。</p>
-          </article>
-
-          <article>
-            <span>Engineering</span>
-            <h3>工程实现能力</h3>
-            <div class="dual-stack-tags">
-              <span>Python</span>
-              <span>Linux</span>
-              <span>Git Workflow</span>
-              <span>State Machine</span>
-              <span>Safety Checks</span>
-              <span>Deployment Scripts</span>
-              <span>bringup_dual_ur.sh</span>
-              <span>run_ascamera_node.sh</span>
-            </div>
-            <p>用于组织训练脚本、部署脚本、复位工具、启动文件和状态机逻辑；包含控制器就绪检查、自动归位、异常恢复和多轮测试入口。</p>
-          </article>
-
-          <article>
-            <span>Perception</span>
-            <h3>感知扩展方向</h3>
-            <div class="dual-stack-tags">
-              <span>RGB-D</span>
-              <span>YOLO</span>
-              <span>ascamera</span>
-              <span>2D-to-3D</span>
-              <span>DetectedObject3D</span>
-              <span>CameraInfo / TF</span>
-              <span>Hand-Eye Calibration</span>
-              <span>Embodied AI</span>
-              <span>VLA</span>
-            </div>
-            <p>作为后续扩展方向，保留 RGB-D 图像、深度、点云、YOLO 检测和 3D 目标消息接口，为抓取、规划和目标条件策略提供数据入口。</p>
-          </article>
+        <p class="dm-lead">两台机械臂在同一工作空间内接近目标，既要避开运动障碍物，也要协调彼此的动作。障碍物的速度和时间变化规律会改变任务难度；DM-NAV 研究如何通过跨任务学习，让策略在有限交互预算内适应新的运动条件。</p>
+        <div class="dm-contributions">
+          <article data-animate><span class="dm-index">01 / Adaptation</span><h3>学习可适应的初始化</h3><p>从不同障碍角速度与轨道半径的任务分布中元训练策略，通过目标任务的 support / query 轨迹进行少量梯度适应。</p></article>
+          <article data-animate><span class="dm-index">02 / Coordination</span><h3>共享目标下协调双臂</h3><p>采用两臂合作任务建模、臂专属随机策略和联合状态价值模型，以共享奖励学习接近目标与避障行为。</p></article>
+          <article data-animate><span class="dm-index">03 / Deployment</span><h3>接入真实感知与控制</h3><p>串联 RGB-D 三维定位、机器人状态反馈、冻结策略推理、速度命令整形和运行时保护，完成物理闭环验证。</p></article>
         </div>
-
-        <div class="dual-repo-evidence" data-animate>
-          <div class="dual-repo-evidence-head">
-            <span>Repository Evidence</span>
-            <strong>README 确认的三条工程主线</strong>
-          </div>
-          <a href="https://github.com/zx2002430/Dual_Arm_UR5/tree/Base" target="_blank" rel="noopener">
-            <span>Base</span>
-            <strong>建模与经典控制</strong>
-            <em>MuJoCo / URDF / PID / Jacobian</em>
-          </a>
-          <a href="https://github.com/zx2002430/Dual_Arm_UR5/tree/RL-Algorithm" target="_blank" rel="noopener">
-            <span>RL-Algorithm</span>
-            <strong>PPO 训练与评估</strong>
-            <em>Gymnasium / SB3 / 曲线与轨迹</em>
-          </a>
-          <a href="https://github.com/zx2002430/Dual_Arm_UR5/tree/Sim-To-Real" target="_blank" rel="noopener">
-            <span>Sim-To-Real</span>
-            <strong>真机部署与安全</strong>
-            <em>ROS 2 / 状态机 / 控制桥接</em>
-          </a>
-        </div>
-
-        <div class="dual-interface-strip" data-animate aria-label="README confirmed runtime interfaces">
-          <article>
-            <span>Control Topics</span>
-            <strong>控制接口</strong>
-            <p><code>/joint_states</code><code>/left_arm_controller/joint_trajectory</code><code>/right_arm_controller/joint_trajectory</code></p>
-          </article>
-          <article>
-            <span>Perception Topics</span>
-            <strong>感知接口</strong>
-            <p><code>/ascamera/.../rgb0/image</code><code>/depth0/image_raw</code><code>/detected_objects_3d</code></p>
-          </article>
-          <article>
-            <span>Runtime Guards</span>
-            <strong>上机保护</strong>
-            <p><code>controller active</code><code>move_group ready</code><code>home error &lt; 0.05 rad</code></p>
-          </article>
-        </div>
-
-        <div class="dual-stack-subhead" data-animate>
-          <span>Design Rationale</span>
-          <h3>关键设计亮点</h3>
-        </div>
-
-        <div class="dual-decision-grid dual-decision-grid-compact">
-          <article data-animate>
-            <span>Observation</span>
-            <h3>观测用相对几何</h3>
-            <p>策略输入包含关节位置、关节速度和末端到目标的相对向量，让策略关注“离目标还差多少”，减少对世界坐标绝对值的依赖。</p>
-          </article>
-          <article data-animate>
-            <span>Action</span>
-            <h3>动作做有界增量</h3>
-            <p>策略输出可限幅的关节增量，再交给控制器插值执行，降低真实关节突跳、越界和不可控目标位姿风险。</p>
-          </article>
-          <article data-animate>
-            <span>Control</span>
-            <h3>推理和控制分层</h3>
-            <p>20 Hz 策略层负责决策，125 Hz 控制层负责轨迹跟踪，避免学习算法直接承担底层伺服频率。</p>
-          </article>
-          <article data-animate>
-            <span>Safety</span>
-            <h3>状态机守住边界</h3>
-            <p>INIT、HOMING、AI_RUNNING 显式管理通信、归位、误差阈值和异常恢复，避免策略在未知姿态下接管硬件。</p>
-          </article>
+        <div class="dm-platform-grid" data-animate>
+          <figure class="dm-figure">
+            <a href="assets/images/dm-nav/platform.jpeg" target="_blank" rel="noopener" aria-label="查看双 UR5 实验平台大图"><img src="assets/images/dm-nav/platform.jpeg" alt="稿件 Figure 1(a)：双 UR5、固定俯视 RGB-D 相机、红色目标和电机驱动绿色障碍物" width="1958" height="1543" loading="lazy" decoding="async"></a>
+            <figcaption><strong>双 UR5 共享工作空间</strong><span>Figure 1(a) · HP60C RGB-D 相机固定于工作空间上方，使用 eye-to-hand 标定。</span></figcaption>
+          </figure>
+          <figure class="dm-figure">
+            <a href="assets/images/dm-nav/obstacle-rig.jpeg" target="_blank" rel="noopener" aria-label="查看动态障碍物装置大图"><img src="assets/images/dm-nav/obstacle-rig.jpeg" alt="稿件 Figure 1(b)：步进电机、DM542C 驱动器与 Arduino 控制的旋转障碍物装置" width="1350" height="783" loading="lazy" decoding="async"></a>
+            <figcaption><strong>可编程动态障碍物装置</strong><span>Figure 1(b) · 目标球直径 100 mm，障碍球直径 50 mm，圆形轨道半径 160 mm。物理速度扫描保持几何布局固定。</span></figcaption>
+          </figure>
         </div>
       </section>
 
-      <section class="dual-band" id="architecture">
-        <div class="dual-section-head">
-          <p class="dual-kicker">System Architecture</p>
-          <h2>系统闭环</h2>
+      <section class="dual-band dm-section" id="architecture" aria-labelledby="method-title">
+        <div class="dual-section-head"><p class="dual-kicker">Method / Three Stages</p><h2 id="method-title">从元策略学习到冻结策略执行</h2></div>
+        <ol class="dm-method-flow">
+          <li data-animate><span class="dm-index">01 / Meta-training</span><h3>跨任务元训练</h3><p>在 MuJoCo 中采样障碍运动任务。support 轨迹进行 1–3 次可微内循环更新，独立 query 轨迹构造外循环目标；保留内循环梯度图，执行二阶元更新。</p><span class="dm-stage-output">输出：策略初始化与观测统计</span></li>
+          <li data-animate><span class="dm-index">02 / Task adaptation</span><h3>目标任务适应</h3><p>冻结观测统计，每轮收集 8 组独立 support / query 轨迹。比较 0、1、5、10 次预算；在每个预算内，依据固定验证种子选择检查点。</p><span class="dm-stage-output">输出：验证选定的目标任务策略</span></li>
+          <li data-animate><span class="dm-index">03 / Physical transfer</span><h3>冻结参数真机部署</h3><p>RGB-D 感知与 UR5 反馈构建观测，两臂策略输出关节速度命令。物理测试使用前 10 次适应中验证选定的策略，执行期间保持参数冻结。</p><span class="dm-stage-output">输出：感知、推理与速度控制闭环</span></li>
+        </ol>
+        <div class="dm-interface" data-animate aria-label="稿件策略接口">
+          <div><span>Global observation</span><strong>48D</strong><p>机器人、目标、障碍物与相对状态</p></div>
+          <div><span>Local observation</span><strong>24D / 臂</strong><p>臂专属观测与双策略结构</p></div>
+          <div><span>Joint-velocity action</span><strong>6D / 臂</strong><p>左右臂共 12 维动作</p></div>
+          <div><span>Optimization</span><strong>PPO + GAE</strong><p>裁剪目标、熵正则与二阶元更新</p></div>
         </div>
-
-        <div class="dual-loop">
-          <article class="dual-loop-node" data-animate>
-            <span>Base</span>
-            <h3>资产与语义对齐</h3>
-            <p>dual_arm.xml 与 dual_ur_plate.urdf 固定机械结构、关节接口、末端坐标系和仿真资产。</p>
-          </article>
-          <article class="dual-loop-node" data-animate>
-            <span>RL</span>
-            <h3>PPO 任务封装</h3>
-            <p>自定义 DualUR5Env，设计 30 维状态、12 维动作、碰撞终止、停稳奖励与训练日志。</p>
-          </article>
-          <article class="dual-loop-node" data-animate>
-            <span>Bridge</span>
-            <h3>ROS 2 控制桥接</h3>
-            <p>20 Hz Python 策略推理接入 125 Hz JointTrajectoryController，完成积分、限幅与轨迹平滑。</p>
-          </article>
-          <article class="dual-loop-node" data-animate>
-            <span>Real</span>
-            <h3>真机闭环验证</h3>
-            <p>通过归位、误差阈值、异常复位和部署观测，验证策略能否在真实双臂平台稳定执行。</p>
-          </article>
-        </div>
-
-        <div class="dual-architecture-panel" data-animate>
-          <div class="dual-arch-rail">
-            <span>MuJoCo Digital Twin</span>
-            <strong>PPO Policy</strong>
-            <span>ROS 2 / MoveIt</span>
-            <strong>Dual UR5 Platform</strong>
-          </div>
-          <div class="dual-arch-copy">
-            <h3>同一策略接口贯穿三层</h3>
-            <p>上层策略保持训练侧接口不变，控制层负责样条插值与关节轨迹跟踪，安全层负责归位、误差检查、异常复位和通信验证。</p>
-          </div>
-        </div>
-
+        <figure class="dm-figure dm-wide-figure" data-animate>
+          <a href="assets/images/dm-nav/method.png" target="_blank" rel="noopener" aria-label="查看 DM-NAV 三阶段方法大图"><img src="assets/images/dm-nav/method.png" alt="稿件 Figure 2：MuJoCo 跨任务元策略学习、目标任务策略适应、真实双臂闭环控制三阶段架构" width="1302" height="777" loading="lazy" decoding="async"></a>
+          <figcaption><strong>DM-NAV 方法总览</strong><span>Figure 2 · 点击查看大图。测试轨迹不参与适应或检查点选择；真机数据不用于梯度更新。</span></figcaption>
+        </figure>
       </section>
 
-      <section class="dual-band dual-engineering-band" id="engineering">
-        <div class="dual-section-head dual-section-head-rich">
-          <p class="dual-kicker">Engineering Evidence</p>
-          <h2>工程落地</h2>
+      <section class="dual-band dm-section" id="results" aria-labelledby="results-title">
+        <div class="dual-section-head"><p class="dual-kicker">Experimental Results</p><h2 id="results-title">仿真适应、基线对比与物理验证</h2></div>
+        <div class="dm-metric-key" aria-label="指标说明">
+          <span><strong>SR ↑</strong> 严格成功指标</span><span><strong>SSR ↑</strong> 软成功指标</span><span><strong>SCR ↓</strong> 软碰撞指标</span><span><strong>d<sub>tar</sub> ↓</strong> 平均目标距离</span><span><strong>d<sub>obs</sub></strong> 平均末端障碍距离</span>
         </div>
+        <p class="dm-note">指标沿用稿件定义。SR、SSR、SCR 分别展示；d<sub>obs</sub> 描述策略的运行位置，需要结合接近目标、碰撞和存活指标理解。</p>
 
-        <div class="dual-system-architecture" data-animate aria-label="Dual_Arm_UR5 system architecture control chain">
-          <div class="dual-system-head">
-            <span>System Architecture</span>
-            <strong>控制链路</strong>
+        <article class="dm-result-block" aria-labelledby="adaptation-title">
+          <div class="dm-result-heading"><span class="dm-index">Table 1 / Target-task adaptation</span><h3 id="adaptation-title">四种运动规律下的少量任务适应</h3><p>保守与激进两种奖励配置，在 Slow、Fast、Sinusoidal、Random 任务下比较。下表节选严格成功指标 SR，单位为 %。</p></div>
+          <div class="dm-table-scroll" role="region" aria-label="四种运动规律下的 SR 结果，可横向滚动" tabindex="0">
+            <table class="dm-table">
+              <caption>SR（%），均值 ± 总体标准差，5 个确定性评估种子（0–4）</caption>
+              <thead><tr><th scope="col">策略配置</th><th scope="col">运动任务</th><th scope="col">0 次适应</th><th scope="col">5 次预算</th><th scope="col">10 次预算</th></tr></thead>
+              <tbody>
+                <tr><th scope="rowgroup" rowspan="4">保守</th><th scope="row">Slow</th><td>31.8 ± 4.8</td><td>43.8 ± 1.3</td><td class="dm-best">47.1 ± 0.8</td></tr>
+                <tr><th scope="row">Fast</th><td>23.8 ± 6.6</td><td>37.1 ± 1.5</td><td class="dm-best">43.2 ± 0.9</td></tr>
+                <tr><th scope="row">Sinusoidal</th><td>29.8 ± 5.3</td><td>42.6 ± 1.2</td><td class="dm-best">47.4 ± 0.7</td></tr>
+                <tr><th scope="row">Random</th><td>27.6 ± 5.8</td><td>40.8 ± 1.4</td><td class="dm-best">48.0 ± 0.6</td></tr>
+                <tr class="dm-group-start"><th scope="rowgroup" rowspan="4">激进</th><th scope="row">Slow</th><td>45.5 ± 5.7</td><td>62.5 ± 1.5</td><td class="dm-best">69.3 ± 0.9</td></tr>
+                <tr><th scope="row">Fast</th><td>37.2 ± 7.9</td><td>55.8 ± 1.8</td><td class="dm-best">65.4 ± 1.1</td></tr>
+                <tr><th scope="row">Sinusoidal</th><td>43.3 ± 6.3</td><td>61.2 ± 1.6</td><td class="dm-best">69.1 ± 0.9</td></tr>
+                <tr><th scope="row">Random</th><td>41.2 ± 7.0</td><td>59.2 ± 1.7</td><td class="dm-best">69.7 ± 1.0</td></tr>
+              </tbody>
+            </table>
           </div>
-          <div class="dual-system-diagram">
-            <svg class="dual-control-svg" viewBox="0 0 1200 900" role="img" aria-labelledby="dual-control-title">
-              <title id="dual-control-title">Dual_Arm_UR5 真实硬件、ROS 2 Driver 与 Python RL 控制节点的闭环控制链路</title>
-              <defs>
-                <marker id="dualControlArrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
-                  <path d="M1,1 L11,6 L1,11 Z" fill="#203238"/>
-                </marker>
-                <filter id="dualControlShadow" x="-10%" y="-20%" width="120%" height="140%">
-                  <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0b1d20" flood-opacity="0.10"/>
-                </filter>
-              </defs>
-
-              <rect x="76" y="330" width="1048" height="486" rx="0" class="dual-svg-group"/>
-              <text x="600" y="368" text-anchor="middle" class="dual-svg-group-title">RL Control Node (Python)</text>
-
-              <rect x="486" y="56" width="228" height="62" rx="8" class="dual-svg-node"/>
-              <text x="600" y="92" text-anchor="middle" class="dual-svg-main">真实双臂 UR5 硬件</text>
-
-              <rect x="506" y="206" width="188" height="62" rx="8" class="dual-svg-node"/>
-              <text x="600" y="242" text-anchor="middle" class="dual-svg-main">ROS 2 Driver</text>
-
-              <path d="M564 118 C532 146 532 178 564 206" class="dual-svg-line"/>
-              <path d="M636 206 C668 178 668 146 636 118" class="dual-svg-line"/>
-              <text x="468" y="166" class="dual-svg-label">Joint States / 反馈</text>
-              <text x="674" y="166" class="dual-svg-label">位置执行</text>
-
-              <path d="M506 258 C370 296 238 314 208 426" class="dual-svg-line"/>
-              <text x="168" y="392" class="dual-svg-label">/joint_states</text>
-
-              <polygon points="208,420 288,500 208,580 128,500" class="dual-svg-node"/>
-              <text x="208" y="494" text-anchor="middle" class="dual-svg-main">RL 控制节点</text>
-
-              <path d="M208 580 L208 660" class="dual-svg-line"/>
-              <text x="110" y="626" class="dual-svg-label">构建观测向量</text>
-
-              <rect x="112" y="660" width="226" height="62" rx="8" class="dual-svg-node"/>
-              <text x="225" y="696" text-anchor="middle" class="dual-svg-main">PPO 策略网络</text>
-
-              <path d="M225 722 L225 782" class="dual-svg-line"/>
-              <text x="180" y="756" class="dual-svg-label">Action</text>
-
-              <rect x="88" y="782" width="274" height="62" rx="8" class="dual-svg-node"/>
-              <text x="225" y="818" text-anchor="middle" class="dual-svg-main">积分 / 位置增量映射</text>
-              <text x="92" y="872" class="dual-svg-label">平滑位置指令</text>
-
-              <rect x="494" y="782" width="214" height="62" rx="8" class="dual-svg-node"/>
-              <text x="601" y="818" text-anchor="middle" class="dual-svg-main">安全状态机</text>
-
-              <path d="M362 813 C420 813 450 813 494 813" class="dual-svg-line"/>
-              <path d="M601 782 L601 268" class="dual-svg-line"/>
-              <text x="392" y="752" class="dual-svg-label">/left_arm_controller/joint_trajectory</text>
-
-              <path d="M708 813 C924 790 1012 700 1012 570 C1012 430 868 336 694 258" class="dual-svg-line"/>
-              <text x="726" y="752" class="dual-svg-label">/right_arm_controller/joint_trajectory</text>
-            </svg>
+          <div class="dm-findings">
+            <p><strong>平均 SR 提升：</strong>保守配置 28.3% → 41.1% → 46.4%；激进配置 41.8% → 59.7% → 68.4%。10 次预算下，所有策略与任务组合均记录 SSR = 99.4%、SCR = 0.0%。</p>
+            <p><strong>接近与间距：</strong>10 次预算下，激进配置平均更接近目标约 9.5 mm；保守配置平均保留更多末端障碍间距约 10.5 mm。两种配置的初始检查点选择规则不同，该结果反映运行位置差异。</p>
           </div>
-          <p class="dual-link-note">
-            控制链路展示从真实双臂 UR5 的 joint states 反馈，到 Python RL 控制节点构建观测、PPO 推理、动作增量映射，再经安全状态机发布左右臂 JointTrajectory 指令的闭环过程。
-          </p>
-        </div>
+          <p class="dm-note">5 次与 10 次预算均报告预算内的最佳验证检查点，曲线改善代表更大适应与选择预算的收益。表中标准差来自同一策略的评估轨迹，独立训练种子的重复验证仍待补充。</p>
+        </article>
 
-        <div class="dual-link-diagrams" data-animate>
-          <article class="dual-link-card" aria-label="Dual_Arm_UR5 perception chain">
-            <div class="dual-system-head">
-              <span>Perception Chain</span>
-              <strong>感知链路</strong>
-            </div>
-            <div class="dual-link-svg-scroll dual-perception-svg-scroll">
-            <svg class="dual-mini-flow-svg" viewBox="0 0 1000 640" role="img" aria-labelledby="dual-perception-title">
-              <title id="dual-perception-title">Angstrong RGB-D 相机、ascamera 驱动、RGB / depth topic 与 YOLO 检测输出链路</title>
-              <defs>
-                <marker id="dualPerceptionArrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
-                  <path d="M1,1 L9,5 L1,9 Z" fill="#203238"/>
-                </marker>
-              </defs>
-              <rect x="350" y="38" width="300" height="62" rx="9" class="dual-svg-node"/>
-              <text x="500" y="76" text-anchor="middle" class="dual-svg-main">Angstrong RGB-D 相机</text>
-
-              <path d="M500 100 L500 156" class="dual-svg-line dual-svg-perception-line"/>
-              <rect x="390" y="156" width="220" height="62" rx="9" class="dual-svg-node"/>
-              <text x="500" y="194" text-anchor="middle" class="dual-svg-main">ascamera 驱动</text>
-
-              <path d="M390 204 C260 224 190 254 174 304" class="dual-svg-line dual-svg-perception-line"/>
-              <path d="M610 204 C740 224 810 254 826 304" class="dual-svg-line dual-svg-perception-line"/>
-
-              <rect x="54" y="304" width="360" height="72" rx="9" class="dual-svg-node dual-svg-wide-node"/>
-              <text x="234" y="334" text-anchor="middle" class="dual-svg-topic">/ascamera/camera_publisher</text>
-              <text x="234" y="360" text-anchor="middle" class="dual-svg-topic">/rgb0/image</text>
-              <rect x="586" y="304" width="360" height="72" rx="9" class="dual-svg-node dual-svg-wide-node"/>
-              <text x="766" y="334" text-anchor="middle" class="dual-svg-topic">/ascamera/camera_publisher</text>
-              <text x="766" y="360" text-anchor="middle" class="dual-svg-topic">/depth0/image_raw</text>
-
-              <path d="M234 376 C260 428 360 452 438 462" class="dual-svg-line dual-svg-perception-line"/>
-              <path d="M766 376 C740 428 640 452 562 462" class="dual-svg-line dual-svg-perception-line"/>
-              <rect x="390" y="458" width="220" height="62" rx="9" class="dual-svg-node"/>
-              <text x="500" y="496" text-anchor="middle" class="dual-svg-main">yolo_detector</text>
-
-              <path d="M500 520 L500 556" class="dual-svg-line dual-svg-perception-line"/>
-              <rect x="350" y="556" width="300" height="58" rx="9" class="dual-svg-node"/>
-              <text x="500" y="592" text-anchor="middle" class="dual-svg-main">/detected_objects_3d</text>
-            </svg>
-            </div>
-            <p class="dual-link-note">
-              感知链路说明 RGB-D 数据从相机驱动发布到 ROS 2 topic，RGB 图像与深度图共同进入检测节点，后续可输出 3D 目标消息，为抓取目标定位和视觉闭环预留接口。
-            </p>
-          </article>
-
-          <article class="dual-link-card" aria-label="Dual_Arm_UR5 program state machine">
-            <div class="dual-system-head">
-              <span>Safety FSM</span>
-              <strong>程序状态机</strong>
-            </div>
-            <div class="dual-link-svg-scroll dual-state-svg-scroll">
-            <svg class="dual-mini-flow-svg dual-state-flow-svg" viewBox="0 0 1000 1180" role="img" aria-labelledby="dual-state-machine-title">
-              <title id="dual-state-machine-title">Dual_Arm_UR5 从启动、初始化、归位、AI_RUNNING 到 FINISHED 的安全状态机</title>
-              <defs>
-                <marker id="dualStateArrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
-                  <path d="M1,1 L9,5 L1,9 Z" fill="#203238"/>
-                </marker>
-              </defs>
-              <rect x="390" y="34" width="220" height="62" rx="9" class="dual-svg-node"/>
-              <text x="500" y="72" text-anchor="middle" class="dual-svg-main">启动程序</text>
-              <path d="M500 96 L500 146" class="dual-svg-line dual-svg-state-line"/>
-
-              <rect x="312" y="146" width="376" height="74" rx="9" class="dual-svg-node"/>
-              <text x="500" y="176" text-anchor="middle" class="dual-svg-main">INIT：建立通信</text>
-              <text x="500" y="202" text-anchor="middle" class="dual-svg-main">等待关节状态</text>
-              <path d="M500 220 L500 274" class="dual-svg-line dual-svg-state-line"/>
-
-              <rect x="312" y="274" width="376" height="74" rx="9" class="dual-svg-node"/>
-              <text x="500" y="318" text-anchor="middle" class="dual-svg-main">MOVING_HOME：回归初始位姿</text>
-              <path d="M500 348 L500 414" class="dual-svg-line dual-svg-state-line"/>
-
-              <polygon points="500,406 610,516 500,626 390,516" class="dual-svg-node"/>
-              <text x="500" y="522" text-anchor="middle" class="dual-svg-main">误差 &lt; 0.05 rad?</text>
-              <text x="516" y="656" text-anchor="middle" class="dual-svg-label">Yes</text>
-              <path d="M500 626 L500 692" class="dual-svg-line dual-svg-state-line"/>
-              <text x="354" y="455" text-anchor="middle" class="dual-svg-label">No</text>
-              <path d="M390 516 C278 448 290 348 312 314" class="dual-svg-line dual-svg-state-line"/>
-
-              <rect x="340" y="692" width="320" height="66" rx="9" class="dual-svg-node"/>
-              <text x="500" y="732" text-anchor="middle" class="dual-svg-main">AI_RUNNING：PPO 推理</text>
-              <path d="M500 758 L500 828" class="dual-svg-line dual-svg-state-line"/>
-
-              <polygon points="500,820 618,938 500,1056 382,938" class="dual-svg-node"/>
-              <text x="500" y="944" text-anchor="middle" class="dual-svg-main">单轮时长达到上限?</text>
-              <text x="516" y="1086" text-anchor="middle" class="dual-svg-label">Yes</text>
-              <path d="M500 1056 L500 1112" class="dual-svg-line dual-svg-state-line"/>
-              <text x="362" y="836" text-anchor="middle" class="dual-svg-label">No</text>
-              <path d="M382 938 C268 860 298 738 340 724" class="dual-svg-line dual-svg-state-line"/>
-
-              <rect x="390" y="1112" width="220" height="58" rx="9" class="dual-svg-node"/>
-              <text x="500" y="1148" text-anchor="middle" class="dual-svg-main">FINISHED</text>
-            </svg>
-            </div>
-            <p class="dual-link-note">
-              状态机链路说明真机部署不是直接运行策略，而是先完成通信建立、关节状态等待和归位检查；只有误差满足阈值后才进入 AI_RUNNING，执行过程中继续检查单轮时长和终止条件。
-            </p>
-          </article>
-        </div>
-
-        <div class="dual-branch-grid">
-          <article class="dual-branch-card" data-animate>
-            <span class="dual-branch-index">01</span>
-            <h3>Base：控制与建模</h3>
-            <p>先把机械结构、关节语义、末端坐标系和任务空间控制定义清楚，避免后续训练目标漂移。</p>
-            <ul>
-              <li><code>dual_arm.xml</code> / <code>dual_ur_plate.urdf</code></li>
-              <li><code>control_simple.py</code></li>
-              <li>任务空间 PID、Jacobian 与重力补偿</li>
-            </ul>
-          </article>
-
-          <article class="dual-branch-card" data-animate>
-            <span class="dual-branch-index">02</span>
-            <h3>RL-Algorithm：PPO 训练</h3>
-            <p>把双臂 reaching、碰撞终止、速度惩罚和停稳奖励编码成可学习任务。</p>
-            <ul>
-              <li><code>DualUR5Env</code> + Gymnasium</li>
-              <li><code>PPO_train.py</code></li>
-              <li>Stable-Baselines3 PPO，2,000,000 steps</li>
-              <li>训练曲线、best_model 与 3D 轨迹分析</li>
-            </ul>
-          </article>
-
-          <article class="dual-branch-card" data-animate>
-            <span class="dual-branch-index">03</span>
-            <h3>Sim-To-Real：真机部署</h3>
-            <p>承接模型推理、归位恢复、通信联调与真机安全上电，并针对通信延迟、物理约束和动作语义映射做部署保护。</p>
-            <ul>
-              <li><code>ros2_control.py</code> / <code>reset_robot.py</code></li>
-              <li><code>boot.py</code> / <code>dual_real_driver.launch.py</code></li>
-              <li>20 Hz 推理 + 125 Hz 控制器执行</li>
-              <li>归位误差 &lt; 0.05 rad 后进入 AI_RUNNING</li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="dual-code-map" data-animate>
-          <div class="dual-code-map-head">
-            <span>GitHub Code Map</span>
-            <strong>关键文件快速定位</strong>
+        <article class="dm-result-block" aria-labelledby="baseline-title">
+          <div class="dm-result-heading"><span class="dm-index">Table 2 / Six baselines</span><h3 id="baseline-title">与六种 MARL 基线的系统对比</h3><p>名义正弦运动为 0.20–0.40 rad/s，高速正弦运动为 0.68–0.88 rad/s。下表节选 SR 与存活率，均以 % 表示；存活率衡量完成 20,000 步测试时域的情况。</p></div>
+          <div class="dm-table-scroll" role="region" aria-label="六种基线比较，可横向滚动" tabindex="0">
+            <table class="dm-table dm-baseline-table">
+              <caption>10 次适应后的结果，10 个评估种子，均值 ± 标准差</caption>
+              <thead><tr><th scope="col">方法</th><th scope="col">名义运动 SR</th><th scope="col">高速运动 SR</th><th scope="col">名义运动存活率</th><th scope="col">高速运动存活率</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">DDPG</th><td>8.5 ± 5.2</td><td>4.1 ± 3.1</td><td>66.203 ± 28.407</td><td>54.171 ± 29.534</td></tr>
+                <tr><th scope="row">DADDPG</th><td>14.2 ± 7.1</td><td>7.3 ± 4.4</td><td>77.412 ± 21.134</td><td>64.814 ± 25.542</td></tr>
+                <tr><th scope="row">DQN</th><td>3.8 ± 2.9</td><td>1.5 ± 1.4</td><td>49.324 ± 27.562</td><td>37.733 ± 21.866</td></tr>
+                <tr><th scope="row">TDQN</th><td>6.7 ± 4.1</td><td>2.8 ± 2.2</td><td>58.684 ± 24.826</td><td>45.936 ± 22.643</td></tr>
+                <tr><th scope="row">AC</th><td>2.1 ± 1.8</td><td>0.8 ± 0.9</td><td>37.108 ± 15.925</td><td>28.074 ± 13.707</td></tr>
+                <tr><th scope="row">PPO</th><td>26.8 ± 9.6</td><td>15.6 ± 7.4</td><td>92.134 ± 13.818</td><td>84.362 ± 17.131</td></tr>
+                <tr class="dm-ours"><th scope="row">DM-NAV · 保守</th><td>78.3 ± 0.6</td><td>40.4 ± 0.0</td><td>100.000 ± 0.000</td><td>100.000 ± 0.000</td></tr>
+              </tbody>
+            </table>
           </div>
-          <div class="dual-code-map-grid">
-            <div>
-              <span>模型资产</span>
-              <code>dual_arm.xml</code>
-              <code>dual_ur_plate.urdf</code>
-            </div>
-            <div>
-              <span>RL 环境</span>
-              <code>env.py</code>
-              <code>PPO_train.py</code>
-              <code>deploy.py</code>
-            </div>
-            <div>
-              <span>ROS 2 上机</span>
-              <code>ros2_control.py</code>
-              <code>reset_robot.py</code>
-              <code>boot.py</code>
-            </div>
-            <div>
-              <span>驱动与规划</span>
-              <code>dual_real_driver.launch.py</code>
-              <code>dual_real_moveit.launch.py</code>
-              <code>dual_arm_controllers.yaml</code>
-              <code>joint_limits.yaml</code>
-            </div>
-            <div>
-              <span>感知扩展</span>
-              <code>ascamera</code>
-              <code>run_ascamera_node.sh</code>
-              <code>yolo.py</code>
-              <code>DetectedObject3D.msg</code>
-            </div>
-          </div>
-        </div>
+          <p class="dm-note">DM-NAV 在两个条件下均记录 SSR = 99.4%、SCR = 0.0%。基线预训练为 4,000 epochs，DM-NAV 为 400 个元训练 epochs、任务 batch size = 8；训练、交互预算与控制链路不同，因此结果支持完整系统的对比，元学习自身的贡献还需匹配预算与接口的消融验证。</p>
+        </article>
 
-        <div class="dual-execution-timeline" data-animate>
-          <div class="dual-execution-head">
-            <span>Execution Path</span>
-            <strong>从代码到真机的落地路径</strong>
+        <article class="dm-result-block" aria-labelledby="physical-title">
+          <div class="dm-result-heading"><span class="dm-index">Table 3 / Physical speed sweep</span><h3 id="physical-title">真实双 UR5：14 种运动条件</h3><p>使用前 10 次仿真适应中验证选定的策略，物理执行期间无梯度更新。七种恒速条件与七种正弦条件分别报告，SR、SSR、SCR 单位为 %，距离单位为 m。</p></div>
+          <div class="dm-table-scroll" role="region" aria-label="14 种真机运动条件结果，可横向滚动" tabindex="0">
+            <table class="dm-table dm-physical-table">
+              <caption>每行对应一段 20,000 步连续真机记录（50 Hz，约 400 s）</caption>
+              <thead><tr><th scope="col">运动类型</th><th scope="col">速度 / 条件标签</th><th scope="col">SR ↑</th><th scope="col">SSR ↑</th><th scope="col">SCR ↓</th><th scope="col">d<sub>tar</sub> ↓</th><th scope="col">d<sub>obs</sub></th></tr></thead>
+              <tbody>
+                <tr><th scope="rowgroup" rowspan="7">恒速</th><th scope="row">0.18</th><td>38.0</td><td>99.4</td><td>0.0</td><td>0.118</td><td>0.265</td></tr>
+                <tr><th scope="row">0.28</th><td>40.6</td><td>99.4</td><td>0.0</td><td>0.117</td><td>0.262</td></tr>
+                <tr><th scope="row">0.38</th><td>41.2</td><td>99.4</td><td>0.0</td><td>0.116</td><td>0.259</td></tr>
+                <tr><th scope="row">0.48</th><td>46.1</td><td>99.4</td><td>0.0</td><td>0.114</td><td>0.258</td></tr>
+                <tr><th scope="row">0.58</th><td>47.9</td><td>99.4</td><td>0.0</td><td>0.115</td><td>0.258</td></tr>
+                <tr><th scope="row">0.68</th><td>49.1</td><td>99.4</td><td>0.0</td><td>0.115</td><td>0.257</td></tr>
+                <tr><th scope="row">0.78</th><td>47.2</td><td>99.4</td><td>0.0</td><td>0.116</td><td>0.257</td></tr>
+                <tr class="dm-group-start"><th scope="rowgroup" rowspan="7">正弦</th><th scope="row">0.18</th><td>24.5</td><td>99.4</td><td>0.0</td><td>0.119</td><td>0.270</td></tr>
+                <tr><th scope="row">0.28</th><td>51.1</td><td>99.4</td><td>0.0</td><td>0.117</td><td>0.259</td></tr>
+                <tr><th scope="row">0.38</th><td>44.0</td><td>99.4</td><td>0.0</td><td>0.116</td><td>0.260</td></tr>
+                <tr><th scope="row">0.48</th><td>46.1</td><td>99.4</td><td>0.0</td><td>0.115</td><td>0.258</td></tr>
+                <tr><th scope="row">0.58</th><td>45.1</td><td>99.4</td><td>0.0</td><td>0.115</td><td>0.258</td></tr>
+                <tr><th scope="row">0.68</th><td>48.2</td><td>99.4</td><td>0.0</td><td>0.115</td><td>0.257</td></tr>
+                <tr><th scope="row">0.78</th><td>46.9</td><td>99.4</td><td>0.0</td><td>0.116</td><td>0.257</td></tr>
+              </tbody>
+            </table>
           </div>
-          <ol>
-            <li>
-              <span>01</span>
-              <strong>统一模型语义</strong>
-              <p>先让 MuJoCo XML 与 ROS 2 URDF 对齐关节、坐标系、末端链接和双臂布局。</p>
-            </li>
-            <li>
-              <span>02</span>
-              <strong>训练策略</strong>
-              <p>在 Gymnasium 环境中训练 PPO，记录曲线、轨迹和 best model，验证策略基本可用。</p>
-            </li>
-            <li>
-              <span>03</span>
-              <strong>接入控制器</strong>
-              <p>把 12 维动作映射成有界关节增量，再交给 ROS 2 控制器执行轨迹。</p>
-            </li>
-            <li>
-              <span>04</span>
-              <strong>安全上机</strong>
-              <p>通过归位、误差阈值、通信检查和异常恢复，把策略放进可控的真机闭环。</p>
-            </li>
-          </ol>
-        </div>
+          <p class="dm-note">恒速行的标签是命令角速度（rad/s）；正弦行沿用实验记录的条件标识，实际角速度随时间变化。相邻控制步存在相关性，每个条件仅有一段连续记录，独立重复试验与可靠性置信区间仍待补充。</p>
+        </article>
+      </section>
 
-        <div class="dual-terminal-panel" data-animate aria-label="Deployment command preview">
-          <div class="dual-terminal-head">
-            <span></span>
-            <span></span>
-            <span></span>
-            <strong>deployment session</strong>
-          </div>
-          <div class="dual-terminal-body">
-            <p><span>$</span> chmod +x ~/ros2_ws/bringup_dual_ur.sh && ~/ros2_ws/bringup_dual_ur.sh</p>
-            <p><span>$</span> ros2 launch dual_ur_plate dual_real_driver.launch.py</p>
-            <p><span>$</span> ros2 launch dual_ur_plate dual_real_moveit.launch.py</p>
-            <p><span>$</span> python3 src/boot.py && python3 src/reset_robot.py</p>
-            <p><span>$</span> python3 src/ros2_control.py --policy logs/best_model.zip</p>
-            <p><em>[state]</em> INIT → MOVING_HOME / HOMING → AI_RUNNING → FINISHED</p>
-            <p><em>[bridge]</em> PPO action 12D → virtual_qpos → bounded joint trajectory</p>
-            <p><em>[vision]</em> ascamera + yolo_detector → /detected_objects_3d</p>
-          </div>
+      <section class="dual-band dm-section" id="engineering" aria-labelledby="deployment-title">
+        <div class="dual-section-head"><p class="dual-kicker">Physical Closed-loop Execution</p><h2 id="deployment-title">感知、速度控制与运行时保护</h2></div>
+        <div class="dm-deployment-grid">
+          <article data-animate><span class="dm-index">Perception</span><h3>RGB-D 三维状态估计</h3><p>YOLO 定位目标与障碍球，结合 HSV 掩膜、连通域与深度门控提取中位深度。相机内参完成反投影，eye-to-hand 变换将坐标对齐到世界系，再进行球心修正、平滑和跳变保护。</p><p class="dm-small">3 × 4 ArUco GridBoard，15 个保留姿态；记录的平移与旋转残差约为 0.016 m、0.015 rad。目标和障碍状态通过 ROS 2 / TF 与机器人反馈合并。</p></article>
+          <article data-animate><span class="dm-index">Joint-velocity control</span><h3>50 Hz 策略与 100 Hz 看门狗</h3><p>两臂分别输出 6 维关节速度动作，经过裁剪、低通滤波、速度死区与速度 / 加速度 / jerk 限制后执行。启动时保持零速度 2 s，再逐渐混入策略命令。</p><p class="dm-small">默认速度上限 0.08 rad/s，死区 0.001 rad/s。看门狗每 0.01 s 重发有效命令；0.10 s 内无新有效命令时持续发布零速度。UR 内部伺服频率由控制器与控制柜决定。</p></article>
+          <article data-animate><span class="dm-index">Runtime guards</span><h3>反馈检查与碰撞影子模型</h3><p>检查关节反馈的新鲜度与数值有效性、跟踪误差、实测关节速度和 UR speed scaling。MuJoCo 影子模型检查障碍接触、臂间距离和地面接触；第二套运行包每个策略周期预测前方 0.02 s。</p><p class="dm-small">预测接触时发送零关节速度、停止障碍电机并进入错误状态。MoveIt / ROS 2 用于平台调试与坐标验证，稿件中的在线策略运行采用关节速度接口。</p></article>
         </div>
-
-        <div class="dual-limit-note" data-animate>
-          <span>Engineering Boundary</span>
-          <strong>当前工程边界</strong>
-          <p>README 中的 RGB-D / YOLO / 3D 目标定位已作为感知扩展链路接入展示，当前仍主要提供目标消息与后续抓取接口；模型路径、相机内参、topic 名称和阈值后续应进一步参数化。</p>
+        <div class="dm-timing-strip" data-animate>
+          <span><strong>250 Hz</strong> 仿真策略控制</span><span><strong>50 Hz</strong> 真机策略决策</span><span><strong>100 Hz</strong> 命令看门狗</span><span><strong>0.10 s</strong> 命令超时归零</span>
         </div>
+        <p class="dm-note">MuJoCo 3.1.6 使用 RK4、0.002 s 物理步长，每个策略动作执行两步物理积分。正式仿真测试为 20,000 步，约 80 s；真机测试在 50 Hz 下同为 20,000 步，约 400 s。</p>
+        <figure class="dm-figure dm-wide-figure" data-animate>
+          <a href="assets/images/dm-nav/physical-sequence.png" target="_blank" rel="noopener" aria-label="查看真机执行序列大图"><img src="assets/images/dm-nav/physical-sequence.png" alt="稿件 Figure 3：0.48 rad/s 恒速障碍条件下，待机、双臂进入、左臂接近、协同调整、右臂接近的五个连续阶段；上排外部视角，下排俯视 RGB-D 视角" width="1458" height="549" loading="lazy" decoding="async"></a>
+          <figcaption><strong>同一次物理执行的五个连续阶段</strong><span>Figure 3 · 保守策略，障碍恒速命令 0.48 rad/s。上排为外部工作空间视角，下排为同步俯视 RGB-D 视角；圆形虚线标示半径 0.16 m 的障碍轨道。</span></figcaption>
+        </figure>
+        <div class="dm-boundary" data-animate>
+          <span class="dm-index">Scope &amp; Next Evidence</span><h3>结果适用范围与后续验证</h3>
+          <p>当前结果支持所测试固定几何与障碍运动条件下的系统部署。后续将补充完整训练的独立种子、统一检查点选择规则、匹配基线接口与计算预算，并进行重复物理试验及置信区间报告。</p>
+          <p>在线速度分支仍需补充针对真实关节上下限的逐关节预测制动；模型场景模式按照设定轨迹检查障碍，真实装置偏离轨迹时存在观测边界。软件停机通过零速度命令和障碍电机停止实现，物理急停由示教器及硬件安全回路承担。</p>
+        </div>
+      </section>
 
+      <section class="dual-band dm-section" id="stack" aria-labelledby="platform-code-title">
+        <div class="dual-section-head"><p class="dual-kicker">Dual_Arm_UR5 / Engineering Foundation</p><h2 id="platform-code-title">双臂平台与公开工程基础</h2></div>
+        <p class="dm-lead">Dual_Arm_UR5 为这条研究主线提供了建模、训练与真机部署基础。公开仓库保留 Base、RL-Algorithm、Sim-To-Real 三条工程分支；DM-NAV 的方法、实验协议与具体部署参数以在投稿件为准。</p>
+        <div class="dm-repo-grid" data-animate>
+          <a href="https://github.com/zx2002430/Dual_Arm_UR5/tree/Base" target="_blank" rel="noopener"><span class="dm-index">Base</span><strong>建模与经典控制</strong><span>MuJoCo / URDF / PID / Jacobian</span><span class="dm-repo-arrow" aria-hidden="true">↗</span></a>
+          <a href="https://github.com/zx2002430/Dual_Arm_UR5/tree/RL-Algorithm" target="_blank" rel="noopener"><span class="dm-index">RL-Algorithm</span><strong>强化学习训练基础</strong><span>Gymnasium / SB3 PPO / 轨迹分析</span><span class="dm-repo-arrow" aria-hidden="true">↗</span></a>
+          <a href="https://github.com/zx2002430/Dual_Arm_UR5/tree/Sim-To-Real" target="_blank" rel="noopener"><span class="dm-index">Sim-To-Real</span><strong>控制桥接与真机部署</strong><span>ROS 2 / MoveIt / ros2_control</span><span class="dm-repo-arrow" aria-hidden="true">↗</span></a>
+        </div>
+        <div class="dm-foundation-media" data-animate>
+          <figure class="dm-figure"><img src="assets/images/dual-ur5-ppt/image13.GIF" alt="双 UR5 平台早期 MuJoCo 仿真演示" width="653" height="571" loading="lazy" decoding="async"><figcaption><strong>MuJoCo 平台基础演示</strong><span>早期建模与训练环境展示；定量结果见上方稿件实验表。</span></figcaption></figure>
+          <figure class="dm-figure"><img src="assets/images/dual-ur5-ppt/image12.GIF" alt="双 UR5 平台 ROS 2 与 RViz 可视化演示" width="723" height="470" loading="lazy" decoding="async"><figcaption><strong>ROS 2 / RViz 平台可视化</strong><span>用于观察机器人状态、坐标变换与部署接口。</span></figcaption></figure>
+        </div>
       </section>
     </main>
+    <footer class="dm-footer">
+      <div><strong>DM-NAV · Dual_Arm_UR5</strong><p>依据当前 AAMAS 在投稿件整理 · 2026-10-02</p></div>
+      <nav aria-label="相关资源"><a href="dm-nav-paper.html?v=20261002-aamas-protected">论文 PDF · 密码访问</a><a href="https://github.com/zx2002430/Dual_Arm_UR5" target="_blank" rel="noopener">平台 GitHub ↗</a><a href="index.html">返回主页</a><a href="#top">返回顶部 ↑</a></nav>
+    </footer>
   </div>
   <script src="dual-ur5.js"></script>
 </body>

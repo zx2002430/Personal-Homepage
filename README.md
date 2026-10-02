@@ -6,7 +6,7 @@ Homepage:
 这是一个基于纯静态页面构建的个人研究主页项目，当前包含以下内容：
 
 - 个人主页：首页展示个人简介、研究方向、Sim-to-Real、VLA 与项目入口
-- Dual_Arm_UR5 项目页：展示双 UR5 Sim-to-Real 系统实现、技术栈、系统架构、工程落地和代码结构
+- DM-NAV / Dual_Arm_UR5 专题：展示双臂动态避障的元多智能体强化学习方法、仿真结果与真机部署
 - 智慧农业专题：围绕项目总览、可视化看板、设备清单、合同对应与调研材料形成一组专题页面
 - VLA-MoE 研究专题：展示多任务动作末端专门化、四套件实验结果、学习路由和后续验证计划
 
@@ -14,6 +14,7 @@ Homepage:
 
 ## 最新更新
 
+- 双臂专题页已依据当前 DM-NAV AAMAS 在投稿件更新（2026-10-02），包含三阶段方法、六种基线对比及 14 种真机条件；论文 PDF 继续通过密码阅读页访问。
 - VLA 研究专题与首页中英文入口已同步至 2026-10-02 研究快照，论文计划标为“计划在投”。
 - 主页导航中 `Sim-to-Real` 入口已直接跳转到 `dual-ur5.html`，不再单独保留 `Dual_Arm_UR5` 二级入口。
 - 首页 Dual_Arm_UR5 项目可视化模块改为直接展示 MuJoCo、ROS 2 / RViz、末端轨迹和 MoveIt 部署 GIF。
@@ -29,7 +30,8 @@ Homepage:
 ├─ script.js                            # 首页中英文文案、数据与渲染逻辑
 ├─ vla-research.html                    # VLA-MoE 方法、阶段结果与实验路线
 ├─ vla-research.css                     # VLA 专题指标卡、结果表和响应式样式
-├─ dual-ur5.html                        # Dual_Arm_UR5 项目展示页
+├─ dual-ur5.html                        # DM-NAV 双臂动态避障与真机验证专题
+├─ dual-ur5.css                         # DM-NAV 专题局部样式与结果表
 ├─ dual-ur5.js                          # Dual_Arm_UR5 页面交互与滚动动画
 ├─ smart-agriculture.html               # 智慧农业专题总览页
 ├─ smart-agriculture-dashboard.html     # 智慧农业可视化看板
@@ -63,21 +65,24 @@ Homepage:
 
 入口文件：`dual-ur5.html`
 
-该页面用于展示双 UR5 机器人 Sim-to-Real 系统实现，重点覆盖：
+该页面依据桌面的 `DM_NAV_Deployable_Meta_M.pdf` 在投稿件整理，重点覆盖：
 
-- MuJoCo 数字孪生与 Gymnasium / PPO 训练流程
-- ROS 2 / MoveIt / ros2_control 真机部署链路
-- `INIT -> MOVING_HOME / HOMING -> AI_RUNNING -> FINISHED` 安全状态机
-- 20 Hz 策略推理与 125 Hz 控制执行的分层控制
-- RGB-D / YOLO / `DetectedObject3D` 感知扩展接口
-- GitHub 分支、关键文件、部署命令和真机演示证据
+- MuJoCo 跨任务元训练、二阶 support / query 更新、目标任务适应与验证选定的冻结策略
+- 48D 全局观测、每臂 24D 局部观测与 6D 关节速度动作
+- 四种运动任务的 SR 对比、六种 MARL 基线的系统比较，以及 14 种物理运动条件
+- 50 Hz 真机策略、100 Hz 命令看门狗、RGB-D 定位、命令整形与 MuJoCo 影子模型
+- 稿件 Figure 1–3 的平台、方法与连续真机执行图
+- 独立训练种子、基线预算匹配、重复物理测试及当前控制边界
+- Base / RL-Algorithm / Sim-To-Real 平台代码与早期演示资源
+
+维护结果时分别报告严格成功指标 SR、软成功指标 SSR 与软碰撞指标 SCR。保留种子数量、预算内验证选择规则及连续记录统计口径；正弦物理测试的速度列是条件标签。仿真正式测试 20,000 步约 80 s，真机 20,000 步约 400 s。投稿状态保持为“AAMAS 在投”。
 
 相关静态资源主要位于：
 
 - `assets/images/dual-ur5-ppt/`
-- `assets/images/dual-ur5-architecture.svg`
+- `assets/images/dm-nav/`
 
-如果后续继续更新 Dual_Arm_UR5 页面，优先保持“证据链”结构：真实平台、仿真训练、策略接口、ROS 2 桥接、部署演示、Reality Gap 评估。
+保持“研究问题、方法、实验结果、真机部署、平台基础”的内容结构。全文只通过 `dm-nav-paper.html` 密码阅读页访问；不把明文稿件、密码或解密密钥加入仓库。
 
 ### 3. 智慧农业专题
 
