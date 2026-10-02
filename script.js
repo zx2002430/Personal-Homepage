@@ -641,6 +641,18 @@ const localeData = {
     },
     futurePapers: [
       {
+        title: "OpenVLA-OFT：面向速度与成功率优化的视觉-语言-动作模型微调",
+        status: "计划再投",
+        track: "VLA",
+        venue: "AAMAS",
+        summary: "基于 OpenVLA-OFT 研究，拟整理优化微调方案并再投 AAMAS。该方案结合并行动作解码、动作分块、连续动作表示与 L1 回归目标，以提升推理效率和任务表现。",
+        contribution: "论文报告了 LIBERO 四个任务套件 97.1% 的平均成功率，并在真实双臂 ALOHA 操作任务上进行验证；再投稿时将围绕 VLA 微调设计选择、执行效率与任务成功率组织论述。",
+        links: [
+          { label: "arXiv 论文", url: "https://arxiv.org/abs/2502.19645" },
+          { label: "OpenVLA-OFT", url: "https://openvla-oft.github.io/" }
+        ]
+      },
+      {
         title: "面向双臂 UR5 的感知驱动 Sim-to-Real 操作系统与真实部署验证",
         status: "方向成型",
         track: "Sim-to-Real",
@@ -656,7 +668,7 @@ const localeData = {
         title: "层级式 Speculative Vision-Language-Action 用于具身双臂操作",
         status: "主线收敛",
         track: "VLA",
-        venue: "CoRL / ICRA",
+        venue: "AAMAS / CoRL / ICRA",
         summary: "拟围绕当前已经收敛的层级式 speculative VLA 主线，研究如何在高层语义子任务空间提升推理与重规划效率，同时保持低层连续动作执行的稳定性。",
         contribution: "预计贡献包括面向 VLA 的层级式 speculative 框架、高层 verification 与 acceptance 设计，以及 latency、replan 频率和长时程成功率的实验验证。",
         links: [
@@ -993,6 +1005,18 @@ const localeData = {
     },
     futurePapers: [
       {
+        title: "Fine-Tuning Vision-Language-Action Models: Optimizing Speed and Success (OpenVLA-OFT)",
+        status: "Planned Resubmission",
+        track: "VLA",
+        venue: "AAMAS",
+        summary: "Based on OpenVLA-OFT, this plan is to organize and resubmit the optimized fine-tuning work to AAMAS. The recipe combines parallel action decoding, action chunking, continuous action representations, and an L1 regression objective to improve inference efficiency and task performance.",
+        contribution: "The paper reports a 97.1% average success rate across the four LIBERO task suites and evaluates on real bimanual ALOHA manipulation tasks. The resubmission will emphasize VLA fine-tuning design choices, execution efficiency, and task success.",
+        links: [
+          { label: "arXiv Paper", url: "https://arxiv.org/abs/2502.19645" },
+          { label: "OpenVLA-OFT", url: "https://openvla-oft.github.io/" }
+        ]
+      },
+      {
         title: "Perception-Driven Sim-to-Real Bimanual Manipulation and Real Deployment with Dual-Arm UR5",
         status: "Concept Framed",
         track: "Sim-to-Real",
@@ -1008,7 +1032,7 @@ const localeData = {
         title: "Hierarchical Speculative Vision-Language-Action for Embodied Bimanual Manipulation",
         status: "Main Direction",
         track: "VLA",
-        venue: "CoRL / ICRA",
+        venue: "AAMAS / CoRL / ICRA",
         summary: "This paper would build on the current hierarchical speculative VLA thesis, studying how to accelerate high-level semantic reasoning and replanning while preserving stable low-level continuous execution.",
         contribution: "Expected contributions include a hierarchical speculative framework for VLA, verification and acceptance design at the high-level semantic layer, and evaluation on latency, replanning frequency, and long-horizon success rate.",
         links: [
