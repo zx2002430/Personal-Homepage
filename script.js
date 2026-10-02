@@ -649,6 +649,7 @@ const localeData = {
         focusLabel: "再投稿重点",
         contribution: "拟进一步整理任务适应流程、双臂协同避障机制、与六种 MARL 基线的仿真对比，以及 14 种物理速度条件下的真实系统验证。",
         links: [
+          { label: "论文 PDF", url: "assets/docs/papers/DM_NAV_Deployable_Meta_M.pdf" },
           { label: "双臂 UR5 平台", url: "https://github.com/zx2002430/Dual_Arm_UR5" },
           { label: "真机部署", url: "https://github.com/zx2002430/Dual_Arm_UR5/tree/Sim-To-Real" }
         ]
@@ -663,30 +664,6 @@ const localeData = {
         links: [
           { label: "专题页面", url: "vla-research.html" },
           { label: "Research", url: "#publications" }
-        ]
-      },
-      {
-        title: "面向双臂 UR5 的感知驱动 Sim-to-Real 操作系统与真实部署验证",
-        status: "方向成型",
-        track: "Sim-to-Real",
-        venue: "IROS / IEEE RA-L",
-        summary: "拟围绕 Dual_Arm_UR5 平台整理一篇系统型论文，把 MuJoCo 建模、PPO 训练、ROS 2 / MoveIt 部署、RGB-D 感知与真机执行整合为同一条双臂 Sim-to-Real 研究链路。",
-        contribution: "预计贡献包括一个可复现的双臂操作系统基座、一套感知驱动的真实部署流程，以及面向双臂任务的真机实验验证。",
-        links: [
-          { label: "Dual_Arm_UR5", url: "https://github.com/zx2002430/Dual_Arm_UR5" },
-          { label: "Sim-To-Real", url: "https://github.com/zx2002430/Dual_Arm_UR5/tree/Sim-To-Real" }
-        ]
-      },
-      {
-        title: "面向真实农田场景的智慧农业感知-控制-平台一体化系统",
-        status: "系统整理",
-        track: "Agriculture",
-        venue: "Computers and Electronics in Agriculture / Smart Agricultural Technology",
-        summary: "拟基于 300 亩核心农田场景，将四情监测、灌溉控制、设备接入、数据展示与专题化平台组织为一篇面向真实应用场景的系统论文。",
-        contribution: "预计贡献包括农田多源数据接入框架、控制与平台联动流程，以及面向后续农业机器人与智能决策研究的系统接口组织方式。",
-        links: [
-          { label: "专题总览", url: "smart-agriculture.html" },
-          { label: "可视化看板", url: "smart-agriculture-dashboard.html" }
         ]
       }
     ],
@@ -1014,6 +991,7 @@ const localeData = {
         focusLabel: "Resubmission Focus",
         contribution: "The revision will clarify task adaptation, coordinated bimanual collision avoidance, simulation comparisons with six MARL baselines, and physical validation across 14 speed conditions.",
         links: [
+          { label: "Paper PDF", url: "assets/docs/papers/DM_NAV_Deployable_Meta_M.pdf" },
           { label: "Dual-Arm UR5 Platform", url: "https://github.com/zx2002430/Dual_Arm_UR5" },
           { label: "Real Deployment", url: "https://github.com/zx2002430/Dual_Arm_UR5/tree/Sim-To-Real" }
         ]
@@ -1028,30 +1006,6 @@ const localeData = {
         links: [
           { label: "Research Page", url: "vla-research.html" },
           { label: "Research", url: "#publications" }
-        ]
-      },
-      {
-        title: "Perception-Driven Sim-to-Real Bimanual Manipulation and Real Deployment with Dual-Arm UR5",
-        status: "Concept Framed",
-        track: "Sim-to-Real",
-        venue: "IROS / IEEE RA-L",
-        summary: "This paper is planned around the Dual_Arm_UR5 platform and aims to present a coherent Sim-to-Real story spanning MuJoCo modeling, PPO training, ROS 2 / MoveIt deployment, RGB-D perception, and real-robot execution.",
-        contribution: "Expected contributions include a reproducible bimanual system stack, a perception-grounded real deployment workflow, and real-robot validation on dual-arm manipulation tasks.",
-        links: [
-          { label: "Dual_Arm_UR5", url: "https://github.com/zx2002430/Dual_Arm_UR5" },
-          { label: "Sim-To-Real", url: "https://github.com/zx2002430/Dual_Arm_UR5/tree/Sim-To-Real" }
-        ]
-      },
-      {
-        title: "An Integrated Sensing-Control-Platform System for Real Smart Agriculture Scenarios",
-        status: "System Consolidation",
-        track: "Agriculture",
-        venue: "Computers and Electronics in Agriculture / Smart Agricultural Technology",
-        summary: "This planned paper is built around the 300-mu farmland scenario, organizing sensing, irrigation control, device integration, and platform presentation into one applied system paper.",
-        contribution: "Expected contributions include a multi-source field data pipeline, a control-and-platform coordination workflow, and a systems interface design for future agricultural robotics and intelligent decision-making research.",
-        links: [
-          { label: "Overview", url: "smart-agriculture.html" },
-          { label: "Dashboard", url: "smart-agriculture-dashboard.html" }
         ]
       }
     ],
