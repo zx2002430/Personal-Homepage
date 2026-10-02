@@ -642,28 +642,29 @@ const localeData = {
     futurePapers: [
       {
         title: "DM-NAV：面向双臂动态避障的可部署元多智能体强化学习",
-        status: "计划再投",
+        status: "AAMAS 在投",
         track: "Meta-MARL",
         venue: "AAMAS",
-        summary: "围绕 DM-NAV（Dynamic Meta Navigation）元多智能体强化学习框架，计划修改完善后再投 AAMAS。该工作通过跨任务元策略学习与少量目标任务适应，实现双臂动态避障，并结合 RGB-D 感知与关节速度控制部署至真实双 UR5 系统。",
-        focusLabel: "再投稿重点",
-        contribution: "拟进一步整理任务适应流程、双臂协同避障机制、与六种 MARL 基线的仿真对比，以及 14 种物理速度条件下的真实系统验证。",
+        summary: "DM-NAV（Dynamic Meta Navigation）通过跨任务元策略学习与少量目标任务适应，实现双臂动态避障，并结合 RGB-D 感知与关节速度控制部署至真实双 UR5 系统。论文目前为 AAMAS 在投状态。",
+        focusLabel: "研究重点",
+        contribution: "跨任务策略适应与双臂协同避障，包含与六种 MARL 基线的仿真对比，以及 14 种物理速度条件下的真实系统验证。",
         links: [
-          { label: "论文 PDF", url: "dm-nav-paper.html" },
+          { label: "论文 PDF · 密码访问", url: "dm-nav-paper.html" },
           { label: "双臂 UR5 平台", url: "https://github.com/zx2002430/Dual_Arm_UR5" },
           { label: "真机部署", url: "https://github.com/zx2002430/Dual_Arm_UR5/tree/Sim-To-Real" }
         ]
       },
       {
-        title: "层级式 Speculative Vision-Language-Action 用于具身双臂操作",
-        status: "新论文计划",
-        track: "VLA",
+        title: "视觉-语言-动作模型参数高效微调的实证研究",
+        status: "AAMAS 在投",
+        track: "VLA / PEFT",
         venue: "AAMAS",
-        summary: "拟面向 AAMAS，围绕当前已经收敛的层级式 speculative VLA 主线，研究如何在高层语义子任务空间提升推理与重规划效率，同时保持低层连续动作执行的稳定性。",
-        contribution: "预计贡献包括面向 VLA 的层级式 speculative 框架、高层 verification 与 acceptance 设计，以及 latency、replan 频率和长时程成功率的实验验证。",
+        summary: "系统比较 LoRA、DoRA、QLoRA、AdaLoRA、HiRA 与 IA3 六种参数高效微调方法在 VLA 模型中的表现，覆盖 LIBERO 操作与 R2R 导航任务。论文目前为 AAMAS 在投状态。",
+        focusLabel: "研究重点",
+        contribution: "分析多模态融合与离散动作表示对微调的影响，对比任务表现、显存占用与训练时间，揭示不同方法随任务变化的优势及效率权衡。",
         links: [
-          { label: "专题页面", url: "vla-research.html" },
-          { label: "Research", url: "#publications" }
+          { label: "论文 PDF · 密码访问", url: "vla-peft-paper.html" },
+          { label: "VLA 专题", url: "vla-research.html" }
         ]
       }
     ],
@@ -984,28 +985,29 @@ const localeData = {
     futurePapers: [
       {
         title: "DM-NAV: Deployable Meta Multi-Agent Reinforcement Learning for Dual-Arm Dynamic Obstacle Avoidance",
-        status: "Planned Resubmission",
+        status: "Under Review at AAMAS",
         track: "Meta-MARL",
         venue: "AAMAS",
-        summary: "DM-NAV (Dynamic Meta Navigation) is a meta multi-agent reinforcement learning framework planned for revision and resubmission to AAMAS. It learns a transferable policy initialization and adapts it to a target obstacle-motion task, then deploys the frozen policy on a physical dual-UR5 system using RGB-D perception and joint-velocity control.",
-        focusLabel: "Resubmission Focus",
-        contribution: "The revision will clarify task adaptation, coordinated bimanual collision avoidance, simulation comparisons with six MARL baselines, and physical validation across 14 speed conditions.",
+        summary: "DM-NAV (Dynamic Meta Navigation) learns a transferable policy initialization and adapts it to a target obstacle-motion task, then deploys the frozen policy on a physical dual-UR5 system using RGB-D perception and joint-velocity control. The paper is under review at AAMAS.",
+        focusLabel: "Research Focus",
+        contribution: "Cross-task policy adaptation and coordinated bimanual collision avoidance, with simulation comparisons against six MARL baselines and physical validation across 14 speed conditions.",
         links: [
-          { label: "Paper PDF", url: "dm-nav-paper.html" },
+          { label: "Paper PDF · Password Required", url: "dm-nav-paper.html" },
           { label: "Dual-Arm UR5 Platform", url: "https://github.com/zx2002430/Dual_Arm_UR5" },
           { label: "Real Deployment", url: "https://github.com/zx2002430/Dual_Arm_UR5/tree/Sim-To-Real" }
         ]
       },
       {
-        title: "Hierarchical Speculative Vision-Language-Action for Embodied Bimanual Manipulation",
-        status: "New Paper Planned",
-        track: "VLA",
+        title: "Empirical Investigation of Parameter-Efficient Fine-Tuning in Vision-Language-Action Models",
+        status: "Under Review at AAMAS",
+        track: "VLA / PEFT",
         venue: "AAMAS",
-        summary: "This planned AAMAS paper would build on the current hierarchical speculative VLA thesis, studying how to accelerate high-level semantic reasoning and replanning while preserving stable low-level continuous execution.",
-        contribution: "Expected contributions include a hierarchical speculative framework for VLA, verification and acceptance design at the high-level semantic layer, and evaluation on latency, replanning frequency, and long-horizon success rate.",
+        summary: "An empirical comparison of six PEFT methods—LoRA, DoRA, QLoRA, AdaLoRA, HiRA, and IA3—in VLA models, covering LIBERO manipulation and R2R navigation. The paper is under review at AAMAS.",
+        focusLabel: "Research Focus",
+        contribution: "Analysis of multimodal fusion and discrete action representations, alongside task performance, memory use, and training time, highlighting task-dependent strengths and efficiency trade-offs.",
         links: [
-          { label: "Research Page", url: "vla-research.html" },
-          { label: "Research", url: "#publications" }
+          { label: "Paper PDF · Password Required", url: "vla-peft-paper.html" },
+          { label: "VLA Research", url: "vla-research.html" }
         ]
       }
     ],
