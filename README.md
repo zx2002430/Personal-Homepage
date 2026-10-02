@@ -3,16 +3,18 @@
 Homepage:
 `https://zx2002430.github.io/Personal-Homepage/`
 
-这是一个基于纯静态页面构建的个人研究主页项目，当前包含三部分内容：
+这是一个基于纯静态页面构建的个人研究主页项目，当前包含以下内容：
 
 - 个人主页：首页展示个人简介、研究方向、Sim-to-Real、VLA 与项目入口
 - Dual_Arm_UR5 项目页：展示双 UR5 Sim-to-Real 系统实现、技术栈、系统架构、工程落地和代码结构
 - 智慧农业专题：围绕项目总览、可视化看板、设备清单、合同对应与调研材料形成一组专题页面
+- VLA-MoE 研究专题：展示多任务动作末端专门化、四套件实验结果、学习路由和后续验证计划
 
 项目不依赖前端框架，直接通过 `HTML + CSS + JavaScript` 组织页面与内容，适合本地直接打开，也适合部署到 GitHub Pages、Vercel 或 Netlify。
 
 ## 最新更新
 
+- VLA 研究专题与首页中英文入口已同步至 2026-10-02 研究快照，论文计划标为“计划在投”。
 - 主页导航中 `Sim-to-Real` 入口已直接跳转到 `dual-ur5.html`，不再单独保留 `Dual_Arm_UR5` 二级入口。
 - 首页 Dual_Arm_UR5 项目可视化模块改为直接展示 MuJoCo、ROS 2 / RViz、末端轨迹和 MoveIt 部署 GIF。
 - `研究方向概览` 模块调整为更紧凑的三列概览卡片，减少空白区域。
@@ -25,6 +27,8 @@ Homepage:
 ├─ index.html                           # 个人主页首页
 ├─ styles.css                           # 全站共享样式
 ├─ script.js                            # 首页中英文文案、数据与渲染逻辑
+├─ vla-research.html                    # VLA-MoE 方法、阶段结果与实验路线
+├─ vla-research.css                     # VLA 专题指标卡、结果表和响应式样式
 ├─ dual-ur5.html                        # Dual_Arm_UR5 项目展示页
 ├─ dual-ur5.js                          # Dual_Arm_UR5 页面交互与滚动动画
 ├─ smart-agriculture.html               # 智慧农业专题总览页
@@ -91,6 +95,12 @@ Homepage:
 - `smart-agriculture-pages.js` 负责把数据渲染到对应页面
 
 如果后续要更新专题内容，优先改 `smart-agriculture-data.js`，而不是逐页手改 HTML。
+
+### 4. VLA 研究专题
+
+`vla-research.html` 展示当前 VLA-MoE 动作末端专门化主线，`vla-research.css` 维护专题局部样式，首页入口与中英文论文计划由 `script.js` 管理。更新时同时维护这三个入口，并同步 `index.html` 的静态标签和脚本缓存版本。
+
+当前结果依据本地 VLA_Moe 的 2026-10-02 周报、2026-10-01 研究路线和 2026-09-25 V17 实验报告。补入新结果时应标明训练协议与快照日期；保留有效低成绩，区分训练种子与测评种子，缺失结果使用“待完成”，按协议分别统计。
 
 ## 核心文件职责
 

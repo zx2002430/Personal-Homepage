@@ -3,408 +3,144 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VLA 研究专题 | Xun Zhao</title>
+  <title>VLA-MoE 研究专题 | Xun Zhao</title>
   <meta name="theme-color" content="#f4efe6">
   <meta name="color-scheme" content="light">
-  <meta
-    name="description"
-    content="围绕 OpenVLA-OFT、AdaMoE、π0/π0.5 与 speculative decoding 的个人 VLA 研究专题页。"
-  >
+  <meta name="description" content="赵汛的 VLA-MoE 研究：基于 OpenVLA-OFT 的多任务动作末端专门化、LIBERO 四套件结果、学习路由与后续验证计划。">
   <link rel="canonical" href="https://zx2002430.github.io/Personal-Homepage/vla-research.html">
-  <meta property="og:title" content="VLA 研究专题 | Xun Zhao">
-  <meta property="og:description" content="围绕 OpenVLA-OFT、AdaMoE、π0/π0.5 与 speculative decoding 的个人 VLA 研究专题页。">
+  <meta property="og:title" content="VLA-MoE 研究专题 | Xun Zhao">
+  <meta property="og:description" content="共享策略与最小任务残差：多任务 VLA 的动作末端专门化研究、阶段结果与验证计划。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://zx2002430.github.io/Personal-Homepage/vla-research.html">
   <meta property="og:site_name" content="Xun Zhao Personal Homepage">
   <meta property="og:locale" content="zh_CN">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="VLA 研究专题 | Xun Zhao">
-  <meta name="twitter:description" content="围绕 OpenVLA-OFT、AdaMoE、π0/π0.5 与 speculative decoding 的个人 VLA 研究专题页。">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="VLA-MoE 研究专题 | Xun Zhao">
+  <meta name="twitter:description" content="多任务 VLA 的共享边界、动作末端残差与训练稳定性。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Source+Serif+4:wght@400;600;700&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="vla-research.css?v=20261002">
 </head>
 <body>
   <a class="skip-link" href="#main-content">跳转到主要内容</a>
   <div class="page-shell vla-research-page">
     <header class="site-header">
       <a class="brand" href="index.html">Xun Zhao</a>
-      <div class="header-tools">
-        <nav class="site-nav" aria-label="Primary">
-          <a href="#overview">总览</a>
-          <a href="#trajectory">研究脉络</a>
-          <a href="#proposal">当前主线</a>
-          <a href="#roadmap">路线与结果</a>
-          <a href="#sources">资料来源</a>
-          <a href="index.html">返回首页</a>
-        </nav>
-      </div>
+      <div class="header-tools"><nav class="site-nav" aria-label="专题导航">
+        <a href="#overview">总览</a><a href="#trajectory">研究脉络</a><a href="#proposal">当前方法</a><a href="#results">实验结果</a><a href="#roadmap">下一步</a><a href="index.html">返回首页</a>
+      </nav></div>
     </header>
-
-    <section class="page-trail" aria-label="Breadcrumb">
-      <a href="index.html">首页</a>
-      <span>VLA 研究专题</span>
-      <strong>当前页面</strong>
-    </section>
-
+    <section class="page-trail" aria-label="Breadcrumb"><a href="index.html">首页</a><span>VLA 研究专题</span><strong>VLA-MoE</strong></section>
     <main id="main-content">
       <section class="hero section project-hero-cover vla-hero" id="overview">
         <div class="hero-copy">
-          <div class="cover-headline-row">
-            <span class="cover-index">02</span>
-            <span class="cover-suite-label">VLA Research Suite</span>
-          </div>
-          <div class="cover-suite-progress" aria-label="VLA 研究推进">
-            <span class="cover-suite-step is-active">01 论文学习</span>
-            <span class="cover-suite-step">02 AdaMoE 接入</span>
-            <span class="cover-suite-step">03 主线收敛</span>
-            <span class="cover-suite-step">04 实验推进</span>
-          </div>
-          <h1>Vision-Language-Action</h1>
-          <p class="hero-subtitle">研究专题页 / 当前主线与实验路线</p>
-          <div class="project-meta-row">
-            <span class="project-meta-pill">OpenVLA-OFT</span>
-            <span class="project-meta-pill">AdaMoE</span>
-            <span class="project-meta-pill">π0 / π0.5</span>
-            <span class="project-meta-pill">MEDUSA</span>
-            <span class="project-meta-pill">Speculative Decoding</span>
-          </div>
-          <p class="hero-text">前期完成 AdaMoE 工程接入，当前主线收敛到层级式 speculative VLA。</p>
-          <div class="hero-actions">
-            <a class="button primary" href="#proposal">查看当前主线</a>
-            <a class="button secondary" href="#roadmap">查看实验路线</a>
-            <a class="button secondary" href="index.html#vla-direction">返回首页 VLA 模块</a>
-          </div>
+          <div class="cover-headline-row"><span class="cover-index">02</span><span class="cover-suite-label">Vision-Language-Action Research</span></div>
+          <div class="cover-suite-progress" aria-label="研究推进"><span class="cover-suite-step">01 共享边界诊断</span><span class="cover-suite-step">02 动作末端残差</span><span class="cover-suite-step is-active">03 四套件验证</span><span class="cover-suite-step">04 最小替代检验</span></div>
+          <h1>VLA-MoE</h1>
+          <p class="hero-subtitle">多任务 VLA 的最小动作末端专门化</p>
+          <div class="project-meta-row"><span class="project-meta-pill">OpenVLA-OFT</span><span class="project-meta-pill">LIBERO · 四套件</span><span class="project-meta-pill">Shared Policy</span><span class="project-meta-pill">Action-Tail Residual</span><span class="project-meta-pill">Learned Routing</span></div>
+          <p class="hero-text">多任务机器人策略应该共享到哪里，又需要多少任务专属容量？当前研究保留视觉语言表示、状态映射与动作主干，只在最终动作投影处加入极小任务组残差，检验它能否改善套件退化与训练波动。</p>
+          <div class="hero-actions"><a class="button primary" href="#results">查看阶段结果</a><a class="button secondary" href="https://github.com/zx2002430/vla-moe-openvla-oft" target="_blank" rel="noreferrer">研究代码</a><a class="button secondary" href="#roadmap">下一步计划</a></div>
+          <p class="vla-dated-note">页面整理：2026-10-02 · 实验状态截至当日 17:22（北京时间），依据本地周报快照。</p>
         </div>
-
         <aside class="hero-card vla-summary-panel">
-          <div class="vla-summary-head">
-            <span class="project-summary-label">Current Focus</span>
-            <strong>Hierarchical Speculative VLA</strong>
-          </div>
-          <div class="vla-summary-list">
-            <div>
-              <span>当前主线</span>
-              <strong>高层 speculative reasoning + 低层保守执行</strong>
-            </div>
-            <div>
-              <span>当前判断</span>
-              <strong>先做高层加速，再讨论低层连续动作 speculative</strong>
-            </div>
-          </div>
-          <p class="vla-summary-footnote">工程基座：OpenVLA-OFT / AdaMoE / LIBERO mix4</p>
+          <div class="vla-summary-head"><span class="project-summary-label">Current Focus</span><strong>Minimal Action-Tail Specialization</strong></div>
+          <div class="vla-summary-list"><div><span>核心问题</span><strong>极小末端私有容量是否足够？</strong></div><div><span>当前阶段</span><strong>补齐公平基线，检验更小替代方案</strong></div></div>
+          <p class="vla-summary-footnote">共享策略 + 套件级残差专家；学习路由作为闭集部署验证。</p>
+          <span class="vla-status-chip is-plan">计划在投 · 投稿目标待定</span>
         </aside>
       </section>
-
+      <section class="section vla-section-panel" aria-label="阶段研究指标">
+        <div class="vla-stat-grid">
+          <article class="vla-stat-card"><span>V15 四种子 Macro</span><strong>96.90%</strong><p>± 1.36 个百分点，训练种子间样本 SD</p></article>
+          <article class="vla-stat-card"><span>任务组私有参数</span><strong>131,296</strong><p>四个 rank8 因子化动作末端残差</p></article>
+          <article class="vla-stat-card"><span>当前评测范围</span><strong>4 套件 / 40 任务</strong><p>同一机器人本体与七维动作空间</p></article>
+          <article class="vla-stat-card"><span>V15 主表终点</span><strong>9,375 更新</strong><p>有效 batch64；每模型 2,000 episodes</p></article>
+        </div>
+      </section>
       <section class="section vla-section-panel" id="trajectory">
-        <div class="section-heading inline-heading">
-          <div>
-            <p class="eyebrow">Trajectory</p>
-            <h2>研究脉络</h2>
-          </div>
-          <p class="section-note">只保留研究推进里最关键的判断与转折。</p>
-        </div>
-
+        <div class="section-heading inline-heading"><div><p class="eyebrow">Trajectory</p><h2>从共享边界诊断到最小末端容量</h2></div><p class="section-note">以模块消融收敛研究问题，再检验专家与路由的作用。</p></div>
         <div class="vla-track-grid">
-          <article class="vla-track-card">
-            <div class="vla-card-topline">
-              <span>Phase 1</span>
-              <strong>论文学习与问题建模</strong>
-            </div>
-            <p>围绕 AdaMoE、MEDUSA、π 系列与流匹配建立 VLA 技术地图。</p>
-            <div class="vla-tag-row">
-              <span>AdaMoE</span>
-              <span>MEDUSA</span>
-              <span>π0 / π0.5</span>
-              <span>Flow Matching</span>
-            </div>
-          </article>
-
-          <article class="vla-track-card">
-            <div class="vla-card-topline">
-              <span>Phase 2</span>
-              <strong>OpenVLA + AdaMoE 工程接入</strong>
-            </div>
-            <p>在 OpenVLA-OFT 上完成 AdaMoE 接入，并验证 mix4、多任务训练与恢复链路。</p>
-            <div class="vla-tag-row">
-              <span>Backbone-tail MoE</span>
-              <span>mix4</span>
-              <span>Checkpoint Resume</span>
-            </div>
-          </article>
-
-          <article class="vla-track-card">
-            <div class="vla-card-topline">
-              <span>Phase 3</span>
-              <strong>方向收敛与当前主线</strong>
-            </div>
-            <p>在工程实现基础上完成方向调整，当前主线收敛为“高层 speculative + 低层保守执行”。</p>
-            <div class="vla-tag-row">
-              <span>High-Level Subtask</span>
-              <span>MEDUSA-style Heads</span>
-              <span>Replan</span>
-            </div>
-          </article>
+          <article class="vla-track-card"><div class="vla-card-topline"><span>V13–V14</span><strong>任务专属容量应放在哪里？</strong></div><p>从任务私有 LoRA、proprio projector 和完整动作头出发，与共享 Dense 路径做对照。记录到的分支退化推动研究转向更晚、更小的专门化位置。</p><div class="vla-tag-row"><span>模块消融</span><span>共享 / 私有边界</span><span>闭环成功率</span></div></article>
+          <article class="vla-track-card"><div class="vla-card-topline"><span>V15</span><strong>共享动作路径 + 任务组末端残差</strong></div><p>保留共享动作 trunk 和最终映射，只叠加零输出初始化的套件级因子化残差。研究从双套件扩展到四套件与多个训练种子。</p><div class="vla-tag-row"><span>Tail-Residual</span><span>联合训练</span><span>四套件</span></div></article>
+          <article class="vla-track-card"><div class="vla-card-topline"><span>V16–V17</span><strong>路由与冻结主干适配</strong></div><p>V16 使用 action-hidden 选择残差专家；V17 冻结官方联合模型，仅更新末端残差，并验证任务组级 checkpoint 组合。两条路线使用不同训练协议。</p><div class="vla-tag-row"><span>闭集监督路由</span><span>Residual-only</span><span>Checkpoint 组合</span></div></article>
         </div>
-
-        <div class="vla-subsection">
-          <div class="vla-subsection-head">
-            <span>Engineering Snapshot</span>
-            <strong>AdaMoE 工程实现与阶段判断</strong>
-          </div>
-
-          <div class="vla-two-column">
-            <article class="content-card vla-focus-card">
-              <h3>已经完成</h3>
-              <ul class="vla-list">
-                <li>完成 OpenVLA-OFT 到 AdaMoE-style action head 的接入。</li>
-                <li>支持 mix4、多任务验证与 checkpoint 恢复。</li>
-              </ul>
-            </article>
-
-            <article class="content-card vla-focus-card">
-              <h3>当前结论</h3>
-              <ul class="vla-list">
-                <li>backbone-tail MoE 证明了工程可行，但研究问题还不够聚焦。</li>
-                <li>后续更适合转向 action-head MoE 与层级式 speculative 主线。</li>
-              </ul>
-            </article>
-          </div>
-        </div>
+        <article class="content-card vla-thesis-card"><div class="vla-card-topline"><span>Research Question</span><strong>极小动作末端专门化能否改善多任务失稳？</strong></div><p>当前要区分任务动作映射差异、因子化带来的优化路径变化，以及套件条件和动作归一化带来的校准需求。研究价值取决于受控证据能否回答这个问题。</p></article>
       </section>
-
       <section class="section vla-section-panel" id="proposal">
-        <div class="section-heading inline-heading">
-          <div>
-            <p class="eyebrow">Mainline</p>
-            <h2>当前研究主线</h2>
-          </div>
-          <p class="section-note">当前更适合在高层语义子任务空间做 speculative reasoning。</p>
+        <div class="section-heading inline-heading"><div><p class="eyebrow">Method</p><h2>当前方法：共享主体，专门化动作末端</h2></div><p class="section-note">V15 是主机制实验，V16 路由补充部署接口。</p></div>
+        <div class="vla-track-grid">
+          <article class="vla-track-card"><div class="vla-card-topline"><span>01 · Input</span><strong>视觉、语言与机器人状态</strong></div><p>双图像、任务指令与 proprio 输入 OpenVLA-OFT，学习共享的视觉语言表示和机器人状态映射。</p></article>
+          <article class="vla-track-card"><div class="vla-card-topline"><span>02 · Shared Policy</span><strong>共享动作表征与输出映射</strong></div><p>共享 LoRA、proprio projector、完整动作 trunk 和输出投影。PEFT 基座权重冻结，这些共享可训练模块在 V15 中继续联合更新。</p></article>
+          <article class="vla-track-card"><div class="vla-card-topline"><span>03 · Private Tail</span><strong>套件级小残差专家</strong></div><p>在最终 4096 → 7 动作映射上叠加专属残差。主对照使用已知 suite ID；V16 用共享 action-hidden 训练轻量专家选择器。</p></article>
         </div>
-
-        <div class="vla-direction-grid">
-          <article class="vla-direction-card is-primary">
-            <div class="vla-card-topline">
-              <span>Direction A</span>
-              <strong>Hierarchical Speculative VLA</strong>
-            </div>
-            <p class="vla-direction-summary">在高层子任务 token 空间引入多头 speculative decoding，低层执行保持闭环控制。</p>
-            <ul class="vla-list">
-              <li>与 π0.5 一类层级结构天然兼容。</li>
-              <li>指标清晰，验证路径也更短。</li>
-            </ul>
-          </article>
-
-          <article class="vla-direction-card">
-            <div class="vla-card-topline">
-              <span>Direction B</span>
-              <strong>Speculative Action Expert</strong>
-            </div>
-            <p class="vla-direction-summary">直接把 speculative 扩展到连续动作或 denoising 更新层面。</p>
-            <ul class="vla-list">
-              <li>创新性更强，但 acceptance 机制需要重新定义。</li>
-              <li>更适合作为主线稳定后的 follow-up。</li>
-            </ul>
-          </article>
-        </div>
-
-        <article class="content-card vla-thesis-card">
-          <div class="vla-card-topline">
-            <span>Current Thesis</span>
-            <strong>Hierarchical Speculative Decoding for Vision-Language-Action Models</strong>
-          </div>
-          <p>更合适的论文表述是先提升高层重规划效率，再验证它能否转化为更稳的长时程执行。</p>
-        </article>
-
-        <div class="vla-subsection">
-          <div class="vla-subsection-head">
-            <span>Method Figure</span>
-            <strong>三段式方法骨架</strong>
-          </div>
-
-          <div class="vla-track-grid">
-            <article class="vla-track-card">
-              <div class="vla-card-topline">
-                <span>Step 1</span>
-                <strong>高层语义理解</strong>
-              </div>
-              <p>图像、语言与状态进入骨干网络，输出语义级子任务 token。</p>
-            </article>
-
-            <article class="vla-track-card">
-              <div class="vla-card-topline">
-                <span>Step 2</span>
-                <strong>高层 speculative verification</strong>
-              </div>
-              <p>并行生成候选前缀，再做 verification 与 acceptance。</p>
-            </article>
-
-            <article class="vla-track-card">
-              <div class="vla-card-topline">
-                <span>Step 3</span>
-                <strong>低层闭环执行</strong>
-              </div>
-              <p>低层执行器保持保守，通过反馈与 replan 维持稳定性。</p>
-            </article>
-          </div>
+        <div class="vla-equation" aria-label="动作末端残差公式"><code>â = W₀h + b₀ + (α/r) BₑAₑh</code><p>h ∈ ℝ⁴⁰⁹⁶，â ∈ ℝ⁷；当前 r = α = 8。每个专家 32,824 个参数，四个专家共 131,296 个私有参数；动作 chunk 复用该投影。</p></div>
+        <div class="vla-two-column">
+          <article class="content-card vla-focus-card"><h3>参数与术语</h3><ul class="vla-list"><li>七维输出的修正矩阵最大秩为 7，rank8 应称“因子化残差”。</li><li>保留共享结构与计算路径，不等于已经证明共享能力完全无损。</li><li>末端残差仍通过隐藏表示把梯度传回共享 trunk，机制归因需要进一步对照。</li></ul></article>
+          <article class="content-card vla-focus-card"><h3>路由与研究范围</h3><ul class="vla-list"><li>四个专家对应四个 suite / task-group，并非 LIBERO 的 40 个单任务专家。</li><li>V16 推理输入可不含显式 suite ID；训练监督仍使用 suite 标签。</li><li>当前证据限定于同一机器人、同一动作空间和闭集任务；计算稀疏加速仍未验证。</li></ul></article>
         </div>
       </section>
-
+      <section class="section vla-section-panel" id="results">
+        <div class="section-heading inline-heading"><div><p class="eyebrow">Evidence</p><h2>阶段结果与当前判断</h2></div><p class="section-note">按训练协议分别报告；有效低成绩保留在主表中。</p></div>
+        <div class="vla-protocol"><strong>V15 / 本地 Dense 主对照</strong><p>LIBERO Spatial、Object、Goal、Long 四套件联合训练；microbatch4 × 累计16 = 有效 batch64，固定终点 9,375 次 optimizer updates。每套件 10 个任务 × 50 episodes，共 2,000 episodes / 模型，eval seed42。V15 使用 Oracle suite ID 选择残差。</p></div>
+        <div class="vla-table-scroll" tabindex="0" role="region" aria-label="V15 Tail-Residual rank8：四个训练种子均已完成"><table class="vla-data-table"><caption>V15 Tail-Residual rank8：四个训练种子均已完成</caption><thead><tr><th scope="col">训练种子</th><th scope="col">Spatial</th><th scope="col">Object</th><th scope="col">Goal</th><th scope="col">Long</th><th scope="col">Macro</th></tr></thead><tbody><tr><th scope="row">seed1</th><td>98.0%</td><td>99.8%</td><td>98.0%</td><td>92.4%</td><td>97.05%</td></tr>
+<tr><th scope="row">seed2</th><td>96.2%</td><td>98.6%</td><td>97.4%</td><td>87.8%</td><td>95.00%</td></tr>
+<tr><th scope="row">seed3</th><td>97.4%</td><td>99.6%</td><td>97.4%</td><td>95.0%</td><td>97.35%</td></tr>
+<tr><th scope="row">seed4</th><td>99.0%</td><td>99.2%</td><td>99.4%</td><td>95.2%</td><td>98.20%</td></tr>
+<tr><th scope="row">四种子均值</th><td>97.65%</td><td>99.30%</td><td>98.05%</td><td>92.60%</td><td>96.90%</td></tr>
+<tr><th scope="row">种子间样本 SD</th><td>1.17 pp</td><td>0.53 pp</td><td>0.94 pp</td><td>3.44 pp</td><td>1.36 pp</td></tr></tbody></table></div>
+        <p class="vla-table-note">四种子共成功 7,752 / 8,000 episodes。Long 均值为 92.60%，种子间 SD 为 3.44 pp，是四个种子的最差套件。seed2 的 95.00% 为有效结果，纳入完整均值。</p>
+        <div class="vla-table-scroll" tabindex="0" role="region" aria-label="匹配名义配置的 Dense：两种子已完成，两种子待补"><table class="vla-data-table"><caption>匹配名义配置的 Dense：两种子已完成，两种子待补</caption><thead><tr><th scope="col">训练种子</th><th scope="col">Spatial</th><th scope="col">Object</th><th scope="col">Goal</th><th scope="col">Long</th><th scope="col">Macro</th></tr></thead><tbody><tr><th scope="row">seed1</th><td>97.6%</td><td>99.4%</td><td>98.2%</td><td>92.6%</td><td>96.95%</td></tr>
+<tr><th scope="row">seed2</th><td>—</td><td>—</td><td>—</td><td>—</td><td>待完成</td></tr>
+<tr><th scope="row">seed3</th><td>97.4%</td><td>96.8%</td><td>76.8%</td><td>85.2%</td><td>89.05%</td></tr>
+<tr><th scope="row">seed4</th><td>—</td><td>—</td><td>—</td><td>—</td><td>待完成</td></tr></tbody></table></div>
+        <p class="vla-table-note">同标签 seed1 的 V15 − Dense 为 +0.10 pp，seed3 为 +8.30 pp。共享初始化、实际数据流和实现细节仍待审计；完整四种子对照未齐，尚不能给出最终均值或稳定性优势结论。空白表示无最终结果。</p>
+        <div class="vla-subsection"><div class="vla-subsection-head"><span>V16 · Learned Routing</span><strong>专家训练与路由训练的两条路线</strong></div>
+          <div class="vla-table-scroll" tabindex="0" role="region" aria-label="V16：单训练种子的四套件全量测评"><table class="vla-data-table"><caption>V16：单训练种子的四套件全量测评</caption><thead><tr><th scope="col">训练路线</th><th scope="col">预算</th><th scope="col">Learned Macro</th><th scope="col">Oracle Macro</th></tr></thead><tbody><tr><th scope="row">先训 V15 专家，再冻结策略训 router</th><td>策略 b64 / 9375 + router b4 / 10000</td><td>98.15%</td><td>98.15%</td></tr>
+<tr><th scope="row">从基座分阶段联合训练</th><td>b64 / 9375</td><td>97.25%</td><td>97.30%</td></tr></tbody></table></div>
+          <p class="vla-table-note">先训专家路线中未观察到同 checkpoint 的路由性能损失；联合路线 Learned 比 Oracle 少 1 个 episode。两条路线的初始化和追加训练预算不同，这些单种子结果不能代表完整策略的跨种子稳定性。</p>
+        </div>
+        <div class="vla-subsection"><div class="vla-subsection-head"><span>V17 · Frozen Policy Adaptation</span><strong>任务组级 checkpoint 组合</strong></div>
+          <p class="section-note">本组结果依据 2026-09-25 实验报告：冻结官方四套件联合 checkpoint，仅训练 131,296 个末端残差参数；使用开发协议预先锁定选择规则，再进行同协议附加测评。</p>
+          <div class="vla-table-scroll" tabindex="0" role="region" aria-label="V17：两个新增训练种子的组合结果"><table class="vla-data-table"><caption>V17：两个新增训练种子的组合结果</caption><thead><tr><th scope="col">训练种子</th><th scope="col">最佳全局 checkpoint</th><th scope="col">任务组 Hybrid</th><th scope="col">Hybrid − 最佳全局</th></tr></thead><tbody><tr><th scope="row">seed2</th><td>1936/2000 · 96.80%</td><td>1946/2000 · 97.30%</td><td>+0.50 pp</td></tr>
+<tr><th scope="row">seed3</th><td>1935/2000 · 96.75%</td><td>1943/2000 · 97.15%</td><td>+0.40 pp</td></tr></tbody></table></div>
+          <p class="vla-table-note">两种子的描述性平均提升为 +0.45 pp，支持组合流程可执行的初步证据。新增 3e-5 学习率、单种子 5k 对照中，residual-only / Dense 续训 / 联合残差为 96.75% / 96.65% / 96.80%，表明性能差距依赖训练设置；统计可靠性和分布外泛化仍待验证。</p>
+        </div>
+        <div class="vla-two-column vla-findings-grid">
+          <article class="content-card vla-focus-card"><h3>当前已经积累的证据</h3><ul class="vla-list"><li>动作末端残差可在四套件联合训练中达到较高绝对成功率。</li><li>action-hidden 可支持闭集监督专家选择。</li><li>冻结共享参数后，任务组残差可以组成一个实际可用的 checkpoint。</li></ul></article>
+          <article class="content-card vla-focus-card"><h3>仍需回答的问题</h3><ul class="vla-list"><li>相对完整匹配 Dense 基线，收益与训练稳定性是否可靠？</li><li>几十个输出校准参数或直接残差是否已经足够？</li><li>弱套件差距来自输出折衷、优化路径，还是条件与动作坐标？</li></ul></article>
+        </div>
+        <p class="vla-table-note">± / SD 描述训练种子间波动，单位为百分点。每模型的 2,000 次 rollout 不等于 2,000 个独立训练重复；旧 batch4 / 150k 与当前 batch64 / 9375 协议分别保留，不混合计算主均值。</p>
+      </section>
       <section class="section vla-section-panel" id="roadmap">
-        <div class="section-heading inline-heading">
-          <div>
-            <p class="eyebrow">Roadmap</p>
-            <h2>路线与结果</h2>
-          </div>
-          <p class="section-note">这一块只保留接下来最值得推进的实验路径。</p>
-        </div>
-
+        <div class="section-heading inline-heading"><div><p class="eyebrow">Next Steps</p><h2>下一步：先完成对照，再检验最小性</h2></div><p class="section-note">以 2026-10-01 研究方案和 10-02 周报为依据。</p></div>
         <div class="vla-stage-grid">
-          <article class="vla-stage-card">
-            <span class="vla-stage-index">Stage 1</span>
-            <h3>建立层级基线</h3>
-            <p>明确高层 subtask token 形式与 replan 接口。</p>
-            <strong>输出：可运行基线</strong>
-          </article>
-          <article class="vla-stage-card">
-            <span class="vla-stage-index">Stage 2</span>
-            <h3>加入高层 speculative</h3>
-            <p>实现多头候选、verification 与 acceptance。</p>
-            <strong>输出：方法原型</strong>
-          </article>
-          <article class="vla-stage-card">
-            <span class="vla-stage-index">Stage 3</span>
-            <h3>长时程评测</h3>
-            <p>重点观察延迟、replan、成功率与恢复率。</p>
-            <strong>输出：核心结果</strong>
-          </article>
+          <article class="vla-stage-card"><span class="vla-stage-index">P0</span><h3>公平基线与协议审计</h3><p>等待 Dense seed2 / seed4 完成原定训练测评，核查初始化、采样、梯度累计、学习率日程与终点 checkpoint。</p><strong>输出：完整对照主表</strong></article>
+          <article class="vla-stage-card"><span class="vla-stage-index">P1</span><h3>动作误差与条件诊断</h3><p>比较动作统计、归一化坐标和反归一化物理误差，区分输出映射、优化路径与条件化校准解释。</p><strong>输出：可检验的机制假设</strong></article>
+          <article class="vla-stage-card"><span class="vla-stage-index">P2</span><h3>更小替代方案</h3><p>依据审计先选择输出 scale + bias 或直接残差，对齐条件、共享初始化与数据流，再判断因子化是否必要。</p><strong>输出：最小替代检验</strong></article>
+          <article class="vla-stage-card"><span class="vla-stage-index">P3</span><h3>独立确认与部署</h3><p>对保留候选预先固定新训练种子与指标；按需补位置对照和学习路由，分别报告增量预算。</p><strong>输出：与论文主张匹配的证据</strong></article>
         </div>
-
-        <div class="vla-subsection">
-          <div class="vla-subsection-head">
-            <span>Experiment Snapshot</span>
-            <strong>实验与结果概览</strong>
-          </div>
-
-          <div class="vla-experiment-grid">
-            <article class="vla-experiment-card">
-              <div class="vla-card-topline">
-                <span>Setup</span>
-                <strong>对照与当前状态</strong>
-              </div>
-              <ul class="vla-list">
-                <li><strong>Baseline OFT</strong>：原始 OpenVLA-OFT。</li>
-                <li><strong>Backbone-tail AdaMoE</strong>：当前已跑通版本。</li>
-                <li><strong>Action-head MoE</strong>：下一阶段重点补齐。</li>
-              </ul>
-              <div class="vla-status-list">
-                <div class="vla-status-item">
-                  <span class="vla-status-chip is-done">Done</span>
-                  <p>工程链路已打通。</p>
-                </div>
-                <div class="vla-status-item">
-                  <span class="vla-status-chip is-progress">In Progress</span>
-                  <p>主线已收敛到高层 speculative VLA。</p>
-                </div>
-              </div>
-            </article>
-
-            <article class="vla-experiment-card">
-              <div class="vla-card-topline">
-                <span>Result Plan</span>
-                <strong>结果与消融</strong>
-              </div>
-              <p>后续优先填入延迟、replan 次数与长时程成功率，再补 acceptance strategy 与 head count 的消融。</p>
-              <div class="vla-tag-row">
-                <span>Latency</span>
-                <span>Replan</span>
-                <span>Success Rate</span>
-                <span>acceptance strategy</span>
-                <span>head count</span>
-              </div>
-            </article>
-          </div>
-
-          <div class="vla-result-hero">
-            <article class="vla-result-summary">
-              <div class="vla-card-topline">
-                <span>Main Claim</span>
-                <strong>更快的高层推理应转化为更频繁的 replan 与更稳的长时程执行</strong>
-              </div>
-              <p>后续只需要把真实成功率、延迟和恢复率填进来，不必再改整体结构。</p>
-            </article>
-
-            <article class="vla-result-placeholder-card">
-              <div class="vla-placeholder-head">
-                <span>Chart Placeholder</span>
-                <strong>主结果图</strong>
-              </div>
-              <div class="vla-placeholder-bars">
-                <div><span>Baseline OFT</span><i style="width: 58%;"></i></div>
-                <div><span>Backbone-tail AdaMoE</span><i style="width: 68%;"></i></div>
-                <div><span>Hierarchical Speculative VLA</span><i style="width: 82%;"></i></div>
-              </div>
-              <p>后续建议替换成真实的成功率或 replan 柱状图。</p>
-            </article>
-          </div>
-        </div>
+        <div class="vla-table-scroll" tabindex="0" role="region" aria-label="候选容量对照：用于检验专门化是否必要"><table class="vla-data-table"><caption>候选容量对照：用于检验专门化是否必要</caption><thead><tr><th scope="col">候选</th><th scope="col">四套件私有参数</th><th scope="col">要回答的问题</th></tr></thead><tbody><tr><th scope="row">连续六维输出 scale + bias</th><td>48</td><td>逐维动作校准是否足够？</td></tr>
+<tr><th scope="row">Direct residual · 7 × 4096</th><td>114,688</td><td>相同线性修正函数类是否需要因子化？</td></tr>
+<tr><th scope="row">当前 rank8 因子化残差</th><td>131,296</td><td>因子化优化路径是否有独立作用？</td></tr>
+<tr><th scope="row">较早 trunk 的 rank4 残差（条件性）</th><td>131,072</td><td>在近似参数预算下，末端位置是否更合适？</td></tr></tbody></table></div>
+        <p class="vla-table-note">前三种方案的参数和条件接口需分别核对；输出校准保留原 gripper 协议。较早 trunk 对照仅在需要主张“末端位置有效”时推进。最终报告保留全部有效种子，并依据更简单候选的结果调整方法。</p>
+        <article class="content-card vla-thesis-card"><div class="vla-card-topline"><span>Paper Plan · 计划在投</span><strong>多任务 VLA 的动作末端专门化：共享策略与任务残差</strong></div><p>拟通过共享边界诊断、最小替代检验与多种子闭环评测形成一篇机制清晰的实证研究。投稿目标待定，论文结论随公平对照与机制实验补齐后收敛。</p><div class="hero-actions"><a class="button primary" href="index.html#future-papers">首页论文计划</a><a class="button secondary" href="https://github.com/zx2002430/vla-moe-openvla-oft" target="_blank" rel="noreferrer">VLA-MoE 代码库</a></div></article>
       </section>
-
       <section class="section vla-section-panel" id="sources">
-        <div class="section-heading inline-heading">
-          <div>
-            <p class="eyebrow">Sources</p>
-            <h2>参考材料与页面依据</h2>
-          </div>
-          <p class="section-note">这里只保留页面直接参考到的核心材料。</p>
-        </div>
-
-        <article class="content-card vla-source-card">
-          <h3>核心参考材料</h3>
-          <ul class="vla-list vla-source-list">
-            <li>AdaMoE_action_head_最终运行版整理.docx</li>
-            <li>MoE代码实现总结.docx</li>
-            <li>MoE方向调整汇报.pptx</li>
-            <li>Openvla+AdaMoe代码修改进度.pptx</li>
-            <li>AdaMoe.pptx</li>
-            <li>pi系列模型1.3-1.10.pptx</li>
-            <li>流匹配1.10-1.17.docx</li>
-            <li>论文学习1.17-2.7.pptx</li>
-            <li>研究方向汇报_π0_π0.5_speculative_VLA.docx</li>
-          </ul>
-        </article>
+        <div class="section-heading inline-heading"><div><p class="eyebrow">Sources</p><h2>页面依据与研究代码</h2></div><p class="section-note">结果依据本地 VLA_Moe 的阶段汇总；页面日期用于标明快照。</p></div>
+        <article class="content-card vla-source-card"><ul class="vla-list vla-source-list">
+          <li><strong>四套件实验周报 · 2026-10-02</strong><span class="vla-source-filename">WEEKLY_RESEARCH_REPORT_20261002.md</span><p>V15 四训练种子、当前 Dense 对照、V16 两条路由路线。</p></li>
+          <li><strong>动作末端研究路线 · 2026-10-01</strong><span class="vla-source-filename">ACTION_TAIL_EXPERT_LITERATURE_AND_ROADMAP_20261001.md</span><p>研究定位、参数容量与替代解释、实验优先级。</p></li>
+          <li><strong>V17 阶段汇报 · 2026-09-25</strong><span class="vla-source-filename">V17_EXPERIMENT_REPORT.md</span><p>冻结主干适配、任务组组合与学习率对照。</p></li>
+          <li><strong>方法与实验方案 · 2026-10-01</strong><span class="vla-source-filename">FINAL_PROPOSAL.md / EXPERIMENT_PLAN.md</span><p>公平审计、最小替代检验与条件性确认实验。</p></li>
+        </ul><div class="hero-actions"><a class="button primary" href="https://github.com/zx2002430/vla-moe-openvla-oft" target="_blank" rel="noreferrer">研究代码入口</a><a class="button secondary" href="https://github.com/moojink/openvla-oft" target="_blank" rel="noreferrer">OpenVLA-OFT</a></div></article>
       </section>
-
-      <section class="section contact-strip">
-        <div>
-          <h2>后续补充</h2>
-          <p class="section-note">后续如果补真实实验结果，优先填到“路线与结果”即可。</p>
-        </div>
-        <div class="contact-actions">
-          <a class="button primary" href="mailto:zhaoxun@stu.hubu.edu.cn">zhaoxun@stu.hubu.edu.cn</a>
-          <a class="button secondary" href="https://eilab-wanghong.eu.cc/" target="_blank" rel="noreferrer">Visit EILab</a>
-          <a class="button secondary" href="https://github.com/zx2002430" target="_blank" rel="noreferrer">GitHub</a>
-        </div>
-      </section>
-      <section class="section page-footer-nav" aria-label="Page navigation">
-        <a class="page-footer-link" href="index.html#vla-direction">
-          <span>返回首页</span>
-          <strong>首页 VLA 模块</strong>
-        </a>
-        <a class="page-footer-link" href="smart-agriculture.html">
-          <span>跨专题查看</span>
-          <strong>智慧农业总览</strong>
-        </a>
-        <a class="page-footer-link" href="#overview">
-          <span>回到顶部</span>
-          <strong>重新浏览本页</strong>
-        </a>
-      </section>
+      <section class="section contact-strip"><div><h2>研究交流</h2><p class="section-note">欢迎围绕多任务 VLA、参数共享、动作专门化与机器人闭环评测交流。</p></div><div class="contact-actions"><a class="button primary" href="mailto:zhaoxun@stu.hubu.edu.cn">zhaoxun@stu.hubu.edu.cn</a><a class="button secondary" href="https://eilab-wanghong.eu.cc/" target="_blank" rel="noreferrer">Visit EILab</a></div></section>
+      <section class="section page-footer-nav" aria-label="Page navigation"><a class="page-footer-link" href="index.html#vla-direction"><span>返回首页</span><strong>首页 VLA 模块</strong></a><a class="page-footer-link" href="index.html#future-papers"><span>论文规划</span><strong>计划在投</strong></a><a class="page-footer-link" href="#overview"><span>回到顶部</span><strong>重新浏览本页</strong></a></section>
     </main>
   </div>
 </body>

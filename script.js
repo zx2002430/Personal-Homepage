@@ -131,18 +131,18 @@ const uiText = {
     vla: {
       eyebrow: "研究方向",
       title: "Vision-Language-Action",
-      note: "当前更聚焦 OpenVLA-OFT / AdaMoE 基础上的层级式 speculative VLA，首页展示主线判断，专题页展开工程与实验路线。",
-      badge: "研究方向",
-      repo: "OpenVLA-OFT / AdaMoE / Speculative VLA",
-      overviewTitle: "当前主线：层级式 Speculative VLA",
-      snapshotTitle: "当前快照",
+      note: "当前聚焦 OpenVLA-OFT 多任务训练中的最小动作末端专门化，专题页展示 VLA-MoE 方法、四套件结果与待验证问题。",
+      badge: "进行中的研究",
+      repo: "OpenVLA-OFT / VLA-MoE / LIBERO",
+      overviewTitle: "当前主线：最小动作末端专门化",
+      snapshotTitle: "研究快照",
       pipelineTitle: "推进路线",
-      highlightsTitle: "研究判断",
+      highlightsTitle: "当前判断",
       focusLabel: "当前聚焦",
       focusItem1: "OpenVLA-OFT",
-      focusItem2: "AdaMoE",
-      focusItem3: "层级式 Speculative VLA",
-      focusItem4: "长时程评测"
+      focusItem2: "VLA-MoE",
+      focusItem3: "动作末端专门化",
+      focusItem4: "多任务训练稳定性"
     },
     updates: {
       eyebrow: "动态",
@@ -321,20 +321,20 @@ const uiText = {
       highlightsTitle: "Key Highlights"
     },
     vla: {
-      eyebrow: "Featured Direction",
+      eyebrow: "Research Direction",
       title: "Vision-Language-Action",
-      note: "The current focus is a hierarchical speculative VLA track built on OpenVLA-OFT and AdaMoE, with the homepage showing the thesis and the dedicated page expanding the engineering and experiment plan.",
-      badge: "Research Direction",
-      repo: "OpenVLA-OFT / AdaMoE / Speculative VLA",
-      overviewTitle: "Current Thesis: Hierarchical Speculative VLA",
-      snapshotTitle: "Current Snapshot",
-      pipelineTitle: "Current Path",
-      highlightsTitle: "Research Judgments",
+      note: "The current focus is minimal action-tail specialization in multi-task OpenVLA-OFT training. The research page presents the VLA-MoE method, four-suite results, and open questions.",
+      badge: "Ongoing Research",
+      repo: "OpenVLA-OFT / VLA-MoE / LIBERO",
+      overviewTitle: "Current Focus: Minimal Action-Tail Specialization",
+      snapshotTitle: "Research Snapshot",
+      pipelineTitle: "Research Path",
+      highlightsTitle: "Current Findings",
       focusLabel: "Current Focus",
       focusItem1: "OpenVLA-OFT",
-      focusItem2: "AdaMoE",
-      focusItem3: "Hierarchical Speculative VLA",
-      focusItem4: "Long-Horizon Eval"
+      focusItem2: "VLA-MoE",
+      focusItem3: "Action-Tail Specialization",
+      focusItem4: "Multi-Task Training Stability"
     },
     updates: {
       eyebrow: "Updates",
@@ -495,38 +495,50 @@ const localeData = {
       ]
     },
     vlaDirection: {
-      summary:
-        "当前这条方向已经从通用 VLA 介绍收敛到更具体的主线：基于 OpenVLA-OFT 与 AdaMoE，优先推进层级式 speculative VLA，目标是在高层语义推理上加速，同时保持低层闭环执行的稳定性。",
+      summary: "基于 OpenVLA-OFT，在共享视觉语言表示、状态映射和动作主干的同时，仅在最终动作投影处加入任务组专属残差。当前研究问题是：极小末端容量能否改善多套件训练中的性能退化，并保留共享训练的收益？",
       links: [
-        { label: "EILab", url: "https://eilab-wanghong.eu.cc/" },
-        { label: "GitHub 主页", url: "https://github.com/zx2002430" },
-        { label: "联系方式", url: "#contact" }
+        {
+          label: "VLA-MoE 代码库",
+          url: "https://github.com/zx2002430/vla-moe-openvla-oft"
+        }
       ],
       metrics: [
-        { label: "当前主线", value: "Hierarchical Speculative VLA" },
-        { label: "工程基座", value: "OpenVLA-OFT + AdaMoE" },
-        { label: "执行层", value: "闭环动作执行" },
-        { label: "下一步", value: "Long-Horizon Eval" }
+        {
+          label: "当前主线",
+          value: "最小动作末端专门化"
+        },
+        {
+          label: "实验基座",
+          value: "OpenVLA-OFT + LIBERO"
+        },
+        {
+          label: "已完成",
+          value: "V15 四训练种子"
+        },
+        {
+          label: "下一步",
+          value: "公平基线与最小替代检验"
+        }
       ],
       pipeline: [
         {
-          stage: "工程接入",
-          detail: "完成 AdaMoE 接入、mix4 训练链路和基础恢复逻辑。"
+          stage: "共享边界诊断",
+          detail: "从 V13–V14 的模块消融，定位任务专属容量应放置的环节。"
         },
         {
-          stage: "主线收敛",
-          detail: "从 backbone-tail MoE 收敛到高层 speculative + 低层保守执行。"
+          stage: "末端残差与路由",
+          detail: "V15 保留共享动作路径；V16 验证基于 action-hidden 的闭集专家选择。"
         },
         {
-          stage: "实验推进",
-          detail: "优先验证 latency、replan 次数与长时程成功率。"
+          stage: "证据补齐",
+          detail: "完成同协议 Dense 对照，再比较输出校准、直接残差与因子化残差。"
         }
       ],
       highlights: [
-        "首页只保留主线判断，细节进入专题页展开。",
-        "先验证高层加速，再讨论低层连续动作 speculative。",
-        "与双臂 Sim-to-Real 系统可以自然衔接。",
-        "适合作为当前论文主线，而不是泛泛的 VLA 展示。"
+        "V15 四种子 Macro 为 96.90% ± 1.36 个百分点；Long 仍是主要短板。",
+        "匹配配置的 Dense 四种子尚未齐全，稳定性优势仍待验证。",
+        "rank8 对七维输出属于因子化残差，不能作为严格低秩压缩的证据。",
+        "VLA-MoE 论文计划：计划在投，投稿目标待定。"
       ]
     },
     overviewPublications: [
@@ -543,15 +555,21 @@ const localeData = {
         ]
       },
       {
-        title: "面向具身操作的 Vision-Language-Action",
+        title: "VLA-MoE：多任务 VLA 的动作末端专门化",
         authors: "赵汛",
         venue: "进行中的研究方向",
         type: "VLA",
-        highlight: "多模态对齐 + 动作生成",
-        summary: "探索将视觉观测与语言指令映射到机器人动作的 VLA 风格策略，用于具身操作与任务执行。",
+        highlight: "共享策略 + 任务组残差 + 闭集学习路由",
+        summary: "研究 OpenVLA-OFT 多套件联合训练中的共享与专门化边界，检验极小动作末端容量对弱套件表现、参数开销与训练波动的影响。",
         links: [
-          { label: "实验室", url: "https://eilab-wanghong.eu.cc/" },
-          { label: "GitHub", url: "https://github.com/zx2002430" }
+          {
+            label: "研究专题",
+            url: "vla-research.html"
+          },
+          {
+            label: "代码库",
+            url: "https://github.com/zx2002430/vla-moe-openvla-oft"
+          }
         ]
       },
       {
@@ -616,15 +634,21 @@ const localeData = {
       }
     ],
     vlaPublication: {
-      title: "面向具身操作的 Vision-Language-Action",
+      title: "VLA-MoE：多任务 VLA 的动作末端专门化",
       authors: "赵汛",
       venue: "进行中的研究方向",
       type: "VLA",
-      highlight: "多模态对齐 + 动作生成",
-      summary: "探索将视觉观测与语言指令映射到机器人动作的 VLA 风格策略，用于具身操作与任务执行。",
+      highlight: "共享策略 + 任务组残差 + 闭集学习路由",
+      summary: "研究 OpenVLA-OFT 多套件联合训练中的共享与专门化边界，检验极小动作末端容量对弱套件表现、参数开销与训练波动的影响。",
       links: [
-        { label: "实验室", url: "https://eilab-wanghong.eu.cc/" },
-        { label: "GitHub", url: "https://github.com/zx2002430" }
+        {
+          label: "研究专题",
+          url: "vla-research.html"
+        },
+        {
+          label: "代码库",
+          url: "https://github.com/zx2002430/vla-moe-openvla-oft"
+        }
       ]
     },
     agriculturePublication: {
@@ -666,6 +690,25 @@ const localeData = {
           { label: "论文 PDF · 密码访问", url: "vla-peft-paper.html?v=20261002-aamas-protected" },
           { label: "VLA 专题", url: "vla-research.html" }
         ]
+      },
+      {
+        title: "多任务 VLA 的动作末端专门化：共享策略与任务残差",
+        status: "计划在投",
+        track: "VLA-MoE",
+        venue: "机器人与具身智能方向会议（目标待定）",
+        summary: "基于 OpenVLA-OFT 与 LIBERO 多套件联合训练，研究多任务 VLA 应将任务专属容量放在动作生成链路的何处，以及如何在保留共享视觉语言表示、状态映射与动作主干的同时控制套件间性能退化和训练波动。",
+        focusLabel: "研究重点",
+        contribution: "计划通过模块级共享与专门化对照，检验共享策略加动作末端任务残差是否构成有效的最小专门化方案；围绕四套件成功率、最差套件表现、参数开销与多训练种子稳定性建立证据，并以匹配预算的 Dense 基线校准结论。",
+        links: [
+          {
+            label: "VLA 研究专题",
+            url: "vla-research.html"
+          },
+          {
+            label: "VLA-MoE 代码库",
+            url: "https://github.com/zx2002430/vla-moe-openvla-oft"
+          }
+        ]
       }
     ],
     projects: [
@@ -695,12 +738,18 @@ const localeData = {
         ]
       },
       {
-        title: "VLA Policy Prototyping",
-        meta: "Vision-Language-Action | 具身策略 | 机器人执行",
-        description: "面向语言条件操作与未来真实部署的 VLA 风格具身策略原型方向。",
+        title: "VLA-MoE",
+        meta: "OpenVLA-OFT | LIBERO | 动作末端专门化",
+        description: "从共享边界诊断、任务组残差到学习路由与冻结主干适配的多任务 VLA 实验代码。",
         links: [
-          { label: "实验室主页", url: "https://eilab-wanghong.eu.cc/" },
-          { label: "GitHub 主页", url: "https://github.com/zx2002430" }
+          {
+            label: "研究专题",
+            url: "vla-research.html"
+          },
+          {
+            label: "代码库",
+            url: "https://github.com/zx2002430/vla-moe-openvla-oft"
+          }
         ]
       },
       {
@@ -838,38 +887,50 @@ const localeData = {
       ]
     },
     vlaDirection: {
-      summary:
-        "This track is no longer presented as a generic VLA overview. It is now framed around a more specific thesis: building a hierarchical speculative VLA pipeline on top of OpenVLA-OFT and AdaMoE, aiming to speed up high-level semantic reasoning while preserving stable low-level closed-loop execution.",
+      summary: "Built on OpenVLA-OFT, this work shares the vision-language representation, proprioceptive mapping, and action trunk while adding task-group residuals only at the final action projection. It asks whether a small private tail can reduce suite-level degradation while retaining the benefits of shared training.",
       links: [
-        { label: "EILab", url: "https://eilab-wanghong.eu.cc/" },
-        { label: "GitHub Profile", url: "https://github.com/zx2002430" },
-        { label: "Contact", url: "#contact" }
+        {
+          label: "VLA-MoE Code",
+          url: "https://github.com/zx2002430/vla-moe-openvla-oft"
+        }
       ],
       metrics: [
-        { label: "Current Thesis", value: "Hierarchical Speculative VLA" },
-        { label: "Engineering Base", value: "OpenVLA-OFT + AdaMoE" },
-        { label: "Execution Layer", value: "Closed-loop Control" },
-        { label: "Next Step", value: "Long-Horizon Eval" }
+        {
+          label: "Current Focus",
+          value: "Minimal Action-Tail Specialization"
+        },
+        {
+          label: "Experiment Base",
+          value: "OpenVLA-OFT + LIBERO"
+        },
+        {
+          label: "Completed",
+          value: "V15: Four Training Seeds"
+        },
+        {
+          label: "Next Step",
+          value: "Matched Dense and Minimal Alternatives"
+        }
       ],
       pipeline: [
         {
-          stage: "Engineering",
-          detail: "Finish AdaMoE integration, mix4 training flow, and recovery logic on OpenVLA-OFT."
+          stage: "Sharing Boundaries",
+          detail: "Use the V13–V14 module ablations to identify where task-specific capacity should enter."
         },
         {
-          stage: "Convergence",
-          detail: "Move from backbone-tail MoE toward high-level speculative reasoning with conservative low-level execution."
+          stage: "Residuals and Routing",
+          detail: "V15 retains the shared action path; V16 tests closed-set expert selection from action-hidden features."
         },
         {
-          stage: "Evaluation",
-          detail: "Prioritize latency, replanning frequency, and long-horizon success rate."
+          stage: "Evidence",
+          detail: "Complete the matched Dense runs, then compare output calibration, direct residuals, and factorized residuals."
         }
       ],
       highlights: [
-        "The homepage only keeps the thesis-level judgment, while the research page expands the details.",
-        "High-level acceleration comes first; low-level speculative control stays as a follow-up topic.",
-        "The track connects naturally with the existing dual-arm Sim-to-Real system work.",
-        "This is framed as a paper-ready mainline rather than a generic VLA showcase."
+        "V15 four-seed Macro is 96.90% ± 1.36 percentage points; Long remains the weakest suite.",
+        "The matched four-seed Dense baseline is incomplete; a stability advantage remains unverified.",
+        "Rank 8 on a seven-dimensional output is a factorized residual, not evidence of strict low-rank compression.",
+        "The VLA-MoE paper is planned for submission; its target venue is to be determined."
       ]
     },
     overviewPublications: [
@@ -886,15 +947,21 @@ const localeData = {
         ]
       },
       {
-        title: "Vision-Language-Action for Embodied Manipulation",
+        title: "VLA-MoE: Action-Tail Specialization in Multi-Task VLA",
         authors: "Xun Zhao",
         venue: "Ongoing Research Direction",
         type: "VLA",
-        highlight: "Multimodal grounding + action generation",
-        summary: "Exploring VLA-style embodied policies that map visual observations and language instructions to robot actions for manipulation and task execution.",
+        highlight: "Shared policy + task-group residuals + learned closed-set routing",
+        summary: "Studying sharing and specialization boundaries in multi-suite OpenVLA-OFT training, and testing how small private action tails affect weak-suite performance, parameter cost, and training variability.",
         links: [
-          { label: "Lab", url: "https://eilab-wanghong.eu.cc/" },
-          { label: "GitHub", url: "https://github.com/zx2002430" }
+          {
+            label: "Research Page",
+            url: "vla-research.html"
+          },
+          {
+            label: "Code",
+            url: "https://github.com/zx2002430/vla-moe-openvla-oft"
+          }
         ]
       },
       {
@@ -959,15 +1026,21 @@ const localeData = {
       }
     ],
     vlaPublication: {
-      title: "Vision-Language-Action for Embodied Manipulation",
+      title: "VLA-MoE: Action-Tail Specialization in Multi-Task VLA",
       authors: "Xun Zhao",
       venue: "Ongoing Research Direction",
       type: "VLA",
-      highlight: "Multimodal grounding + action generation",
-      summary: "Exploring VLA-style embodied policies that map visual observations and language instructions to robot actions for manipulation and task execution.",
+      highlight: "Shared policy + task-group residuals + learned closed-set routing",
+      summary: "Studying sharing and specialization boundaries in multi-suite OpenVLA-OFT training, and testing how small private action tails affect weak-suite performance, parameter cost, and training variability.",
       links: [
-        { label: "Lab", url: "https://eilab-wanghong.eu.cc/" },
-        { label: "GitHub", url: "https://github.com/zx2002430" }
+        {
+          label: "Research Page",
+          url: "vla-research.html"
+        },
+        {
+          label: "Code",
+          url: "https://github.com/zx2002430/vla-moe-openvla-oft"
+        }
       ]
     },
     agriculturePublication: {
@@ -1009,6 +1082,25 @@ const localeData = {
           { label: "Paper PDF · Password Required", url: "vla-peft-paper.html?v=20261002-aamas-protected" },
           { label: "VLA Research", url: "vla-research.html" }
         ]
+      },
+      {
+        title: "Action-Tail Specialization in Multi-Task VLA: Shared Policies and Task Residuals",
+        status: "Planned for Submission",
+        track: "VLA-MoE",
+        venue: "Robotics and Embodied AI venue (target TBD)",
+        summary: "Using OpenVLA-OFT and multi-suite LIBERO training, this work studies where task-specific capacity should enter a multi-task VLA and how to limit suite-level degradation and training variability while retaining a shared vision-language representation, proprioceptive mapping, and action trunk.",
+        focusLabel: "Research Focus",
+        contribution: "The planned study will compare module-level sharing and specialization choices and test whether a shared policy with task-specific action-tail residuals is a useful minimal-specialization design. It will assess four-suite and worst-suite success, parameter cost, and across-seed stability against a budget-matched Dense baseline, keeping claims within completed evidence.",
+        links: [
+          {
+            label: "VLA Research Page",
+            url: "vla-research.html"
+          },
+          {
+            label: "VLA-MoE Code",
+            url: "https://github.com/zx2002430/vla-moe-openvla-oft"
+          }
+        ]
       }
     ],
     projects: [
@@ -1038,12 +1130,18 @@ const localeData = {
         ]
       },
       {
-        title: "VLA Policy Prototyping",
-        meta: "Vision-Language-Action | Embodied Policy | Robot Execution",
-        description: "A parallel research direction focused on instruction-conditioned embodied policies for manipulation and future real-world execution.",
+        title: "VLA-MoE",
+        meta: "OpenVLA-OFT | LIBERO | Action-Tail Specialization",
+        description: "Multi-task VLA experiments covering sharing boundaries, task-group residuals, learned routing, and adaptation with a frozen shared policy.",
         links: [
-          { label: "Lab Homepage", url: "https://eilab-wanghong.eu.cc/" },
-          { label: "GitHub Profile", url: "https://github.com/zx2002430" }
+          {
+            label: "Research Page",
+            url: "vla-research.html"
+          },
+          {
+            label: "Code",
+            url: "https://github.com/zx2002430/vla-moe-openvla-oft"
+          }
         ]
       },
       {
