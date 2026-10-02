@@ -649,7 +649,7 @@ const localeData = {
         focusLabel: "再投稿重点",
         contribution: "拟进一步整理任务适应流程、双臂协同避障机制、与六种 MARL 基线的仿真对比，以及 14 种物理速度条件下的真实系统验证。",
         links: [
-          { label: "论文 PDF", url: "https://github.com/zx2002430/Personal-Homepage/blob/main/assets/docs/papers/DM_NAV_Deployable_Meta_M.pdf" },
+          { label: "论文 PDF", url: "dm-nav-paper.html" },
           { label: "双臂 UR5 平台", url: "https://github.com/zx2002430/Dual_Arm_UR5" },
           { label: "真机部署", url: "https://github.com/zx2002430/Dual_Arm_UR5/tree/Sim-To-Real" }
         ]
@@ -991,7 +991,7 @@ const localeData = {
         focusLabel: "Resubmission Focus",
         contribution: "The revision will clarify task adaptation, coordinated bimanual collision avoidance, simulation comparisons with six MARL baselines, and physical validation across 14 speed conditions.",
         links: [
-          { label: "Paper PDF", url: "https://github.com/zx2002430/Personal-Homepage/blob/main/assets/docs/papers/DM_NAV_Deployable_Meta_M.pdf" },
+          { label: "Paper PDF", url: "dm-nav-paper.html" },
           { label: "Dual-Arm UR5 Platform", url: "https://github.com/zx2002430/Dual_Arm_UR5" },
           { label: "Real Deployment", url: "https://github.com/zx2002430/Dual_Arm_UR5/tree/Sim-To-Real" }
         ]

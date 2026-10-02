@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DM-NAV 论文 PDF | 赵汛</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #eef2f4; color: #182334; font-family: system-ui, sans-serif; }
+    .reader { max-width: 1080px; margin: 24px auto; padding: 0 16px; }
+    .reader-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 18px; }
+    h1 { margin: 0 0 6px; font-size: 24px; }
+    .subtitle { max-width: 650px; margin: 0; color: #637082; font-size: 14px; line-height: 1.6; }
+    .reader-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+    a, button, select, input { font: inherit; }
+    a, button, select { border: 1px solid #d4dde2; border-radius: 10px; padding: 9px 12px; background: white; color: #182334; text-decoration: none; }
+    button, select { cursor: pointer; }
+    a.primary { border-color: #08745b; background: #08745b; color: white; }
+    button:disabled, select:disabled, input:disabled { opacity: .45; cursor: default; }
+    :focus-visible { outline: 3px solid #1976b8; outline-offset: 3px; }
+    .toolbar { position: sticky; top: 10px; z-index: 2; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; padding: 12px; background: #ffffffed; border: 1px solid #dbe3e8; border-radius: 14px; box-shadow: 0 6px 20px #1823340d; }
+    .page-controls { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+    input { width: 64px; padding: 9px 6px; border: 1px solid #d4dde2; border-radius: 8px; text-align: center; }
+    .page-total { color: #637082; }
+    .paper-surface { margin-top: 16px; padding: 16px; overflow: auto; background: #dfe5e9; border-radius: 14px; }
+    .canvas-wrapper { width: max-content; margin: 0 auto; }
+    canvas { display: block; background: white; box-shadow: 0 4px 18px #1823341a; }
+    canvas[hidden], [hidden] { display: none; }
+    .reader-status { margin: 14px 0; padding: 14px; background: white; border-radius: 10px; color: #637082; }
+    .reader-status[data-error="true"] { color: #9d2633; }
+    @media (max-width: 600px) {
+      .reader { margin-top: 16px; padding: 0 10px; }
+      .toolbar { top: 6px; padding: 8px; }
+      .paper-surface { padding: 8px; }
+      .page-controls { gap: 5px; }
+      a, button, select { padding: 8px 10px; font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="reader">
+    <header class="reader-heading">
+      <div>
+        <h1>DM-NAV 论文</h1>
+        <p class="subtitle">Deployable Meta Multi-Agent Reinforcement Learning for Dual-Arm Dynamic Obstacle Avoidance</p>
+      </div>
+      <nav class="reader-actions" aria-label="论文操作">
+        <a href="index.html#future-papers">返回论文计划</a>
+        <a class="primary" href="assets/docs/papers/DM_NAV_Deployable_Meta_M.pdf" download="DM_NAV_Deployable_Meta_M.pdf">下载 PDF</a>
+      </nav>
+    </header>
+    <div class="toolbar" aria-label="论文阅读工具">
+      <div class="page-controls">
+        <button id="previous-page" type="button" disabled>上一页</button>
+        <label for="page-number">页码</label>
+        <input id="page-number" type="number" min="1" value="1" disabled>
+        <span id="page-total" class="page-total" aria-live="polite">/ --</span>
+        <button id="go-to-page" type="button" disabled>跳转</button>
+        <button id="next-page" type="button" disabled>下一页</button>
+      </div>
+      <select id="page-zoom" aria-label="页面缩放" disabled>
+        <option value="fit">适合宽度</option>
+        <option value="1">100%</option>
+        <option value="1.25">125%</option>
+        <option value="1.5">150%</option>
+        <option value="2">200%</option>
+      </select>
+    </div>
+    <p id="reader-status" class="reader-status" role="status">正在加载论文...</p>
+    <section id="paper-surface" class="paper-surface" aria-label="论文页面" aria-busy="true">
+      <div class="canvas-wrapper">
+        <canvas id="paper-canvas" role="img" aria-label="DM-NAV 论文页面" hidden></canvas>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="dm-nav-paper.mjs?v=20261002-aamas-reader"></script>
+</body>
+</html>
