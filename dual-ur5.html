@@ -36,6 +36,7 @@
       <div class="header-tools">
         <nav class="site-nav" aria-label="专题导航">
           <a href="#overview">DM-NAV</a>
+          <a href="#demos">视频演示</a>
           <a href="#project-overview">研究问题</a>
           <a href="#architecture">方法</a>
           <a href="#results">实验结果</a>
@@ -84,6 +85,68 @@
           <div class="dual-panel-tags"><span>10 次适应预算</span><span>验证集选择策略</span><span>无物理微调</span></div>
           <p class="dm-snapshot">内容依据当前在投稿件 · 2026-10-02</p>
         </aside>
+      </section>
+
+      <section class="dual-band dm-section" id="demos" aria-labelledby="demos-title">
+        <div class="dual-section-head">
+          <p class="dual-kicker">Simulation / Physical Demos</p>
+          <h2 id="demos-title">仿真与真机部署视频</h2>
+          <p class="dm-demo-intro">从仿真环境中的双臂避障，到真实双 UR5 的外部执行与俯视感知。</p>
+        </div>
+        <div class="dm-video-grid">
+          <article class="dm-video-card" data-animate aria-labelledby="dm-video-title-sim-side">
+            <video class="dm-video-player" controls playsinline preload="none" poster="assets/videos/dm-nav/simulation-oblique.jpg" aria-label="双臂动态避障仿真视频，斜视视角">
+              <source src="assets/videos/dm-nav/simulation-oblique.mp4" type="video/mp4">
+              <a href="assets/videos/dm-nav/simulation-oblique.mp4" download>下载仿真视频（斜视）</a>
+            </video>
+            <div class="dm-video-copy">
+              <div class="dm-video-meta"><span class="dm-video-kind">仿真</span><span>约 3 分钟 · 1224 × 768</span></div>
+              <h3 id="dm-video-title-sim-side">双臂动态避障 · 斜视视角</h3>
+              <p>展示仿真环境中双臂围绕目标协同动作的过程。</p>
+              <a class="dm-video-download" href="assets/videos/dm-nav/simulation-oblique.mp4" download>下载 MP4 <span aria-hidden="true">↓</span></a>
+            </div>
+          </article>
+
+          <article class="dm-video-card" data-animate aria-labelledby="dm-video-title-sim-top">
+            <video class="dm-video-player" controls playsinline preload="none" poster="assets/videos/dm-nav/simulation-overhead.jpg" aria-label="双臂动态避障仿真视频，俯视视角">
+              <source src="assets/videos/dm-nav/simulation-overhead.mp4" type="video/mp4">
+              <a href="assets/videos/dm-nav/simulation-overhead.mp4" download>下载仿真视频（俯视）</a>
+            </video>
+            <div class="dm-video-copy">
+              <div class="dm-video-meta"><span class="dm-video-kind">仿真</span><span>约 3 分钟 · 1224 × 768</span></div>
+              <h3 id="dm-video-title-sim-top">双臂动态避障 · 俯视视角</h3>
+              <p>俯视画面展示机械臂末端与目标、障碍物之间的相对位置变化。</p>
+              <a class="dm-video-download" href="assets/videos/dm-nav/simulation-overhead.mp4" download>下载 MP4 <span aria-hidden="true">↓</span></a>
+            </div>
+          </article>
+
+          <article class="dm-video-card" data-animate aria-labelledby="dm-video-title-real-external">
+            <video class="dm-video-player" controls playsinline preload="none" poster="assets/videos/dm-nav/physical-external.jpg" aria-label="真实双 UR5 机器人部署视频，外部视角">
+              <source src="assets/videos/dm-nav/physical-external.mp4" type="video/mp4">
+              <a href="assets/videos/dm-nav/physical-external.mp4" download>下载真机部署视频（外部视角）</a>
+            </video>
+            <div class="dm-video-copy">
+              <div class="dm-video-meta"><span class="dm-video-kind dm-video-kind-physical">真机部署</span><span>约 1 分 27 秒 · 1280 × 720</span></div>
+              <h3 id="dm-video-title-real-external">双 UR5 实机部署 · 外部视角</h3>
+              <p>记录真实双臂机器人在共享工作空间内的动作执行。</p>
+              <a class="dm-video-download" href="assets/videos/dm-nav/physical-external.mp4" download>下载 MP4 <span aria-hidden="true">↓</span></a>
+            </div>
+          </article>
+
+          <article class="dm-video-card" data-animate aria-labelledby="dm-video-title-real-top">
+            <video class="dm-video-player" controls playsinline preload="none" poster="assets/videos/dm-nav/physical-perception.jpg" aria-label="真实双 UR5 机器人部署视频，RGB-D 俯视感知画面">
+              <source src="assets/videos/dm-nav/physical-perception.mp4" type="video/mp4">
+              <a href="assets/videos/dm-nav/physical-perception.mp4" download>下载真机部署视频（俯视感知）</a>
+            </video>
+            <div class="dm-video-copy">
+              <div class="dm-video-meta"><span class="dm-video-kind dm-video-kind-physical">真机部署</span><span>约 1 分 13 秒 · 1972 × 1480</span></div>
+              <h3 id="dm-video-title-real-top">双 UR5 实机部署 · 俯视感知</h3>
+              <p>RGB-D 俯视画面展示目标与障碍物检测框，以及双臂的相对动作。</p>
+              <a class="dm-video-download" href="assets/videos/dm-nav/physical-perception.mp4" download>下载 MP4 <span aria-hidden="true">↓</span></a>
+            </div>
+          </article>
+        </div>
+        <p class="dm-note">点击各播放器的播放键后载入对应视频。仿真视频展示过程画面；定量结果见下方实验数据。</p>
       </section>
 
       <section class="dual-band dm-section" id="project-overview" aria-labelledby="problem-title">

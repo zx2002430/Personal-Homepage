@@ -14,6 +14,7 @@ Homepage:
 
 ## 最新更新
 
+- DM-NAV 专题页新增两段仿真与两段真机部署视频，含预览封面和下载入口（2026-10-03）。
 - 双臂专题页已依据当前 DM-NAV AAMAS 在投稿件更新（2026-10-02），包含三阶段方法、六种基线对比及 14 种真机条件；论文 PDF 继续通过密码阅读页访问。
 - VLA 研究专题与首页中英文入口已同步至 2026-10-02 研究快照，论文计划标为“计划在投”。
 - 主页导航中 `Sim-to-Real` 入口已直接跳转到 `dual-ur5.html`，不再单独保留 `Dual_Arm_UR5` 二级入口。
@@ -42,6 +43,7 @@ Homepage:
 ├─ smart-agriculture-pages.js           # 智慧农业专题页面渲染逻辑
 └─ assets
    ├─ images                            # 首页展示图、GIF、照片
+   ├─ videos                            # DM-NAV 仿真与真机演示视频
    └─ docs
       ├─ pdf                            # 对外展示或浏览用 PDF
       └─ source                         # 原始 Word / PPT 材料
@@ -81,6 +83,7 @@ Homepage:
 
 - `assets/images/dual-ur5-ppt/`
 - `assets/images/dm-nav/`
+- `assets/videos/dm-nav/`（仿真与真机部署演示）
 
 保持“研究问题、方法、实验结果、真机部署、平台基础”的内容结构。全文只通过 `dm-nav-paper.html` 密码阅读页访问；不把明文稿件、密码或解密密钥加入仓库。
 
