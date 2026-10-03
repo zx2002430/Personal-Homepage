@@ -733,6 +733,38 @@ h1{font-size:40px;
   line-height:1.25}
 .cv-heading p:last-child{margin-top:8px;
   color:var(--muted)}
+.cv-password-gate{max-width:620px;
+  margin:28px auto;
+  padding:24px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:rgba(255,254,251,.86);
+  box-shadow:var(--shadow-soft)}
+.cv-password-gate h2{margin:0 0 8px;
+  font-size:20px}
+.cv-password-gate>p{margin:0 0 18px;
+  color:var(--muted);
+  font-size:14px}
+.cv-password-gate label{display:block;
+  margin-bottom:7px;
+  font-size:13px;
+  font-weight:650}
+.cv-password-row{display:flex;
+  flex-wrap:wrap;
+  gap:9px}
+.cv-password-row input{flex:1 1 220px;
+  min-width:0;
+  padding:9px 12px;
+  border:1px solid var(--line);
+  border-radius:9px;
+  background:var(--surface);
+  color:var(--ink);
+  font:inherit}
+.cv-password-message{min-height:21px;
+  margin:9px 0 0;
+  color:var(--muted);
+  font-size:12px}
+.cv-password-message[data-error="true"]{color:#9d2633}
 .cv-actions{display:flex;
   align-items:center;
   flex-wrap:wrap;
@@ -793,6 +825,7 @@ h1{font-size:40px;
 .cv-home-link:hover{text-decoration:none;
   background:#edf3ed}
 @media(max-width:760px){.cv-page{padding:25px 0}
+.cv-password-gate{margin:22px 0;padding:18px}
 .cv-preview{gap:14px;
   padding:9px;
   border-radius:12px}

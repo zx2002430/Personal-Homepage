@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="赵汛的中英双语学术简历，可在线预览或下载。" data-content-en="Bilingual academic CV of Xun Zhao. View it online or download a copy.">
+  <meta name="description" content="赵汛的中英双语学术简历，输入访问密码后可在线预览或下载。" data-content-en="Bilingual academic CV of Xun Zhao. Enter the access password to view or download it.">
   <title data-en="Academic CV | Xun Zhao">学术简历 | 赵汛</title>
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-  <link rel="stylesheet" href="homepage.css?v=20261003-profile-cv3">
+  <link rel="stylesheet" href="homepage.css?v=20261004-cv-password">
   <script src="script.js?v=20261003-motion" defer></script>
 </head>
 <body>
@@ -21,23 +21,39 @@
         <h1 id="cv-title" data-en="Academic CV">个人简历</h1>
         <p data-en="Bilingual edition · English first, followed by Chinese">中英双语版 · 英文在前，中文在后</p>
       </div>
-      <div class="cv-actions" aria-label="简历查看与下载" data-label-en="CV viewing and download options">
-        <a class="cv-button cv-button-primary" href="assets/cv/zhao-xun-academic-cv-bilingual.pdf" download="Zhao-Xun-Academic-CV.pdf"><span data-en="Download PDF">下载 PDF</span> ↓</a>
-        <a class="cv-button" href="assets/cv/zhao-xun-academic-cv-bilingual.docx" download="Zhao-Xun-Academic-CV.docx"><span data-en="Download editable Word file">下载可编辑 Word 版</span> ↓</a>
+      <section id="cv-password-gate" class="cv-password-gate" aria-labelledby="cv-password-title">
+        <h2 id="cv-password-title" data-en="Enter the password to view the CV">输入密码查看简历</h2>
+        <p data-en="The online preview and download files are password protected.">简历在线预览和下载文件均需要密码。</p>
+        <form id="cv-password-form">
+          <label for="cv-password" data-en="Access password">访问密码</label>
+          <div class="cv-password-row">
+            <input id="cv-password" name="password" type="password" autocomplete="current-password" maxlength="128" required>
+            <button class="cv-button cv-button-primary" id="cv-unlock" type="submit" data-en="Unlock CV">解锁简历</button>
+          </div>
+          <p id="cv-password-message" class="cv-password-message" role="status" aria-live="polite"></p>
+        </form>
+        <noscript data-en="Enable JavaScript to unlock the CV.">请启用 JavaScript 后输入密码查看简历。</noscript>
+      </section>
+      <div id="cv-content" hidden>
+        <div class="cv-actions" aria-label="简历查看与下载" data-label-en="CV viewing and download options">
+          <a id="cv-download-pdf" class="cv-button cv-button-primary" download="Zhao-Xun-Academic-CV.pdf"><span data-en="Download PDF">下载 PDF</span> ↓</a>
+          <a id="cv-download-docx" class="cv-button" download="Zhao-Xun-Academic-CV.docx"><span data-en="Download editable Word file">下载可编辑 Word 版</span> ↓</a>
+        </div>
+        <div class="cv-preview" aria-label="简历逐页预览" data-label-en="CV page previews">
+          <figure class="cv-preview-page">
+            <figcaption data-en="Page 1 · English">第 1 页 · English</figcaption>
+            <img id="cv-preview-en" alt="英文版学术简历，第 1 页" data-alt-en="English academic CV, page 1" loading="eager">
+          </figure>
+          <figure class="cv-preview-page">
+            <figcaption data-en="Page 2 · Chinese">第 2 页 · 中文</figcaption>
+            <img id="cv-preview-zh" alt="中文版学术简历，第 2 页" data-alt-en="Chinese academic CV, page 2" loading="lazy">
+          </figure>
+        </div>
+        <p class="cv-note" data-en="The pages above can be read directly online. Use the buttons above to download the PDF or editable Word file.">上方可直接在线阅读两页简历；如需保存，可使用 PDF 或可编辑 Word 下载按钮。</p>
       </div>
-      <div class="cv-preview" aria-label="简历逐页预览" data-label-en="CV page previews">
-        <figure class="cv-preview-page">
-          <figcaption data-en="Page 1 · English">第 1 页 · English</figcaption>
-          <img src="assets/cv/zhao-xun-academic-cv-en-preview.jpg" alt="英文版学术简历，第 1 页" data-alt-en="English academic CV, page 1" loading="eager">
-        </figure>
-        <figure class="cv-preview-page">
-          <figcaption data-en="Page 2 · Chinese">第 2 页 · 中文</figcaption>
-          <img src="assets/cv/zhao-xun-academic-cv-zh-preview.jpg" alt="中文版学术简历，第 2 页" data-alt-en="Chinese academic CV, page 2" loading="lazy">
-        </figure>
-      </div>
-      <p class="cv-note" data-en="The pages above can be read directly online. Use the buttons above to download the PDF or editable Word file.">上方可直接在线阅读两页简历；如需保存，可使用 PDF 或可编辑 Word 下载按钮。</p>
     </section>
     <footer class="site-footer"><span>© 2026 Xun Zhao</span><a href="index.html#top" data-en="Return to homepage ↗">返回主页 ↗</a></footer>
   </main>
+  <script type="module" src="cv-reader.mjs?v=20261004-password"></script>
 </body>
 </html>
