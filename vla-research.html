@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VLA-MoE 研究专题 | Xun Zhao</title>
-  <meta name="theme-color" content="#f4efe6">
+  <meta name="theme-color" content="#f7f6f2">
   <meta name="color-scheme" content="light">
   <meta name="description" content="赵汛的 VLA-MoE 研究：基于 OpenVLA-OFT 的多任务动作末端专门化、LIBERO 四套件结果、学习路由与后续验证计划。">
   <link rel="canonical" href="https://zx2002430.github.io/Personal-Homepage/vla-research.html">
@@ -17,41 +17,42 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="VLA-MoE 研究专题 | Xun Zhao">
   <meta name="twitter:description" content="多任务 VLA 的共享边界、动作末端残差与训练稳定性。">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="vla-research.css?v=20261002">
+  <link rel="stylesheet" href="homepage.css?v=20261004-cv-password">
+  <link rel="stylesheet" href="vla-research.css?v=20261007-homepage">
+  <script src="script.js?v=20261007-vla-layout" defer></script>
 </head>
-<body>
+<body class="vla-research-page">
   <a class="skip-link" href="#main-content">跳转到主要内容</a>
-  <div class="page-shell vla-research-page">
-    <header class="site-header">
-      <a class="brand" href="index.html">Xun Zhao</a>
-      <div class="header-tools"><nav class="site-nav" aria-label="专题导航">
-        <a href="#overview">总览</a><a href="#trajectory">研究脉络</a><a href="#proposal">当前方法</a><a href="#results">实验结果</a><a href="#roadmap">下一步</a><a href="index.html">返回首页</a>
-      </nav></div>
-    </header>
-    <section class="page-trail" aria-label="Breadcrumb"><a href="index.html">首页</a><span>VLA 研究专题</span><strong>VLA-MoE</strong></section>
-    <main id="main-content">
-      <section class="hero section project-hero-cover vla-hero" id="overview">
-        <div class="hero-copy">
-          <div class="cover-headline-row"><span class="cover-index">02</span><span class="cover-suite-label">Vision-Language-Action Research</span></div>
-          <div class="cover-suite-progress" aria-label="研究推进"><span class="cover-suite-step">01 共享边界诊断</span><span class="cover-suite-step">02 动作末端残差</span><span class="cover-suite-step is-active">03 四套件验证</span><span class="cover-suite-step">04 最小替代检验</span></div>
-          <h1>VLA-MoE</h1>
+  <header class="site-header">
+    <a class="brand" href="index.html#top">XUN ZHAO<span class="brand-dot" aria-hidden="true"></span></a>
+    <nav class="site-nav" id="site-nav" aria-label="专题导航">
+      <a href="#overview">总览</a><a href="#trajectory">研究脉络</a><a href="#proposal">当前方法</a><a href="#results">实验结果</a><a href="#roadmap">下一步</a>
+    </nav>
+    <div class="header-controls">
+      <a class="cv-home-link" href="index.html#vla-moe">← 主页</a>
+      <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="展开导航"><span></span><span></span></button>
+    </div>
+  </header>
+  <main class="page-shell" id="main-content">
+    <nav class="page-trail" aria-label="面包屑导航"><a href="index.html">首页</a><span aria-hidden="true">/</span><span>VLA 研究专题</span><span aria-hidden="true">/</span><strong aria-current="page">VLA-MoE</strong></nav>
+      <section class="topic-hero vla-hero" id="overview" aria-labelledby="vla-title">
+        <div class="vla-hero-copy">
+          <div class="vla-hero-topline"><p class="eyebrow">Vision-Language-Action Research</p><span class="status status-ongoing">研究进行中 · 投稿目标待定</span></div>
+          <h1 id="vla-title">VLA-MoE</h1>
           <p class="hero-subtitle">多任务 VLA 的最小动作末端专门化</p>
           <div class="project-meta-row"><span class="project-meta-pill">OpenVLA-OFT</span><span class="project-meta-pill">LIBERO · 四套件</span><span class="project-meta-pill">Shared Policy</span><span class="project-meta-pill">Action-Tail Residual</span><span class="project-meta-pill">Learned Routing</span></div>
-          <p class="hero-text">多任务机器人策略应该共享到哪里，又需要多少任务专属容量？当前研究保留视觉语言表示、状态映射与动作主干，只在最终动作投影处加入极小任务组残差，检验它能否改善套件退化与训练波动。</p>
+          <p class="vla-intro">多任务机器人策略应该共享到哪里，又需要多少任务专属容量？当前研究保留视觉语言表示、状态映射与动作主干，只在最终动作投影处加入极小任务组残差，检验它能否改善套件退化与训练波动。</p>
           <div class="hero-actions"><a class="button primary" href="#results">查看阶段结果</a><a class="button secondary" href="https://github.com/zx2002430/vla-moe-openvla-oft" target="_blank" rel="noreferrer">研究代码</a><a class="button secondary" href="#roadmap">下一步计划</a></div>
           <p class="vla-dated-note">页面整理：2026-10-02 · 实验状态截至当日 17:22（北京时间），依据本地周报快照。</p>
         </div>
-        <aside class="hero-card vla-summary-panel">
+        <aside class="vla-summary-panel" aria-label="研究方法与当前重点">
+          <figure class="vla-summary-visual"><img src="assets/images/vla-moe-overview.svg" width="640" height="440" alt="共享 VLA 策略与最终动作投影处的任务组残差示意"><figcaption>共享策略 · 动作末端残差</figcaption></figure>
           <div class="vla-summary-head"><span class="project-summary-label">Current Focus</span><strong>Minimal Action-Tail Specialization</strong></div>
           <div class="vla-summary-list"><div><span>核心问题</span><strong>极小末端私有容量是否足够？</strong></div><div><span>当前阶段</span><strong>补齐公平基线，检验更小替代方案</strong></div></div>
           <p class="vla-summary-footnote">共享策略 + 套件级残差专家；学习路由作为闭集部署验证。</p>
-          <span class="vla-status-chip is-plan">研究进行中 · 投稿目标待定</span>
         </aside>
+        <ol class="vla-progress" aria-label="研究推进"><li>01 共享边界诊断</li><li>02 动作末端残差</li><li class="is-active" aria-current="step">03 四套件验证</li><li>04 最小替代检验</li></ol>
       </section>
       <section class="section vla-section-panel" aria-label="阶段研究指标">
         <div class="vla-stat-grid">
@@ -86,14 +87,14 @@
       <section class="section vla-section-panel" id="results">
         <div class="section-heading inline-heading"><div><p class="eyebrow">Evidence</p><h2>阶段结果与当前判断</h2></div><p class="section-note">按训练协议分别报告；有效低成绩保留在主表中。</p></div>
         <div class="vla-protocol"><strong>V15 / 本地 Dense 主对照</strong><p>LIBERO Spatial、Object、Goal、Long 四套件联合训练；microbatch4 × 累计16 = 有效 batch64，固定终点 9,375 次 optimizer updates。每套件 10 个任务 × 50 episodes，共 2,000 episodes / 模型，eval seed42。V15 使用 Oracle suite ID 选择残差。</p></div>
-        <div class="vla-table-scroll" tabindex="0" role="region" aria-label="V15 Tail-Residual rank8：四个训练种子均已完成"><table class="vla-data-table"><caption>V15 Tail-Residual rank8：四个训练种子均已完成</caption><thead><tr><th scope="col">训练种子</th><th scope="col">Spatial</th><th scope="col">Object</th><th scope="col">Goal</th><th scope="col">Long</th><th scope="col">Macro</th></tr></thead><tbody><tr><th scope="row">seed1</th><td>98.0%</td><td>99.8%</td><td>98.0%</td><td>92.4%</td><td>97.05%</td></tr>
+        <div class="vla-table-scroll" tabindex="0" role="region" aria-label="V15 Tail-Residual rank8：四个训练种子均已完成"><table class="vla-data-table vla-numeric-table"><caption>V15 Tail-Residual rank8：四个训练种子均已完成</caption><thead><tr><th scope="col">训练种子</th><th scope="col">Spatial</th><th scope="col">Object</th><th scope="col">Goal</th><th scope="col">Long</th><th scope="col">Macro</th></tr></thead><tbody><tr><th scope="row">seed1</th><td>98.0%</td><td>99.8%</td><td>98.0%</td><td>92.4%</td><td>97.05%</td></tr>
 <tr><th scope="row">seed2</th><td>96.2%</td><td>98.6%</td><td>97.4%</td><td>87.8%</td><td>95.00%</td></tr>
 <tr><th scope="row">seed3</th><td>97.4%</td><td>99.6%</td><td>97.4%</td><td>95.0%</td><td>97.35%</td></tr>
 <tr><th scope="row">seed4</th><td>99.0%</td><td>99.2%</td><td>99.4%</td><td>95.2%</td><td>98.20%</td></tr>
-<tr><th scope="row">四种子均值</th><td>97.65%</td><td>99.30%</td><td>98.05%</td><td>92.60%</td><td>96.90%</td></tr>
-<tr><th scope="row">种子间样本 SD</th><td>1.17 pp</td><td>0.53 pp</td><td>0.94 pp</td><td>3.44 pp</td><td>1.36 pp</td></tr></tbody></table></div>
+<tr class="vla-mean-row"><th scope="row">四种子均值</th><td>97.65%</td><td>99.30%</td><td>98.05%</td><td>92.60%</td><td>96.90%</td></tr>
+<tr class="vla-deviation-row"><th scope="row">种子间样本 SD</th><td>1.17 pp</td><td>0.53 pp</td><td>0.94 pp</td><td>3.44 pp</td><td>1.36 pp</td></tr></tbody></table></div>
         <p class="vla-table-note">四种子共成功 7,752 / 8,000 episodes。Long 均值为 92.60%，种子间 SD 为 3.44 pp，是四个种子的最差套件。seed2 的 95.00% 为有效结果，纳入完整均值。</p>
-        <div class="vla-table-scroll" tabindex="0" role="region" aria-label="匹配名义配置的 Dense：两种子已完成，两种子待补"><table class="vla-data-table"><caption>匹配名义配置的 Dense：两种子已完成，两种子待补</caption><thead><tr><th scope="col">训练种子</th><th scope="col">Spatial</th><th scope="col">Object</th><th scope="col">Goal</th><th scope="col">Long</th><th scope="col">Macro</th></tr></thead><tbody><tr><th scope="row">seed1</th><td>97.6%</td><td>99.4%</td><td>98.2%</td><td>92.6%</td><td>96.95%</td></tr>
+        <div class="vla-table-scroll" tabindex="0" role="region" aria-label="匹配名义配置的 Dense：两种子已完成，两种子待补"><table class="vla-data-table vla-numeric-table"><caption>匹配名义配置的 Dense：两种子已完成，两种子待补</caption><thead><tr><th scope="col">训练种子</th><th scope="col">Spatial</th><th scope="col">Object</th><th scope="col">Goal</th><th scope="col">Long</th><th scope="col">Macro</th></tr></thead><tbody><tr><th scope="row">seed1</th><td>97.6%</td><td>99.4%</td><td>98.2%</td><td>92.6%</td><td>96.95%</td></tr>
 <tr><th scope="row">seed2</th><td>—</td><td>—</td><td>—</td><td>—</td><td>待完成</td></tr>
 <tr><th scope="row">seed3</th><td>97.4%</td><td>96.8%</td><td>76.8%</td><td>85.2%</td><td>89.05%</td></tr>
 <tr><th scope="row">seed4</th><td>—</td><td>—</td><td>—</td><td>—</td><td>待完成</td></tr></tbody></table></div>
@@ -139,9 +140,9 @@
           <li><strong>方法与实验方案 · 2026-10-01</strong><span class="vla-source-filename">FINAL_PROPOSAL.md / EXPERIMENT_PLAN.md</span><p>公平审计、最小替代检验与条件性确认实验。</p></li>
         </ul><div class="hero-actions"><a class="button primary" href="https://github.com/zx2002430/vla-moe-openvla-oft" target="_blank" rel="noreferrer">研究代码入口</a><a class="button secondary" href="https://github.com/moojink/openvla-oft" target="_blank" rel="noreferrer">OpenVLA-OFT</a></div></article>
       </section>
-      <section class="section contact-strip"><div><h2>研究交流</h2><p class="section-note">欢迎围绕多任务 VLA、参数共享、动作专门化与机器人闭环评测交流。</p></div><div class="contact-actions"><a class="button primary" href="mailto:zhaoxun@stu.hubu.edu.cn">zhaoxun@stu.hubu.edu.cn</a><a class="button secondary" href="https://eilab-wanghong.eu.cc/" target="_blank" rel="noreferrer">Visit EILab</a></div></section>
-      <section class="section page-footer-nav" aria-label="Page navigation"><a class="page-footer-link" href="index.html#vla-moe"><span>返回首页</span><strong>VLA-MoE 精选研究</strong></a><a class="page-footer-link" href="index.html#publications"><span>研究概览</span><strong>在投稿件与持续研究</strong></a><a class="page-footer-link" href="#overview"><span>回到顶部</span><strong>重新浏览本页</strong></a></section>
-    </main>
-  </div>
+      <section class="contact-section"><div><p class="eyebrow">LET'S CONNECT</p><h2>研究交流</h2><p>欢迎围绕多任务 VLA、参数共享、动作专门化与机器人闭环评测交流。</p></div><div class="contact-actions"><a class="contact-email" href="mailto:zhaoxun@stu.hubu.edu.cn">zhaoxun@stu.hubu.edu.cn ↗</a><a href="https://eilab-wanghong.eu.cc/" target="_blank" rel="noreferrer">Visit EILab ↗</a></div></section>
+      <nav class="page-footer-nav" aria-label="页面导航"><a class="page-footer-link" href="index.html#vla-moe"><span>返回首页</span><strong>VLA-MoE 精选研究</strong></a><a class="page-footer-link" href="index.html#publications"><span>研究概览</span><strong>在投稿件与持续研究</strong></a><a class="page-footer-link" href="#overview"><span>回到顶部</span><strong>重新浏览本页 ↑</strong></a></nav>
+      <footer class="site-footer"><span>© 2026 Xun Zhao</span><span>研究快照：2026-10-02 · 版式更新：2026-10-07</span><a href="https://github.com/zx2002430/vla-moe-openvla-oft" target="_blank" rel="noreferrer">研究代码 ↗</a></footer>
+  </main>
 </body>
 </html>

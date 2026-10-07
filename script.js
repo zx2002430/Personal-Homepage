@@ -35,14 +35,15 @@
   document.addEventListener("click", event => { if (header && !header.contains(event.target)) closeMenu(); });
   let storedLanguage = "zh";
   try { storedLanguage = localStorage.getItem(storageKey) || "zh"; } catch { /* The static Chinese page is the default. */ }
-  setLanguage(storedLanguage);
+  // Pages without translations retain their declared language and reuse the UI interactions.
+  if (translations.length || attributes.length || languageButtons.length) setLanguage(storedLanguage);
 
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
   const activeAnimations = new Set();
   const revealed = new WeakSet();
   const revealTargets = [...document.querySelectorAll(
-    ".hero .eyebrow, .hero h1, .hero .identity-line, .hero .research-statement, .hero .profile-text, .hero .profile-links, .hero .portrait-slot, .section-heading, .research-card, .updates-list li, .project-card, .background-block, .contact-section, .topic-hero > *, .topic-layout > *, .topic-block, .topic-findings"
+    ".hero .eyebrow, .hero h1, .hero .identity-line, .hero .research-statement, .hero .profile-text, .hero .profile-links, .hero .portrait-slot, .section-heading, .research-card, .updates-list li, .project-card, .background-block, .contact-section, .topic-hero > *, .topic-layout > *, .topic-block, .topic-findings, .vla-stat-card, .vla-track-card, .vla-stage-card, .vla-focus-card"
   )];
   let revealObserver;
 
