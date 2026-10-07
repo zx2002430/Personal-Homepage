@@ -345,6 +345,28 @@ h1{font-size:clamp(40px,5vw,50px);
 .research-copy .research-evidence{font-size:12px;
   margin-top:9px;
   color:#697469}
+#vla-moe .research-metrics{display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:0;
+  margin:14px 0 12px;
+  border:1px solid #dce6d8;
+  border-radius:9px;
+  background:#f1f5ed}
+#vla-moe .research-metrics>span{display:grid;
+  gap:3px;
+  padding:10px 12px;
+  border-right:1px solid #dce6d8}
+#vla-moe .research-metrics>span:last-child{border-right:0}
+#vla-moe .research-metrics strong{color:var(--green);
+  font-size:18px;
+  font-weight:650;
+  line-height:1.4;
+  font-variant-numeric:tabular-nums}
+#vla-moe .research-metrics small{color:var(--muted);
+  font-size:10px;
+  line-height:1.7}
+@media(max-width:380px){#vla-moe .research-metrics>span{padding:9px 8px}
+#vla-moe .research-metrics strong{font-size:16px}}
 .research-links{display:flex;
   gap:16px;
   align-items:center;

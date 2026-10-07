@@ -21,7 +21,7 @@
   <meta name="twitter:description" content="湖北大学 EILab · VLA · 双臂机器人学习" data-content-en="Hubei University · EILab · VLA · Dual-arm robot learning">
   <meta name="twitter:image" content="https://zx2002430.github.io/Personal-Homepage/assets/images/homepage-social.png">
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-  <link rel="stylesheet" href="homepage.css?v=20261003-profile-cv5">
+  <link rel="stylesheet" href="homepage.css?v=20261007-progress">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Xun Zhao","alternateName":"赵汛","url":"https://zx2002430.github.io/Personal-Homepage/","affiliation":{"@type":"Organization","name":"School of Artificial Intelligence, Hubei University"},"sameAs":["https://github.com/zx2002430"],"knowsAbout":["Vision-Language-Action","Robot Learning","Meta Multi-Agent Reinforcement Learning","Sim-to-Real"]}</script>
   <script src="script.js?v=20261003-motion" defer></script>
 </head>
@@ -104,8 +104,9 @@
           <div class="research-topline"><span class="research-category">03 / VLA-MOE · MULTI-TASK LEARNING</span><span class="status status-ongoing" data-en="Ongoing research">研究进行中</span></div>
           <h3 id="moe-title"><a href="vla-research.html" data-en="VLA-MoE: Action-Tail Specialization for Multi-Task Robot Policies">VLA-MoE：多任务 VLA 的动作末端专门化</a></h3>
           <p data-en="Study where task-specific capacity belongs in a multi-task policy. Preserve a shared vision-language representation and action backbone, adding small task-group residuals at the final action projection.">研究多任务策略应在何处引入任务专属容量：保留共享视觉语言表示与动作主干，在最终动作投影处加入极小任务组残差。</p>
-          <p class="research-evidence" data-en="Progress: four-training-seed results are available. Matched dense baselines and smaller alternatives remain in progress; a stability advantage is not yet established.">已完成四训练种子阶段结果；继续补齐匹配 Dense 基线与更小替代方案，稳定性优势仍待验证。</p>
-          <div class="research-links"><a class="link-primary" href="vla-research.html" data-en="Project &amp; results ↗">专题与阶段结果 ↗</a><a href="https://github.com/zx2002430/vla-moe-openvla-oft" target="_blank" rel="noopener noreferrer" data-en="Code ↗">代码 ↗</a><span class="link-note" data-en="Submission venue TBD">投稿目标待定</span></div>
+          <!-- vla-progress-metrics --><div class="research-metrics" aria-label="VLA-MoE 完整四种子主对照" data-label-en="VLA-MoE complete four-seed primary comparison"><span><strong>96.90%</strong><small data-en="Rank8 mean">Rank8 均值</small></span><span><strong>94.54%</strong><small data-en="Dense mean">Dense 均值</small></span><span><strong>+2.36 pp</strong><small data-en="Observed difference">观测差值</small></span></div><!-- /vla-progress-metrics -->
+          <p class="research-evidence" data-en="Updated October 7: the complete four-seed primary comparison and two Rank7 evaluations are available. Cross-server evaluation and same-seed technical repeats continue; a significant advantage is not yet established.">10 月 7 日更新：完整四种子主对照与 Rank7 两种子测评已完成；跨服务器测评和同 seed 技术复跑继续进行，显著优势尚未确立。</p>
+          <div class="research-links"><a class="link-primary" href="vla-research.html#progress" data-en="Results &amp; latest progress ↗">完整对照与最新进度 ↗</a><a href="https://github.com/zx2002430/vla-moe-openvla-oft" target="_blank" rel="noopener noreferrer" data-en="Code ↗">代码 ↗</a><span class="link-note" data-en="Submission venue TBD">投稿目标待定</span></div>
         </div>
       </article>
     </section>
@@ -113,9 +114,9 @@
     <section class="section updates-section" id="news" aria-labelledby="updates-title">
       <div class="section-heading"><div><p class="eyebrow" data-en="RECENT UPDATES">研究进展</p><h2 id="updates-title" data-en="Latest Updates">最新动态</h2></div></div>
       <ul class="updates-list">
+        <li><time datetime="2026-10-07">2026.10.07</time><p><a href="vla-research.html#results" data-en="The full four-seed Rank8 / Dense comparison is complete.">Rank8 / Dense 完整四种子主对照已完成。</a><span data-en="Rank7 results, cross-server evaluation, and technical-repeat progress have been added.">专题新增 Rank7 结果、跨服务器测评与技术复跑进度。</span></p></li>
         <li><time datetime="2026-10-02">2026.10.02</time><p><a href="dual-ur5.html" data-en="DM-NAV is under review at AAMAS.">DM-NAV 稿件 AAMAS 在投。</a><span data-en="The project page presents the method and physical evaluation.">专题已整理方法与真机评测。</span></p></li>
         <li><time datetime="2026-10-02">2026.10.02</time><p><a href="vla-peft.html" data-en="The VLA PEFT empirical study is under review at AAMAS.">VLA 参数高效微调实证研究 AAMAS 在投。</a><span data-en="The manuscript covers manipulation and navigation.">稿件覆盖操作与导航两类任务。</span></p></li>
-        <li><time datetime="2026-10-02">2026.10.02</time><p><a href="vla-research.html#results" data-en="VLA-MoE multi-seed results are available.">VLA-MoE 已整理多训练种子阶段结果。</a><span data-en="Fair baselines and minimal alternatives are the next focus.">下一步补齐公平基线与最小替代验证。</span></p></li>
       </ul>
     </section>
 
@@ -137,7 +138,7 @@
     </section>
 
     <section class="contact-section" id="contact" aria-labelledby="contact-title"><div><p class="eyebrow" data-en="LET'S CONNECT">交流与合作</p><h2 id="contact-title" data-en="Contact">联系方式</h2><p data-en="I welcome research discussions on VLA, meta multi-agent learning, and robot manipulation.">欢迎就 VLA、元多智能体学习与机器人操作交流。</p></div><a class="contact-email" href="mailto:zhaoxun@stu.hubu.edu.cn">zhaoxun@stu.hubu.edu.cn <span aria-hidden="true">↗</span></a></section>
-    <footer class="site-footer"><span>© 2026 Xun Zhao</span><span data-en="Updated October 3, 2026">更新于 2026 年 10 月 3 日</span><a href="https://github.com/zx2002430/Personal-Homepage" target="_blank" rel="noopener noreferrer" data-en="Website source ↗">本站源码 ↗</a></footer>
+    <footer class="site-footer"><span>© 2026 Xun Zhao</span><span data-en="Updated October 7, 2026">更新于 2026 年 10 月 7 日</span><a href="https://github.com/zx2002430/Personal-Homepage" target="_blank" rel="noopener noreferrer" data-en="Website source ↗">本站源码 ↗</a></footer>
   </main>
 </body>
 </html>

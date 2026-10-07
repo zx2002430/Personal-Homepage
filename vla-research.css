@@ -232,3 +232,70 @@
   .vla-research-page .vla-stage-card:hover,
   .vla-research-page .button:hover { transform: none; }
 }
+
+/* Complete results and dated research progress. */
+.vla-research-page .vla-hero { align-items: center; }
+.vla-research-page .vla-hero .vla-intro { margin-top: 15px; }
+.vla-research-page .vla-focus-note { margin-top: 16px; padding: 12px 15px; border-left: 3px solid #94b69d; border-radius: 0 8px 8px 0; background: #edf3e9; }
+.vla-research-page .vla-focus-note > span { display: block; color: var(--green); font-size: 11px; font-weight: 650; margin-bottom: 4px; }
+.vla-research-page .vla-focus-note p { color: var(--muted); font-size: 13px; line-height: 1.85; }
+.vla-research-page .vla-method-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.vla-research-page .vla-method-facts div { display: grid; gap: 5px; }
+.vla-research-page .vla-method-facts span { color: var(--muted); font-size: 10px; }
+.vla-research-page .vla-method-facts strong { color: var(--green); font-size: 14px; font-weight: 650; }
+.vla-research-page .vla-metrics-section { padding-bottom: 32px; }
+.vla-research-page .vla-stat-card.is-reference > strong { color: #68746c; }
+.vla-research-page .vla-card-status { width: 100%; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; }
+.vla-research-page .vla-card-status .eyebrow { margin: 0; font-size: 10px; }
+.vla-research-page .vla-progress-card { gap: 12px; }
+.vla-research-page .vla-progress-card > small { color: var(--muted); font-size: 11px; line-height: 1.8; }
+.vla-research-page .vla-run-progress { width: 100%; margin-top: auto; padding-top: 4px; }
+.vla-research-page .vla-run-progress > div { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px; margin-bottom: 9px; }
+.vla-research-page .vla-run-progress span { color: var(--muted); font-size: 11px; }
+.vla-research-page .vla-run-progress strong { color: var(--ink); font-size: 13px; font-weight: 650; font-variant-numeric: tabular-nums; }
+.vla-research-page progress { display: block; width: 100%; height: 5px; border: 0; border-radius: 4px; overflow: hidden; background: #e8eee4; accent-color: var(--green); }
+.vla-research-page progress::-webkit-progress-bar { background: #e8eee4; border-radius: 4px; }
+.vla-research-page progress::-webkit-progress-value { background: var(--green); border-radius: 4px; }
+.vla-research-page progress::-moz-progress-bar { background: var(--green); border-radius: 4px; }
+.vla-research-page .vla-queue-note { margin-top: 17px; color: var(--muted); font-size: 12px; line-height: 1.9; }
+.vla-research-page .vla-queue-note .status { margin-right: 5px; }
+.vla-research-page .vla-comparison-figure { margin: 24px 0; }
+.vla-research-page .vla-comparison-figure > figcaption { display: flex; align-items: baseline; flex-wrap: wrap; justify-content: space-between; gap: 10px; margin-bottom: 14px; }
+.vla-research-page .vla-comparison-figure > figcaption strong { font-size: 16px; font-weight: 600; }
+.vla-research-page .vla-comparison-figure > figcaption > span { color: var(--muted); font-size: 11px; }
+.vla-research-page .vla-suite-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.vla-research-page .vla-suite-card { padding: 18px 20px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.vla-research-page .vla-suite-card h3 { font-size: 14px; font-weight: 650; margin-bottom: 13px; }
+.vla-research-page .vla-bar-row { display: grid; grid-template-columns: 44px minmax(0, 1fr) 60px; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 11px; }
+.vla-research-page .vla-bar-row > span { color: var(--green); font-weight: 600; }
+.vla-research-page .vla-bar-row strong { color: var(--green); text-align: right; font-weight: 650; font-variant-numeric: tabular-nums; }
+.vla-research-page .vla-bar-track { height: 6px; border-radius: 4px; overflow: hidden; background: #e8eee4; }
+.vla-research-page .vla-bar-track > span { display: block; height: 100%; background: var(--green); border-radius: 4px; }
+.vla-research-page .vla-bar-row.is-dense > span,
+.vla-research-page .vla-bar-row.is-dense strong { color: #68766d; }
+.vla-research-page .vla-bar-row.is-dense .vla-bar-track > span { background: #99a79b; }
+.vla-research-page .vla-suite-card > p { margin-top: 4px; color: var(--muted); font-size: 11px; }
+.vla-research-page .vla-data-table td small { display: block; color: var(--muted); font-size: 10px; font-weight: 400; }
+.vla-research-page .vla-focus-card p { color: var(--muted); font-size: 13px; line-height: 1.9; }
+.vla-research-page .vla-details { margin-top: 20px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); overflow: hidden; }
+.vla-research-page .vla-details > summary { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; padding: 16px 18px; font-size: 14px; font-weight: 600; list-style: none; }
+.vla-research-page .vla-details > summary::-webkit-details-marker { display: none; }
+.vla-research-page .vla-details > summary::before { content: "+"; flex: 0 0 14px; font-size: 18px; line-height: 1; color: #6c8d75; }
+.vla-research-page .vla-details[open] > summary::before { content: "−"; }
+.vla-research-page .vla-details > summary > span { margin-left: auto; color: var(--muted); font-size: 11px; font-weight: 400; }
+.vla-research-page .vla-details > summary:hover { text-decoration: none; background: #f1f5ed; }
+.vla-research-page .vla-details[open] > summary { border-bottom: 1px solid var(--line); }
+.vla-research-page .vla-details > .vla-table-scroll { width: calc(100% - 32px); margin: 16px; border-radius: 10px; }
+.vla-research-page .vla-details > .vla-table-note { margin: 12px 18px 18px; }
+.vla-research-page .vla-details-content { padding: 20px; }
+.vla-research-page .vla-details-content > .vla-subsection:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
+@media (max-width: 760px) {
+  .vla-research-page .vla-hero { align-items: start; }
+  .vla-research-page .vla-metrics-section { padding-bottom: 25px; }
+  .vla-research-page .vla-suite-grid { grid-template-columns: minmax(0, 1fr); }
+  .vla-research-page .vla-suite-card { padding: 16px; }
+  .vla-research-page .vla-details > summary { padding: 14px; gap: 8px; }
+  .vla-research-page .vla-details > summary > span { flex-basis: 100%; margin-left: 22px; }
+  .vla-research-page .vla-details-content { padding: 16px; }
+  .vla-research-page .vla-details > .vla-table-scroll { width: calc(100% - 24px); margin: 12px; }
+}

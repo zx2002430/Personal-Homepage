@@ -1,0 +1,751 @@
+{
+  "format": "vla-moe-public-progress-v1",
+  "asOf": "2026-10-07T10:53:03.291Z",
+  "displayTime": "2026-10-07 18:53",
+  "timeZone": "Asia/Shanghai",
+  "mode": "static_snapshot",
+  "protocol": {
+    "effectiveBatch": 64,
+    "microbatch": 4,
+    "gradientAccumulation": 16,
+    "optimizerUpdates": 9375,
+    "evalSeed": 42,
+    "episodesPerSuite": 500,
+    "primaryRouting": "oracle_suite_id"
+  },
+  "primary": [
+    {
+      "method": "Rank8",
+      "seed": 1,
+      "environment": "AI088",
+      "counts": [
+        490,
+        499,
+        490,
+        462
+      ],
+      "episodes": [
+        500,
+        500,
+        500,
+        500
+      ],
+      "suiteRates": [
+        98,
+        99.8,
+        98,
+        92.4
+      ],
+      "macro": 97.05,
+      "successes": 1941,
+      "totalEpisodes": 2000
+    },
+    {
+      "method": "Rank8",
+      "seed": 2,
+      "environment": "AI088",
+      "counts": [
+        481,
+        493,
+        487,
+        439
+      ],
+      "episodes": [
+        500,
+        500,
+        500,
+        500
+      ],
+      "suiteRates": [
+        96.2,
+        98.6,
+        97.4,
+        87.8
+      ],
+      "macro": 95,
+      "successes": 1900,
+      "totalEpisodes": 2000
+    },
+    {
+      "method": "Rank8",
+      "seed": 3,
+      "environment": "AI088",
+      "counts": [
+        487,
+        498,
+        487,
+        475
+      ],
+      "episodes": [
+        500,
+        500,
+        500,
+        500
+      ],
+      "suiteRates": [
+        97.4,
+        99.6,
+        97.4,
+        95
+      ],
+      "macro": 97.35,
+      "successes": 1947,
+      "totalEpisodes": 2000
+    },
+    {
+      "method": "Rank8",
+      "seed": 4,
+      "environment": "AI088",
+      "counts": [
+        495,
+        496,
+        497,
+        476
+      ],
+      "episodes": [
+        500,
+        500,
+        500,
+        500
+      ],
+      "suiteRates": [
+        99,
+        99.2,
+        99.4,
+        95.2
+      ],
+      "macro": 98.2,
+      "successes": 1964,
+      "totalEpisodes": 2000
+    },
+    {
+      "method": "Dense",
+      "seed": 1,
+      "environment": "AI088",
+      "counts": [
+        488,
+        497,
+        491,
+        463
+      ],
+      "episodes": [
+        500,
+        500,
+        500,
+        500
+      ],
+      "suiteRates": [
+        97.6,
+        99.4,
+        98.2,
+        92.6
+      ],
+      "macro": 96.95,
+      "successes": 1939,
+      "totalEpisodes": 2000
+    },
+    {
+      "method": "Dense",
+      "seed": 2,
+      "environment": "AI088",
+      "counts": [
+        477,
+        497,
+        480,
+        465
+      ],
+      "episodes": [
+        500,
+        500,
+        500,
+        500
+      ],
+      "suiteRates": [
+        95.4,
+        99.4,
+        96,
+        93
+      ],
+      "macro": 95.95,
+      "successes": 1919,
+      "totalEpisodes": 2000
+    },
+    {
+      "method": "Dense",
+      "seed": 3,
+      "environment": "AI088",
+      "counts": [
+        487,
+        484,
+        384,
+        426
+      ],
+      "episodes": [
+        500,
+        500,
+        500,
+        500
+      ],
+      "suiteRates": [
+        97.4,
+        96.8,
+        76.8,
+        85.2
+      ],
+      "macro": 89.05,
+      "successes": 1781,
+      "totalEpisodes": 2000
+    },
+    {
+      "method": "Dense",
+      "seed": 4,
+      "environment": "AI088",
+      "counts": [
+        490,
+        500,
+        469,
+        465
+      ],
+      "episodes": [
+        500,
+        500,
+        500,
+        500
+      ],
+      "suiteRates": [
+        98,
+        100,
+        93.8,
+        93
+      ],
+      "macro": 96.2,
+      "successes": 1924,
+      "totalEpisodes": 2000
+    }
+  ],
+  "statistics": {
+    "rank8": {
+      "seeds": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "suiteMean": [
+        97.65,
+        99.3,
+        98.05,
+        92.6
+      ],
+      "suiteSD": [
+        1.17046999,
+        0.52915026,
+        0.94339811,
+        3.44480285
+      ],
+      "macroMean": 96.9,
+      "macroSD": 1.3570802,
+      "successes": 7752,
+      "episodes": 8000
+    },
+    "dense": {
+      "seeds": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "suiteMean": [
+        97.1,
+        98.9,
+        91.2,
+        90.95
+      ],
+      "suiteSD": [
+        1.16045968,
+        1.42828569,
+        9.76660978,
+        3.83796821
+      ],
+      "macroMean": 94.5375,
+      "macroSD": 3.68292796,
+      "successes": 7563,
+      "episodes": 8000
+    },
+    "delta": 2.3625,
+    "paired": [
+      {
+        "seed": 1,
+        "delta": 0.1
+      },
+      {
+        "seed": 2,
+        "delta": -0.95
+      },
+      {
+        "seed": 3,
+        "delta": 8.3
+      },
+      {
+        "seed": 4,
+        "delta": 2
+      }
+    ]
+  },
+  "rank7": [
+    {
+      "method": "Rank7",
+      "seed": 2,
+      "environment": "AI088",
+      "counts": [
+        486,
+        497,
+        494,
+        449
+      ],
+      "episodes": [
+        500,
+        500,
+        500,
+        500
+      ],
+      "suiteRates": [
+        97.2,
+        99.4,
+        98.8,
+        89.8
+      ],
+      "macro": 96.3,
+      "successes": 1926,
+      "totalEpisodes": 2000
+    },
+    {
+      "method": "Rank7",
+      "seed": 4,
+      "environment": "AI088",
+      "counts": [
+        493,
+        499,
+        383,
+        463
+      ],
+      "episodes": [
+        500,
+        500,
+        500,
+        500
+      ],
+      "suiteRates": [
+        98.6,
+        99.8,
+        76.6,
+        92.6
+      ],
+      "macro": 91.9,
+      "successes": 1838,
+      "totalEpisodes": 2000
+    }
+  ],
+  "crossServerDense": [
+    {
+      "method": "Dense",
+      "seed": 1,
+      "environment": "AI081",
+      "counts": [
+        493,
+        499,
+        491,
+        460
+      ],
+      "episodes": [
+        500,
+        500,
+        500,
+        500
+      ],
+      "suiteRates": [
+        98.6,
+        99.8,
+        98.2,
+        92
+      ],
+      "macro": 97.15,
+      "successes": 1943,
+      "totalEpisodes": 2000
+    },
+    {
+      "method": "Dense",
+      "seed": 2,
+      "environment": "AI081",
+      "counts": [
+        430,
+        500,
+        138,
+        413
+      ],
+      "episodes": [
+        500,
+        500,
+        500,
+        500
+      ],
+      "suiteRates": [
+        86,
+        100,
+        27.6,
+        82.6
+      ],
+      "macro": 74.05,
+      "successes": 1481,
+      "totalEpisodes": 2000
+    },
+    {
+      "method": "Dense",
+      "seed": 3,
+      "environment": "AI081",
+      "counts": [
+        487,
+        496,
+        400,
+        432
+      ],
+      "episodes": [
+        500,
+        500,
+        500,
+        500
+      ],
+      "suiteRates": [
+        97.4,
+        99.2,
+        80,
+        86.4
+      ],
+      "macro": 90.75,
+      "successes": 1815,
+      "totalEpisodes": 2000
+    },
+    {
+      "method": "Dense",
+      "seed": 4,
+      "environment": "AI081",
+      "counts": [
+        488,
+        497,
+        403,
+        455
+      ],
+      "episodes": [
+        500,
+        500,
+        500,
+        500
+      ],
+      "suiteRates": [
+        97.6,
+        99.4,
+        80.6,
+        91
+      ],
+      "macro": 92.15,
+      "successes": 1843,
+      "totalEpisodes": 2000
+    }
+  ],
+  "crossServerStatistics": {
+    "macroMean": 88.525,
+    "macroSD": 10.03340255
+  },
+  "progress": [
+    {
+      "id": "ai081-v15-seed3",
+      "method": "V15 Tail-Residual Rank8",
+      "seed": 3,
+      "environment": "AI081",
+      "sourceGeneratedAt": "2026-10-07T10:52:23.524249+00:00",
+      "training": {
+        "status": "complete",
+        "step": 9375,
+        "target": 9375
+      },
+      "evaluation": {
+        "status": "running",
+        "episodes": 1497,
+        "target": 2000,
+        "completedSuites": 2,
+        "finalMacro": null,
+        "suites": [
+          {
+            "suite": "spatial",
+            "status": "complete",
+            "episodes": 500,
+            "target": 500,
+            "finalSuccesses": 496,
+            "finalRate": 99.2
+          },
+          {
+            "suite": "object",
+            "status": "complete",
+            "episodes": 500,
+            "target": 500,
+            "finalSuccesses": 495,
+            "finalRate": 99
+          },
+          {
+            "suite": "goal",
+            "status": "running",
+            "episodes": 279,
+            "target": 500,
+            "finalSuccesses": null,
+            "finalRate": null
+          },
+          {
+            "suite": "long",
+            "status": "running",
+            "episodes": 218,
+            "target": 500,
+            "finalSuccesses": null,
+            "finalRate": null
+          }
+        ]
+      },
+      "repeat": false
+    },
+    {
+      "id": "ai088-dense-seed3-repeat1",
+      "method": "Official Dense",
+      "seed": 3,
+      "environment": "AI088",
+      "sourceGeneratedAt": "2026-10-07T10:52:16.189785+00:00",
+      "training": {
+        "status": "running",
+        "step": 6413,
+        "target": 9375
+      },
+      "evaluation": {
+        "status": "not-started",
+        "episodes": 0,
+        "target": 2000,
+        "completedSuites": 0,
+        "finalMacro": null,
+        "suites": [
+          {
+            "suite": "spatial",
+            "status": "waiting",
+            "episodes": 0,
+            "target": 500,
+            "finalSuccesses": null,
+            "finalRate": null
+          },
+          {
+            "suite": "object",
+            "status": "waiting",
+            "episodes": 0,
+            "target": 500,
+            "finalSuccesses": null,
+            "finalRate": null
+          },
+          {
+            "suite": "goal",
+            "status": "waiting",
+            "episodes": 0,
+            "target": 500,
+            "finalSuccesses": null,
+            "finalRate": null
+          },
+          {
+            "suite": "long",
+            "status": "waiting",
+            "episodes": 0,
+            "target": 500,
+            "finalSuccesses": null,
+            "finalRate": null
+          }
+        ]
+      },
+      "repeat": true
+    },
+    {
+      "id": "ai088-v15-seed2-repeat1",
+      "method": "V15 Tail-Residual Rank8",
+      "seed": 2,
+      "environment": "AI088",
+      "sourceGeneratedAt": "2026-10-07T10:51:35.066492+00:00",
+      "training": {
+        "status": "running",
+        "step": 3855,
+        "target": 9375
+      },
+      "evaluation": {
+        "status": "not-started",
+        "episodes": 0,
+        "target": 2000,
+        "completedSuites": 0,
+        "finalMacro": null,
+        "suites": [
+          {
+            "suite": "spatial",
+            "status": "waiting",
+            "episodes": 0,
+            "target": 500,
+            "finalSuccesses": null,
+            "finalRate": null
+          },
+          {
+            "suite": "object",
+            "status": "waiting",
+            "episodes": 0,
+            "target": 500,
+            "finalSuccesses": null,
+            "finalRate": null
+          },
+          {
+            "suite": "goal",
+            "status": "waiting",
+            "episodes": 0,
+            "target": 500,
+            "finalSuccesses": null,
+            "finalRate": null
+          },
+          {
+            "suite": "long",
+            "status": "waiting",
+            "episodes": 0,
+            "target": 500,
+            "finalSuccesses": null,
+            "finalRate": null
+          }
+        ]
+      },
+      "repeat": true
+    },
+    {
+      "id": "ai088-affine-seed3",
+      "method": "V15 Output-Affine Calibration",
+      "seed": 3,
+      "environment": "AI088",
+      "sourceGeneratedAt": "2026-10-07T10:51:56.120146+00:00",
+      "training": {
+        "status": "queued",
+        "step": 0,
+        "target": 9375
+      },
+      "evaluation": {
+        "status": "not-started",
+        "episodes": 0,
+        "target": 2000,
+        "completedSuites": 0,
+        "finalMacro": null,
+        "suites": [
+          {
+            "suite": "spatial",
+            "status": "waiting",
+            "episodes": 0,
+            "target": 500,
+            "finalSuccesses": null,
+            "finalRate": null
+          },
+          {
+            "suite": "object",
+            "status": "waiting",
+            "episodes": 0,
+            "target": 500,
+            "finalSuccesses": null,
+            "finalRate": null
+          },
+          {
+            "suite": "goal",
+            "status": "waiting",
+            "episodes": 0,
+            "target": 500,
+            "finalSuccesses": null,
+            "finalRate": null
+          },
+          {
+            "suite": "long",
+            "status": "waiting",
+            "episodes": 0,
+            "target": 500,
+            "finalSuccesses": null,
+            "finalRate": null
+          }
+        ]
+      },
+      "repeat": false
+    },
+    {
+      "id": "ai088-affine-seed1",
+      "method": "V15 Output-Affine Calibration",
+      "seed": 1,
+      "environment": "AI088",
+      "sourceGeneratedAt": "2026-10-07T10:51:59.165705+00:00",
+      "training": {
+        "status": "queued",
+        "step": 0,
+        "target": 9375
+      },
+      "evaluation": {
+        "status": "not-started",
+        "episodes": 0,
+        "target": 2000,
+        "completedSuites": 0,
+        "finalMacro": null,
+        "suites": [
+          {
+            "suite": "spatial",
+            "status": "waiting",
+            "episodes": 0,
+            "target": 500,
+            "finalSuccesses": null,
+            "finalRate": null
+          },
+          {
+            "suite": "object",
+            "status": "waiting",
+            "episodes": 0,
+            "target": 500,
+            "finalSuccesses": null,
+            "finalRate": null
+          },
+          {
+            "suite": "goal",
+            "status": "waiting",
+            "episodes": 0,
+            "target": 500,
+            "finalSuccesses": null,
+            "finalRate": null
+          },
+          {
+            "suite": "long",
+            "status": "waiting",
+            "episodes": 0,
+            "target": 500,
+            "finalSuccesses": null,
+            "finalRate": null
+          }
+        ]
+      },
+      "repeat": false
+    }
+  ],
+  "sources": [
+    {
+      "name": "Rank8 / Dense final audit",
+      "date": "2026-10-04"
+    },
+    {
+      "name": "Cross-server Dense final audit",
+      "date": "2026-10-04"
+    },
+    {
+      "name": "Read-only experiment monitoring snapshot",
+      "collectedAt": "2026-10-07T10:53:03.291Z"
+    }
+  ],
+  "notes": [
+    "Four training seeds per primary method; sample SD in percentage points.",
+    "Technical repeats and cross-server diagnostics are not additional independent seeds.",
+    "Incomplete evaluations have no final Macro and are excluded from primary means.",
+    "The current mean difference is descriptive; statistical significance, generalization, and causal mechanisms are not established."
+  ]
+}
