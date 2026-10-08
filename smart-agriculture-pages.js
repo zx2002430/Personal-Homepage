@@ -309,12 +309,12 @@
           ${items
             .map(
               (item) => `
-                <div class="progress-item">
+                <div class="progress-item${item.pending ? " is-pending" : ""}">
                   <div class="progress-head">
                     <strong>${escapeHtml(item.title)}</strong>
                     <span>${escapeHtml(item.status)}</span>
                   </div>
-                  <div class="progress-track">
+                  <div class="progress-track" aria-hidden="true">
                     <div class="progress-bar${item.pending ? " is-pending" : ""}" style="width: ${item.width}%;"></div>
                   </div>
                 </div>
@@ -553,7 +553,7 @@
             <span class="topology-board-kicker">系统拓扑</span>
             <div>
               <strong>围绕现场感知、数据传输与平台分析构建闭环</strong>
-              <p>以网页模块方式展示当前智慧农业系统的三层架构、关键模块与落地路径。</p>
+              <p>展示目标系统的三层结构与模块分工；真实设备接入、执行适配与现场效果分别验收。</p>
             </div>
           </div>
           <div class="topology-board-steps">${summary}</div>
@@ -778,7 +778,7 @@
     const colgroup = opts.colgroup
       ? `<colgroup>${opts.colgroup.map((cls) => `<col class="${cls}">`).join("")}</colgroup>`
       : "";
-    const thead = `<thead><tr>${columns.map((col) => `<th>${escapeHtml(col.label)}</th>`).join("")}</tr></thead>`;
+    const thead = `<thead><tr>${columns.map((col) => `<th scope="col">${escapeHtml(col.label)}</th>`).join("")}</tr></thead>`;
     const tbody = rows
       .map((row, rowIndex) => {
         const isTotal = typeof opts.totalRowIndex === "number" && rowIndex === opts.totalRowIndex;
@@ -797,7 +797,8 @@
       })
       .join("");
     return `
-      <div class="inventory-table-wrap">
+      <p class="table-scroll-hint">左右滑动查看完整表格 ↔</p>
+      <div class="inventory-table-wrap" tabindex="0" role="region" aria-label="材料数据表，可左右滚动查看">
         <table class="inventory-table${opts.structured ? " inventory-table-structured" : ""}">
           ${colgroup}
           ${thead}
@@ -813,7 +814,7 @@
       ? `<colgroup>${opts.colgroup.map((cls) => `<col class="${cls}">`).join("")}</colgroup>`
       : "";
     const colCount = columns.length;
-    const thead = `<thead><tr>${columns.map((col) => `<th>${escapeHtml(col.label)}</th>`).join("")}</tr></thead>`;
+    const thead = `<thead><tr>${columns.map((col) => `<th scope="col">${escapeHtml(col.label)}</th>`).join("")}</tr></thead>`;
 
     const renderRow = (row, rowClass) => {
       const cells = columns
@@ -854,7 +855,8 @@
     const grandTotal = opts.grandTotal ? renderRow(opts.grandTotal, "inventory-total-row") : "";
 
     return `
-      <div class="inventory-table-wrap">
+      <p class="table-scroll-hint">左右滑动查看完整表格 ↔</p>
+      <div class="inventory-table-wrap" tabindex="0" role="region" aria-label="设备数据表，可左右滚动查看">
         <table class="inventory-table inventory-table-structured inventory-table-grouped">
           ${colgroup}
           ${thead}
@@ -1029,7 +1031,7 @@
       "inventory-purchased-table",
       renderPanel(
         "已采购设备主表",
-        "把原来的系统汇总、杀虫灯明细和监控/闸门摘要合并到一张表里，按系统分组查看。",
+        "按杀虫灯、监控和闸门系统分组，核对数量、金额、来源与备注。",
         ["3 大系统", "7 条明细", "309,967 元"],
         renderGroupedTable(
           [
@@ -1052,7 +1054,7 @@
       "inventory-pending-table",
       renderPanel(
         "待采购样机主表",
-        "把样机汇总和气象、土壤、水质三张明细表合并到一张表里，按方向分组查看。",
+        "按气象、土壤和水质方向核对样机配置、型号、单价与预算小计。",
         ["3 类样机", "20 项配置", "6,871 元"],
         renderGroupedTable(
           [
@@ -1140,6 +1142,7 @@
       )
     );
     setHtml("contracts-legend-cards", renderLegendCards(page.legends));
+    document.dispatchEvent(new Event("agriculture-rendered"));
   }
 
   function renderResearchPage() {

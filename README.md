@@ -101,7 +101,7 @@ Homepage:
 
 - `smart-agriculture-data.js` 负责维护专题数据
 - `smart-agriculture-pages.js` 负责把数据渲染到对应页面
-- 总览页共用 `homepage.css` 的主题与导航，`smart-agriculture.css` 维护专题布局，`script.js` 在数据渲染后提供手机菜单与滚动动画。
+- 五个专题页面共用 `homepage.css` 的主题与导航，`smart-agriculture.css` 维护卡片、看板、表格、密码入口与手机布局；`script.js` 在数据渲染后提供手机菜单与滚动动画，并接收合同解锁后的内容渲染事件。
 - 平台框架内容参考梁子湖平台仓库 `9995fc2` 的 2026-10-04 文档，来源链接和快照日期保存在 `main.platform`。设备采购、软件工程与现场生产验收分别说明，金额维持既有清单口径。
 
 如果后续要更新专题内容，优先改 `smart-agriculture-data.js`，而不是逐页手改 HTML。

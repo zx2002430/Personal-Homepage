@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>智慧农业项目合同对应关系表 | Xun Zhao</title>
-  <meta name="theme-color" content="#f4efe6">
+  <meta name="theme-color" content="#f7f6f2">
   <meta name="color-scheme" content="light">
   <meta
     name="description"
@@ -20,31 +20,27 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="智慧农业项目合同对应关系表 | Xun Zhao">
   <meta name="twitter:description" content="智慧农业项目采购合同、清单和项目模块之间的对应关系表。">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Source+Serif+4:wght@400;600;700&display=swap"
-    rel="stylesheet"
-  >
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="homepage.css?v=20261007-progress">
+  <link rel="stylesheet" href="smart-agriculture.css?v=20261008-suite">
 </head>
-<body>
+<body class="agri-themed-page agri-subpage" id="top">
   <a class="skip-link" href="#main-content">跳转到主要内容</a>
-  <div class="page-shell agriculture-page agri-contract-page is-locked">
-    <header class="site-header">
-      <a class="brand" href="index.html">Xun Zhao</a>
-      <div class="header-tools">
-        <nav class="site-nav" aria-label="Primary">
-          <a href="#overview">总览</a>
+  <header class="site-header">
+    <a class="brand" href="index.html#top">XUN ZHAO<span class="brand-dot" aria-hidden="true"></span></a>
+    <nav class="site-nav" id="site-nav" aria-label="合同对应页导航">
+          <a href="#overview">页面总览</a>
           <a href="#mapping">合同映射</a>
           <a href="#files">文件清单</a>
-          <a href="smart-agriculture.html">返回汇报页</a>
-        </nav>
-      </div>
-    </header>
-
-    <section class="section contracts-gate" id="contracts-gate" aria-labelledby="contracts-gate-title">
+        
+    </nav>
+    <div class="header-controls">
+      <a class="cv-home-link" href="smart-agriculture.html">← 总览</a>
+      <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="展开导航"><span></span><span></span></button>
+    </div>
+  </header>
+  <main class="page-shell agriculture-page agri-contract-page is-locked" id="main-content">
+    <section class="contracts-gate" id="contracts-gate" aria-labelledby="contracts-gate-title">
       <div class="contracts-gate-shell">
         <span class="appendix-chip is-reference">受保护页面</span>
         <h1 id="contracts-gate-title">合同文件查看验证</h1>
@@ -68,68 +64,35 @@
         <p class="contracts-gate-feedback" id="contracts-gate-feedback" aria-live="polite"></p>
       </div>
     </section>
-
-    <section class="page-trail contracts-protected" aria-label="Breadcrumb">
-      <a href="index.html">首页</a>
-      <a href="smart-agriculture.html">智慧农业专题</a>
-      <strong>合同对应</strong>
-    </section>
-
-    <section class="suite-switch contracts-protected" aria-label="项目页面">
-      <a class="suite-switch-item" href="smart-agriculture.html">
-        <span>主汇报页</span>
-        <strong>项目总览</strong>
-      </a>
-      <a class="suite-switch-item" href="smart-agriculture-dashboard.html">
-        <span>数据页</span>
-        <strong>可视化看板</strong>
-      </a>
-      <a class="suite-switch-item" href="smart-agriculture-inventory.html">
-        <span>附表页</span>
-        <strong>设备清单</strong>
-      </a>
-      <a class="suite-switch-item is-active" href="smart-agriculture-contracts.html">
-        <span>附录页</span>
-        <strong>合同对应</strong>
-      </a>
-      <a class="suite-switch-item" href="smart-agriculture-research.html">
-        <span>调研页</span>
-        <strong>调研报告</strong>
-      </a>
-    </section>
-
-    <main id="main-content" class="contracts-protected">
-      <section class="hero section agriculture-hero project-hero-cover" id="overview">
-        <div class="hero-copy">
-          <div class="cover-headline-row">
-            <span class="cover-index">04</span>
-            <span class="cover-suite-label">智慧农业专题</span>
-          </div>
-          <div class="cover-suite-progress" aria-label="套页进度">
-            <span class="cover-suite-step">01 总览页</span>
-            <span class="cover-suite-step">02 数据看板</span>
-            <span class="cover-suite-step">03 设备清单</span>
-            <span class="cover-suite-step is-active">04 来源附录</span>
-            <span class="cover-suite-step">05 调研报告</span>
-          </div>
-          <h1>智慧农业项目合同对应关系表</h1>
-          <p class="hero-subtitle">附录页 · 金额来源与材料对应</p>
+    <div class="contracts-protected">
+<nav class="page-trail" aria-label="当前位置"><a href="index.html">首页</a><span aria-hidden="true">/</span><a href="smart-agriculture.html">智慧农业专题</a><span aria-hidden="true">/</span><strong>合同对应</strong></nav>
+      <section class="topic-hero agri-overview-hero agri-subpage-hero" id="overview">
+        <div class="agri-hero-copy">
+          <p class="eyebrow">04 / DOCUMENTS</p>
+          <h1>合同对应</h1>
+          <p class="agri-hero-subtitle">金额来源、文件依据与设备模块</p>
           <div class="project-meta-row" id="contracts-hero-meta"></div>
-          <p class="hero-text">
-            这一页用于把采购金额、设备模块和材料来源放到同一张表里核对。重点不是重复讲方案，
-            而是让老师在追问“这笔钱对应哪类设备、依据哪份文件”时能够快速找到答案。
+          <p class="agri-intro">
+            核对采购金额、设备模块与合同材料，按来源和确认状态定位每笔投入的依据。待采购样机预算与已签采购合同分别列示。
           </p>
           <div class="hero-actions">
             <a class="button primary" href="#mapping">查看合同映射</a>
             <a class="button secondary" href="#files">查看文件清单</a>
-            <a class="button secondary" href="smart-agriculture.html">返回汇报页</a>
+            <a class="button secondary" href="smart-agriculture.html">项目总览</a>
           </div>
         </div>
 
-        <aside class="hero-card agriculture-sidebar cover-side-card">
+        <aside class="agri-summary-panel agri-subpage-summary">
           <div class="agri-kpis inventory-kpis" id="contracts-hero-kpis"></div>
         </aside>
       </section>
+    <nav class="suite-switch" aria-label="智慧农业专题页面">
+      <a class="suite-switch-item" href="smart-agriculture.html"><span>01</span><strong>项目总览</strong></a>
+      <a class="suite-switch-item" href="smart-agriculture-dashboard.html"><span>02</span><strong>可视化看板</strong></a>
+      <a class="suite-switch-item" href="smart-agriculture-inventory.html"><span>03</span><strong>设备清单</strong></a>
+      <a class="suite-switch-item is-active" href="smart-agriculture-contracts.html" aria-current="page"><span>04</span><strong>合同对应</strong></a>
+      <a class="suite-switch-item" href="smart-agriculture-research.html"><span>05</span><strong>调研报告</strong></a>
+    </nav>
 
       <section class="section inventory-section inventory-section-reference" id="mapping">
         <div class="section-heading inline-heading">
@@ -161,7 +124,7 @@
         <div class="inventory-legend-grid" id="contracts-legend-cards"></div>
       </section>
 
-      <section class="section contact-strip">
+      <section class="contact-section agri-related-links">
         <div>
           <h2>相关链接</h2>
         </div>
@@ -172,7 +135,7 @@
           <a class="button secondary" href="index.html">返回个人主页</a>
         </div>
       </section>
-      <section class="section page-footer-nav" aria-label="Page navigation">
+      <section class="page-footer-nav" aria-label="Page navigation">
         <a class="page-footer-link" href="smart-agriculture-inventory.html">
           <span>上一页</span>
           <strong>返回设备清单</strong>
@@ -186,10 +149,11 @@
           <strong>重新浏览附录</strong>
         </a>
       </section>
-    </main>
-  </div>
-
-  <script src="smart-agriculture-data.js"></script>
-  <script src="smart-agriculture-pages.js"></script>
+<footer class="site-footer"><a href="smart-agriculture.html">← 项目总览</a><span>Xun Zhao · 智慧农业专题</span><a href="#top">回到顶部 ↑</a></footer>
+    </div>
+  </main>
+  <script src="smart-agriculture-data.js?v=20261008-suite"></script>
+  <script src="smart-agriculture-pages.js?v=20261008-suite"></script>
+  <script src="script.js?v=20261008-suite"></script>
 </body>
 </html>

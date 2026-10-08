@@ -109,10 +109,10 @@ window.smartAgricultureData = {
     // Hero 区主说明
     heroText: "这一页集中展示项目当前最需要快速说明的图表信息，包括金额规模、采购进展、推进时间线和系统拓扑结构。",
     // Hero 区强调条
-    note: "当前状态：基础设备采购和现场安装已经起步，传感样机与平台接入是下一阶段的关键工作。",
+    note: "当前状态：基础设备采购与现场部署已起步，平台初步软件框架已形成；下一阶段推进样机验证、真实接口联调与现场验收。",
     // Hero 右侧三张摘要卡
     summaryCards: [
-      { title: "当前阶段", text: "项目已从方案阶段进入“基础设施落地 + 传感样机验证 + 平台接入评估”的推进阶段。" },
+      { title: "当前阶段", text: "基础设施与平台初步软件框架已形成。软件工程状态依据 2026-10-04 文档，真实设备接入与生产验收另行推进。" },
       { title: "核心矛盾", text: "重点不在继续扩充设备，而在于尽快跑通感知链路、平台接口和现场部署边界。" },
       { title: "当前重点", text: "优先完成气象、土壤和水质样机验证，再决定后续定型与规模化部署。" }
     ],
@@ -145,7 +145,8 @@ window.smartAgricultureData = {
       { time: "2026.03", title: "基础设备采购推进", text: "闸门、监控和杀虫灯相关采购逐步落地，项目进入现场部署阶段。" },
       { time: "2026.04.10", title: "农田实地考察", text: "确认池塘优先浮标式水质监测，既有设备基本可用，无人机场优先谷仓点位。" },
       { time: "2026.04.12", title: "技术路线收敛", text: "当前主推 RS485 / Modbus + 4G 采集器，LoRa 网关方案作为中期优化保留。" },
-      { time: "下一阶段", title: "样机验证与平台接入", text: "优先完成气象、土壤和水质链路验证，再决定定型采购和部署节奏。" }
+      { time: "2026.10.04", title: "平台软件框架与工程验证", text: "平台已有六大业务板块及软件工程记录；真实设备、厂家账户和现场生产验收仍需继续推进。" },
+      { time: "下一阶段", title: "样机验证与真实接入", text: "完成气象、土壤和水质链路验证，在现有平台逐项联调真实设备与账户，记录现场验收结果。" }
     ],
     // 系统拓扑图，按列组织
     topology: [
@@ -159,19 +160,19 @@ window.smartAgricultureData = {
       },
       {
         title: "传输与边缘层",
-        link: "数据采集 / 指令下发",
+        link: "数据采集 / 执行协议待适配",
         nodes: [
           { strong: "RS485 / Modbus 传感器", text: "当前样机主路线，配合 4G 采集器落地最快。" },
           { strong: "4G / LoRa 网关", text: "4G 优先落地，LoRa 作为后续优化路线。" },
-          { strong: "边缘控制逻辑", text: "面向灌溉、闸门、水泵和预警策略的本地控制。" }
+          { strong: "边缘控制逻辑", text: "灌溉、闸门与水泵的目标控制链路，实际执行协议与反馈仍待适配验证。" }
         ]
       },
       {
         title: "平台与应用层",
         link: "数据汇聚 / 可视化 / 决策支持",
         nodes: [
-          { strong: "智慧农业平台", text: "看板展示、历史数据、远程访问与预警。" },
-          { strong: "数字孪生与分析", text: "模型输入、环境重建、二次开发与科研分析。" },
+          { strong: "智慧农业平台", text: "对象台账、监测核查、农事记录与多模块协作；当前为本地工程验证版。" },
+          { strong: "数字孪生与分析", text: "二维地图、三维资料与分析框架已有实现，真实空间资料与农业效果仍待验收。" },
           { strong: "项目管理", text: "采购进度、设备状态、样机测试与建设决策依据。" }
         ]
       }
@@ -179,12 +180,12 @@ window.smartAgricultureData = {
     // 页底“下一步重点事项”
     nextCards: [
       { title: "1. 确定样机组合", text: "尽快完成气象、土壤和水质样机组合测试。" },
-      { title: "2. 明确平台接入口径", text: "尽快确定先接厂家平台还是同步验证自有服务器直连。" },
+      { title: "2. 完成平台真实接入", text: "在现有框架登记设备与测点，核实厂家账户、接口权限、样本和数据质量。" },
       { title: "3. 固化施工边界", text: "明确采购、安装、售后与后续维护责任边界。" }
     ],
     // 页脚按钮
     contactActions: [
-      { label: "返回汇报页", href: "smart-agriculture.html", primary: true },
+      { label: "项目总览", href: "smart-agriculture.html", primary: true },
       { label: "设备清单", href: "smart-agriculture-inventory.html", primary: false },
       { label: "返回个人主页", href: "index.html", primary: false }
     ]
@@ -282,7 +283,7 @@ window.smartAgricultureData = {
     legendCards: [
       { cls: "is-purchased", tag: "金额口径", title: "先看三组数字", text: "已采购 309,967 元，待采购 6,871 元，当前总额 316,838 元。" },
       { cls: "is-pending", tag: "阅读顺序", title: "先汇总，后明细", text: "先看系统汇总，再展开气象、土壤、水质样机明细。" },
-      { cls: "is-reference", tag: "更新位置", title: "统一改数据文件", text: "后续优先修改 smart-agriculture-data.js，而不是手改表格 HTML。" }
+      { cls: "is-reference", tag: "核对依据", title: "清单与来源对应", text: "数量、金额和设备分类对应原始材料；新增采购后同步登记日期、来源与确认状态。" }
     ],
     // 左下“统计口径”列表
     notes: [
@@ -340,7 +341,7 @@ window.smartAgricultureData = {
     legends: [
       { cls: "is-purchased", tag: "阅读重点", title: "先看状态，再看材料", text: "优先确认哪些金额已闭环，哪些部分仍需要补件。" },
       { cls: "is-pending", tag: "当前缺口", title: "样机仍属预算口径", text: "当前主要未闭环部分是待采购样机，而不是已采购主设备。" },
-      { cls: "is-reference", tag: "更新位置", title: "统一改数据文件", text: "后续优先修改 smart-agriculture-data.js，就能同步影响合同主表和文件表。" }
+      { cls: "is-reference", tag: "核对依据", title: "来源与状态对应", text: "新增或补齐材料后同步登记适用设备、金额和确认状态，保留对应依据。" }
     ]
   },
 
@@ -368,7 +369,8 @@ window.smartAgricultureData = {
     findings: [
       { title: "现场结论", text: "池塘场景优先采用浮标式水质监测，既有设备具备启用条件，无人机机场优先谷仓点位推进。" },
       { title: "路线建议", text: "当前优先推进 RS485 / Modbus + 4G 采集器，LoRa 网关路线作为中期优化备选。" },
-      { title: "汇报建议", text: "合同金额依据与调研论证材料分栏呈现，避免“合同口径”与“研究材料口径”混用。" }
+      { title: "汇报建议", text: "合同金额依据与调研论证材料分栏呈现，避免“合同口径”与“研究材料口径”混用。" },
+      { title: "平台实施依据", text: "平台初步框架与软件工程记录已形成，后续调研重点是厂家接口、真实资料、执行适配及现场效果验收。" }
     ],
     legends: [
       { cls: "is-purchased", tag: "阅读顺序", title: "先看分类，再看文件", text: "先确认材料属于预算、方案还是现场调研，再对应文件。" },

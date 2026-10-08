@@ -42,9 +42,8 @@
   const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
   const activeAnimations = new Set();
   const revealed = new WeakSet();
-  const revealTargets = [...document.querySelectorAll(
-    ".hero .eyebrow, .hero h1, .hero .identity-line, .hero .research-statement, .hero .profile-text, .hero .profile-links, .hero .portrait-slot, .section-heading, .research-card, .updates-list li, .project-card, .background-block, .contact-section, .topic-hero > *, .topic-layout > *, .topic-block, .topic-findings, .vla-stat-card, .vla-track-card, .vla-stage-card, .vla-focus-card, .agri-main-page .content-card, .agri-main-page .stack-card, .agri-architecture, .agri-platform-boundary"
-  )];
+  const revealSelector = ".hero .eyebrow, .hero h1, .hero .identity-line, .hero .research-statement, .hero .profile-text, .hero .profile-links, .hero .portrait-slot, .section-heading, .research-card, .updates-list li, .project-card, .background-block, .contact-section, .topic-hero > *, .topic-layout > *, .topic-block, .topic-findings, .vla-stat-card, .vla-track-card, .vla-stage-card, .vla-focus-card, .agriculture-page .content-card, .agriculture-page .stack-card, .agri-architecture, .agri-platform-boundary, .agriculture-page .dashboard-kpi-card, .agriculture-page .inventory-highlight-card, .agriculture-page .progress-card, .agriculture-page .timeline-card, .agriculture-page .topology-band, .agriculture-page .report-table-panel";
+  const revealTargets = [...document.querySelectorAll(revealSelector)];
   let revealObserver;
 
   function startReveals() {
@@ -89,6 +88,14 @@
   });
   document.documentElement.classList.toggle("motion-paused", document.hidden);
   startReveals();
+  document.addEventListener("agriculture-rendered", () => {
+    // Password-protected content is inserted after the initial page render.
+    document.querySelectorAll(revealSelector).forEach(node => {
+      if (revealTargets.includes(node)) return;
+      revealTargets.push(node);
+      if (!reducedMotion.matches) revealObserver?.observe(node);
+    });
+  });
 
   document.querySelectorAll(".research-card, .project-card").forEach(card => {
     let pointerFrame = 0;
