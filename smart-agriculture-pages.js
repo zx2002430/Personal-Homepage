@@ -918,6 +918,27 @@
     setHtml("main-hero-meta", renderPills(page.heroMeta));
     setHtml("main-hero-text", escapeHtml(page.heroText));
     setHtml("main-summary-card", renderSummaryCard(page.summary));
+    if (page.platform) {
+      const platform = page.platform;
+      setHtml("main-platform-intro", escapeHtml(platform.intro));
+      setHtml("main-platform-modules", platform.modules.map((item) => `
+        <article class="content-card agri-module-card">
+          <span class="agri-module-number" aria-hidden="true"></span>
+          <h3>${escapeHtml(item.title)}</h3>
+          <p>${escapeHtml(item.text)}</p>
+          <div class="agri-module-tags">${item.tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}</div>
+        </article>
+      `).join(""));
+      setHtml("main-platform-boundary", platform.boundaries.map((item) => `
+        <article class="agri-boundary-item"><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.text)}</p></article>
+      `).join(""));
+      setHtml("main-platform-sources", `
+        <a href="${escapeHtml(platform.repositoryUrl)}" target="_blank" rel="noopener noreferrer">平台源码 ↗</a>
+        <a href="${escapeHtml(platform.sourceUrl)}" target="_blank" rel="noopener noreferrer">框架说明 ↗</a>
+        <a href="${escapeHtml(platform.deliveryUrl)}" target="_blank" rel="noopener noreferrer">软件交付依据 ↗</a>
+        <span>资料快照 ${escapeHtml(platform.sourceDate)} · ${escapeHtml(platform.sourceRevision)} · 暂无公开在线演示</span>
+      `);
+    }
     setHtml("main-status-cards", renderSimpleCards(page.statusCards, "content-card inventory-stat-card"));
     setHtml("main-status-stacks", renderStatusStacks(page.statusStacks));
     setHtml("main-decision-cards", renderSimpleCards(page.decisionCards, "content-card agri-pillar"));

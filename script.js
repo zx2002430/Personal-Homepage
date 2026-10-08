@@ -43,7 +43,7 @@
   const activeAnimations = new Set();
   const revealed = new WeakSet();
   const revealTargets = [...document.querySelectorAll(
-    ".hero .eyebrow, .hero h1, .hero .identity-line, .hero .research-statement, .hero .profile-text, .hero .profile-links, .hero .portrait-slot, .section-heading, .research-card, .updates-list li, .project-card, .background-block, .contact-section, .topic-hero > *, .topic-layout > *, .topic-block, .topic-findings, .vla-stat-card, .vla-track-card, .vla-stage-card, .vla-focus-card"
+    ".hero .eyebrow, .hero h1, .hero .identity-line, .hero .research-statement, .hero .profile-text, .hero .profile-links, .hero .portrait-slot, .section-heading, .research-card, .updates-list li, .project-card, .background-block, .contact-section, .topic-hero > *, .topic-layout > *, .topic-block, .topic-findings, .vla-stat-card, .vla-track-card, .vla-stage-card, .vla-focus-card, .agri-main-page .content-card, .agri-main-page .stack-card, .agri-architecture, .agri-platform-boundary"
   )];
   let revealObserver;
 

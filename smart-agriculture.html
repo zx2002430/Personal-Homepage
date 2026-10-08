@@ -4,162 +4,132 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>智慧农业项目 | Xun Zhao</title>
-  <meta name="theme-color" content="#f4efe6">
+  <meta name="theme-color" content="#f7f6f2">
   <meta name="color-scheme" content="light">
-  <meta
-    name="description"
-    content="用于导师汇报的智慧农业项目总览页，聚焦项目定位、当前进展、阶段判断与下一步安排。"
-  >
+  <meta name="description" content="面向梁子湖 300 亩核心农田的智慧农业项目：平台初步框架、监测与控制、现场部署进展及后续计划。">
   <link rel="canonical" href="https://zx2002430.github.io/Personal-Homepage/smart-agriculture.html">
   <meta property="og:title" content="智慧农业项目 | Xun Zhao">
-  <meta property="og:description" content="用于导师汇报的智慧农业项目总览页，聚焦项目定位、当前进展、阶段判断与下一步安排。">
+  <meta property="og:description" content="从农田感知、现场记录到平台协作，展示智慧农业项目的平台框架、建设进展与接入计划。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://zx2002430.github.io/Personal-Homepage/smart-agriculture.html">
   <meta property="og:site_name" content="Xun Zhao Personal Homepage">
   <meta property="og:locale" content="zh_CN">
-  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="智慧农业项目 | Xun Zhao">
-  <meta name="twitter:description" content="用于导师汇报的智慧农业项目总览页，聚焦项目定位、当前进展、阶段判断与下一步安排。">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Source+Serif+4:wght@400;600;700&display=swap"
-    rel="stylesheet"
-  >
+  <meta name="twitter:description" content="梁子湖智慧农业项目的平台框架、建设进展与现场接入计划。">
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="homepage.css?v=20261007-progress">
+  <link rel="stylesheet" href="smart-agriculture.css?v=20261008-platform">
 </head>
-<body>
+<body class="agri-overview-page" id="top">
   <a class="skip-link" href="#main-content">跳转到主要内容</a>
-  <div class="page-shell agriculture-page agri-main-page">
-    <header class="site-header">
-      <a class="brand" href="index.html">Xun Zhao</a>
-      <div class="header-tools">
-        <nav class="site-nav" aria-label="Primary">
-          <a href="#overview">总览</a>
-          <a href="#status">阶段性评估结论</a>
-          <a href="#decision">形势研判与行动计划</a>
-          <a href="#appendix">相关页面</a>
-          <a href="index.html">返回主页</a>
-        </nav>
+  <header class="site-header">
+    <a class="brand" href="index.html#top">XUN ZHAO<span class="brand-dot" aria-hidden="true"></span></a>
+    <nav class="site-nav" id="site-nav" aria-label="智慧农业页导航">
+      <a href="#overview">项目总览</a>
+      <a href="#platform">平台框架</a>
+      <a href="#status">建设进展</a>
+      <a href="#decision">行动计划</a>
+      <a href="#appendix">相关资料</a>
+    </nav>
+    <div class="header-controls">
+      <a class="cv-home-link" href="index.html#smart-agriculture-feature">← 主页</a>
+      <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="展开导航"><span></span><span></span></button>
+    </div>
+  </header>
+  <main class="page-shell agriculture-page agri-main-page" id="main-content">
+    <nav class="page-trail" aria-label="当前位置">
+      <a href="index.html">首页</a><span aria-hidden="true">/</span><span>智慧农业专题</span><span aria-hidden="true">/</span><strong>项目总览</strong>
+    </nav>
+    <section class="topic-hero agri-overview-hero" id="overview" aria-labelledby="overview-title">
+      <div class="agri-hero-copy">
+        <p class="eyebrow">SMART AGRICULTURE / 梁子湖</p>
+        <h1 id="overview-title">智慧农业项目</h1>
+        <p class="agri-hero-subtitle">连接农田感知、现场工作与平台协作</p>
+        <div class="project-meta-row" id="main-hero-meta"></div>
+        <p class="agri-intro" id="main-hero-text"></p>
+        <div class="hero-actions">
+          <a class="button primary" href="#platform">了解平台框架 <span aria-hidden="true">↓</span></a>
+          <a class="button secondary" href="smart-agriculture-dashboard.html">可视化看板 <span aria-hidden="true">↗</span></a>
+          <a class="agri-text-link" href="#status">查看建设进展 <span aria-hidden="true">↓</span></a>
+        </div>
       </div>
-    </header>
-
-    <section class="page-trail" aria-label="Breadcrumb">
-      <a href="index.html">首页</a>
-      <span>智慧农业专题</span>
-      <strong>项目总览</strong>
+      <aside class="agri-summary-panel" aria-label="项目采购摘要">
+        <div class="project-summary-card" id="main-summary-card"></div>
+        <a class="agri-summary-link" href="smart-agriculture-inventory.html">查看设备与金额明细 <span aria-hidden="true">↗</span></a>
+      </aside>
+      <ol class="agri-system-flow" aria-label="系统建设链路">
+        <li><span class="agri-flow-index">01</span><div><strong>农田感知</strong><span>虫情 · 气象 · 土壤 · 水质</span></div></li>
+        <li><span class="agri-flow-index">02</span><div><strong>数据接入</strong><span>测点映射 · 时间与质量记录</span></div></li>
+        <li><span class="agri-flow-index">03</span><div><strong>平台协作</strong><span>告警核查 · 农事 · 空间资料</span></div></li>
+        <li><span class="agri-flow-index">04</span><div><strong>现场验证</strong><span>接口联调 · 控制适配 · 验收</span></div></li>
+      </ol>
     </section>
-
-    <section class="suite-switch" aria-label="项目页面">
-      <a class="suite-switch-item is-active" href="smart-agriculture.html">
-        <span>主汇报页</span>
-        <strong>项目总览</strong>
-      </a>
-      <a class="suite-switch-item" href="smart-agriculture-dashboard.html">
-        <span>数据页</span>
-        <strong>可视化看板</strong>
-      </a>
-      <a class="suite-switch-item" href="smart-agriculture-inventory.html">
-        <span>附表页</span>
-        <strong>设备清单</strong>
-      </a>
-      <a class="suite-switch-item" href="smart-agriculture-contracts.html">
-        <span>附录页</span>
-        <strong>合同对应</strong>
-      </a>
-      <a class="suite-switch-item" href="smart-agriculture-research.html">
-        <span>调研页</span>
-        <strong>调研报告</strong>
-      </a>
+    <nav class="suite-switch" aria-label="智慧农业专题页面">
+      <a class="suite-switch-item is-active" href="smart-agriculture.html" aria-current="page"><span>01</span><strong>项目总览</strong></a>
+      <a class="suite-switch-item" href="smart-agriculture-dashboard.html"><span>02</span><strong>可视化看板</strong></a>
+      <a class="suite-switch-item" href="smart-agriculture-inventory.html"><span>03</span><strong>设备清单</strong></a>
+      <a class="suite-switch-item" href="smart-agriculture-contracts.html"><span>04</span><strong>合同对应</strong></a>
+      <a class="suite-switch-item" href="smart-agriculture-research.html"><span>05</span><strong>调研报告</strong></a>
+    </nav>
+    <section class="section" id="platform" aria-labelledby="platform-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">01 / PLATFORM</p><h2 id="platform-title">平台初步框架</h2></div>
+        <p class="section-note">本地工程验证版 · 文档截至 2026-10-04</p>
+      </div>
+      <div class="agri-platform-intro">
+        <p id="main-platform-intro"></p>
+        <span class="status status-ongoing">真实接入与现场验收推进中</span>
+      </div>
+      <div class="agri-module-grid" id="main-platform-modules"></div>
+      <div class="agri-architecture" aria-label="平台软件架构">
+        <div class="agri-architecture-row"><span class="agri-layer-label">使用入口</span><div><span>电脑管理</span><span>手机现场填报</span><span>客户溯源查询</span></div></div>
+        <div class="agri-architecture-row"><span class="agri-layer-label">业务处理</span><div><span>统一对象与权限</span><span>业务 API</span><span>独立后台任务</span></div></div>
+        <div class="agri-architecture-row"><span class="agri-layer-label">数据底座</span><div><span>业务与空间数据库</span><span>私有文件与影像</span><span>版本与来源记录</span></div></div>
+        <details class="agri-technical-details"><summary>查看技术组成</summary><p>Next.js / React / TypeScript · Node.js 后台进程 · PostgreSQL / PostGIS / pgvector · Cesium / 3D Tiles · 私有本地或 S3 文件存储</p></details>
+      </div>
+      <div class="agri-platform-boundary" id="main-platform-boundary"></div>
+      <div class="agri-source-note" id="main-platform-sources"></div>
     </section>
-
-    <main id="main-content">
-      <section class="hero section agriculture-hero project-hero-cover" id="overview">
-        <div class="hero-copy">
-          <div class="cover-headline-row">
-            <span class="cover-index">01</span>
-            <span class="cover-suite-label">智慧农业专题</span>
-          </div>
-          <div class="cover-suite-progress" aria-label="套页进度">
-            <span class="cover-suite-step is-active">01 总览页</span>
-            <span class="cover-suite-step">02 数据看板</span>
-            <span class="cover-suite-step">03 设备清单</span>
-            <span class="cover-suite-step">04 来源附录</span>
-            <span class="cover-suite-step">05 调研报告</span>
-          </div>
-          <h1>智慧农业项目</h1>
-          <p class="hero-subtitle">主汇报页 · 项目总览</p>
-          <div class="project-meta-row" id="main-hero-meta"></div>
-          <p class="hero-text" id="main-hero-text"></p>
-          <div class="hero-actions">
-            <a class="button primary" href="#status">当前现状</a>
-            <a class="button secondary" href="smart-agriculture-dashboard.html">可视化看板</a>
-            <a class="button secondary" href="#appendix">相关页面</a>
-          </div>
-        </div>
-
-        <aside class="hero-card agriculture-sidebar cover-side-card">
-          <div class="project-summary-card" id="main-summary-card"></div>
-        </aside>
-      </section>
-
-      <section class="section" id="status">
-        <div class="section-heading inline-heading">
-          <div>
-            <h2>阶段性评估结论</h2>
-          </div>
-        </div>
-
-        <div class="agri-brief-grid" id="main-status-cards"></div>
-        <div class="agri-status-grid" id="main-status-stacks"></div>
-      </section>
-
-      <section class="section" id="decision">
-        <div class="section-heading inline-heading">
-          <div>
-            <h2>形势研判与行动计划</h2>
-          </div>
-        </div>
-
-        <div class="agri-pillar-grid" id="main-decision-cards"></div>
-        <div class="agri-route-grid" id="main-route-cards"></div>
-        <div class="agri-phase-grid" id="main-next-cards"></div>
-      </section>
-
-      <section class="section" id="appendix">
-        <div class="section-heading inline-heading">
-          <div>
-            <h2>相关页面</h2>
-          </div>
-        </div>
-
-        <div class="agri-source-grid" id="main-appendix-links"></div>
-      </section>
-
-      <section class="section contact-strip">
-        <div>
-          <h2>联系</h2>
-        </div>
-        <div class="contact-actions" id="main-contact-actions"></div>
-      </section>
-      <section class="section page-footer-nav" aria-label="Page navigation">
-        <a class="page-footer-link" href="index.html#smart-agriculture-feature">
-          <span>返回首页</span>
-          <strong>首页智慧农业模块</strong>
-        </a>
-        <a class="page-footer-link" href="smart-agriculture-dashboard.html">
-          <span>下一页</span>
-          <strong>进入可视化看板</strong>
-        </a>
-        <a class="page-footer-link" href="#overview">
-          <span>回到顶部</span>
-          <strong>重新浏览总览</strong>
-        </a>
-      </section>
-    </main>
-  </div>
-  <script src="smart-agriculture-data.js"></script>
-  <script src="smart-agriculture-pages.js"></script>
+    <section class="section" id="status" aria-labelledby="status-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">02 / PROJECT STATUS</p><h2 id="status-title">阶段性评估结论</h2></div>
+        <p class="section-note">基础设施、平台工程与现场接入分别跟进</p>
+      </div>
+      <div class="agri-brief-grid" id="main-status-cards"></div>
+      <div class="agri-group-heading"><p>采购与现场情况</p><a href="smart-agriculture-inventory.html">设备清单 <span aria-hidden="true">↗</span></a></div>
+      <div class="agri-status-grid" id="main-status-stacks"></div>
+    </section>
+    <section class="section" id="decision" aria-labelledby="decision-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">03 / NEXT STEPS</p><h2 id="decision-title">形势研判与行动计划</h2></div>
+        <p class="section-note">先完成真实接入，再验证现场业务与效果</p>
+      </div>
+      <div class="agri-pillar-grid" id="main-decision-cards"></div>
+      <div class="agri-group-heading"><p>现场采集技术路线</p><span>当前推荐与后续备选</span></div>
+      <div class="agri-route-grid" id="main-route-cards"></div>
+      <div class="agri-group-heading"><p>下一阶段工作</p><span>样机验证 → 接口联调 → 现场验收</span></div>
+      <div class="agri-phase-grid" id="main-next-cards"></div>
+    </section>
+    <section class="section" id="appendix" aria-labelledby="appendix-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">04 / RESOURCES</p><h2 id="appendix-title">相关页面与资料</h2></div>
+        <p class="section-note">查看进度、设备、来源与调研依据</p>
+      </div>
+      <div class="agri-source-grid" id="main-appendix-links"></div>
+    </section>
+    <section class="contact-section" aria-labelledby="contact-title">
+      <div><p class="eyebrow">CONTACT</p><h2 id="contact-title">项目交流</h2><p>欢迎交流农田感知、平台接入与现场系统验证。</p></div>
+      <div class="contact-actions" id="main-contact-actions"></div>
+    </section>
+    <footer class="site-footer">
+      <a href="index.html#smart-agriculture-feature">← 返回主页</a>
+      <span>Xun Zhao · 智慧农业专题</span>
+      <a href="#top">回到顶部 ↑</a>
+    </footer>
+  </main>
+  <script src="smart-agriculture-data.js?v=20261008-platform"></script>
+  <script src="smart-agriculture-pages.js?v=20261008-platform"></script>
+  <script src="script.js?v=20261008-agriculture"></script>
 </body>
 </html>
